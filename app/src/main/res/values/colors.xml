@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#878A89</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="iconbgm">#164B4B49</color>
+    <color name="text">#FFFFFF</color>
+    <color name="toolbar">#2196F3</color>
+    <color name="toolbar2">#4e698a</color>
+    <color name="menu">#d4748f</color>
+    <color name="servicegrid">#363f60</color>
+    <color name="Text">#ad8caa</color>
+    <color name="col1">#795075</color>
+    <color name="col2">#91628c</color>
+    <color name="col3">#b5dd7a</color>
+    <color name="col4">#f8c185</color>
+    <color name="col5">#ff89ab</color>
+
+
+</resources>

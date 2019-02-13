@@ -1,0 +1,13 @@
+<resources>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+    <string name="app_name">PublicMart</string>
+    <string name="Address">Maliyekkal Tower , No.33/567 B3, Kottankavu Road, Vennala P.O Kochi </string>
+    <string name="material">Navy Blue kanjeevaram solid saree, has a woven design border
+Blouse PieceThe model is wearing a blouse from our stylist\'s collection, see the image for a mock-up of what the actual blouse would look like</string>
+
+    <string name="materialcare">Saree fabric: silk blend
+Blouse fabric: silk blend
+Dry-clean</string>
+    <string name="title_activity_base_sec">Base_sec</string>
+</resources>

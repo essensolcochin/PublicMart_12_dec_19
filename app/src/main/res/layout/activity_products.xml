@@ -1,0 +1,515 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#eaf7fd"
+    tools:context=".Products">
+
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="5dp">
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="match_parent">
+
+
+
+
+            <android.support.v7.widget.GridLayout
+                android:padding="5dp"
+                android:id="@+id/todaysdeal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:alignmentMode="alignMargins"
+                app:columnCount="3">
+
+
+                <android.support.v7.widget.CardView
+
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal">
+
+                    <LinearLayout
+
+                        android:id="@+id/deal1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+
+                        android:gravity="center"
+                        android:padding="10dp">
+
+                        <ImageView
+
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/clothes" />
+
+
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Fashion"
+                            android:textSize="18dp"
+                            android:textColor="#020202"
+                            />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/deal2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+
+                        android:gravity="center"
+                        android:padding="10dp">
+
+                        <ImageView
+
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/salt" />
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="#020202"
+                            android:textSize="18dp"
+                            android:text="Spices"
+                             />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:id="@+id/deal3"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="10dp">
+
+                        <ImageView
+
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/whey" />
+
+
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#020202"
+                            android:gravity="center"
+                            android:textSize="18dp"
+                            android:text="Nutrition"
+                             />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:id="@+id/deal4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/weightlifting" />
+
+
+
+                        <TextView
+                            android:layout_marginTop="5dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textColor="#020202"
+                            android:gravity="center"
+                            android:textSize="18dp"
+                            android:text="Weight Loss"
+                            />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1"/>
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1"/>
+
+
+            </android.support.v7.widget.GridLayout>
+
+
+            <RelativeLayout
+                android:layout_margin="10dp"
+
+                android:layout_width="match_parent"
+                android:background="#E0DEDE"
+                android:layout_height="25dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Today's Deal"
+                    />
+            </RelativeLayout>
+
+
+
+            <android.support.v7.widget.GridLayout
+                android:padding="5dp"
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:alignmentMode="alignMargins"
+                app:columnCount="2">
+
+
+                <android.support.v7.widget.CardView
+
+                    android:layout_width="0dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="5dp"
+
+                    app:cardBackgroundColor="@color/iconbgm"
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal">
+
+                    <LinearLayout
+
+                        android:id="@+id/item1"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:background="#ffff"
+
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp"
+                            android:src="@drawable/spice2"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:gravity="center"
+                            android:text="Dry Lemon Grass"
+                            android:textSize="15dp"
+                            android:textColor="#030303"
+                            android:textStyle="bold" />
+                        <LinearLayout
+                            android:layout_marginLeft="10dp"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                           android:text="MRP: 500"
+                            android:layout_weight="1"
+                            android:textSize="12dp"
+                            android:textColor="#2196F3"
+                             />
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"/>
+                            <TextView
+
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="BV: 25"
+                                android:textSize="12dp"
+                                android:layout_weight="1"
+                                android:textColor="#2196F3"
+                                />
+                        </LinearLayout>
+
+
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    app:cardBackgroundColor="@color/iconbgm"
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/item2"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:background="#ffff"
+
+                        android:gravity="center"
+                        android:padding="5dp">
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="90dp"
+                        android:src="@drawable/pro3"/>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="25dp"
+                        android:gravity="center"
+                        android:text="BCAA Protein"
+                        android:textSize="15dp"
+                        android:textColor="#030303"
+                        android:textStyle="bold" />
+                    <LinearLayout
+                        android:layout_marginLeft="5dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="MRP:3500"
+                            android:layout_weight="1"
+                            android:textSize="12dp"
+                            android:textColor="#2196F3"
+                            />
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"/>
+                        <TextView
+
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="BV: 50"
+                            android:textSize="12dp"
+                            android:layout_weight="1"
+                            android:textColor="#2196F3"
+                            />
+
+                    </LinearLayout>
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="5dp"
+
+                    app:cardBackgroundColor="@color/iconbgm"
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:id="@+id/viewprofile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:background="#ffff"
+                        android:gravity="center"
+                        android:padding="10dp">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp"
+                            android:src="@drawable/spice4"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:gravity="center"
+                            android:text="Pepper Black"
+                            android:textSize="15dp"
+                            android:textColor="#030303"
+                            android:textStyle="bold" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="5dp">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="MRP: 900"
+                                android:layout_weight="1"
+                                android:textSize="12dp"
+                                android:textColor="#2196F3"
+                                />
+                            <TextView
+                                android:layout_marginLeft="30dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="BV: 25"
+                                android:textSize="12dp"
+                                android:layout_weight="1"
+                                android:textColor="#2196F3"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="160dp"
+                    android:layout_margin="5dp"
+
+                    app:cardBackgroundColor="@color/iconbgm"
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:id="@+id/viewprofileitem4"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:background="#ffff"
+                        android:gravity="center"
+                        android:padding="10dp">
+
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="90dp"
+                            android:src="@drawable/safar"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="25dp"
+                            android:gravity="center"
+                            android:text="Saffron"
+                            android:textSize="15dp"
+                            android:textColor="#030303"
+                            android:textStyle="bold" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            android:layout_marginLeft="5dp">
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="MRP: 750"
+                                android:layout_weight="1"
+                                android:textSize="12dp"
+                                android:textColor="#2196F3"
+                                />
+                            <TextView
+                                android:layout_marginLeft="30dp"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="BV: 20"
+                                android:textSize="12dp"
+                                android:layout_weight="1"
+                                android:textColor="#2196F3"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </android.support.v7.widget.GridLayout>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

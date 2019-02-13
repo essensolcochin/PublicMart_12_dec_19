@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FashionCategory">
+
+
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/toolbar"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:textColor="@android:color/black"
+            android:text="Fashion"/>
+    </android.support.v7.widget.Toolbar>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <android.support.v7.widget.GridLayout
+            android:id="@+id/horizontalScrollView1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:alignmentMode="alignMargins"
+            app:columnCount="1"
+            app:orientation="vertical"
+            app:rowCount="5">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+
+                >
+
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/kanjivaram" />
+                <LinearLayout
+                    android:alpha="0.4"
+                    android:background="@android:color/black"
+                    android:layout_gravity="bottom|center"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+
+                </LinearLayout>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:padding="12dip"
+                    android:gravity="center"
+                    android:text="Sarees"
+                    android:textColor="@android:color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+
+                >
+
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/shoe" />
+                <LinearLayout
+                    android:alpha="0.4"
+                    android:background="@android:color/black"
+                    android:layout_gravity="bottom|center"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+
+                </LinearLayout>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:padding="12dip"
+                    android:gravity="center"
+                    android:text="Footwears"
+                    android:textColor="@android:color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:gravity="center"
+
+                >
+
+                <ImageView
+                    android:layout_centerInParent="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="fill_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/cosmetics1"
+                   />
+                <LinearLayout
+                    android:alpha="0.4"
+                    android:background="@android:color/black"
+                    android:layout_gravity="bottom|center"
+                    android:paddingLeft="50dp"
+                    android:paddingRight="50dp"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp">
+
+
+                </LinearLayout>
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|center"
+                    android:padding="12dip"
+                    android:gravity="center"
+                    android:text="Cosmetics"
+                    android:textColor="@android:color/white"
+                    android:textSize="30dp"
+                    android:textStyle="bold" />
+
+            </FrameLayout>
+
+
+        </android.support.v7.widget.GridLayout>
+    </ScrollView>
+
+
+
+
+
+
+</LinearLayout>

@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/mainbgm"
+    android:orientation="vertical"
+
+    tools:context=".Home">
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:gravity="center_horizontal"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentTop="true"-->
+        <!--android:background="@color/toolbar"-->
+        <!--android:elevation="6dp"-->
+        <!--android:minHeight="50dp"-->
+        <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
+        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light">-->
+
+        <!--<TextView-->
+
+            <!--android:id="@+id/appname"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:text="PublicMart"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="#105F8C"-->
+            <!--/>-->
+
+    <!--</android.support.v7.widget.Toolbar>-->
+
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:background="@drawable/mainbgm"
+            android:layout_height="220dp">
+            <ViewFlipper
+                android:layout_width="wrap_content"
+                android:layout_height="180dp"
+                android:id="@+id/viewflipper">
+
+            </ViewFlipper>
+
+
+            <LinearLayout
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="25dp">
+                <TextView
+                    android:background="@drawable/stroke"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:text="Quick Action"
+                    android:textStyle="bold"
+                    android:textColor="@color/Text"
+                    android:textSize="15dp"/>
+                <TextView
+                    android:background="@drawable/stroke"
+                    android:layout_weight="1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+
+
+
+
+
+
+
+
+            <!--First Grid-->
+
+
+
+            <android.support.v7.widget.GridLayout
+                android:padding="5dp"
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:orientation="horizontal"
+                app:alignmentMode="alignMargins"
+                app:rowCount="1"
+                app:columnCount="3">
+
+
+                <android.support.v7.widget.CardView
+
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="5dp"
+
+                    app:cardBackgroundColor="@color/iconbgm"
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal">
+
+                    <LinearLayout
+
+                        android:id="@+id/recentlogin"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@color/toolbar2"
+
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Recent Login"
+                            android:textColor="@color/text"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    app:cardBackgroundColor="@color/iconbgm"
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/business_report"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:background="@color/toolbar2"
+                        android:padding="10dp">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textColor="@color/text"
+                            android:text="Business Report"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="55dp"
+                    android:layout_margin="5dp"
+
+                    app:cardBackgroundColor="@color/iconbgm"
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:id="@+id/viewprofile"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="@color/toolbar2"
+                        android:padding="10dp">
+
+
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:textColor="@color/text"
+                            android:gravity="center"
+                            android:text="View Profile"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+            </android.support.v7.widget.GridLayout>
+
+
+            <!--First Grid End-->
+            <RelativeLayout
+                android:layout_margin="10dp"
+
+                android:layout_width="match_parent"
+                android:background="#E0DEDE"
+                android:layout_height="25dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Quick Actions"
+                    />
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.GridLayout
+                android:padding="5dp"
+                android:id="@+id/horizontalScrollView1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:alignmentMode="alignMargins"
+                app:columnCount="3"
+                app:rowCount="2"
+                app:orientation="horizontal">
+
+
+                <android.support.v7.widget.CardView
+
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+
+                    android:layout_margin="5dp"
+
+                    app:cardBackgroundColor="@color/iconbgm"
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal">
+
+                    <LinearLayout
+
+                        android:id="@+id/products"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:background="#ffff"
+                        android:padding="10dp">
+
+                        <ImageView
+
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/shoppingbag" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:textSize="12dp"
+                            android:text="Products"
+                            android:textColor="#5A5959"
+                            />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+                    android:padding="10dp"
+                    app:cardBackgroundColor="@color/iconbgm"
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/service"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:background="#ffff"
+
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/service" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:textColor="#5A5959"
+                            android:text="Service"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+
+                </android.support.v7.widget.CardView>
+
+
+
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/orderstatus"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="#ffff"
+                        android:clickable="true"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/cart" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:text="Order Status"
+                            android:textColor="#5A5959"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+                    <LinearLayout
+                        android:id="@+id/bookstat"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:background="#ffff"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/status"/>
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:gravity="center"
+                            android:textColor="#5A5959"
+                            android:text="Booking status"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.v7.widget.CardView
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+                    android:layout_margin="5dp"
+
+
+                    app:cardElevation="2dp"
+                    app:layout_columnWeight="1">
+
+
+                    <LinearLayout
+                        android:id="@+id/forlay"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:clickable="true"
+                        android:background="#ffff"
+                        android:orientation="vertical"
+                        android:padding="10dp">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:padding="5dp"
+                            android:src="@drawable/list" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:textColor="#5A5959"
+                            android:gravity="center"
+                            android:text="Shopping List"
+                            android:textSize="12dp" />
+
+                    </LinearLayout>
+                </android.support.v7.widget.CardView>
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="120dp"
+
+                    android:layout_margin="5dp"
+
+
+                    app:layout_columnWeight="1"
+                    app:layout_gravity="fill_horizontal">
+
+
+                </LinearLayout>
+
+
+
+
+            </android.support.v7.widget.GridLayout>
+
+            <RelativeLayout
+                android:layout_margin="10dp"
+
+                android:layout_width="match_parent"
+                android:background="#E0DEDE"
+                android:layout_height="25dp">
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Architecture"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+
+                android:gravity="center_horizontal">
+
+                <ImageView
+                    android:layout_margin="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/arch"/>
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_margin="10dp"
+
+                android:layout_width="match_parent"
+                android:background="#E0DEDE"
+                android:layout_height="25dp">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="Company Bank Details"
+                    />
+            </RelativeLayout>
+
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_gravity="center_horizontal"
+                android:layout_margin="15dp"
+                android:background="#ffff"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="HDFC BANK LTD."
+                    android:textSize="20dp"
+                    android:textColor="#000000"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#817E7E"
+                    android:textSize="18dp"
+                    android:text="ACCT NAME : PUBLIC MART"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#817E7E"
+                    android:textSize="18dp"
+                    android:text="ACCT NO : 50200034752049"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#817E7E"
+                    android:textSize="18dp"
+                    android:text="IFSC CODE : HDFC0000628"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#817E7E"
+                    android:textSize="18dp"
+                    android:text="BRANCH NAME : ALAPPUZHA"/>
+
+
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+
+
+
+</LinearLayout>

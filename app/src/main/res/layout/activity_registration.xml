@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="10dp"
+    android:background="@drawable/bg"
+    tools:context=".Registration">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/logopm"/>
+
+
+
+
+    <RelativeLayout
+        android:layout_margin="5dp"
+
+        android:layout_width="match_parent"
+        android:background="#E0DEDE"
+        android:layout_height="25dp">
+        <TextView
+           android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="Personal Details"/>
+    </RelativeLayout>
+
+    <EditText
+        android:layout_marginTop="5dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/fname"
+        android:hint="First Name"
+        android:background="@drawable/edittextbgm"
+        />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/lname"
+        android:hint="Last Name"
+        android:background="@drawable/edittextbgm"
+        />
+        <EditText
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:id="@+id/dob"
+            android:hint="DOB"
+            android:background="@drawable/edittextbgm"
+            />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/address"
+        android:hint="Address"
+        android:background="@drawable/edittextbgm"
+        />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/contactno"
+        android:hint="Contact No"
+        android:background="@drawable/edittextbgm"
+        />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/sponcerid"
+        android:hint="Sponcer ID"
+        android:background="@drawable/edittextbgm"
+        />
+    <RelativeLayout
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:background="#E0DEDE"
+        android:layout_height="25dp">
+    <TextView
+       android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="10dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text="Bank Details"/>
+    </RelativeLayout>
+
+    <EditText
+
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/bankname"
+        android:hint="Bank Name"
+        android:background="@drawable/edittextbgm"
+        />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/accno"
+        android:hint="Account No"
+        android:background="@drawable/edittextbgm"
+        />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/ifsc"
+        android:hint="IFSC code"
+        android:background="@drawable/edittextbgm"
+        />
+
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/branch"
+        android:hint="Branch Name"
+        android:background="@drawable/edittextbgm"
+        />
+
+    <RelativeLayout
+        android:layout_margin="15dp"
+        android:layout_width="match_parent"
+        android:background="#E0DEDE"
+        android:layout_height="25dp">
+
+        <TextView
+            android:layout_margin="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="10dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:text="Membership Type"/>
+    </RelativeLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:paddingLeft="50dp"
+                >
+
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:orientation="vertical"
+                android:layout_height="wrap_content"
+
+                android:id="@+id/radiogrp">
+
+
+
+
+
+                <RadioButton
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/oneway"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+                    android:checked="false"
+                    android:layout_weight="1"
+                    android:text="Gold"
+                    />
+
+
+
+
+                <RadioButton
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/roundtrip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+
+                    android:checked="false"
+                    android:text="Silver"
+                    />
+
+
+                <RadioButton
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/business"
+                    android:layout_width="wrap_content"
+                    android:layout_height="30dp"
+
+                    android:checked="false"
+                    android:text="Bronze"
+                    />
+
+
+
+
+
+
+
+            </RadioGroup>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_margin="15dp"
+                android:layout_width="match_parent"
+                android:background="#E0DEDE"
+                android:layout_height="25dp"/>
+
+
+    <EditText
+
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/username"
+        android:hint="UserName"
+        android:background="@drawable/edittextbgm"
+        />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittextbgm"
+        android:gravity="center"
+        android:hint="Password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/Confirmpasswd"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edittextbgm"
+        android:gravity="center"
+        android:hint="Confirm Password"
+        android:inputType="textPassword" />
+
+    <LinearLayout
+        android:layout_margin="15dp"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:gravity="center"
+        android:clickable="true"
+        android:background="@drawable/buttonbgm"
+        android:id="@+id/submit"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="18dp"
+            android:textColor="#ffff"
+            android:text="Submit"/>
+    </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

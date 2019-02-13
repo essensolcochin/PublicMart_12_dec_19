@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@drawable/bg"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:src="@drawable/logopm"/>
+
+
+    <EditText
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/username"
+        android:hint="UserName"
+        android:background="@drawable/edittextbgm"
+        />
+    <EditText
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/password"
+        android:background="@drawable/edittextbgm"
+        android:inputType="textPassword"
+        android:hint="Password"/>
+
+    <Button
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:clickable="true"
+        android:textColor="#ffff"
+        android:id="@+id/login"
+       android:background="@drawable/buttonbgm"
+        android:text="Login"/>
+
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:clickable="true"
+        android:id="@+id/register"
+        android:textSize="18dp"
+        android:textColor="#74A8D3"
+        android:layout_height="wrap_content"
+        android:text="get your login ID"
+        android:layout_marginBottom="150dp"/>
+
+
+
+
+
+
+
+
+
+
+
+
+</LinearLayout>
