@@ -2,28 +2,34 @@ package com.example.publicmart;
 
 import android.content.Intent;
 import android.graphics.Typeface;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
-import android.text.SpannableString;
-import android.text.style.UnderlineSpan;
+import android.support.v7.widget.CardView;
+
 import android.view.View;
+
+
+import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toolbar;
+
 import android.widget.ViewFlipper;
 
 public class Home extends BaseActivity {
 
 
-    LinearLayout services,product,orderstat,booking,profile;
+    LinearLayout services,product,orderstat,booking;
+    CardView profile;
     ViewFlipper viewFlipper;
-    TextView txtxmpny,Product,sevices,order,shoplist,bookingstat;
+    TextView txtxmpny,Product,sevices,order,shoplist,bookingstat,recent,report,prof;
+    WebView view;
 
 
 
-    int image[] = {R.drawable.logopm,R.drawable.ad2};
+
+    int image[] = {R.drawable.ad2};
 
 
     @Override
@@ -39,6 +45,20 @@ public class Home extends BaseActivity {
 
         product=(LinearLayout) findViewById(R.id.Product_layout);
 
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
+
+        recent=(TextView)findViewById(R.id.recent);
+
+        recent.setTypeface(custom_font);
+
+        report=(TextView)findViewById(R.id.report);
+
+        report.setTypeface(custom_font);
+
+        prof=(TextView)findViewById(R.id.prof);
+
+        prof.setTypeface(custom_font);
+
 
         Product=(TextView)findViewById(R.id.product);
         sevices=(TextView)findViewById(R.id.services);
@@ -46,8 +66,17 @@ public class Home extends BaseActivity {
         shoplist=(TextView)findViewById(R.id.shop);
         bookingstat=(TextView)findViewById(R.id.book);
 
+        view=findViewById(R.id.textContent);
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
+        String text;
+        text = "<html><body><p align=\"justify\">";
+        text+=  " ACCT NAME   : PUBLIC MART \n" +
+                " ACCT NO     : 50200034752049 \n" +
+                " IFSC CODE   : HDFC0000628 \n" +
+                " BRANCH NAME : ALAPPUZHA \n";
+        text+= "</p></body></html>";
+        view.loadData(text, "text/html", "utf-8");
+
 
         Product.setTypeface(custom_font);
         sevices.setTypeface(custom_font);
@@ -71,15 +100,15 @@ public class Home extends BaseActivity {
 
         viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
 
-//        services = findViewById(R.id.service);
-//        services.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Home.this, Services.class);
-//                startActivity(intent);
-//
-//            }
-//        });
+        services = findViewById(R.id.service);
+        services.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Home.this, Services.class);
+                startActivity(intent);
+
+            }
+        });
 //
 
         product.setOnClickListener(new View.OnClickListener() {
@@ -122,7 +151,17 @@ public class Home extends BaseActivity {
         viewFlipper.setFlipInterval(4000);
         viewFlipper.setAutoStart(true);
 
-        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
-        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
+
+
+            viewFlipper.setOutAnimation(Home.this,android.R.anim.slide_out_right);
+
+
+
+            viewFlipper.setInAnimation(Home.this,android.R.anim.slide_in_left);
+
+
+
+
+
     }
 }

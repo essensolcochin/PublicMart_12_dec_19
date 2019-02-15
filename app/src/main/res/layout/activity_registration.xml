@@ -15,19 +15,14 @@
         android:layout_height="wrap_content">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#4d000000"
+            android:gravity="center"
             android:orientation="vertical"
-            android:gravity="center">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/logopm"/>
+            android:padding="30dp">
 
 
-
-
-    <RelativeLayout
+            <RelativeLayout
         android:layout_margin="5dp"
 
         android:layout_width="match_parent"
@@ -173,9 +168,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:paddingLeft="50dp"
-                >
+
+
+                android:orientation="vertical"
+                android:paddingLeft="20dp">
 
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -189,12 +185,14 @@
 
 
                 <RadioButton
+                    android:buttonTint="@android:color/white"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/oneway"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
                     android:checked="false"
                     android:layout_weight="1"
+                    android:textColor="@android:color/white"
                     android:text="Gold"
                     />
 
@@ -202,23 +200,26 @@
 
 
                 <RadioButton
+                    android:buttonTint="@android:color/white"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/roundtrip"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-
+                    android:textColor="@android:color/white"
                     android:checked="false"
                     android:text="Silver"
                     />
 
 
                 <RadioButton
+                    android:buttonTint="@android:color/white"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/business"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-
+                    android:textColor="@android:color/white"
                     android:checked="false"
+
                     android:text="Bronze"
                     />
 

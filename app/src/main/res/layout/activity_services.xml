@@ -42,7 +42,7 @@
                 android:layout_height="wrap_content"
                 app:alignmentMode="alignMargins"
                 app:orientation="horizontal"
-                app:columnCount="3">
+                app:columnCount="2">
 
 
                 <android.support.v7.widget.CardView
@@ -59,66 +59,71 @@
                     <LinearLayout
 
                         android:id="@+id/flightticket"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
                         android:clickable="true"
-                        android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="10dp">
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
                         <ImageView
 
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:src="@drawable/flight" />
+                            android:layout_weight=".75"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/plane" />
 
                         <TextView
+                            android:id="@+id/flight"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:text="FLIGHT TICKET"
+                            android:textSize="15dp"
                             android:gravity="center"
-                            android:text="Flight Ticket"
-                            android:textColor="@color/servicegrid"
-                            android:textSize="12dp" />
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
 
                 <android.support.v7.widget.CardView
-
                     android:layout_width="0dp"
                     android:layout_height="120dp"
                     android:layout_margin="5dp"
-
-
                     app:cardElevation="2dp"
                     app:layout_columnWeight="1"
                     app:layout_gravity="fill_horizontal">
 
                     <LinearLayout
-
                         android:id="@+id/trainticket"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="10dp">
-                        <ImageView
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">>
 
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:gravity="center"
-                            android:padding="5dp"
+                        <ImageView
+                            android:layout_weight=".75"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:src="@drawable/train" />
 
                         <TextView
+                            android:id="@+id/train"
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:text="TRAIN TICKET"
+                            android:textSize="15dp"
                             android:gravity="center"
-                            android:text="Train Ticket"
-                            android:textColor="@color/servicegrid"
-                            android:textSize="12dp" />
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -137,27 +142,30 @@
                     <LinearLayout
 
                         android:id="@+id/houseboat"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="10dp">
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">>
                         <ImageView
 
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:src="@drawable/cruise" />
+                            android:layout_weight=".75"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/ship" />
 
                         <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:text="HOUSE BOAT"
+                            android:textSize="15dp"
                             android:gravity="center"
-                            android:text="House Boat"
-                            android:textColor="@color/servicegrid"
-                            android:textSize="12dp" />
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -178,27 +186,30 @@
                     <LinearLayout
 
                         android:id="@+id/tour"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="10dp">
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">>
                         <ImageView
 
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:src="@drawable/balloon" />
+                            android:layout_weight=".75"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/hotairballoon" />
 
                         <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:text="TOUR PACKAGE"
+                            android:textSize="15dp"
                             android:gravity="center"
-                            android:text="Tour Package"
-                            android:textColor="@color/servicegrid"
-                            android:textSize="12dp" />
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -217,27 +228,30 @@
                     <LinearLayout
 
                         android:id="@+id/travel_guide"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="10dp">
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">>
                         <ImageView
 
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:src="@drawable/worldwide" />
+                            android:layout_weight=".75"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/around" />
 
                         <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:text="TRAVEL GUIDE"
+                            android:textSize="15dp"
                             android:gravity="center"
-                            android:text="Travel Guide"
-                            android:textColor="@color/servicegrid"
-                            android:textSize="12dp" />
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -256,27 +270,30 @@
                     <LinearLayout
 
                         android:id="@+id/gun_licence"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="10dp">
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">>
                         <ImageView
 
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:gravity="center"
-                            android:padding="5dp"
+                            android:layout_weight=".75"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
                             android:src="@drawable/gun" />
 
                         <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:text="GUN LICENCE"
+                            android:textSize="15dp"
                             android:gravity="center"
-                            android:text="Gun License"
-                            android:textColor="@color/servicegrid"
-                            android:textSize="12dp" />
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
@@ -295,27 +312,30 @@
                     <LinearLayout
 
                         android:id="@+id/insurance"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:clickable="true"
-                        android:orientation="vertical"
                         android:gravity="center"
-                        android:padding="10dp">
+                        android:paddingTop="20dp"
+                        android:paddingBottom="20dp"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">>
                         <ImageView
 
-                            android:layout_width="70dp"
-                            android:layout_height="70dp"
-                            android:gravity="center"
-                            android:padding="5dp"
-                            android:src="@drawable/house" />
+                            android:layout_weight=".75"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp"
+                            android:src="@drawable/hand" />
 
                         <TextView
+                            android:layout_marginTop="10dp"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="30dp"
+                            android:text="INSURANCE"
+                            android:textSize="15dp"
                             android:gravity="center"
-                            android:text="Insurance"
-                            android:textColor="@color/servicegrid"
-                            android:textSize="12dp"/>
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_height="wrap_content" />
 
                     </LinearLayout>
                 </android.support.v7.widget.CardView>

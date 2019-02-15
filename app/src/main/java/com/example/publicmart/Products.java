@@ -1,6 +1,7 @@
 package com.example.publicmart;
 
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -16,7 +17,7 @@ public class Products extends BaseActivity {
 
     LinearLayout fashion;
 
-
+TextView fash,spice,nut,weight;
 
 
 
@@ -31,8 +32,16 @@ public class Products extends BaseActivity {
 
 
 
+        fash =findViewById(R.id.fashion);
+        spice =findViewById(R.id.spice);
+        nut =findViewById(R.id.nutri);
+        weight =findViewById(R.id.weight);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
 
-
+        fash.setTypeface(custom_font);
+        spice.setTypeface(custom_font);
+        nut.setTypeface(custom_font);
+        weight.setTypeface(custom_font);
 
         fashion = (LinearLayout)findViewById(R.id.deal1);
         fashion.setOnClickListener(new View.OnClickListener() {

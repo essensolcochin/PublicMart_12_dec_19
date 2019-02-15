@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextWatcher;
+import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
@@ -39,7 +40,6 @@ public class BaseActivity extends AppCompatActivity {
     public Toolbar getToolBar(){
         return toolbar;
     }
-    @SuppressLint("RestrictedApi")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,9 +48,9 @@ public class BaseActivity extends AppCompatActivity {
 
         head =findViewById(R.id.appname);
 
-//        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Ananda.ttf");
-//
-//        head.setTypeface(custom_font);
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Enchanting.ttf");
+
+        head.setTypeface(custom_font);
 
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.hamburger);
@@ -134,6 +134,19 @@ public class BaseActivity extends AppCompatActivity {
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
+
+
+//
+//        if (item != null && item.getItemId() == android.R.id.home) {
+//            if (drawerLayout.isDrawerOpen(Gravity.END)) {
+//                drawerLayout.closeDrawer(Gravity.END);
+//            }
+//            else {
+//                drawerLayout.openDrawer(Gravity.END);
+//            }
+//        }
+//        return false;
+
 
 
         if (toggle.onOptionsItemSelected(item)) {

@@ -5,7 +5,9 @@
     android:id="@+id/drawer_layout2"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:openDrawer="start">
+    android:gravity="end"
+    tools:openDrawer="right"
+    >
 
     <!-- The main content view -->
     <LinearLayout
@@ -33,7 +35,7 @@
         android:textStyle="bold"
         android:text="Publicmart"
         android:textSize="20dp"
-        android:textColor="#000"
+        android:textColor="@color/title"
         />
 
 
@@ -109,7 +111,7 @@
         android:layout_height="match_parent"
         app:menu="@menu/drawermenu"
         android:id="@+id/navigation_view"
-        android:layout_gravity="start"
+        android:layout_gravity="right"
         app:headerLayout="@layout/header">
 
 

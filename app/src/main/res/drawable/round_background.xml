@@ -16,9 +16,9 @@
     </item>
     <item >
         <shape android:shape="rectangle"  >
-            <corners android:radius="100dip" />
+            <corners android:radius="3dip" />
              />
-            <solid android:color="@color/toolbar2"/>
+            <solid android:color="#00a6c0"/>
         </shape>
     </item>
 </selector>

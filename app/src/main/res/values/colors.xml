@@ -14,7 +14,12 @@
     <color name="col2">#91628c</color>
     <color name="col3">#b5dd7a</color>
     <color name="col4">#f8c185</color>
-    <color name="col5">#ff89ab</color>
+    <color name="col5">#475c7a</color>
+    <color name="col6">#fcbb6d</color>
+    <color name="col7">#d8737f</color>
+    <color name="col8">#ab6c8f</color>
+    <color name="col9">#685d79</color>
+    <color name="title">#475c7a</color>
 
 
 </resources>

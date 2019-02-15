@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#F0EFEF"
+    tools:context=".Services">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:padding="5dp">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <!--<LinearLayout-->
+            <!--android:gravity="center_horizontal"-->
+            <!--android:orientation="vertical"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content">-->
+            <!--<ViewFlipper-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="220dp"-->
+                <!--android:id="@+id/viewflipper">-->
+
+            <!--</ViewFlipper>-->
+        <!--</LinearLayout>-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1" >
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:orientation="horizontal"
+                    android:layout_weight="1" >
+
+
+
+
+                    <android.support.v7.widget.CardView
+                        android:clickable="true"
+                        android:id="@+id/Product_layout"
+                        android:paddingTop="40dp"
+                        android:paddingBottom="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:layout_margin="2dp"
+                        android:background="@color/col8"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:clickable="true"
+                            android:id="@+id/flightticket"
+                            android:gravity="center"
+                            android:paddingTop="25dp"
+                            android:paddingBottom="25dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        <ImageView
+                            android:src="@drawable/plane"
+                            android:layout_weight=".75"
+                            android:layout_width="50dp"
+                            android:layout_height="50dp" />
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/flight"
+                            android:layout_gravity="center"
+                            android:layout_weight="1"
+                            android:layout_width="wrap_content"
+                            android:text="FLIGHT TICKETS"
+                            android:textSize="15dp"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/black"
+                            android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                    <android.support.v7.widget.CardView
+                        android:clickable="true"
+                        android:paddingTop="40dp"
+                        android:layout_margin="2dp"
+                        android:paddingBottom="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/col8"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/trainticket"
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:paddingTop="25dp"
+                            android:paddingBottom="25dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:src="@drawable/train"
+                                android:layout_weight=".75"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp" />
+                            <TextView
+                                android:id="@+id/train"
+
+                                android:layout_marginTop="10dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:text="TRAIN TICKETS"
+                                android:textSize="15dp"
+                                android:gravity="start"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:orientation="horizontal"
+                    android:layout_weight="1" >
+
+                    <android.support.v7.widget.CardView
+                        android:clickable="true"
+                        android:paddingTop="40dp"
+                        android:layout_margin="2dp"
+                        android:paddingBottom="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/col8"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:id="@+id/houseboat"
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:paddingTop="25dp"
+                            android:paddingBottom="25dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:src="@drawable/ship"
+                                android:layout_weight=".75"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp" />
+                            <TextView
+                                android:id="@+id/boat"
+                                android:layout_marginTop="10dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:text="HOUSE BOAT"
+                                android:textSize="15dp"
+                                android:gravity="start"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+
+
+                    <android.support.v7.widget.CardView
+                        android:clickable="true"
+                        android:paddingTop="40dp"
+                        android:layout_margin="2dp"
+                        android:paddingBottom="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/col8"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:paddingTop="25dp"
+                            android:paddingBottom="25dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:src="@drawable/hotairballoon"
+                                android:layout_weight=".75"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp" />
+                            <TextView
+                                android:id="@+id/tour"
+                                android:layout_marginTop="10dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:text="TOUR PACKAGE"
+                                android:textSize="15dp"
+                                android:gravity="start"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:orientation="horizontal"
+                    android:layout_weight="1" >
+
+                    <android.support.v7.widget.CardView
+                        android:clickable="true"
+                        android:paddingTop="40dp"
+                        android:layout_margin="2dp"
+                        android:paddingBottom="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/col8"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:paddingTop="25dp"
+                            android:paddingBottom="25dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:src="@drawable/around"
+                                android:layout_weight=".75"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp" />
+                            <TextView
+                                android:id="@+id/travel"
+                                android:layout_marginTop="10dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:text="TRAVEL GUIDE"
+                                android:textSize="15dp"
+                                android:gravity="start"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+
+
+                    <android.support.v7.widget.CardView
+                        android:clickable="true"
+                        android:paddingTop="40dp"
+                        android:paddingBottom="40dp"
+                        android:layout_margin="2dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/col8"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:paddingTop="25dp"
+                            android:paddingBottom="25dp"
+                            android:orientation="vertical"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                            <ImageView
+                                android:src="@drawable/gun"
+                                android:layout_weight=".75"
+                                android:layout_width="50dp"
+                                android:layout_height="50dp" />
+                            <TextView
+                                android:id="@+id/gun"
+                                android:layout_marginTop="10dp"
+                                android:layout_gravity="center"
+                                android:layout_weight="1"
+                                android:layout_width="wrap_content"
+                                android:text="GUN LICENCE"
+                                android:textSize="15dp"
+                                android:gravity="start"
+                                android:textStyle="bold"
+                                android:textColor="@android:color/black"
+                                android:layout_height="wrap_content" />
+                        </LinearLayout>
+
+                    </android.support.v7.widget.CardView>
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_marginTop="2dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:orientation="horizontal"
+                    android:layout_weight="1" >
+
+
+
+
+                    <android.support.v7.widget.CardView
+                        android:clickable="true"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@color/col8"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:clickable="true"
+                            android:gravity="center"
+                            android:orientation="vertical"
+                            android:paddingTop="25dp"
+                            android:paddingBottom="25dp">
+
+                            <ImageView
+                                android:layout_width="50dp"
+                                android:layout_height="50dp"
+                                android:layout_weight=".75"
+                                android:src="@drawable/hand" />
+
+                            <TextView
+                                android:id="@+id/insure"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginTop="10dp"
+                                android:layout_weight="1"
+                                android:gravity="start"
+                                android:text="INSURANCE"
+                                android:textColor="@android:color/black"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+
+                        </LinearLayout>
+                    </android.support.v7.widget.CardView>
+                </LinearLayout>
+            </LinearLayout>
+
+
+
+
+
+
+
+
+
+
+
+        </LinearLayout>
+
+
+    </ScrollView>
+
+
+</LinearLayout>
