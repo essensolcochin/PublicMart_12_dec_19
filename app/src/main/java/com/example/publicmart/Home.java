@@ -47,17 +47,7 @@ public class Home extends BaseActivity {
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
 
-        recent=(TextView)findViewById(R.id.recent);
 
-        recent.setTypeface(custom_font);
-
-        report=(TextView)findViewById(R.id.report);
-
-        report.setTypeface(custom_font);
-
-        prof=(TextView)findViewById(R.id.prof);
-
-        prof.setTypeface(custom_font);
 
 
         Product=(TextView)findViewById(R.id.product);
@@ -87,15 +77,7 @@ public class Home extends BaseActivity {
 
 
 
-        profile = findViewById(R.id.viewprofile);
-        profile.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Home.this, Profile.class);
-                startActivity(intent);
 
-            }
-        });
 
 
         viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);

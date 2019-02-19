@@ -16,18 +16,18 @@ public class HouseBoat extends BaseActivity {
             "31"};
     String array_Mnth[] = {"MM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     String array_Year[] = {"2019"};
-    Spinner membersno,days,months,years;
-    int image[] = {R.drawable.houseboat1,R.drawable.houseboat2,R.drawable.houseboat3};
+    Spinner membersno, days, months, years;
+    int image[] = {R.drawable.houseboatwall,R.drawable.houseboatwalll};
     ViewFlipper viewFlipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        getLayoutInflater().inflate(R.layout.activity_house_boat, contentFrameLayout);
+        getLayoutInflater().inflate(R.layout.activity_house_boat_ed, contentFrameLayout);
         viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
 
-        toolbar =  findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         membersno = findViewById(R.id.noofmembers);
@@ -73,4 +73,5 @@ public class HouseBoat extends BaseActivity {
         viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
         viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
     }
-}
+    }
+

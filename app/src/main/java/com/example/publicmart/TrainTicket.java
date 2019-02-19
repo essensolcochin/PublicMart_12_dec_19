@@ -26,15 +26,10 @@ public class TrainTicket extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        getLayoutInflater().inflate(R.layout.activity_train_ticket, contentFrameLayout);
+        getLayoutInflater().inflate(R.layout.activity_train_ticket_ed, contentFrameLayout);
 
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-
-
-
-
 
         citycode = findViewById(R.id.city);
         citycode2 = findViewById(R.id.city2);
@@ -81,7 +76,6 @@ public class TrainTicket extends BaseActivity {
         final ArrayAdapter<String> spinner_adapter_yday = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, array_BYear);
         spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
         byear.setAdapter(spinner_adapter_yday);
     }
 }

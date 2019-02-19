@@ -22,7 +22,9 @@
             android:id="@+id/username"
             android:layout_width="280dp"
             android:layout_height="50dp"
-            android:background="@android:color/white"
+            android:background="#4d000000"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:gravity="center"
             android:hint="UserName" />
 
@@ -31,7 +33,9 @@
             android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:background="@android:color/white"
+            android:background="#4d000000"
+            android:textColor="@android:color/white"
+            android:textColorHint="@android:color/white"
             android:gravity="center"
             android:hint="Password"
             android:inputType="textPassword" />

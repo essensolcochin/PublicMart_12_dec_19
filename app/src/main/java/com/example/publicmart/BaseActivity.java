@@ -136,7 +136,7 @@ public class BaseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
 
-//
+
 //        if (item != null && item.getItemId() == android.R.id.home) {
 //            if (drawerLayout.isDrawerOpen(Gravity.END)) {
 //                drawerLayout.closeDrawer(Gravity.END);

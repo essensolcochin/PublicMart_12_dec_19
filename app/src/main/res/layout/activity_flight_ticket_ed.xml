@@ -5,8 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#eaf7fd"
+    android:background="@drawable/airplane"
+
     tools:context=".FlightTicket">
+
+
+
+    <LinearLayout
+        android:background="#4d000000"
+        android:padding="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+       >
 
         <ScrollView
             android:layout_width="match_parent"
@@ -34,7 +44,7 @@
 
             <LinearLayout
 
-                android:background="#F3F1F1"
+
                 android:padding="5dp"
               android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
@@ -53,7 +63,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:textStyle="bold"
-                        android:textColor="#0A0A0A"
+                        android:textColor="@android:color/black"
                         android:text="Booking Information"/>
 
 
@@ -62,6 +72,7 @@
 
 
                 <TextView
+                    android:textColor="@android:color/white"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -75,11 +86,12 @@
                     android:padding="10dp"
                     android:layout_marginTop="5dp"
                     android:hint="Name of the Traveller"
-                    android:background="@drawable/edittextbg"
+                    android:background="@drawable/edittextbgm"
 
                     android:id="@+id/traveler_name"/>
 
                 <TextView
+                    android:textColor="@android:color/white"
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -96,7 +108,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff">
+                        android:background="@drawable/edittextbgm">
 
                         <Spinner
                             android:layout_width="wrap_content"
@@ -108,6 +120,7 @@
                             />
                     </RelativeLayout>
                     <TextView
+                        android:textColor="@android:color/white"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
@@ -117,7 +130,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff"
+                        android:background="@drawable/edittextbgm"
                         >
 
                         <Spinner
@@ -130,6 +143,7 @@
                             />
                     </RelativeLayout>
                     <TextView
+                        android:textColor="@android:color/white"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
@@ -139,7 +153,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff"
+                        android:background="@drawable/edittextbgm"
                         >
 
                         <Spinner
@@ -161,6 +175,7 @@
 
 
                 <TextView
+                    android:textColor="@android:color/white"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
@@ -178,7 +193,7 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#ffff">
+                    android:background="@drawable/edittextbgm">
                 <Spinner
                     android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -191,6 +206,7 @@
 
 
             <TextView
+                android:textColor="@android:color/white"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
@@ -198,7 +214,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#ffff">
+                    android:background="@drawable/edittextbgm">
 
                 <Spinner
                     android:layout_width="match_parent"
@@ -220,6 +236,7 @@
 
                 <!--android:id="@+id/to"/>-->
             <TextView
+                android:textColor="@android:color/white"
                 android:layout_margin="5dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -235,7 +252,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#ffff">
+                    android:background="@drawable/edittextbgm">
 
                     <Spinner
                         android:layout_width="wrap_content"
@@ -247,6 +264,7 @@
                         />
                 </RelativeLayout>
                 <TextView
+                    android:textColor="@android:color/white"
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
@@ -256,7 +274,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#ffff"
+                    android:background="@drawable/edittextbgm"
                     >
 
                     <Spinner
@@ -269,6 +287,7 @@
                         />
                 </RelativeLayout>
                 <TextView
+                    android:textColor="@android:color/white"
                     android:layout_margin="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
@@ -278,7 +297,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#ffff"
+                    android:background="@drawable/edittextbgm"
                    >
 
                     <Spinner
@@ -297,6 +316,8 @@
 
             </LinearLayout>
                 <TextView
+                    android:textStyle="bold"
+                    android:textColor="@android:color/white"
                     android:textSize="18dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -315,7 +336,7 @@
                         android:layout_width="wrap_content"
                         android:orientation="vertical"
                         android:layout_height="wrap_content"
-                        android:backgroundTint="@android:color/black"
+
                         android:id="@+id/radiogrp">
 
 
@@ -323,8 +344,10 @@
 
 
                                 <RadioButton
+                                    android:textColor="@android:color/white"
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/oneway"
+                                    android:buttonTint="@color/col6"
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
                                     android:onClick="rbclick"
@@ -337,6 +360,8 @@
 
 
                                 <RadioButton
+                                    android:buttonTint="@color/col6"
+                                    android:textColor="@android:color/white"
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/roundtrip"
                                     android:layout_width="wrap_content"
@@ -348,6 +373,8 @@
 
 
                                 <RadioButton
+                                    android:buttonTint="@color/col6"
+                                    android:textColor="@android:color/white"
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/business"
                                     android:layout_width="wrap_content"
@@ -411,7 +438,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-
+                    android:textColor="@android:color/white"
                     android:text="Email ID"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -421,7 +448,7 @@
 
                     android:layout_marginTop="5dp"
                     android:hint="Email ID"
-                    android:background="#ffff"
+                    android:background="@drawable/edittextbgm"
                     android:id="@+id/email"/>
 
 
@@ -430,7 +457,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-
+                    android:textColor="@android:color/white"
                     android:text="Contact No"/>
 
                 <EditText
@@ -438,7 +465,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="#ffff"
+                    android:background="@drawable/edittextbgm"
                     android:hint="Contact No"
                     android:inputType="number"
                     android:padding="10dp"
@@ -475,5 +502,6 @@
     </LinearLayout>
 
     </ScrollView>
+    </LinearLayout>
 
 </LinearLayout>

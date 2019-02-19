@@ -1,0 +1,383 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+
+    tools:context=".HouseBoat">
+
+
+
+    <LinearLayout
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <ViewFlipper
+            android:padding="10dp"
+            android:layout_width="fill_parent"
+            android:layout_height="200dp"
+            android:id="@+id/viewflipper"/>
+
+    <LinearLayout
+        android:background="#4d000000"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
+
+
+
+
+
+        <LinearLayout
+
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:background="#344955"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--Radio Button Start -->
+
+            <!--Radio Button End -->
+
+
+
+
+            <LinearLayout
+
+
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <!--<LinearLayout-->
+                    <!--android:gravity="center_horizontal"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
+                    <!--<ViewFlipper-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="220dp"-->
+                        <!--android:id="@+id/viewflipper">-->
+
+                    <!--</ViewFlipper>-->
+                <!--</LinearLayout>-->
+
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:orientation="vertical"
+                    android:background="#DDDBDB">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:textColor="#0A0A0A"
+                        android:text="Booking Information"/>
+
+                </LinearLayout>
+
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:text="Guest Name"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:padding="10dp"
+                    android:layout_marginTop="5dp"
+                    android:hint="Guest Name"
+                    android:background="#ffff"
+
+                    android:id="@+id/traveler_name"/>
+
+
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff"/>
+
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:text="Date of Journey "/>
+
+                <LinearLayout
+
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#ffff">
+
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:textSize="18dp"
+                            android:padding="10dp"
+                            android:id="@+id/day"
+                            />
+                    </RelativeLayout>
+                    <TextView
+                        android:textColor="@android:color/white"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:textSize="32dp"
+                        android:text="/"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#ffff"
+                        >
+
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:textSize="18dp"
+                            android:padding="10dp"
+                            android:id="@+id/month"
+                            />
+                    </RelativeLayout>
+                    <TextView
+                        android:textColor="@android:color/white"
+                        android:layout_margin="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="50dp"
+                        android:textSize="32dp"
+                        android:text="/"/>
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#ffff"
+                        >
+
+                        <Spinner
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:textSize="18dp"
+                            android:padding="10dp"
+                            android:id="@+id/year"
+                            />
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:text="No. of Guest"/>
+
+                <RelativeLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#ffff"
+                    >
+                <Spinner
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:padding="10dp"
+                    android:id="@+id/noofmembers"
+                    />
+                </RelativeLayout>
+
+                <TextView
+                    android:textColor="@android:color/white"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:text="Type of cruise"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+
+                    android:orientation="horizontal">
+
+                    <RadioGroup
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content"
+
+                        android:id="@+id/radiogrp">
+
+
+                        <RadioButton
+                            android:textColor="@android:color/white"
+                            android:layout_marginLeft="5dp"
+                            android:id="@+id/oneway"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:buttonTint="@android:color/white"
+                            android:checked="false"
+                            android:layout_weight="1"
+                            android:text="Day (11 am - 5 pm)"
+                            />
+
+                        <RadioButton
+                            android:textColor="@android:color/white"
+                            android:layout_marginLeft="5dp"
+                            android:id="@+id/roundtrip"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:buttonTint="@android:color/white"
+                            android:checked="false"
+                            android:text="Night (5 pm - 11 pm)"
+                            />
+
+
+                        <RadioButton
+                            android:layout_marginLeft="5dp"
+                            android:id="@+id/business"
+                            android:layout_width="wrap_content"
+                            android:layout_height="30dp"
+                            android:buttonTint="@android:color/white"
+                            android:textColor="@android:color/white"
+                            android:checked="false"
+                            android:text="Fullday (11 am - 11 pm)"
+                            />
+
+                    </RadioGroup>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="8dp"
+                    android:orientation="vertical"
+                    android:background="#DDDBDB">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        android:textColor="#0A0A0A"
+                        android:text="Contact Information"/>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="10dp"
+                        android:textStyle="bold"
+                        android:textColor="#616161"
+                        android:text="Your will be contacted from the given details"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:padding="5dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@android:color/white"
+                        android:text="Email ID"/>
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:padding="10dp"
+
+                        android:layout_marginTop="5dp"
+                        android:hint="Email ID"
+                        android:background="#ffff"
+                        android:id="@+id/email"/>
+
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textSize="18dp"
+                        android:textColor="@android:color/white"
+                        android:text="Contact No"/>
+
+                    <EditText
+                        android:id="@+id/contact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+
+                        android:background="#ffff"
+                        android:hint="Contact No"
+                        android:inputType="number"
+                        android:padding="10dp"
+                        android:textSize="18dp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_margin="20dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <Button
+
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="18dp"
+                        android:background="@drawable/buttonbgm"
+                        android:paddingLeft="32dp"
+                        android:paddingRight="32dp"
+                        android:paddingBottom="18dp"
+
+                        android:textColor="#ffff"
+                        android:text="Submit"
+                        android:textSize="18dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    </LinearLayout>
+
+
+    </ScrollView>
+

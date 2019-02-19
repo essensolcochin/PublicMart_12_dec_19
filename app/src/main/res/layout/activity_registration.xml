@@ -45,7 +45,8 @@
         android:layout_height="50dp"
         android:id="@+id/fname"
         android:hint="First Name"
-        android:background="@drawable/edittextbgm"
+        android:textColorHint="@android:color/white"
+        android:background="#4d000000"
         />
 
     <EditText
@@ -55,7 +56,8 @@
         android:layout_height="50dp"
         android:id="@+id/lname"
         android:hint="Last Name"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
         <EditText
             android:layout_marginTop="10dp"
@@ -64,7 +66,8 @@
             android:layout_height="50dp"
             android:id="@+id/dob"
             android:hint="DOB"
-            android:background="@drawable/edittextbgm"
+            android:background="#4d000000"
+            android:textColorHint="@android:color/white"
             />
     <EditText
         android:layout_marginTop="10dp"
@@ -73,7 +76,8 @@
         android:layout_height="50dp"
         android:id="@+id/address"
         android:hint="Address"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
 
     <EditText
@@ -83,7 +87,8 @@
         android:layout_height="50dp"
         android:id="@+id/contactno"
         android:hint="Contact No"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
 
     <EditText
@@ -93,7 +98,8 @@
         android:layout_height="50dp"
         android:id="@+id/sponcerid"
         android:hint="Sponcer ID"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
     <RelativeLayout
         android:layout_margin="15dp"
@@ -117,7 +123,8 @@
         android:layout_height="50dp"
         android:id="@+id/bankname"
         android:hint="Bank Name"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
     <EditText
         android:layout_marginTop="10dp"
@@ -126,7 +133,8 @@
         android:layout_height="50dp"
         android:id="@+id/accno"
         android:hint="Account No"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
     <EditText
         android:layout_marginTop="10dp"
@@ -135,7 +143,8 @@
         android:layout_height="50dp"
         android:id="@+id/ifsc"
         android:hint="IFSC code"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
 
     <EditText
@@ -145,7 +154,8 @@
         android:layout_height="50dp"
         android:id="@+id/branch"
         android:hint="Branch Name"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
 
     <RelativeLayout
@@ -192,6 +202,7 @@
                     android:layout_height="30dp"
                     android:checked="false"
                     android:layout_weight="1"
+                    android:backgroundTint="@drawable/buttonbgm"
                     android:textColor="@android:color/white"
                     android:text="Gold"
                     />
@@ -240,13 +251,13 @@
 
 
     <EditText
-
+        android:textColorHint="@android:color/white"
         android:gravity="center"
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:id="@+id/username"
         android:hint="UserName"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
         />
 
     <EditText
@@ -254,7 +265,8 @@
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         android:gravity="center"
         android:hint="Password"
         android:inputType="textPassword" />
@@ -264,7 +276,8 @@
         android:layout_width="280dp"
         android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:background="@drawable/edittextbgm"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         android:gravity="center"
         android:hint="Confirm Password"
         android:inputType="textPassword" />
