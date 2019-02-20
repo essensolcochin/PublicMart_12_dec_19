@@ -14,7 +14,7 @@ import io.fabric.sdk.android.Fabric;
 public class MainActivity extends AppCompatActivity {
 
     TextView reg;
-    TextView log;
+    Button log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
-        log = findViewById(R.id.register);
+        log = findViewById(R.id.login);
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
