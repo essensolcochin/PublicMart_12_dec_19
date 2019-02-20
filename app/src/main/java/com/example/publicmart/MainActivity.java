@@ -8,19 +8,20 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.crashlytics.android.Crashlytics;
+import com.crashlytics.android.ndk.CrashlyticsNdk;
 import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity {
 
     TextView reg;
-    Button log;
+  Button log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Fabric.with(this, new Crashlytics());
+        Fabric.with(this, new Crashlytics(), new CrashlyticsNdk());
         reg = (TextView) findViewById(R.id.register);
         reg.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -13,10 +13,10 @@ import android.widget.ViewFlipper;
 
 public class Services extends BaseActivity {
 
-//    ViewFlipper viewFlipper;
-    int image[] = {R.drawable.ad,R.drawable.travelalert};
-    LinearLayout flight,train,boat;
-    TextView flightTXT,trainTXT,boatTXT,tourTXT,travelTXT,gunTXT,insureTXT;
+    ViewFlipper viewFlipper;
+    int image[] = {R.drawable.ad, R.drawable.travelalert};
+    LinearLayout flight, train, boat;
+    TextView flightTXT, trainTXT, boatTXT, tourTXT, travelTXT, gunTXT, insureTXT;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,16 +25,16 @@ public class Services extends BaseActivity {
         getLayoutInflater().inflate(R.layout.activity_services_ed, contentFrameLayout);
 
 
-        flightTXT=(TextView)findViewById(R.id.flight);
-        trainTXT=(TextView)findViewById(R.id.train);
-        boatTXT=(TextView)findViewById(R.id.boat);
-        tourTXT=(TextView)findViewById(R.id.tour);
-        travelTXT=(TextView)findViewById(R.id.travel);
-        gunTXT=(TextView)findViewById(R.id.gun);
-        insureTXT=(TextView)findViewById(R.id.insure);
+        flightTXT = (TextView) findViewById(R.id.flight);
+        trainTXT = (TextView) findViewById(R.id.train);
+        boatTXT = (TextView) findViewById(R.id.boat);
+        tourTXT = (TextView) findViewById(R.id.tour);
+        travelTXT = (TextView) findViewById(R.id.travel);
+        gunTXT = (TextView) findViewById(R.id.gun);
+        insureTXT = (TextView) findViewById(R.id.insure);
 
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/curvy.ttf");
 
         flightTXT.setTypeface(custom_font);
         trainTXT.setTypeface(custom_font);
@@ -49,7 +49,7 @@ public class Services extends BaseActivity {
 //        txtxmpny=(TextView)tb.findViewById(R.id.appname);
 //        txtxmpny.setText("Services");
 
-//        viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
+
         flight = findViewById(R.id.flightticket);
         flight.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,21 +77,5 @@ public class Services extends BaseActivity {
         });
 
 
-
-
-//        for (int image: image) {
-//            flipperimage(image);
-//        }
     }
-//    void flipperimage(int image)
-//    {
-//        ImageView imageView = new ImageView(this);
-//        imageView.setBackgroundResource(image);
-//        viewFlipper.addView(imageView);
-//        viewFlipper.setFlipInterval(4000);
-//        viewFlipper.setAutoStart(true);
-//
-//        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
-//        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
-//    }
 }

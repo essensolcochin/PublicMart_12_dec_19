@@ -29,7 +29,7 @@ public class Home extends BaseActivity {
 
 
 
-    int image[] = {R.drawable.ad2};
+    int image[] = {R.drawable.ad};
 
 
     @Override
@@ -39,7 +39,7 @@ public class Home extends BaseActivity {
         getLayoutInflater().inflate(R.layout.activity_home_test, contentFrameLayout);
 
 
-//        android.support.v7.widget.Toolbar tb=getToolBar();
+//        android.support.v7.widget.Toolbar tb=getToolBar();    
 //        txtxmpny=(TextView)tb.findViewById(R.id.appname);
 //        txtxmpny.setText("Home");
 
