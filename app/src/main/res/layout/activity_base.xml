@@ -106,8 +106,10 @@
 
 
     <android.support.design.widget.NavigationView
+        android:background="@drawable/bgm1"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
+        app:itemTextColor="@android:color/white"
         app:menu="@menu/drawermenu"
         android:id="@+id/navigation_view"
         android:layout_gravity="start"

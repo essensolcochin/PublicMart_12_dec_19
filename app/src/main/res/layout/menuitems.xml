@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:background="@android:color/white"
+    android:layout_margin="2dp"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_weight="1"
+    android:layout_gravity="center_horizontal"
+    android:paddingTop="20dp"
+    android:gravity="center"
+    android:paddingBottom="20dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+
+
+            <ImageView
+                android:src="@drawable/clothes"
+                android:layout_weight=".75"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
+
+
+                <TextView
+                    android:layout_marginTop="10dp"
+                    android:id="@+id/menuTitle"
+                    android:layout_gravity="center"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:text="FASHION"
+                    android:textSize="15dp"
+                    android:gravity="center"
+                    android:textStyle="bold"
+                    android:textColor="@android:color/black"
+
+                    android:layout_height="wrap_content"
+                    />
+
+
+
+
+
+
+
+
+
+</LinearLayout>

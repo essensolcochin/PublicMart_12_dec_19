@@ -131,6 +131,7 @@
 
 
                 <LinearLayout
+                    android:layout_margin="1dp"
                 android:clickable="true"
                 android:id="@+id/Product_layout"
                 android:paddingTop="40dp"
@@ -170,6 +171,8 @@
 
 
                 <LinearLayout
+                    android:layout_margin="1dp"
+
                     android:id="@+id/service"
                     android:paddingTop="40dp"
                     android:paddingBottom="40dp"
@@ -212,6 +215,7 @@
                 android:layout_weight="1" >
 
                 <LinearLayout
+                    android:layout_margin="1dp"
                     android:paddingTop="40dp"
                     android:paddingBottom="40dp"
                     android:layout_weight="1"
@@ -247,6 +251,8 @@
 
 
                 <LinearLayout
+                    android:layout_margin="1dp"
+
                     android:paddingTop="40dp"
                     android:paddingBottom="40dp"
                     android:layout_weight="1"
@@ -280,6 +286,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_margin="1dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
