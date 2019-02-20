@@ -17,9 +17,6 @@ import android.widget.TextView;
 
 import android.widget.ViewFlipper;
 
-
-
-
 public class Home extends BaseActivity {
 
 
@@ -49,12 +46,18 @@ public class Home extends BaseActivity {
         product=(LinearLayout) findViewById(R.id.Product_layout);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
+
+
+
+
         Product=(TextView)findViewById(R.id.product);
         sevices=(TextView)findViewById(R.id.services);
         order=(TextView)findViewById(R.id.Order);
         shoplist=(TextView)findViewById(R.id.shop);
         bookingstat=(TextView)findViewById(R.id.book);
+
         view=findViewById(R.id.textContent);
+
         String text;
         text = "<html><body><p align=\"justify\">";
         text+=  " ACCT NAME   : PUBLIC MART \n" +
@@ -63,27 +66,38 @@ public class Home extends BaseActivity {
                 " BRANCH NAME : ALAPPUZHA \n";
         text+= "</p></body></html>";
         view.loadData(text, "text/html", "utf-8");
+
+
         Product.setTypeface(custom_font);
         sevices.setTypeface(custom_font);
         order.setTypeface(custom_font);
         shoplist.setTypeface(custom_font);
         bookingstat.setTypeface(custom_font);
+
+
+
+
+
+
+
         viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
+
         services = findViewById(R.id.service);
         services.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, Services.class);
                 startActivity(intent);
+
             }
         });
 //
+
         product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Home.this, Products.class);
                 startActivity(intent);
-
             }
         });
 //
@@ -109,9 +123,6 @@ public class Home extends BaseActivity {
 //            }
 //        });
 
-
-
-
     }
 
     void flipperimage(int image)
@@ -120,7 +131,7 @@ public class Home extends BaseActivity {
         imageView.setBackgroundResource(image);
         viewFlipper.addView(imageView);
         viewFlipper.setFlipInterval(4000);
-
+        viewFlipper.setAutoStart(true);
 
 
 
