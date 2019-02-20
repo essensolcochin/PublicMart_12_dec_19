@@ -55,7 +55,7 @@ TextView fash,spice,nut,weight;
 //            }
 //        });
 
-        String[] data = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+        String[] data = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
         // set up the RecyclerView
         RecyclerView recyclerView = findViewById(R.id.menu);

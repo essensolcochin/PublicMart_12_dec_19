@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    android:background="#4d000000"
+    android:background="#DBDADA"
     tools:context=".Products">
 
 <android.support.v7.widget.RecyclerView

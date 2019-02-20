@@ -34,7 +34,7 @@
         android:textStyle="bold"
         android:text="Publicmart"
         android:textSize="25dp"
-        android:textColor="@color/col7"
+        android:textColor="@color/col10"
         />
 
 
