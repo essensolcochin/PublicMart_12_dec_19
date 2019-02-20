@@ -1,5 +1,14 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
+
+
+
 android {
     compileSdkVersion 28
     defaultConfig {
@@ -31,4 +40,9 @@ dependencies {
     implementation 'com.github.baoyachi:StepView:1.9'
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    implementation 'jp.wasabeef:blurry:2.1.0'
+    api ('com.crashlytics.sdk.android:crashlytics:2.9.9@aar') {
+        transitive = true;
+
+    }
 }

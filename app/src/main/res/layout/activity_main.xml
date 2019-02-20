@@ -3,9 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:gravity="center"
-    android:background="@drawable/bg"
+    android:background="@color/col5"
     tools:context=".MainActivity">
 
     <LinearLayout
@@ -22,7 +23,7 @@
             android:id="@+id/username"
             android:layout_width="280dp"
             android:layout_height="50dp"
-            android:background="#4d000000"
+            android:background="#4dffffff"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:gravity="center"
@@ -33,7 +34,7 @@
             android:layout_width="280dp"
             android:layout_height="50dp"
             android:layout_marginTop="10dp"
-            android:background="#4d000000"
+            android:background="#4dffffff"
             android:textColor="@android:color/white"
             android:textColorHint="@android:color/white"
             android:gravity="center"
@@ -45,11 +46,11 @@
             android:layout_width="150dp"
             android:layout_height="50dp"
             android:layout_marginTop="25dp"
-            android:background="@drawable/buttonbgm"
+           android:background="@color/col6"
+            android:onClick="forceCrash"
             android:clickable="true"
             android:text="Login"
             android:textColor="#ffff" />
-
 
         <TextView
             android:gravity="center"
@@ -58,18 +59,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:clickable="true"
-            android:text="get your login ID"
+            android:text="Don't have an account, Sign up"
             android:textColor="@color/col6"
             android:textSize="18dp" />
 
     </LinearLayout>
-
-
-
-
-
-
-
 
 
 </LinearLayout>

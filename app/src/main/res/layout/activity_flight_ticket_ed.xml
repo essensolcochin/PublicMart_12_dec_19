@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@drawable/airplane"
-
+    android:background="@color/col5"
     tools:context=".FlightTicket">
 
 
@@ -57,7 +56,7 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:orientation="vertical"
-                    android:background="#DDDBDB">
+                    android:background="#B1B3B3">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -86,8 +85,9 @@
                     android:padding="10dp"
                     android:layout_marginTop="5dp"
                     android:hint="Name of the Traveller"
-                    android:background="@drawable/edittextbgm"
-
+                    android:textColor="@android:color/white"
+                    android:background="#4d000000"
+                    android:textColorHint="#4dffffff"
                     android:id="@+id/traveler_name"/>
 
                 <TextView
@@ -108,7 +108,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittextbgm">
+                        android:background="#4dffffff">
 
                         <Spinner
                             android:layout_width="wrap_content"
@@ -130,7 +130,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittextbgm"
+                        android:background="#4dffffff"
                         >
 
                         <Spinner
@@ -153,7 +153,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/edittextbgm"
+                        android:background="#4dffffff"
                         >
 
                         <Spinner
@@ -193,7 +193,9 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittextbgm">
+                    android:textColor="@android:color/white"
+                    android:background="#4dffffff"
+                    android:textColorHint="@android:color/white">
                 <Spinner
                     android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -214,7 +216,9 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittextbgm">
+                    android:textColor="@android:color/white"
+                    android:background="#4dffffff"
+                    android:textColorHint="@android:color/white">
 
                 <Spinner
                     android:layout_width="match_parent"
@@ -252,7 +256,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittextbgm">
+                    android:background="#4dffffff">
 
                     <Spinner
                         android:layout_width="wrap_content"
@@ -274,7 +278,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittextbgm"
+                    android:background="#4dffffff"
                     >
 
                     <Spinner
@@ -297,7 +301,7 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittextbgm"
+                    android:background="#4dffffff"
                    >
 
                     <Spinner
@@ -408,7 +412,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:orientation="vertical"
-                android:background="#DDDBDB">
+                android:background="#B1B3B3">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -448,7 +452,9 @@
 
                     android:layout_marginTop="5dp"
                     android:hint="Email ID"
-                    android:background="@drawable/edittextbgm"
+                    android:textColor="@android:color/white"
+                    android:background="#4d000000"
+                    android:textColorHint="#4dffffff"
                     android:id="@+id/email"/>
 
 
@@ -465,7 +471,9 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="@drawable/edittextbgm"
+                    android:textColor="@android:color/white"
+                    android:background="#4d000000"
+                    android:textColorHint="#4dffffff"
                     android:hint="Contact No"
                     android:inputType="number"
                     android:padding="10dp"

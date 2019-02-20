@@ -2,6 +2,8 @@ package com.example.publicmart;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.BlurMaskFilter;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -19,6 +21,8 @@ import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import jp.wasabeef.blurry.Blurry;
 
 public class BaseActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
@@ -52,6 +56,9 @@ public class BaseActivity extends AppCompatActivity {
 
         head.setTypeface(custom_font);
 
+
+
+
         toolbar=(Toolbar)findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.hamburger);
         setSupportActionBar(toolbar);
@@ -65,9 +72,11 @@ public class BaseActivity extends AppCompatActivity {
         drawerLayout.addDrawerListener(toggle);
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(false);
-//        toggle.setDrawerIndicatorEnabled(false);
-//        toggle.setHomeAsUpIndicator(R.drawable.hamburger );
+
+
+//        Blurry.with(this).radius(25).sampling(2).onto(navigationView);
+
+
 
 
 
@@ -81,6 +90,11 @@ public class BaseActivity extends AppCompatActivity {
                 switch(id) {
                     case R.id.hom:
                         Intent intent = new Intent(BaseActivity.this, Home.class);
+                        startActivity(intent);
+                        drawerLayout.closeDrawers();
+                        break;
+                    case R.id.prof:
+                        intent = new Intent(BaseActivity.this, Profile.class);
                         startActivity(intent);
                         drawerLayout.closeDrawers();
                         break;

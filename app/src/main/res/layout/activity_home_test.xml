@@ -4,11 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/servicegrid"
+
     android:orientation="vertical"
 
     tools:context=".Home">
     <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/toolbar"-->
         <!--android:layout_width="match_parent"-->
         <!--android:gravity="center_horizontal"-->
         <!--android:layout_height="wrap_content"-->
@@ -48,12 +49,6 @@
             android:layout_height="220dp">
 
 
-
-
-
-
-
-
             <ViewFlipper
                 android:layout_width="wrap_content"
                 android:layout_height="180dp"
@@ -63,23 +58,11 @@
 
 
 
-
-
-
-
-
-
-
             <!--First Grid-->
 
 
 
-
-
-
             <!--First Grid End-->
-
-
 
 
             <!--<LinearLayout-->
@@ -125,25 +108,29 @@
             android:layout_width="match_parent"
             android:layout_height="0dip"
             android:orientation="horizontal"
+
             android:layout_weight="1" >
 
 
 
 
                 <LinearLayout
+
+                android:layout_margin="1dp"
                 android:clickable="true"
                 android:id="@+id/Product_layout"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:background="@color/col8"
+                android:background="@drawable/ripple"
                 android:orientation="vertical"
                 android:layout_width="0dp"
                 android:layout_height="match_parent">
 
                 <ImageView
                     android:src="@drawable/newshoppingbag"
+                    android:tint="@color/col7"
                     android:layout_weight=".75"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
@@ -157,7 +144,7 @@
                     android:textSize="15dp"
                     android:gravity="start"
                     android:textStyle="bold"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/col5"
                     android:layout_height="wrap_content" />
 
 
@@ -169,12 +156,13 @@
 
 
                 <LinearLayout
+                    android:layout_margin="1dp"
                     android:id="@+id/service"
                     android:paddingTop="40dp"
                     android:paddingBottom="40dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:background="@color/col9"
+                    android:background="@android:color/white"
                     android:orientation="vertical"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
@@ -182,6 +170,7 @@
                     <ImageView
                         android:src="@drawable/servicesicon"
                         android:layout_weight=".75"
+                        android:tint="@color/col7"
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
                     <TextView
@@ -194,7 +183,7 @@
                         android:textSize="15dp"
                         android:gravity="start"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/col5"
                         android:layout_height="wrap_content" />
 
                 </LinearLayout>
@@ -209,11 +198,12 @@
                 android:layout_weight="1" >
 
                 <LinearLayout
+                    android:layout_margin="1dp"
                     android:paddingTop="40dp"
                     android:paddingBottom="40dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:background="@color/col6"
+                    android:background="@android:color/white"
                     android:orientation="vertical"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
@@ -221,6 +211,7 @@
                     <ImageView
                         android:src="@drawable/cart"
                         android:layout_weight=".75"
+                        android:tint="@color/col7"
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
                     <TextView
@@ -233,7 +224,7 @@
                         android:textSize="15dp"
                         android:gravity="start"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/col5"
                         android:layout_height="wrap_content" />
 
 
@@ -242,17 +233,19 @@
 
 
                 <LinearLayout
+                    android:layout_margin="1dp"
                     android:paddingTop="40dp"
                     android:paddingBottom="40dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:background="@color/col7"
+                    android:background="@android:color/white"
                     android:orientation="vertical"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content">
 
                     <ImageView
                         android:src="@drawable/onlinebooking"
+                        android:tint="@color/col7"
                         android:layout_weight=".75"
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
@@ -266,7 +259,7 @@
                         android:textSize="15dp"
                         android:gravity="start"
                         android:textStyle="bold"
-                        android:textColor="@android:color/white"
+                        android:textColor="@color/col5"
                         android:layout_height="wrap_content" />
 
 
@@ -274,10 +267,10 @@
             </LinearLayout>
 
             <LinearLayout
+                android:layout_marginTop="1dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:background="@color/col5"
+                android:background="@android:color/white"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:paddingTop="40dp"
@@ -286,6 +279,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="50dp"
+                    android:tint="@color/col7"
                     android:layout_weight=".75"
                     android:src="@drawable/results" />
 
@@ -296,9 +290,10 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:layout_weight="1"
+
                     android:gravity="start"
                     android:text="SHOPPING LIST"
-                    android:textColor="@android:color/white"
+                    android:textColor="@color/col5"
                     android:textSize="15dp"
                     android:textStyle="bold" />
 

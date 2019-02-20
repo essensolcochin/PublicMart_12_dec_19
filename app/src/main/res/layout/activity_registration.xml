@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:gravity="center"
     android:padding="10dp"
-    android:background="@drawable/bg"
+    android:background="@color/col5"
     tools:context=".Registration">
 
     <ScrollView
@@ -22,21 +22,17 @@
             android:padding="30dp">
 
 
-            <RelativeLayout
-        android:layout_margin="5dp"
 
-        android:layout_width="match_parent"
-        android:background="#E0DEDE"
-        android:layout_height="25dp">
         <TextView
            android:layout_marginTop="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="10dp"
+            android:textSize="12dp"
+            android:textColor="@android:color/white"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:text="Personal Details"/>
-    </RelativeLayout>
+
 
     <EditText
         android:layout_marginTop="5dp"
@@ -101,20 +97,17 @@
         android:background="#4d000000"
         android:textColorHint="@android:color/white"
         />
-    <RelativeLayout
-        android:layout_margin="15dp"
-        android:layout_width="match_parent"
-        android:background="#E0DEDE"
-        android:layout_height="25dp">
+
     <TextView
        android:layout_margin="5dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="10dp"
+        android:textSize="12dp"
+        android:textColor="@android:color/white"
         android:layout_gravity="center_horizontal"
         android:gravity="center_horizontal"
         android:text="Bank Details"/>
-    </RelativeLayout>
+
 
     <EditText
 
@@ -158,21 +151,17 @@
         android:textColorHint="@android:color/white"
         />
 
-    <RelativeLayout
-        android:layout_margin="15dp"
-        android:layout_width="match_parent"
-        android:background="#E0DEDE"
-        android:layout_height="25dp">
 
         <TextView
             android:layout_margin="5dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="10dp"
+            android:textSize="12dp"
+            android:textColor="@android:color/white"
             android:layout_gravity="center_horizontal"
             android:gravity="center_horizontal"
             android:text="Membership Type"/>
-    </RelativeLayout>
+
 
 
             <LinearLayout
@@ -202,7 +191,7 @@
                     android:layout_height="30dp"
                     android:checked="false"
                     android:layout_weight="1"
-                    android:backgroundTint="@drawable/buttonbgm"
+
                     android:textColor="@android:color/white"
                     android:text="Gold"
                     />
@@ -243,14 +232,10 @@
             </RadioGroup>
             </LinearLayout>
 
-            <RelativeLayout
-                android:layout_margin="15dp"
-                android:layout_width="match_parent"
-                android:background="#E0DEDE"
-                android:layout_height="25dp"/>
 
 
     <EditText
+        android:layout_marginTop="10dp"
         android:textColorHint="@android:color/white"
         android:gravity="center"
         android:layout_width="280dp"

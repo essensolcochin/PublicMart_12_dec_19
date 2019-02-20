@@ -9,6 +9,10 @@
 
         android:title="Home" />
     <item
+        android:id="@+id/prof"
+
+        android:title="Profile" />
+    <item
         android:id="@+id/pro"
         android:title="Products" />
     <item
