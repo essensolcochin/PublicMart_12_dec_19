@@ -41,13 +41,13 @@
                     android:gravity="start"
                     android:textStyle="bold"
                     android:text="Publicmart"
+                    android:layout_marginLeft="10dp"
                     android:textSize="25dp"
                     android:textColor="@color/col10"
                     />
                 <ImageView
                     android:layout_toRightOf="@+id/appname"
                     android:layout_toEndOf="@+id/appname"
-
                     android:layout_marginLeft="50dp"
                     android:layout_marginStart="50dp"
                     android:id="@+id/search"

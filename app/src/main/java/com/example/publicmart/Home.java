@@ -1,8 +1,10 @@
 package com.example.publicmart;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 
@@ -46,7 +48,6 @@ public class Home extends BaseActivity {
         product=(LinearLayout) findViewById(R.id.Product_layout);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
-
 
 
 
