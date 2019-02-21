@@ -1,5 +1,6 @@
 package com.example.publicmart;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.crashlytics.android.Crashlytics;
 import com.crashlytics.android.ndk.CrashlyticsNdk;
+
 import io.fabric.sdk.android.Fabric;
 
 
@@ -17,12 +19,15 @@ public class MainActivity extends AppCompatActivity {
     TextView reg;
     Button log;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Fabric.with(this, new Crashlytics(), new CrashlyticsNdk());
         reg = (TextView) findViewById(R.id.register);
+
+
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -35,10 +40,21 @@ public class MainActivity extends AppCompatActivity {
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+
+
                 Intent intent =new Intent(MainActivity.this,Home.class);
                 startActivity(intent);
 
+
+
+
+
+
+
             }
+
         });
 
 

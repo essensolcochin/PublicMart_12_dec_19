@@ -52,6 +52,8 @@
             android:text="Login"
             android:textColor="#ffff" />
 
+
+
         <TextView
             android:gravity="center"
             android:id="@+id/register"
@@ -62,6 +64,8 @@
             android:text="Don't have an account, Sign up"
             android:textColor="@color/col6"
             android:textSize="18dp" />
+
+
 
     </LinearLayout>
 

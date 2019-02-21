@@ -1,11 +1,14 @@
 package com.example.publicmart;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v7.widget.CardView;
 
 import android.view.View;
@@ -18,6 +21,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import android.widget.ViewFlipper;
+
+import dmax.dialog.SpotsDialog;
 
 public class Home extends BaseActivity {
 
@@ -39,6 +44,28 @@ public class Home extends BaseActivity {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_home_test, contentFrameLayout);
+
+
+        final SpotsDialog progress = new SpotsDialog(Home.this,R.style.Custom);
+
+
+        progress.show();
+
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+
+
+                progress.cancel();
+            }
+        };
+
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 2000);
+
+
+
 
 
 //        android.support.v7.widget.Toolbar tb=getToolBar();    
@@ -74,12 +101,6 @@ public class Home extends BaseActivity {
         order.setTypeface(custom_font);
         shoplist.setTypeface(custom_font);
         bookingstat.setTypeface(custom_font);
-
-
-
-
-
-
 
         viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
 
@@ -132,7 +153,7 @@ public class Home extends BaseActivity {
         imageView.setBackgroundResource(image);
         viewFlipper.addView(imageView);
         viewFlipper.setFlipInterval(4000);
-        viewFlipper.setAutoStart(true);
+
 
 
 
