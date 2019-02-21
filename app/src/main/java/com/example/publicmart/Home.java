@@ -30,7 +30,7 @@ public class Home extends BaseActivity {
     LinearLayout services,product,orderstat,booking;
     CardView profile;
     ViewFlipper viewFlipper;
-    TextView txtxmpny,Product,sevices,order,shoplist,bookingstat,recent,report,prof;
+    TextView txtxmpny,Product,sevices,order,shoplist,bookingstat,credit,report,prof;
     WebView view;
 
 
@@ -83,6 +83,7 @@ public class Home extends BaseActivity {
         order=(TextView)findViewById(R.id.Order);
         shoplist=(TextView)findViewById(R.id.shop);
         bookingstat=(TextView)findViewById(R.id.book);
+        credit=(TextView)findViewById(R.id.credit);
 
         view=findViewById(R.id.textContent);
 
@@ -101,6 +102,7 @@ public class Home extends BaseActivity {
         order.setTypeface(custom_font);
         shoplist.setTypeface(custom_font);
         bookingstat.setTypeface(custom_font);
+        credit.setTypeface(custom_font);
 
         viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
 

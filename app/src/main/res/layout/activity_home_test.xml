@@ -91,7 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_weight="1" >
+             >
 
 
         <LinearLayout
@@ -118,14 +118,14 @@
                 <ImageView
                     android:tint="@color/col7"
                     android:src="@drawable/bag"
-                    android:layout_weight=".75"
+
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
                 <TextView
                     android:layout_marginTop="10dp"
                     android:id="@+id/product"
                     android:layout_gravity="center"
-                    android:layout_weight="1"
+
                     android:layout_width="wrap_content"
                     android:text="PRODUCTS"
                     android:textSize="15dp"
@@ -153,14 +153,12 @@
                         android:tint="@color/col7"
 
                         android:src="@drawable/airplaneticket"
-                        android:layout_weight=".75"
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
                     <TextView
                         android:layout_marginTop="10dp"
                         android:id="@+id/services"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:text="SERVICES"
                         android:textSize="15dp"
@@ -195,14 +193,12 @@
                         android:tint="@color/col7"
 
                         android:src="@drawable/cartlogo"
-                        android:layout_weight=".75"
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
                     <TextView
                         android:layout_marginTop="10dp"
                         android:id="@+id/Order"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:text="ORDER STATUS"
                         android:textSize="15dp"
@@ -231,14 +227,12 @@
                     <ImageView
                         android:tint="@color/col7"
                         android:src="@drawable/booking"
-                        android:layout_weight=".75"
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
                     <TextView
                         android:layout_marginTop="10dp"
                         android:id="@+id/book"
                         android:layout_gravity="center"
-                        android:layout_weight="1"
                         android:layout_width="wrap_content"
                         android:text="BOOKING STATUS"
                         android:textSize="15dp"
@@ -252,30 +246,34 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_margin="1dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="0dip"
+                android:orientation="horizontal"
+                android:layout_weight="1" >
 
-                android:background="@android:color/white"
-                android:gravity="center"
-                android:orientation="vertical"
+                <LinearLayout
+                android:layout_margin="1dp"
                 android:paddingTop="40dp"
-                android:paddingBottom="40dp">
+                android:paddingBottom="40dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:background="@android:color/white"
+                android:orientation="vertical"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
 
-                <ImageView
+                    <ImageView
                     android:tint="@color/col7"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
-                    android:layout_weight=".75"
                     android:src="@drawable/shoplist" />
 
-                <TextView
+                    <TextView
                     android:id="@+id/shop"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:layout_weight="1"
                     android:gravity="start"
                     android:text="SHOPPING LIST"
                     android:textColor="@color/col10"
@@ -283,7 +281,49 @@
                     android:textStyle="bold" />
 
 
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_margin="1dp"
+                    android:paddingTop="40dp"
+                    android:paddingBottom="40dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:background="@android:color/white"
+                    android:orientation="vertical"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:tint="@color/col7"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/credit" />
+
+                    <TextView
+                        android:id="@+id/credit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="10dp"
+                        android:gravity="start"
+                        android:text="CREDIT"
+                        android:textColor="@color/col10"
+                        android:textSize="15dp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+
             </LinearLayout>
+
+
+
+
+
         </LinearLayout>
 
 
