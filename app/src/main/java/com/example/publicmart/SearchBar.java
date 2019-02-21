@@ -5,10 +5,12 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 
 public class SearchBar extends AppCompatActivity {
 
     EditText editText;
+    ImageView back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +21,13 @@ public class SearchBar extends AppCompatActivity {
 
 
         editText = (EditText) findViewById(R.id.searchbar);
+        back = (ImageView) findViewById(R.id.backpress);
+back.setOnClickListener(new View.OnClickListener() {
+    @Override
+    public void onClick(View v) {
+        onBackPressed();
+    }
+});
 
 
 

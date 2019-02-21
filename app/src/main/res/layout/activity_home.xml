@@ -346,7 +346,7 @@
                             android:layout_weight="1"
                             android:gravity="center"
                             android:padding="5dp"
-                            android:src="@drawable/cart" />
+                            android:src="@drawable/cartlogo" />
 
                         <TextView
                             android:layout_width="match_parent"

@@ -5,32 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
+    android:background="#DBDADA"
     tools:context=".Home">
-    <!--<android.support.v7.widget.Toolbar-->
-        <!--android:id="@+id/toolbar"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:gravity="center_horizontal"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentTop="true"-->
-        <!--android:background="@color/toolbar"-->
-        <!--android:elevation="6dp"-->
-        <!--android:minHeight="50dp"-->
-        <!--android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"-->
-        <!--app:popupTheme="@style/ThemeOverlay.AppCompat.Light">-->
 
-        <!--<TextView-->
-
-            <!--android:id="@+id/appname"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:gravity="center_horizontal"-->
-            <!--android:text="PublicMart"-->
-            <!--android:textSize="20dp"-->
-            <!--android:textColor="#105F8C"-->
-            <!--/>-->
-
-    <!--</android.support.v7.widget.Toolbar>-->
 
 
 
@@ -145,7 +122,7 @@
 
                 <ImageView
                     android:tint="@color/col7"
-                    android:src="@drawable/newshoppingbag"
+                    android:src="@drawable/bag"
                     android:layout_weight=".75"
                     android:layout_width="50dp"
                     android:layout_height="50dp" />
@@ -186,7 +163,7 @@
                     <ImageView
                         android:tint="@color/col7"
 
-                        android:src="@drawable/servicesicon"
+                        android:src="@drawable/airplaneticket"
                         android:layout_weight=".75"
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
@@ -228,7 +205,7 @@
                     <ImageView
                         android:tint="@color/col7"
 
-                        android:src="@drawable/cart"
+                        android:src="@drawable/cartlogo"
                         android:layout_weight=".75"
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
@@ -264,7 +241,7 @@
 
                     <ImageView
                         android:tint="@color/col7"
-                        android:src="@drawable/onlinebooking"
+                        android:src="@drawable/booking"
                         android:layout_weight=".75"
                         android:layout_width="50dp"
                         android:layout_height="50dp" />
@@ -301,7 +278,7 @@
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:layout_weight=".75"
-                    android:src="@drawable/results" />
+                    android:src="@drawable/shoplist" />
 
                 <TextView
                     android:id="@+id/shop"

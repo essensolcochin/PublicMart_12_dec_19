@@ -116,7 +116,7 @@
                         android:textColor="#030303"
                         android:textStyle="bold" />
                     <TextView
-                        android:layout_width="200dp"
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="start"
                        android:text="@string/material"
@@ -139,14 +139,14 @@
 
                     <TextView
                         android:layout_width="match_parent"
-                        android:layout_height="25dp"
+                        android:layout_height="wrap_content"
 
                         android:text="Material and Care"
                         android:textSize="18dp"
                         android:textColor="#030303"
                         android:textStyle="bold" />
                     <TextView
-                        android:layout_width="150dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="start"
                         android:text="@string/materialcare"
@@ -178,7 +178,7 @@
             android:layout_weight="1"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:background="@color/col5"
+            android:background="@color/col7"
             android:text="Place Order"/>
 
 

@@ -14,6 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
+
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
@@ -26,73 +27,49 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-    <TextView
-        android:id="@+id/appname"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="start"
-        android:textStyle="bold"
-        android:text="Publicmart"
-        android:textSize="25dp"
-        android:textColor="@color/col10"
-        />
+            <RelativeLayout
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
+                <TextView
+                    android:id="@+id/appname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="start"
+                    android:textStyle="bold"
+                    android:text="Publicmart"
+                    android:textSize="25dp"
+                    android:textColor="@color/col10"
+                    />
+                <ImageView
+                    android:layout_toRightOf="@+id/appname"
+                    android:layout_toEndOf="@+id/appname"
+
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginStart="50dp"
+                    android:id="@+id/search"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                   android:src="@drawable/ic_action_name"
+                  />
 
 
+                <ImageView
+                    android:layout_toRightOf="@+id/search"
+                    android:layout_toEndOf="@+id/search"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginStart="30dp"
+                    android:id="@+id/cart"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:src="@drawable/cart"
+                    />
 
 
-            <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
-                <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:layout_height="match_parent"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:background="@color/toolbar"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:orientation="horizontal"&ndash;&gt;-->
-                <!--&lt;!&ndash;android:gravity="right">&ndash;&gt;-->
-
-                <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:orientation="vertical"&ndash;&gt;-->
-
-
-                    <!--&lt;!&ndash;&gt;&ndash;&gt;-->
-
-                    <!--&lt;!&ndash;<EditText&ndash;&gt;-->
-                     <!--&lt;!&ndash;android:id="@+id/searchbar"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_width="match_parent"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_height="40dp"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_margin="5dp"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:focusable="false"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:ems="10"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:clickable="true"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:textColorHint="@android:color/white"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:textColor="@android:color/black"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:hint="Find your deal"&ndash;&gt;-->
-                       <!--&lt;!&ndash;android:background="#FF50A4CC"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:gravity="center" >&ndash;&gt;-->
-
-
-                    <!--&lt;!&ndash;</EditText>&ndash;&gt;-->
-
-
-                <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
-
-                <!--&lt;!&ndash;<LinearLayout&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_width="50dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:layout_height="50dp"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
-                    <!--&lt;!&ndash;android:background="@color/toolbar"&ndash;&gt;-->
-                    <!--&lt;!&ndash;&gt;&ndash;&gt;-->
-
-                    <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_width="35dp"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:layout_height="35dp"&ndash;&gt;-->
-                        <!--&lt;!&ndash;android:src="@drawable/searchyellw"/>&ndash;&gt;-->
-                <!--&lt;!&ndash;</LinearLayout>&ndash;&gt;-->
-
-
-            <!--</LinearLayout>-->
-
+            </RelativeLayout>
 
         </android.support.v7.widget.Toolbar>
 

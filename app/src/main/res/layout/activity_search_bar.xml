@@ -5,61 +5,50 @@
     android:layout_width="match_parent"
     android:orientation="vertical"
     android:layout_height="match_parent"
+    android:background="#DBDADA"
     tools:context=".SearchBar">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
+        android:background="@android:color/white"
         android:layout_width="match_parent"
-        android:gravity="center_horizontal"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-       android:background="@color/toolbar"
         android:elevation="6dp"
         android:minHeight="50dp"
 
         android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <ImageView
+            android:id="@+id/backpress"
+            android:tint="@color/col5"
+            android:src="@drawable/leftarrow"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
         <LinearLayout
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@android:color/darker_gray"
             android:orientation="horizontal"
-            android:gravity="right">
+            android:gravity="center_vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@drawable/edittextbg"
 
-                >
 
                 <EditText
                     android:id="@+id/searchbar"
+                    android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_margin="5dp"
-                    android:background="@drawable/edittextbg"
-
+                    android:background="@android:color/white"
                     android:textColor="@android:color/black"
                     android:hint="Find your deal"
-                    android:drawableLeft="@drawable/edittextbg"
-                    android:gravity="center" >
+                    android:gravity="start" >
                 </EditText>
 
-            </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:gravity="center"
-            android:background="@android:color/white"
-            >
 
-            <ImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:src="@drawable/search"/>
-        </LinearLayout>
 
 
         </LinearLayout>

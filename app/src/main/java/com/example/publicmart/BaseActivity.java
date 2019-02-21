@@ -1,9 +1,7 @@
 package com.example.publicmart;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.graphics.BlurMaskFilter;
-import android.graphics.Color;
+
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -13,22 +11,24 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextWatcher;
-import android.view.Gravity;
+
 import android.view.MenuItem;
-import android.view.inputmethod.InputMethodManager;
+import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import jp.wasabeef.blurry.Blurry;
+
 
 public class BaseActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     public Toolbar toolbar;
     public TextView head;
+    private ImageView search,cart;
     private NavigationView navigationView;
     private ListView mSearchNFilterLv;
 
@@ -60,7 +60,9 @@ public class BaseActivity extends AppCompatActivity {
 
 
         toolbar=(Toolbar)findViewById(R.id.toolbar);
-        toolbar.setNavigationIcon(R.drawable.hamburger);
+        search=(ImageView)findViewById(R.id.search);
+        cart=(ImageView) findViewById(R.id.cart);
+
         setSupportActionBar(toolbar);
 
 
@@ -77,7 +79,13 @@ public class BaseActivity extends AppCompatActivity {
 //        Blurry.with(this).radius(25).sampling(2).onto(navigationView);
 
 
-
+        search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(BaseActivity.this, SearchBar.class);
+                startActivity(intent);
+            }
+        });
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
