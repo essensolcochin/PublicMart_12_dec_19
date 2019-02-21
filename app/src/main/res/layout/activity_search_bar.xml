@@ -37,7 +37,7 @@
 
 
                 <EditText
-                    android:id="@+id/searchbar"
+                    android:id="@+id/searchFilter"
                     android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -51,8 +51,17 @@
 
 
 
+
         </LinearLayout>
 
     </android.support.v7.widget.Toolbar>
+
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/theList"/>
+
+
 
 </LinearLayout>

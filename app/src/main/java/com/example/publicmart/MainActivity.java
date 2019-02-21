@@ -15,7 +15,7 @@ import io.fabric.sdk.android.Fabric;
 public class MainActivity extends AppCompatActivity {
 
     TextView reg;
-  Button log;
+    Button log;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     public void forceCrash(View view) {
         throw new RuntimeException("This is a crash");
     }
+
 
 }
 
