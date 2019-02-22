@@ -52,7 +52,7 @@ public class BaseActivity extends AppCompatActivity {
 
         head =findViewById(R.id.appname);
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Enchanting.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Helvetica.ttf");
 
         head.setTypeface(custom_font);
 

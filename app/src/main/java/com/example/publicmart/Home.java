@@ -9,6 +9,8 @@ import android.graphics.Typeface;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 
 import android.view.View;
@@ -16,24 +18,30 @@ import android.view.View;
 
 import android.webkit.WebView;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
+
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import android.widget.ViewFlipper;
+
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import dmax.dialog.SpotsDialog;
 
 public class Home extends BaseActivity {
 
-
+    private static ViewPager mPager;
+    private static int currentPage = 0;
+    private static int NUM_PAGES = 0;
     LinearLayout services,product,orderstat,booking;
     CardView profile;
-    ViewFlipper viewFlipper;
     TextView txtxmpny,Product,sevices,order,shoplist,bookingstat,credit,report,prof;
-    WebView view;
+    TextView view;
 
-
+    private static final Integer[] IMAGES= {R.drawable.ad,R.drawable.ad,R.drawable.ad2};
+    private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
 
 
     int image[] = {R.drawable.ad};
@@ -58,6 +66,8 @@ public class Home extends BaseActivity {
 
 
                 progress.cancel();
+                init();
+
             }
         };
 
@@ -73,6 +83,29 @@ public class Home extends BaseActivity {
 //        txtxmpny.setText("Home");
 
         product=(LinearLayout) findViewById(R.id.Product_layout);
+        orderstat =(LinearLayout) findViewById(R.id.order);
+        booking=(LinearLayout) findViewById(R.id.bookingstat);
+
+        booking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Home.this, Bookingstatus.class);
+                startActivity(intent);
+            }
+        });
+
+
+        orderstat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Home.this, OrderStatus.class);
+                startActivity(intent);
+            }
+        });
+
+
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
 
@@ -88,13 +121,12 @@ public class Home extends BaseActivity {
         view=findViewById(R.id.textContent);
 
         String text;
-        text = "<html><body><p align=\"justify\">";
-        text+=  " ACCT NAME   : PUBLIC MART \n" +
-                " ACCT NO     : 50200034752049 \n" +
-                " IFSC CODE   : HDFC0000628 \n" +
-                " BRANCH NAME : ALAPPUZHA \n";
-        text+= "</p></body></html>";
-        view.loadData(text, "text/html", "utf-8");
+        text =   "ACCT NAME   : PUBLIC MART\n"+
+                 "ACCT NO     : 50200034752049\n"+
+                 "IFSC CODE   : HDFC0000628\n"+
+                 "BRANCH NAME : ALAPPUZHA\n";
+
+        view.setText(text);
 
 
         Product.setTypeface(custom_font);
@@ -104,7 +136,7 @@ public class Home extends BaseActivity {
         bookingstat.setTypeface(custom_font);
         credit.setTypeface(custom_font);
 
-        viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
+
 
         services = findViewById(R.id.service);
         services.setOnClickListener(new View.OnClickListener() {
@@ -134,9 +166,9 @@ public class Home extends BaseActivity {
 //            }
 //        });
 
-        for (int image: image) {
-            flipperimage(image);
-        }
+//        for (int image: image) {
+//            flipperimage(image);
+//        }
 
 //        orderstat = (LinearLayout)findViewById(R.id.orderstatus);
 //        orderstat.setOnClickListener(new View.OnClickListener() {
@@ -149,25 +181,47 @@ public class Home extends BaseActivity {
 
     }
 
-    void flipperimage(int image)
-    {
-        ImageView imageView = new ImageView(this);
-        imageView.setBackgroundResource(image);
-        viewFlipper.addView(imageView);
-        viewFlipper.setFlipInterval(4000);
+    private void init() {
 
 
+        for (int i = 0; i < IMAGES.length; i++)
+            ImagesArray.add(IMAGES[i]);
+
+        mPager = findViewById(R.id.viewflipper);
+
+        PagerAdapter adapter = new SlidingImage_Adapter_Home(Home.this, ImagesArray);
+        mPager.setAdapter(adapter);
 
 
-            viewFlipper.setOutAnimation(Home.this,android.R.anim.slide_out_right);
+        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
 
 
+        final float density = getResources().getDisplayMetrics().density;
 
-            viewFlipper.setInAnimation(Home.this,android.R.anim.slide_in_left);
+        NUM_PAGES = IMAGES.length;
 
+
+        // Auto start of viewpager
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == NUM_PAGES) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 5000, 5000);
 
 
 
 
     }
+
 }
