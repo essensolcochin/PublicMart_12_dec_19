@@ -8,8 +8,6 @@
 
     tools:context=".TrainTicket">
     <LinearLayout
-        android:background="#4d000000"
-        android:padding="10dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         >
@@ -21,6 +19,7 @@
         android:padding="5dp">
 
         <LinearLayout
+            android:padding="10dp"
 
             android:gravity="center_horizontal"
             android:orientation="vertical"
@@ -34,7 +33,6 @@
             <LinearLayout
 
 
-                android:padding="10dp"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -44,9 +42,9 @@
                     android:layout_marginTop="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
+                    android:padding="10dp"
                     android:orientation="vertical"
-                    android:background="#DDDBDB">
+                    android:background="@color/col6">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -58,7 +56,7 @@
                 </LinearLayout>
 
                 <TextView
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -66,19 +64,28 @@
                     android:text="Name of Traveller"/>
 
                 <EditText
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:padding="10dp"
+                    android:paddingLeft="30dp"
+                    android:paddingStart="30dp"
+                    android:paddingRight="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+
+
                     android:layout_marginTop="5dp"
                     android:hint="Name of the Traveller"
-                    android:background="@drawable/edittextbgm"
+                    android:background="@drawable/grad1"
 
                     android:id="@+id/traveler_name"/>
 
                 <TextView
-                    android:textColor="@android:color/white"
-                    android:layout_margin="5dp"
+                    android:layout_marginTop="5dp"
+
+                    android:textColor="@android:color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
@@ -86,6 +93,7 @@
 
 
                 <LinearLayout
+                    android:layout_marginTop="5dp"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -94,19 +102,19 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff">
+                        android:background="@drawable/edittextbgm">
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/bday"
                             />
                     </RelativeLayout>
                     <TextView
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
@@ -116,20 +124,20 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff"
+                        android:background="@drawable/edittextbgm"
                         >
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/bmonth"
                             />
                     </RelativeLayout>
                     <TextView
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
@@ -139,14 +147,14 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff"
+                        android:background="@drawable/edittextbgm"
                         >
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/byear"
                             />
@@ -161,10 +169,11 @@
 
 
                 <TextView
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:text="From"/>
                 <!--<EditText-->
                 <!--android:layout_width="match_parent"-->
@@ -177,9 +186,11 @@
                 <!--android:id="@+id/from"/>-->
 
                 <RelativeLayout
+                    android:layout_marginTop="5dp"
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittextbgm">
+                    android:background="@drawable/grad1">
 
                     <Spinner
                         android:id="@+id/city"
@@ -194,15 +205,18 @@
 
 
                 <TextView
-                    android:textColor="@android:color/white"
+                    android:layout_marginTop="5dp"
+                    android:textColor="@android:color/black"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
                     android:text="To"/>
+
                 <RelativeLayout
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/edittextbgm">
+                    android:background="@drawable/grad1">
 
                     <Spinner
                         android:layout_width="match_parent"
@@ -224,15 +238,15 @@
 
                 <!--android:id="@+id/to"/>-->
                 <TextView
-                    android:textColor="@android:color/white"
-                    android:layout_margin="5dp"
+                    android:textColor="@android:color/black"
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
                     android:text="Date of Journey "/>
 
                 <LinearLayout
-
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -246,13 +260,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/day"
                             />
                     </RelativeLayout>
                     <TextView
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
@@ -269,13 +283,13 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/month"
                             />
                     </RelativeLayout>
                     <TextView
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
@@ -292,7 +306,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/year"
                             />
@@ -319,7 +333,7 @@
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:orientation="vertical"
-                    android:background="#DDDBDB">
+                    android:background="@color/col6">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -338,8 +352,8 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:paddingBottom="20dp"
                     android:layout_marginTop="10dp"
-                    android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
@@ -349,17 +363,25 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:text="Email ID"/>
+
+
                     <EditText
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
-                        android:padding="10dp"
+                        android:paddingLeft="30dp"
+                        android:paddingStart="30dp"
+                        android:paddingRight="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
 
                         android:layout_marginTop="5dp"
                         android:hint="Email ID"
-                        android:background="@drawable/edittextbgm"
+                        android:background="@drawable/grad1"
                         android:id="@+id/email"/>
 
 
@@ -368,7 +390,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
-                        android:textColor="@android:color/white"
+                        android:textColor="@android:color/black"
                         android:text="Contact No"/>
 
                     <EditText
@@ -377,10 +399,15 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
 
-                        android:background="@drawable/edittextbgm"
+                        android:background="@drawable/grad1"
                         android:hint="Contact No"
                         android:inputType="number"
-                        android:padding="10dp"
+                        android:paddingLeft="30dp"
+                        android:paddingStart="30dp"
+                        android:paddingRight="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
                         android:textSize="18dp" />
 
                 </LinearLayout>
@@ -396,17 +423,14 @@
 
                     <Button
 
-                        android:layout_width="wrap_content"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:paddingTop="18dp"
-                        android:background="@drawable/buttonbgm"
-                        android:paddingLeft="32dp"
-                        android:paddingRight="32dp"
-                        android:paddingBottom="18dp"
+                        android:background="@drawable/grad2"
+
 
                         android:textColor="#ffff"
-                        android:text="Submit"
-                        android:textSize="18dp"/>
+                        android:text="Book Now"
+                        android:textSize="15dp"/>
                 </LinearLayout>
 
             </LinearLayout>
