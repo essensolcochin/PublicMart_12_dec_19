@@ -3,24 +3,26 @@ package com.example.publicmart;
 import android.content.Context;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
 class SlidingText_Adapter_Home extends PagerAdapter {
-    private ArrayList<Integer> IMAGES;
+    private ArrayList<String> IMAGES;
     private LayoutInflater inflater;
     private Context context;
 
 
-    public SlidingText_Adapter_Home(Context context, ArrayList<Integer> IMAGES) {
+    public SlidingText_Adapter_Home(Context context, ArrayList<String> IMAGES) {
         this.context = context;
         this.IMAGES=IMAGES;
         inflater = LayoutInflater.from(context);
-
+        Log.e("textsizeeeee",""+IMAGES.size());
 
 
     }
@@ -37,19 +39,19 @@ class SlidingText_Adapter_Home extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup view, int position) {
-        View imageLayout = inflater.inflate(R.layout.slidingtext_home_layout, view, false);
+        View texlayout = inflater.inflate(R.layout.slidingtext_home_layout, view, false);
 
-        assert imageLayout != null;
-        final ImageView imageView = (ImageView) imageLayout
-                .findViewById(R.id.image);
+        assert texlayout != null;
+        final TextView imageView = (TextView) texlayout
+                .findViewById(R.id.adTXT);
 
-
-
-
-        view.addView(imageLayout, 0);
+        imageView.setText(IMAGES.get(position));
 
 
-        return imageLayout;
+        view.addView(texlayout, 0);
+
+
+        return texlayout;
     }
 
     @Override

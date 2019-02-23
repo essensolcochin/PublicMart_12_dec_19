@@ -5,6 +5,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
@@ -43,8 +44,9 @@ public class FlightTicket extends BaseActivity{
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final Integer[] IMAGES= {R.drawable.ad,R.drawable.ad,R.drawable.ad2};
-    private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
+    private static final String[] Text= {"Guaranteed Low Price and User Friendly Ticket Cancellation","xxxxxxxxxx","yyyyyyyyyyy"};
+
+    private ArrayList<String> TextArray = new ArrayList<String>();
 
 
     TextView txtxmpny;
@@ -115,7 +117,7 @@ public class FlightTicket extends BaseActivity{
 
 
 
-       // init();
+       init();
 
 
     }
@@ -133,23 +135,23 @@ public class FlightTicket extends BaseActivity{
     private void init() {
 
 
-        for (int i = 0; i < IMAGES.length; i++)
-            ImagesArray.add(IMAGES[i]);
+        for (int i = 0; i < Text.length; i++)
+            TextArray.add(Text[i]);
 
 
 
-        mPager = findViewById(R.id.viewflipper);
+        mPager = findViewById(R.id.viewflipper1);
 
-        PagerAdapter adapter = new SlidingText_Adapter_Home(FlightTicket.this, ImagesArray);
+        PagerAdapter adapter = new SlidingText_Adapter_Home(FlightTicket.this, TextArray);
         mPager.setAdapter(adapter);
+        Log.e("textsizeeeee","flight "+TextArray.size());
 
 
-        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
 
 
-        final float density = getResources().getDisplayMetrics().density;
 
-        NUM_PAGES = IMAGES.length;
+
+        NUM_PAGES = Text.length;
 
 
         // Auto start of viewpager
