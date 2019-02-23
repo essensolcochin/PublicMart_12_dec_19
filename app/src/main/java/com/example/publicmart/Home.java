@@ -78,7 +78,7 @@ public class Home extends BaseActivity {
 
 
 
-//        android.support.v7.widget.Toolbar tb=getToolBar();    
+//        android.support.v7.widget.Toolbar tb=getToolBar();
 //        txtxmpny=(TextView)tb.findViewById(R.id.appname);
 //        txtxmpny.setText("Home");
 
@@ -122,9 +122,9 @@ public class Home extends BaseActivity {
 
         String text;
         text =   "ACCT NAME   : PUBLIC MART\n"+
-                 "ACCT NO     : 50200034752049\n"+
-                 "IFSC CODE   : HDFC0000628\n"+
-                 "BRANCH NAME : ALAPPUZHA\n";
+                "ACCT NO     : 50200034752049\n"+
+                "IFSC CODE   : HDFC0000628\n"+
+                "BRANCH NAME : ALAPPUZHA\n";
 
         view.setText(text);
 

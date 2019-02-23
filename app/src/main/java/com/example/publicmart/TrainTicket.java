@@ -36,7 +36,7 @@ public class TrainTicket extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        getLayoutInflater().inflate(R.layout.activity_train_ticket_ed, contentFrameLayout);
+        getLayoutInflater().inflate(R.layout.activity_train_ticket, contentFrameLayout);
 
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);

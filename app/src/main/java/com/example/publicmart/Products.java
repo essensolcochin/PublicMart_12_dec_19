@@ -2,6 +2,7 @@ package com.example.publicmart;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -12,6 +13,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
+
+import dmax.dialog.SpotsDialog;
 
 public class Products extends BaseActivity {
 
@@ -30,6 +33,23 @@ TextView fash,spice,nut,weight;
         getLayoutInflater().inflate(R.layout.activity_products_recycle, contentFrameLayout);
 
 
+        final SpotsDialog progress = new SpotsDialog(Products.this,R.style.Custom);
+
+
+        progress.show();
+
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+
+
+                progress.cancel();
+            }
+        };
+
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 2000);
 //        android.support.v7.widget.Toolbar tb=getToolBar();
 
 

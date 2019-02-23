@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#eaf7fd"
+    android:background="@android:color/white"
     tools:context=".FlightTicket">
 
         <ScrollView
@@ -18,23 +18,16 @@
 
             android:gravity="center_horizontal"
             android:orientation="vertical"
+
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
             <!--Radio Button Start -->
-
-
-
-
-
             <!--Radio Button End -->
-
-
-
 
             <LinearLayout
 
-                android:background="#F3F1F1"
+                android:background="@android:color/white"
                 android:padding="5dp"
               android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
@@ -47,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:padding="5dp"
                     android:orientation="vertical"
-                    android:background="#DDDBDB">
+                    android:background="@color/col6">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -56,10 +49,7 @@
                         android:textColor="#0A0A0A"
                         android:text="Booking Information"/>
 
-
                 </LinearLayout>
-
-
 
                 <TextView
                     android:layout_marginTop="10dp"
@@ -71,11 +61,18 @@
                 <EditText
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:textSize="18dp"
-                    android:padding="10dp"
+                    android:paddingLeft="30dp"
+                    android:paddingStart="30dp"
+                    android:paddingRight="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+
                     android:layout_marginTop="5dp"
                     android:hint="Name of the Traveller"
-                    android:background="@drawable/edittextbg"
+                    android:background="@drawable/edittextbgm"
 
                     android:id="@+id/traveler_name"/>
 
@@ -85,7 +82,6 @@
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
                     android:text="Date Of Birth"/>
-
 
                 <LinearLayout
 
@@ -119,7 +115,6 @@
                         android:layout_height="wrap_content"
                         android:background="#ffff"
                         >
-
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -152,13 +147,7 @@
                             />
                     </RelativeLayout>
 
-
-
-
-
                 </LinearLayout>
-
-
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -172,13 +161,18 @@
                     <!--android:padding="10dp"-->
                     <!--android:hint="Enter the city or Code"-->
                     <!--android:background="@drawable/edittextbg"-->
-
                     <!--android:id="@+id/from"/>-->
 
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#ffff">
+                    android:textSize="18dp"
+                    android:paddingLeft="10dp"
+
+                    android:paddingRight="10dp"
+                    android:paddingEnd="10dp"
+
+                    android:background="@drawable/edittextbgm">
                 <Spinner
                     android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -198,12 +192,16 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#ffff">
+                    android:textSize="18dp"
+                    android:paddingLeft="10dp"
+
+                    android:paddingRight="10dp"
+                    android:paddingEnd="10dp"
+                    android:background="@drawable/edittextbgm">
 
                 <Spinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:textSize="18dp"
                     android:padding="10dp"
                     android:id="@+id/city2"
@@ -291,10 +289,6 @@
                         />
                 </RelativeLayout>
 
-
-
-
-
             </LinearLayout>
                 <TextView
                     android:textSize="18dp"
@@ -318,10 +312,6 @@
                         android:backgroundTint="@android:color/black"
                         android:id="@+id/radiogrp">
 
-
-
-
-
                                 <RadioButton
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/oneway"
@@ -332,9 +322,6 @@
                                     android:layout_weight="1"
                                     android:text="Morning (4 am - 12 pm)"
                                     />
-
-
-
 
                                 <RadioButton
                                     android:layout_marginLeft="5dp"
@@ -357,20 +344,10 @@
                                     android:text="Night (8 pm - 4 am)"
                                     />
 
-
-
-
-
-
-
                     </RadioGroup>
 
 
-
-
-
                 </LinearLayout>
-
 
 
                 <!--Radio Button End-->
@@ -381,7 +358,7 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:orientation="vertical"
-                android:background="#DDDBDB">
+                android:background="@color/col6">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -417,11 +394,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                    android:padding="10dp"
-
                     android:layout_marginTop="5dp"
                     android:hint="Email ID"
-                    android:background="#ffff"
+
+                    android:paddingLeft="30dp"
+                    android:paddingStart="30dp"
+                    android:paddingRight="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/edittextbgm"
                     android:id="@+id/email"/>
 
 
@@ -438,10 +420,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="5dp"
-                    android:background="#ffff"
                     android:hint="Contact No"
                     android:inputType="number"
-                    android:padding="10dp"
+
+                    android:paddingLeft="30dp"
+                    android:paddingStart="30dp"
+                    android:paddingRight="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:background="@drawable/edittextbgm"
                     android:textSize="18dp" />
 
             </LinearLayout>
@@ -456,15 +444,13 @@
 
 
             <Button
-
-                android:layout_width="wrap_content"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:paddingTop="18dp"
-                android:background="@drawable/buttonbgm"
+                android:background="@drawable/grad2"
                 android:paddingLeft="32dp"
                 android:paddingRight="32dp"
                 android:paddingBottom="18dp"
-
                 android:textColor="#ffff"
                 android:text="Submit"
                 android:textSize="18dp"/>

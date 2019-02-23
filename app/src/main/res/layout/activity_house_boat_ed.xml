@@ -9,375 +9,357 @@
     tools:context=".HouseBoat">
 
 
-
     <LinearLayout
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-        <ViewFlipper
-            android:padding="10dp"
-            android:layout_width="fill_parent"
-            android:layout_height="200dp"
-            android:id="@+id/viewflipper"/>
-
-    <LinearLayout
-        android:background="#4d000000"
-
+        android:background="@android:color/white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewflipper"
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
 
-
-
-
-
-
+        </android.support.v4.view.ViewPager>
 
         <LinearLayout
-
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:background="#344955"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!--Radio Button Start -->
-
-            <!--Radio Button End -->
-
-
-
+            android:layout_height="match_parent">
 
             <LinearLayout
 
-
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
-                <!--<LinearLayout-->
+
+                <!--Radio Button Start -->
+
+                <!--Radio Button End -->
+
+                <LinearLayout
+
+
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+                    <!--<LinearLayout-->
                     <!--android:gravity="center_horizontal"-->
                     <!--android:orientation="vertical"-->
                     <!--android:layout_width="match_parent"-->
                     <!--android:layout_height="wrap_content">-->
                     <!--<ViewFlipper-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="220dp"-->
-                        <!--android:id="@+id/viewflipper">-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="220dp"-->
+                    <!--android:id="@+id/viewflipper">-->
 
                     <!--</ViewFlipper>-->
-                <!--</LinearLayout>-->
+                    <!--</LinearLayout>-->
 
 
-
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:orientation="vertical"
-                    android:background="#DDDBDB">
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        android:textColor="#0A0A0A"
-                        android:text="Booking Information"/>
-
-                </LinearLayout>
-
-                <TextView
-                    android:textColor="@android:color/white"
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="Guest Name"/>
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:padding="10dp"
-                    android:layout_marginTop="5dp"
-                    android:hint="Guest Name"
-                    android:background="#ffff"
-
-                    android:id="@+id/traveler_name"/>
-
-
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#ffff"/>
-
-                <TextView
-                    android:textColor="@android:color/white"
-                    android:layout_margin="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="Date of Journey "/>
-
-                <LinearLayout
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#ffff">
-
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
-                            android:padding="10dp"
-                            android:id="@+id/day"
-                            />
-                    </RelativeLayout>
-                    <TextView
-                        android:textColor="@android:color/white"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:textSize="32dp"
-                        android:text="/"/>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#ffff"
-                        >
-
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
-                            android:padding="10dp"
-                            android:id="@+id/month"
-                            />
-                    </RelativeLayout>
-                    <TextView
-                        android:textColor="@android:color/white"
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:textSize="32dp"
-                        android:text="/"/>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#ffff"
-                        >
-
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
-                            android:padding="10dp"
-                            android:id="@+id/year"
-                            />
-                    </RelativeLayout>
-
-                </LinearLayout>
-
-                <TextView
-                    android:textColor="@android:color/white"
-                    android:layout_margin="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="No. of Guest"/>
-
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#ffff"
-                    >
-                <Spinner
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:padding="10dp"
-                    android:id="@+id/noofmembers"
-                    />
-                </RelativeLayout>
-
-                <TextView
-                    android:textColor="@android:color/white"
-                    android:layout_margin="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="Type of cruise"/>
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="10dp"
-
-                    android:orientation="horizontal">
-
-                    <RadioGroup
-                        android:layout_width="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/col6"
                         android:orientation="vertical"
-                        android:layout_height="wrap_content"
+                        android:padding="8dp">
 
-                        android:id="@+id/radiogrp">
-
-
-                        <RadioButton
-                            android:textColor="@android:color/white"
-                            android:layout_marginLeft="5dp"
-                            android:id="@+id/oneway"
+                        <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:buttonTint="@android:color/white"
-                            android:checked="false"
-                            android:layout_weight="1"
-                            android:text="Day (11 am - 5 pm)"
-                            />
+                            android:layout_height="wrap_content"
+                            android:text="Booking Information"
+                            android:textColor="#0A0A0A"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
 
-                        <RadioButton
-                            android:textColor="@android:color/white"
-                            android:layout_marginLeft="5dp"
-                            android:id="@+id/roundtrip"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:buttonTint="@android:color/white"
-                            android:checked="false"
-                            android:text="Night (5 pm - 11 pm)"
-                            />
+                    </LinearLayout>
 
-
-                        <RadioButton
-                            android:layout_marginLeft="5dp"
-                            android:id="@+id/business"
-                            android:layout_width="wrap_content"
-                            android:layout_height="30dp"
-                            android:buttonTint="@android:color/white"
-                            android:textColor="@android:color/white"
-                            android:checked="false"
-                            android:text="Fullday (11 am - 11 pm)"
-                            />
-
-                    </RadioGroup>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:orientation="vertical"
-                    android:background="#DDDBDB">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        android:textColor="#0A0A0A"
-                        android:text="Contact Information"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="10dp"
-                        android:textStyle="bold"
-                        android:textColor="#616161"
-                        android:text="Your will be contacted from the given details"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textColor="@android:color/white"
-                        android:text="Email ID"/>
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:padding="10dp"
-
-                        android:layout_marginTop="5dp"
-                        android:hint="Email ID"
-                        android:background="#ffff"
-                        android:id="@+id/email"/>
-
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:textColor="@android:color/white"
-                        android:text="Contact No"/>
+                        android:layout_marginTop="20dp"
+                        android:text="Guest Name"
+                        android:textColor="@android:color/black"
+                        android:textSize="18dp" />
 
                     <EditText
-                        android:id="@+id/contact"
+                        android:id="@+id/traveler_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-
-                        android:background="#ffff"
-                        android:hint="Contact No"
-                        android:inputType="number"
+                        android:background="@drawable/edittextbgm"
+                        android:hint="Guest Name"
                         android:padding="10dp"
                         android:textSize="18dp" />
 
-                </LinearLayout>
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="#ffff" />
 
-                <LinearLayout
-                    android:layout_margin="20dp"
-                    android:gravity="center_horizontal"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Date of Journey "
+                        android:textColor="@android:color/black"
+                        android:textSize="18dp" />
 
-                    <Button
+                    <LinearLayout
 
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:paddingTop="18dp"
-                        android:background="@drawable/buttonbgm"
-                        android:paddingLeft="32dp"
-                        android:paddingRight="32dp"
-                        android:paddingBottom="18dp"
+                        android:orientation="horizontal">
 
-                        android:textColor="#ffff"
-                        android:text="Submit"
-                        android:textSize="18dp"/>
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edittextbgm">
+
+                            <Spinner
+                                android:id="@+id/day"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textSize="18dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:text="/"
+                            android:textColor="@android:color/black"
+                            android:textSize="32dp" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edittextbgm">
+
+                            <Spinner
+                                android:id="@+id/month"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textSize="18dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:text="/"
+                            android:textColor="@android:color/black"
+                            android:textSize="32dp" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/edittextbgm">
+
+                            <Spinner
+                                android:id="@+id/year"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textSize="18dp" />
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="No. of Guest"
+                        android:textColor="@android:color/black"
+                        android:textSize="18dp" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/edittextbgm">
+
+                        <Spinner
+                            android:id="@+id/noofmembers"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="18dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Type of cruise"
+                        android:textColor="@android:color/black"
+                        android:textSize="18dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:padding="10dp">
+
+                        <RadioGroup
+                            android:id="@+id/radiogrp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:orientation="vertical">
+
+
+                            <RadioButton
+                                android:id="@+id/oneway"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="5dp"
+                                android:layout_weight="1"
+                                android:buttonTint="@android:color/black"
+                                android:checked="false"
+                                android:text="Day (11 am - 5 pm)"
+                                android:textColor="@android:color/black" />
+
+                            <RadioButton
+                                android:id="@+id/roundtrip"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="5dp"
+                                android:buttonTint="@android:color/black"
+                                android:checked="false"
+                                android:text="Night (5 pm - 11 pm)"
+                                android:textColor="@android:color/black" />
+
+
+                            <RadioButton
+                                android:id="@+id/business"
+                                android:layout_width="wrap_content"
+                                android:layout_height="30dp"
+                                android:layout_marginLeft="5dp"
+                                android:buttonTint="@android:color/black"
+                                android:checked="false"
+                                android:text="Fullday (11 am - 11 pm)"
+                                android:textColor="@android:color/black" />
+
+                        </RadioGroup>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:background="@color/col6"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contact Information"
+                            android:textColor="#0A0A0A"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your will be contacted from the given details"
+                            android:textColor="#616161"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Email ID"
+                            android:textColor="@android:color/black"
+                            android:textSize="18dp" />
+
+                        <EditText
+                            android:id="@+id/email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+
+                            android:background="@drawable/edittextbgm"
+                            android:hint="Email ID"
+                            android:padding="10dp"
+                            android:textSize="18dp" />
+
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:text="Contact No"
+                            android:textColor="@android:color/black"
+                            android:textSize="18dp" />
+
+                        <EditText
+                            android:id="@+id/contact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+
+                            android:background="@drawable/edittextbgm"
+                            android:hint="Contact No"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:textSize="18dp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:gravity="center_horizontal">
+
+                        <Button
+
+                            android:layout_width="200dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/grad2"
+                            android:paddingLeft="32dp"
+                            android:paddingTop="18dp"
+                            android:paddingRight="32dp"
+                            android:paddingBottom="18dp"
+
+                            android:text="Submit"
+                            android:textColor="#ffff"
+                            android:textSize="18dp" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
             </LinearLayout>
 
         </LinearLayout>
-
-    </LinearLayout>
     </LinearLayout>
 
 
-    </ScrollView>
+</ScrollView>
 
