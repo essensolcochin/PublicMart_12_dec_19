@@ -36,7 +36,7 @@ public class TrainTicket extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        getLayoutInflater().inflate(R.layout.activity_train_ticket, contentFrameLayout);
+        getLayoutInflater().inflate(R.layout.activity_train_ticket_ed, contentFrameLayout);
 
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -66,7 +66,7 @@ public class TrainTicket extends BaseActivity {
         header7 = findViewById(R.id.header7);
 
         Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/GravityBold.otf");
-        header1.setTypeface(custom_font2);
+     header1.setTypeface(custom_font2);
         header2.setTypeface(custom_font2);
         header3.setTypeface(custom_font2);
         header4.setTypeface(custom_font2);

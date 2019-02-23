@@ -115,7 +115,7 @@ public class FlightTicket extends BaseActivity{
 
 
 
-        init();
+       // init();
 
 
     }
