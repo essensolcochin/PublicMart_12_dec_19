@@ -2,6 +2,7 @@ package com.example.publicmart;
 
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.ViewFlipper;
+
+import dmax.dialog.SpotsDialog;
 
 public class Services extends BaseActivity {
 
@@ -44,6 +47,24 @@ public class Services extends BaseActivity {
         gunTXT.setTypeface(custom_font);
         insureTXT.setTypeface(custom_font);
 
+
+        final SpotsDialog progress = new SpotsDialog(Services.this,R.style.Custom);
+
+
+        progress.show();
+
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+
+
+                progress.cancel();
+            }
+        };
+
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 2000);
 
 //        android.support.v7.widget.Toolbar tb=getToolBar();
 //        txtxmpny=(TextView)tb.findViewById(R.id.appname);
