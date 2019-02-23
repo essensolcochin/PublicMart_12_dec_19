@@ -71,7 +71,7 @@ public class ProductView extends BaseActivity {
         mPager.setAdapter(adapter);
 
 
-       // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
+        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
 
 
         final float density = getResources().getDisplayMetrics().density;

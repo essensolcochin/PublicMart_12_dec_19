@@ -2,11 +2,18 @@ package com.example.publicmart;
 
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.ViewFlipper;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class HouseBoat extends BaseActivity {
     String array_membrno[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
@@ -17,15 +24,24 @@ public class HouseBoat extends BaseActivity {
     String array_Mnth[] = {"MM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     String array_Year[] = {"2019"};
     Spinner membersno, days, months, years;
-    int image[] = {R.drawable.houseboatwall,R.drawable.houseboatwalll};
-    ViewFlipper viewFlipper;
+
+
+    private static final Integer[] IMAGES = {R.drawable.houseboatwall,R.drawable.houseboatwalll};
+    private static ViewPager mPager;
+    private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
+    private static int NUM_PAGES = 0;
+    private static int currentPage = 0;
+
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_house_boat_ed, contentFrameLayout);
-        viewFlipper = (ViewFlipper)findViewById(R.id.viewflipper);
+        mPager = (ViewPager) findViewById(R.id.viewflipper);
 
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -56,22 +72,52 @@ public class HouseBoat extends BaseActivity {
         spinner_adapter_year.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         years.setAdapter(spinner_adapter_year);
 
-
-        for (int image: image) {
-            flipperimage(image);
-        }
+        init();
 
     }
-    void flipperimage(int image)
-    {
-        ImageView imageView = new ImageView(this);
-        imageView.setBackgroundResource(image);
-        viewFlipper.addView(imageView);
-        viewFlipper.setFlipInterval(4000);
-        viewFlipper.setAutoStart(true);
+    private void init() {
 
-        viewFlipper.setOutAnimation(this,android.R.anim.slide_out_right);
-        viewFlipper.setInAnimation(this,android.R.anim.slide_in_left);
+
+        for (int i = 0; i < IMAGES.length; i++)
+            ImagesArray.add(IMAGES[i]);
+
+
+
+
+        PagerAdapter adapter = new SlidingImage_Adapter(HouseBoat.this, ImagesArray);
+        mPager.setAdapter(adapter);
+
+
+        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
+
+
+        final float density = getResources().getDisplayMetrics().density;
+
+
+        NUM_PAGES = IMAGES.length;
+        // Auto start of viewpager
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == NUM_PAGES) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 5000, 5000);
+
+
+
     }
+
+
+
     }
 
