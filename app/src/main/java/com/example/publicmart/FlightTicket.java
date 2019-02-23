@@ -1,5 +1,8 @@
 package com.example.publicmart;
 
+import android.os.Handler;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +15,10 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toolbar;
 import android.widget.ViewFlipper;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class FlightTicket extends BaseActivity{
 
@@ -32,6 +39,12 @@ public class FlightTicket extends BaseActivity{
 
     RadioGroup rg;
     RadioButton radioButton;
+
+    private static ViewPager mPager;
+    private static int currentPage = 0;
+    private static int NUM_PAGES = 0;
+    private static final Integer[] IMAGES= {R.drawable.ad,R.drawable.ad,R.drawable.ad2};
+    private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
 
 
     TextView txtxmpny;
@@ -102,7 +115,7 @@ public class FlightTicket extends BaseActivity{
 
 
 
-
+        init();
 
 
     }
@@ -117,5 +130,48 @@ public class FlightTicket extends BaseActivity{
 
     }
 
+    private void init() {
 
+
+        for (int i = 0; i < IMAGES.length; i++)
+            ImagesArray.add(IMAGES[i]);
+
+
+
+        mPager = findViewById(R.id.viewflipper);
+
+        PagerAdapter adapter = new SlidingText_Adapter_Home(FlightTicket.this, ImagesArray);
+        mPager.setAdapter(adapter);
+
+
+        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
+
+
+        final float density = getResources().getDisplayMetrics().density;
+
+        NUM_PAGES = IMAGES.length;
+
+
+        // Auto start of viewpager
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == NUM_PAGES) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 5000, 5000);
+
+
+
+
+    }
 }

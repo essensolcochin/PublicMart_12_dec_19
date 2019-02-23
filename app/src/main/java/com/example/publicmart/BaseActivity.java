@@ -55,6 +55,13 @@ public class BaseActivity extends AppCompatActivity {
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Helvetica.ttf");
 
         head.setTypeface(custom_font);
+        head.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(BaseActivity.this, Home.class);
+                startActivity(intent);
+            }
+        });
 
 
 

@@ -210,7 +210,7 @@
                         android:clickable="true"
                         android:textColor="#ffff"
                         android:id="@+id/bpayment"
-                        android:background="@drawable/bgm"
+                        android:background="@drawable/grad2"
                         android:text="Make Payment"/>
 
                 </LinearLayout>
