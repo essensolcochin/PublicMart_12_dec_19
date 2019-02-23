@@ -1,11 +1,18 @@
 package com.example.publicmart;
 
+import android.graphics.Typeface;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MotionEvent;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
+import android.widget.RelativeLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 public class TrainTicket extends BaseActivity {
 
@@ -22,6 +29,9 @@ public class TrainTicket extends BaseActivity {
 
     Spinner citycode,citycode2,days,months,years, bday,bmonth,byear;
 
+    TextView header1,header2,header3,header4,header5,header6,header7;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +41,10 @@ public class TrainTicket extends BaseActivity {
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+
+
+
+
         citycode = findViewById(R.id.city);
         citycode2 = findViewById(R.id.city2);
         days = findViewById(R.id.day);
@@ -39,6 +53,30 @@ public class TrainTicket extends BaseActivity {
         bday = findViewById(R.id.bday);
         bmonth = findViewById(R.id.bmonth);
         byear = findViewById(R.id.byear);
+
+
+
+
+        header1 = findViewById(R.id.header1);
+        header2 = findViewById(R.id.header2);
+        header3 = findViewById(R.id.header3);
+        header4 = findViewById(R.id.header4);
+        header5 = findViewById(R.id.header5);
+        header6 = findViewById(R.id.header6);
+        header7 = findViewById(R.id.header7);
+
+        Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/GravityBold.otf");
+        header1.setTypeface(custom_font2);
+        header2.setTypeface(custom_font2);
+        header3.setTypeface(custom_font2);
+        header4.setTypeface(custom_font2);
+        header5.setTypeface(custom_font2);
+        header6.setTypeface(custom_font2);
+        header7.setTypeface(custom_font2);
+
+
+
+
 
 
         final ArrayAdapter<String> spinner_adapter = new ArrayAdapter<String>(this,
