@@ -11,12 +11,29 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.common.logging.FLog;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
+import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.core.ImagePipelineConfig;
+import com.facebook.imagepipeline.listener.RequestListener;
+import com.facebook.imagepipeline.listener.RequestLoggingListener;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+
+import java.net.URL;
+import java.util.HashSet;
+import java.util.Set;
 
 public  class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
 
 private String[] mData;
-private LayoutInflater mInflater;
+
+
+private final PipelineDraweeControllerBuilder mControllerBuilder =
+            Fresco.newDraweeControllerBuilder();
 
  private Context context;
         // data is passed into the constructor
@@ -35,8 +52,48 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 @Override
 public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-    Uri uri = Uri.parse("http://i.imgur.com/DvpvklR.png");
-    holder.product_image.setImageURI(uri);
+
+
+    Set<RequestListener> requestListeners = new HashSet<>();
+    requestListeners.add(new RequestLoggingListener());
+    ImagePipelineConfig config = ImagePipelineConfig.newBuilder(context)
+            // other setters
+            .setRequestListeners(requestListeners)
+            .build();
+    Fresco.initialize(context, config);
+    FLog.setMinimumLoggingLevel(FLog.VERBOSE);
+
+
+    try {
+        URL url = new URL("http://192.168.0.30:7899/images/1.jpg");
+        ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
+                .setAutoRotateEnabled(true)
+                .setResizeOptions(new ResizeOptions(50, 50))
+                .build();
+        DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                .setImageRequest(imageRequest)
+                .build();
+        holder.product_image.setController(draweeController);
+    } catch (Exception e) {
+    }
+
+
+
+//
+//    Uri uri = Uri.parse("http://i.imgur.com/DvpvklR.png");
+//    final ImageRequest imageRequest =
+//            ImageRequestBuilder.newBuilderWithSource(uri)
+//
+//                    .build();
+//    holder.product_image.setImageRequest(imageRequest);
+
+
+
+
+
+
+
+   // holder.product_image.setImageURI(uri);
 
 
 holder.itemLayout.setOnClickListener(new View.OnClickListener() {

@@ -1,31 +1,50 @@
 package com.example.publicmart;
 
-import android.content.Intent;
-import android.graphics.Typeface;
+
 import android.os.Handler;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.View;
+import android.util.Log;
+
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 import dmax.dialog.SpotsDialog;
 
 public class Products extends BaseActivity {
 
-    ViewFlipper viewFlipper;
 
+    JSONObject jsonString;
     LinearLayout fashion;
-
-TextView fash,spice,nut,weight;
+     String code,message;
+    TextView fash,spice,nut,weight;
     ProductMenuAdapter adapter;
-
-
+    RecyclerView recyclerView;
+    List<$ProductMenuModel>menuModel=new ArrayList<>();
+     SpotsDialog progress ;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,59 +52,161 @@ TextView fash,spice,nut,weight;
         getLayoutInflater().inflate(R.layout.activity_products_recycle, contentFrameLayout);
 
 
-        final SpotsDialog progress = new SpotsDialog(Products.this,R.style.Custom);
 
+
+        progress = new SpotsDialog(Products.this,R.style.Custom);
+
+//        android.support.v7.widget.Toolbar tb=getToolBar();
+
+        recyclerView = findViewById(R.id.menu);
+        int numberOfColumns = 2;
+        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+
+        LoadMenu();
 
         progress.show();
 
-        Runnable progressRunnable = new Runnable() {
-
-            @Override
-            public void run() {
-
-
-                progress.cancel();
-            }
-        };
-
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 2000);
-//        android.support.v7.widget.Toolbar tb=getToolBar();
-
-
-
-//        fash =findViewById(R.id.fashion);
-//        spice =findViewById(R.id.spice);
-//        nut =findViewById(R.id.nutri);
-//        weight =findViewById(R.id.weight);
-//        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
-//
-//        fash.setTypeface(custom_font);
-//        spice.setTypeface(custom_font);
-//        nut.setTypeface(custom_font);
-//        weight.setTypeface(custom_font);
-//
-//        fashion = (LinearLayout)findViewById(R.id.deal1);
-//        fashion.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Products.this, FashionCategory.class);
-//                startActivity(intent);
-//
-//            }
-//        });
-
-        String[] data = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
-
-        // set up the RecyclerView
-        RecyclerView recyclerView = findViewById(R.id.menu);
-        int numberOfColumns = 2;
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
-        adapter = new ProductMenuAdapter(this, data);
-
-        recyclerView.setAdapter(adapter);
 
 
     }
+
+
+    private void LoadMenu() {
+
+
+
+        try {
+
+            JSONObject values = new JSONObject();
+            jsonString = new JSONObject();
+            jsonString.put("Token", "0001");
+            jsonString.put("call", "GetActiveProductCategory");
+            jsonString.put("values", values);
+
+        } catch (
+                JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+        String URL = "http://192.168.0.30:7899/api/CommonApi/Invoke";
+
+
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        progress.cancel();
+
+                        Log.e("Jsonnnn",""+response);
+
+                       ////// Checking Json Response Is Object Or Not ///////
+                        try {
+
+
+                            JSONObject o     = new JSONObject(response);
+
+
+                            String data = response;
+                            Object json = new JSONTokener(data).nextValue();
+                            if (json instanceof JSONObject){
+                                Log.e("objectttttt",""+json);
+                            }
+                            //you have an object
+                            else if (json instanceof JSONArray){
+                                Log.e("Arrayyyyyyy",""+json);
+                            }
+
+                            ///////////////////////////////////////////
+
+
+
+                             Log.e("tryyyyyyyyy","in"+o);
+
+
+                            code = o.getString("responseCode");
+                            message=o.getString("responseMessage");
+
+                            Log.e("resppppppp",""+code);
+
+
+                            if (code.equalsIgnoreCase("0"))
+                            {
+
+                                Log.e("resppppppp","ifffff"+code);
+
+
+                                JSONArray json_array2 = o.getJSONArray("result");
+                                JSONObject jsonObject;
+
+                                int j;
+                                for (j = 0; j < json_array2.length(); j++) {
+                                    jsonObject = json_array2.getJSONObject(j);
+
+                                   $ProductMenuModel items =new $ProductMenuModel(jsonObject.getString("CategoryKey"),
+                                           jsonObject.getString("CategoryName"),
+                                           jsonObject.getString("ImagePath"));
+
+                                  //
+                                    menuModel.add(items);
+                                    Log.e("fromjsonnnn", "  " + menuModel.size());
+
+                                }
+                                adapter = new ProductMenuAdapter(getApplicationContext(), menuModel);
+
+                                recyclerView.setAdapter(adapter);
+                            }
+
+
+                            else {
+                                Toast.makeText(Products.this,message,Toast.LENGTH_LONG).show();
+                            }
+
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progress.cancel();
+                        Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_LONG).show();
+
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> param = new HashMap<String, String>();
+                param.put("jsonString",jsonString.toString() );
+                Log.e("paramssss",""+param);
+                return param;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> param = new HashMap<String, String>();
+                param.put("Content-Type","application/x-www-form-urlencoded");
+                return param;
+            }
+        }
+                ;
+
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
 
 }
