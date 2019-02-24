@@ -2,7 +2,9 @@ package com.example.publicmart;
 
 import android.content.Context;
 import android.os.Parcelable;
+import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -71,5 +73,8 @@ public class SlidingImage_Adapter_Home extends PagerAdapter {
         return null;
     }
 
-
+    @Override
+    public void destroyItem(@NonNull View container, int position, @NonNull Object object) {
+        ((ViewPager) container).removeView((View)object);
+    }
 }
