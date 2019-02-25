@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    app:cardElevation="5dp"
+    android:layout_margin="5dp"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextbg"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <LinearLayout
+            android:padding="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittextbg"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/booked_name"
+                    android:layout_gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ABHIJITH"
+                    android:textColor="#030303"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <RelativeLayout
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:orientation="horizontal"
+                    android:layout_height="wrap_content">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_height="wrap_content">
+
+                        <LinearLayout
+
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:id="@+id/from"
+                                android:layout_weight="1"
+                                android:layout_gravity="start"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BLR"
+                                android:textColor="#030303"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+                            <TextView
+
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:layout_gravity="start"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="-"
+                                android:textColor="#030303"
+                                android:textSize="15dp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:id="@+id/to"
+                                android:layout_weight="1"
+                                android:layout_gravity="start"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="COK"
+                                android:textColor="#030303"
+                                android:textSize="18dp"
+                                android:textStyle="bold" />
+
+                        </LinearLayout>
+
+
+
+                        <LinearLayout
+                            android:orientation="horizontal"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_gravity="start"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="9:00 "
+                                android:textColor="#030303"
+                                android:textSize="15dp"
+                                />
+                            <TextView
+
+                                android:layout_marginLeft="5dp"
+                                android:layout_marginStart="5dp"
+                                android:layout_marginEnd="5dp"
+                                android:layout_marginRight="5dp"
+                                android:layout_weight="1"
+                                android:gravity="center_vertical"
+                                android:layout_gravity="start"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="-"
+                                android:textColor="#030303"
+                                android:textSize="15dp"
+                                />
+                            <TextView
+                                android:layout_weight="1"
+                                android:layout_gravity="start"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+
+                                android:text="10:00"
+                                android:textColor="#030303"
+                                android:textSize="15dp"
+                                />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+
+
+                    <TextView
+                        android:textColor="@android:color/white"
+                        android:background="@drawable/shapemrp"
+                        android:padding="10dp"
+                        android:textSize="20dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:text="1080 ₹"
+                        android:layout_alignParentRight="true" />
+
+                </RelativeLayout>
+
+
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                </LinearLayout>
+
+
+                <Button
+                    android:layout_marginLeft="5dp"
+                    android:id="@+id/bpayment"
+                    android:layout_width="130dp"
+                    android:layout_height="40dp"
+                    android:layout_marginTop="12dp"
+                    android:background="@drawable/grad2"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="Make Payment"
+                    android:textColor="#ffff" />
+
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextbg"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="MIMOSA SAREES"
+                android:textSize="20dp"
+                android:textColor="#030303"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/itemDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Woven Design Kanjeevaram Saree"
+                android:textSize="15dp"
+                android:textColor="#666666"
+                />
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MRP: 500"
+                    android:layout_weight="1"
+                    android:textSize="15dp"
+                    android:textColor="@color/col7"
+                    />
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BV: 25"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/col10"
+                    />
+            </LinearLayout>
+
+
+            <Button
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="12dp"
+                android:padding="5dp"
+                android:clickable="true"
+                android:textColor="#ffff"
+                android:id="@+id/payment"
+                android:background="@drawable/grad2"
+                android:text="Make Payment"/>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+        <ImageView
+            android:padding="5dp"
+            android:layout_gravity="center_vertical"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:src="@drawable/saree3"/>
+
+
+
+
+
+    </LinearLayout>
+</LinearLayout>

@@ -208,6 +208,7 @@
                         android:layout_height="match_parent">
 
                         <LinearLayout
+                            android:id="@+id/tour_package"
                             android:clickable="true"
                             android:gravity="center"
                             android:paddingTop="25dp"
@@ -259,6 +260,7 @@
                         android:layout_height="match_parent">
 
                         <LinearLayout
+                            android:id="@+id/travel_guide"
                             android:clickable="true"
                             android:gravity="center"
                             android:paddingTop="25dp"
@@ -303,6 +305,7 @@
                         android:layout_height="match_parent">
 
                         <LinearLayout
+                            android:id="@+id/gun_licence"
                             android:clickable="true"
                             android:gravity="center"
                             android:paddingTop="25dp"
@@ -352,6 +355,7 @@
                         android:layout_height="match_parent">
 
                         <LinearLayout
+                            android:id="@+id/insurance"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:clickable="true"

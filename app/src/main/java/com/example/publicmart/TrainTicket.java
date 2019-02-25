@@ -1,9 +1,13 @@
 package com.example.publicmart;
 
 import android.graphics.Typeface;
+import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,6 +17,10 @@ import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class TrainTicket extends BaseActivity {
 
@@ -30,6 +38,14 @@ public class TrainTicket extends BaseActivity {
     Spinner citycode,citycode2,days,months,years, bday,bmonth,byear;
 
     TextView header1,header2,header3,header4,header5,header6,header7;
+
+    private static ViewPager mPager;
+    private static int currentPage = 0;
+    private static int NUM_PAGES = 0;
+    private static final String[] Text= {"Easy Cancellation Process","Convenience charge 50₹"};
+
+    private ArrayList<String> TextArray = new ArrayList<String>();
+    TextInputLayout trname,tremail,trcontact;
 
 
     @Override
@@ -57,22 +73,20 @@ public class TrainTicket extends BaseActivity {
 
 
 
-        header1 = findViewById(R.id.header1);
+
         header2 = findViewById(R.id.header2);
         header3 = findViewById(R.id.header3);
         header4 = findViewById(R.id.header4);
         header5 = findViewById(R.id.header5);
-        header6 = findViewById(R.id.header6);
-        header7 = findViewById(R.id.header7);
+
 
         Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/GravityBold.otf");
-     header1.setTypeface(custom_font2);
+
         header2.setTypeface(custom_font2);
         header3.setTypeface(custom_font2);
         header4.setTypeface(custom_font2);
         header5.setTypeface(custom_font2);
-        header6.setTypeface(custom_font2);
-        header7.setTypeface(custom_font2);
+
 
 
 
@@ -115,5 +129,63 @@ public class TrainTicket extends BaseActivity {
                 android.R.layout.simple_spinner_item, array_BYear);
         spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         byear.setAdapter(spinner_adapter_yday);
+
+        trname = (TextInputLayout) findViewById(R.id.name_input_layout);
+        trname.setHint("Enter Your Name");
+
+        tremail = (TextInputLayout) findViewById(R.id.input_layout_email);
+        tremail.setHint("Enter Your Email ID");
+
+        trcontact = (TextInputLayout) findViewById(R.id.input_layout_contact);
+        trcontact.setHint("Enter Your Contact No");
+
+
+
+        init();
+    }
+
+    private void init() {
+
+
+        for (int i = 0; i < Text.length; i++)
+            TextArray.add(Text[i]);
+
+
+
+        mPager = findViewById(R.id.viewflipper1);
+
+        PagerAdapter adapter = new SlidingText_Adapter_Train(TrainTicket.this, TextArray);
+        mPager.setAdapter(adapter);
+        Log.e("textsizeeeee","flight "+TextArray.size());
+
+
+
+
+
+
+        NUM_PAGES = Text.length;
+
+
+        // Auto start of viewpager
+        final Handler handler = new Handler();
+        final Runnable Update = new Runnable() {
+            public void run() {
+                if (currentPage == NUM_PAGES) {
+                    currentPage = 0;
+                }
+                mPager.setCurrentItem(currentPage++, true);
+            }
+        };
+        Timer swipeTimer = new Timer();
+        swipeTimer.schedule(new TimerTask() {
+            @Override
+            public void run() {
+                handler.post(Update);
+            }
+        }, 1500, 5000);
+
+
+
+
     }
 }

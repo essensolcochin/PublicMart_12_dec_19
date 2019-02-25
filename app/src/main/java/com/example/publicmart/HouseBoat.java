@@ -3,6 +3,7 @@ package com.example.publicmart;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.widget.ArrayAdapter;
@@ -31,6 +32,8 @@ public class HouseBoat extends BaseActivity {
     private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
     private static int NUM_PAGES = 0;
     private static int currentPage = 0;
+
+    TextInputLayout guest,bemail,bcontact;
 
 
 
@@ -73,6 +76,15 @@ public class HouseBoat extends BaseActivity {
         years.setAdapter(spinner_adapter_year);
 
         init();
+
+        guest = (TextInputLayout) findViewById(R.id.guest_input_layout);
+        guest.setHint("Guest Name");
+
+        bemail = (TextInputLayout) findViewById(R.id.bemail_input_layout);
+        bemail.setHint("Enter Your Email ID");
+
+        bcontact = (TextInputLayout) findViewById(R.id.bcontact_input_layout);
+        bcontact.setHint("Enter Your Contact No");
 
     }
     private void init() {

@@ -1,6 +1,7 @@
 package com.example.publicmart;
 
 import android.os.Handler;
+import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -44,9 +45,10 @@ public class FlightTicket extends BaseActivity{
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final String[] Text= {"Guaranteed Low Price and User Friendly Ticket Cancellation","xxxxxxxxxx","yyyyyyyyyyy"};
+    private static final String[] Text= {"Guaranteed Low Price","User Friendly Ticket Cancellation"};
 
     private ArrayList<String> TextArray = new ArrayList<String>();
+    TextInputLayout name,email,contact;
 
 
     TextView txtxmpny;
@@ -56,7 +58,14 @@ public class FlightTicket extends BaseActivity{
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_flight_ticket, contentFrameLayout);
+        name = (TextInputLayout) findViewById(R.id.text_input_layout);
+        name.setHint("Enter Your Name");
 
+        email = (TextInputLayout) findViewById(R.id.email_input_layout);
+        email.setHint("Enter Your Email ID");
+
+        contact = (TextInputLayout) findViewById(R.id.contact_input_layout);
+        contact.setHint("Enter Your Contact No");
 
 
         toolbar =  findViewById(R.id.toolbar);
@@ -170,7 +179,7 @@ public class FlightTicket extends BaseActivity{
             public void run() {
                 handler.post(Update);
             }
-        }, 5000, 5000);
+        }, 1500, 5000);
 
 
 

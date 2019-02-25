@@ -6,8 +6,12 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -22,6 +26,8 @@ public class ProductView extends BaseActivity {
     private static int NUM_PAGES = 0;
     private static final Integer[] IMAGES= {R.drawable.sa1,R.drawable.sa2,R.drawable.sa3};
     private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
+    LinearLayout wishlist;
+    Button placeorder;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +50,8 @@ public class ProductView extends BaseActivity {
         detailed_description =(TextView)findViewById(R.id.detail_desc);
         Material=(TextView)findViewById(R.id.material);
         material_care=(TextView)findViewById(R.id.materialcare);
-
+        wishlist = findViewById(R.id.bottomframe);
+        placeorder = findViewById(R.id.place_order);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/CODEBold.otf");
 
@@ -56,6 +63,23 @@ public class ProductView extends BaseActivity {
         Product_Name.setTypeface(custom_font2);
         Material.setTypeface(custom_font2);
         material_care.setTypeface(custom_font2);
+
+
+        wishlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Toast.makeText(getApplication(), "Product added to Wishlist",Toast.LENGTH_LONG).show();
+            }
+        });
+
+        placeorder.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplication(), "Your Order Has Been Placed",Toast.LENGTH_LONG).show();
+            }
+        });
+
     }
 
     private void init() {

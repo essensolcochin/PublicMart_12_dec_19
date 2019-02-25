@@ -35,7 +35,7 @@ public class Home extends BaseActivity {
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    LinearLayout services,product,orderstat,booking;
+    LinearLayout services,product,orderstat,booking,credit_layout,shopping;
     CardView profile;
     TextView txtxmpny,Product,sevices,order,shoplist,bookingstat,credit,report,prof;
     TextView view;
@@ -85,7 +85,9 @@ public class Home extends BaseActivity {
         product=(LinearLayout) findViewById(R.id.Product_layout);
         orderstat =(LinearLayout) findViewById(R.id.order);
         booking=(LinearLayout) findViewById(R.id.bookingstat);
+        credit_layout=(LinearLayout)findViewById(R.id.credit_lay);
 
+        shopping=(LinearLayout)findViewById(R.id.shoppinlist);
         booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -101,6 +103,22 @@ public class Home extends BaseActivity {
             public void onClick(View v) {
 
                 Intent intent = new Intent(Home.this, OrderStatus.class);
+                startActivity(intent);
+            }
+        });
+
+        credit_layout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, CreditActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        shopping.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Home.this, Shopping_List.class);
                 startActivity(intent);
             }
         });

@@ -5,40 +5,40 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:largeHeap="true"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".TestActivity">
-
-        </activity>
-        <activity android:name=".FashionCategory"></activity>
-        <activity android:name=".HouseBoat"></activity>
-        <activity android:name=".TrainTicket"></activity>
-        <activity android:name=".Profile"></activity>
-        <activity android:name=".SearchBar"></activity>
-        <activity android:name=".BaseActivity"></activity>
-        <activity android:name=".ProductView"></activity>
-        <activity android:name=".Bookingstatus"></activity>
-        <activity android:name=".Payment"></activity>
-        <activity android:name=".orderstatusdet"></activity>
-        <activity android:name=".OrderStatus"></activity>
-        <activity android:name=".Fashion"></activity>
-        <activity android:name=".Products"></activity>
-        <activity android:name=".Services"></activity>
-        <activity android:name=".FlightTicket"></activity>
-        <activity android:name=".Home"></activity>
-        <activity android:name=".Registration"></activity>
+        <activity android:name=".Splash_Screen"></activity>
+        <activity android:name=".Shopping_List" />
+        <activity android:name=".CreditActivity" />
+        <activity android:name=".TestActivity" />
+        <activity android:name=".FashionCategory" />
+        <activity android:name=".HouseBoat" />
+        <activity android:name=".TrainTicket" />
+        <activity android:name=".Profile" />
+        <activity android:name=".SearchBar" />
+        <activity android:name=".BaseActivity" />
+        <activity android:name=".ProductView" />
+        <activity android:name=".Bookingstatus" />
+        <activity android:name=".Payment" />
+        <activity android:name=".orderstatusdet" />
+        <activity android:name=".OrderStatus" />
+        <activity android:name=".Fashion" />
+        <activity android:name=".Products" />
+        <activity android:name=".Services" />
+        <activity android:name=".FlightTicket" />
+        <activity android:name=".Home" />
+        <activity android:name=".Registration" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
 
         <meta-data

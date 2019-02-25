@@ -10,6 +10,7 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
 import dmax.dialog.SpotsDialog;
@@ -18,7 +19,7 @@ public class Services extends BaseActivity {
 
     ViewFlipper viewFlipper;
     int image[] = {R.drawable.ad, R.drawable.travelalert};
-    LinearLayout flight, train, boat;
+    LinearLayout flight, train, boat,tour,travel,gun,insure;
     TextView flightTXT, trainTXT, boatTXT, tourTXT, travelTXT, gunTXT, insureTXT;
 
     @Override
@@ -35,6 +36,11 @@ public class Services extends BaseActivity {
         travelTXT = (TextView) findViewById(R.id.travel);
         gunTXT = (TextView) findViewById(R.id.gun);
         insureTXT = (TextView) findViewById(R.id.insure);
+        tour = (LinearLayout)findViewById(R.id.tour_package);
+        travel =(LinearLayout)findViewById(R.id.travel_guide);
+        gun=(LinearLayout)findViewById(R.id.gun_licence);
+        insure=(LinearLayout)findViewById(R.id.insurance);
+
 
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/curvy.ttf");
@@ -46,6 +52,7 @@ public class Services extends BaseActivity {
         travelTXT.setTypeface(custom_font);
         gunTXT.setTypeface(custom_font);
         insureTXT.setTypeface(custom_font);
+
 
 
         final SpotsDialog progress = new SpotsDialog(Services.this,R.style.Custom);
@@ -94,6 +101,32 @@ public class Services extends BaseActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Services.this, HouseBoat.class);
                 startActivity(intent);
+            }
+        });
+        tour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplication(), "Coming Soon",Toast.LENGTH_LONG).show();
+
+            }
+        });
+
+        travel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplication(), "Coming Soon",Toast.LENGTH_LONG).show();
+            }
+        });
+        gun.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplication(), "Coming Soon",Toast.LENGTH_LONG).show();
+            }
+        });
+        insure.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(getApplication(), "Coming Soon",Toast.LENGTH_LONG).show();
             }
         });
 

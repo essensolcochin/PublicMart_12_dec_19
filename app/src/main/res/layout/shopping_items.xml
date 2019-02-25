@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/edittextbg"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_gravity="center_vertical"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/itemName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="MIMOSA SAREES"
+                android:textSize="20dp"
+                android:textColor="#030303"
+                android:textStyle="bold" />
+            <TextView
+                android:layout_marginTop="5dp"
+                android:id="@+id/itemDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Woven Design Kanjeevaram Saree"
+                android:textSize="15dp"
+                android:textColor="#666666"
+                />
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="MRP: 500"
+                    android:layout_weight="1"
+                    android:textSize="15dp"
+                    android:textColor="@color/col7"
+                    />
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_marginLeft="15dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="BV: 25"
+                    android:textSize="15dp"
+                    android:layout_weight="1"
+                    android:textColor="@color/col10"
+                    />
+            </LinearLayout>
+
+
+
+
+
+
+        </LinearLayout>
+
+
+
+
+        <ImageView
+            android:padding="5dp"
+            android:layout_gravity="center_vertical"
+
+
+            android:layout_width="wrap_content"
+            android:layout_height="130dp"
+            android:src="@drawable/saree3"/>
+
+
+
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

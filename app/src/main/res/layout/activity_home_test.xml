@@ -184,6 +184,7 @@
                 android:layout_weight="1" >
 
                 <LinearLayout
+                    android:clickable="true"
                     android:id="@+id/order"
                     android:layout_margin="1dp"
                     android:paddingTop="40dp"
@@ -258,6 +259,8 @@
                 android:layout_weight="1" >
 
                 <LinearLayout
+                    android:clickable="true"
+                    android:id="@+id/shoppinlist"
                 android:layout_margin="1dp"
                 android:paddingTop="40dp"
                 android:paddingBottom="40dp"
@@ -292,6 +295,8 @@
 
 
                 <LinearLayout
+                    android:clickable="true"
+                    android:id="@+id/credit_lay"
                     android:layout_margin="1dp"
                     android:paddingTop="40dp"
                     android:paddingBottom="40dp"
