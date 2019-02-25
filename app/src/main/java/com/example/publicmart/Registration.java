@@ -77,7 +77,7 @@ public class Registration extends AppCompatActivity {
         house_no = (EditText)findViewById(R.id.Hno);
         tehsil = (EditText)findViewById(R.id.tehsil);
         village = (EditText)findViewById(R.id.village);
-        district = (EditText)findViewById(R.id.district);
+        district = (EditText)findViewById(R.id.district);   //
         pincode = (EditText)findViewById(R.id.pin);
         contact_no = (EditText)findViewById(R.id.contactno);
         email = (EditText)findViewById(R.id.email);
