@@ -58,7 +58,9 @@
                     android:textColor="#6B6B6B"
                     android:textColorHint="#6B6B6B"
                     android:gravity="start"
-                    android:hint="Username" />
+                    android:hint="Username"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"/>
 
             </LinearLayout>
 
@@ -94,7 +96,8 @@
                     android:textColor="#6B6B6B"
                     android:textColorHint="#6B6B6B"
                     android:gravity="start"
-                    android:hint="Password" />
+                    android:hint="Password"
+                    android:imeOptions="actionDone"/>
 
             </LinearLayout>
 

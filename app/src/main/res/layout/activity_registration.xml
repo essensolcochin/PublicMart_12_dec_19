@@ -5,9 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center"
     android:padding="10dp"
-    android:background="@color/col5"
+    android:background="@android:color/white"
     tools:context=".Registration">
 
     <ScrollView
@@ -16,10 +15,16 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#4d000000"
-            android:gravity="center"
             android:orientation="vertical"
             android:padding="30dp">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/publicmartlogo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"/>
+
 
 
 
@@ -28,128 +33,99 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12dp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
+            android:textColor="@color/col7"
+
+
             android:text="Personal Details"/>
 
 
     <EditText
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:textSize="16dp"
         android:id="@+id/fname"
         android:hint="First Name"
-        android:textColorHint="@android:color/white"
-        android:background="#4d000000"
+        android:textColor="#6B6B6B"
+        android:textColorHint="#6B6B6B"
+        android:background="@drawable/grad5"
+        android:inputType="textCapSentences"
+        android:imeOptions="actionNext"
         />
 
     <EditText
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:id="@+id/lname"
         android:hint="Last Name"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
+        android:textColor="#6B6B6B"
+        android:textColorHint="#6B6B6B"
+        android:background="@drawable/grad5"
+        android:inputType="textCapSentences"
+        android:imeOptions="actionNext"
         />
         <EditText
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
             android:id="@+id/dob"
             android:hint="DOB"
-            android:background="#4d000000"
-            android:textColorHint="@android:color/white"
+            android:textColor="#6B6B6B"
+            android:textColorHint="#6B6B6B"
+            android:background="@drawable/grad5"
+            android:inputType="textCapSentences"
+            android:imeOptions="actionNext"
             />
     <EditText
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:id="@+id/address"
         android:hint="Address"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
+        android:textColor="#6B6B6B"
+        android:textColorHint="#6B6B6B"
+        android:background="@drawable/grad5"
+        android:inputType="textCapSentences"
+        android:imeOptions="actionNext"
         />
 
     <EditText
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:id="@+id/contactno"
         android:hint="Contact No"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
+        android:textColor="#6B6B6B"
+        android:textColorHint="#6B6B6B"
+        android:background="@drawable/grad5"
+        android:inputType="textCapSentences"
+        android:imeOptions="actionNext"
         />
 
     <EditText
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:id="@+id/sponcerid"
         android:hint="Sponcer ID"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
+        android:textColor="#6B6B6B"
+        android:textColorHint="#6B6B6B"
+        android:background="@drawable/grad5"
+        android:inputType="textCapSentences"
+        android:imeOptions="actionNext"
         />
 
-    <TextView
-       android:layout_margin="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:textColor="@android:color/white"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:text="Bank Details"/>
 
 
-    <EditText
 
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/bankname"
-        android:hint="Bank Name"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/accno"
-        android:hint="Account No"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/ifsc"
-        android:hint="IFSC code"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
 
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/branch"
-        android:hint="Branch Name"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
 
 
         <TextView
@@ -157,9 +133,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12dp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
+            android:textColor="@color/col7"
+
             android:text="Membership Type"/>
 
 
@@ -170,7 +145,7 @@
 
 
                 android:orientation="vertical"
-                android:paddingLeft="20dp">
+                android:paddingLeft="10dp">
 
             <RadioGroup
                 android:layout_width="wrap_content"
@@ -184,7 +159,7 @@
 
 
                 <RadioButton
-                    android:buttonTint="@android:color/white"
+                    android:buttonTint="@color/col10"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/oneway"
                     android:layout_width="wrap_content"
@@ -192,7 +167,7 @@
                     android:checked="false"
                     android:layout_weight="1"
 
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:text="Gold"
                     />
 
@@ -200,24 +175,24 @@
 
 
                 <RadioButton
-                    android:buttonTint="@android:color/white"
+                    android:buttonTint="@color/col10"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/roundtrip"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:checked="false"
                     android:text="Silver"
                     />
 
 
                 <RadioButton
-                    android:buttonTint="@android:color/white"
+                    android:buttonTint="@color/col10"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/business"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
                     android:checked="false"
 
                     android:text="Bronze"
@@ -236,44 +211,52 @@
 
     <EditText
         android:layout_marginTop="10dp"
-        android:textColorHint="@android:color/white"
         android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
         android:id="@+id/username"
         android:hint="UserName"
-        android:background="#4d000000"
+        android:textColor="#6B6B6B"
+        android:textColorHint="#6B6B6B"
+        android:background="@drawable/grad5"
+        android:inputType="textCapSentences"
+        android:imeOptions="actionNext"
         />
 
     <EditText
         android:id="@+id/password"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
         android:gravity="center"
-        android:hint="Password"
-        android:inputType="textPassword" />
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="UserName"
+        android:textColor="#6B6B6B"
+        android:textColorHint="#6B6B6B"
+        android:background="@drawable/grad5"
+        android:inputType="textPassword"
+        android:imeOptions="actionNext"/>
 
     <EditText
         android:id="@+id/Confirmpasswd"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
         android:layout_marginTop="10dp"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
         android:gravity="center"
-        android:hint="Confirm Password"
-        android:inputType="textPassword" />
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:hint="UserName"
+        android:textColor="#6B6B6B"
+        android:textColorHint="#6B6B6B"
+        android:background="@drawable/grad5"
+        android:inputType="textPassword"
+        android:imeOptions="actionNext"/>
 
     <LinearLayout
+        android:layout_gravity="center"
         android:layout_margin="15dp"
-        android:layout_width="150dp"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
         android:gravity="center"
         android:clickable="true"
-        android:background="@drawable/buttonbgm"
+        android:background="@drawable/grad2"
         android:id="@+id/submit"
         >
 

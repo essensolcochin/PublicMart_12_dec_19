@@ -2,7 +2,7 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="ring"
     android:useLevel="false">
-    <solid android:color="#FF2196F3" />
+    <solid android:color="@color/col10" />
     <size
         android:width="25dp"
         android:height="25dp" />
