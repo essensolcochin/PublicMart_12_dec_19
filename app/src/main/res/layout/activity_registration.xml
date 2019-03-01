@@ -16,7 +16,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="30dp">
+            android:padding="20dp">
+
+            <ImageView
+                android:layout_gravity="center"
+                android:src="@drawable/publicmartlogo"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_marginBottom="20dp"/>
+
 
             <ImageView
                 android:layout_gravity="center"
@@ -33,99 +41,128 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12dp"
-            android:textColor="@color/col7"
-
-
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:text="Personal Details"/>
 
 
     <EditText
         android:layout_marginTop="5dp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:textSize="16dp"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:id="@+id/fname"
         android:hint="First Name"
-        android:textColor="#6B6B6B"
-        android:textColorHint="#6B6B6B"
-        android:background="@drawable/grad5"
-        android:inputType="textCapSentences"
-        android:imeOptions="actionNext"
+        android:textColorHint="@android:color/white"
+        android:background="#4d000000"
         />
 
     <EditText
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:id="@+id/lname"
         android:hint="Last Name"
-        android:textColor="#6B6B6B"
-        android:textColorHint="#6B6B6B"
-        android:background="@drawable/grad5"
-        android:inputType="textCapSentences"
-        android:imeOptions="actionNext"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
         <EditText
             android:layout_marginTop="10dp"
             android:gravity="center"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_width="280dp"
+            android:layout_height="50dp"
             android:id="@+id/dob"
             android:hint="DOB"
-            android:textColor="#6B6B6B"
-            android:textColorHint="#6B6B6B"
-            android:background="@drawable/grad5"
-            android:inputType="textCapSentences"
-            android:imeOptions="actionNext"
+            android:background="#4d000000"
+            android:textColorHint="@android:color/white"
             />
     <EditText
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:id="@+id/address"
         android:hint="Address"
-        android:textColor="#6B6B6B"
-        android:textColorHint="#6B6B6B"
-        android:background="@drawable/grad5"
-        android:inputType="textCapSentences"
-        android:imeOptions="actionNext"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
 
     <EditText
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:id="@+id/contactno"
         android:hint="Contact No"
-        android:textColor="#6B6B6B"
-        android:textColorHint="#6B6B6B"
-        android:background="@drawable/grad5"
-        android:inputType="textCapSentences"
-        android:imeOptions="actionNext"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
 
     <EditText
         android:layout_marginTop="10dp"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:id="@+id/sponcerid"
         android:hint="Sponcer ID"
-        android:textColor="#6B6B6B"
-        android:textColorHint="#6B6B6B"
-        android:background="@drawable/grad5"
-        android:inputType="textCapSentences"
-        android:imeOptions="actionNext"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         />
 
+    <TextView
+       android:layout_margin="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12dp"
+        android:textColor="@android:color/white"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_horizontal"
+        android:text="Bank Details"/>
 
 
+    <EditText
 
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/bankname"
+        android:hint="Bank Name"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
+        />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/accno"
+        android:hint="Account No"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
+        />
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/ifsc"
+        android:hint="IFSC code"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
+        />
 
+    <EditText
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
+        android:id="@+id/branch"
+        android:hint="Branch Name"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
+        />
 
 
         <TextView
@@ -133,13 +170,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="12dp"
-            android:textColor="@color/col7"
-
+            android:textColor="@android:color/white"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
             android:text="Membership Type"/>
 
 
 
             <LinearLayout
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
@@ -147,19 +186,19 @@
                 android:orientation="vertical"
                 android:paddingLeft="10dp">
 
-            <RadioGroup
-                android:layout_width="wrap_content"
-                android:orientation="vertical"
-                android:layout_height="wrap_content"
+                <RadioGroup
+                    android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content"
 
-                android:id="@+id/radiogrp">
+                    android:id="@+id/radiogrp">
 
 
 
 
 
                 <RadioButton
-                    android:buttonTint="@color/col10"
+                    android:buttonTint="@android:color/white"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/oneway"
                     android:layout_width="wrap_content"
@@ -167,7 +206,7 @@
                     android:checked="false"
                     android:layout_weight="1"
 
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:text="Gold"
                     />
 
@@ -175,28 +214,28 @@
 
 
                 <RadioButton
-                    android:buttonTint="@color/col10"
+                    android:buttonTint="@android:color/white"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/roundtrip"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:checked="false"
                     android:text="Silver"
                     />
 
 
                 <RadioButton
-                    android:buttonTint="@color/col10"
+                    android:buttonTint="@android:color/white"
                     android:layout_marginLeft="5dp"
                     android:id="@+id/business"
                     android:layout_width="wrap_content"
                     android:layout_height="30dp"
-                    android:textColor="@android:color/black"
+                    android:textColor="@android:color/white"
                     android:checked="false"
 
-                    android:text="Bronze"
-                    />
+                        android:text="Bronze"
+                        />
 
 
 
@@ -204,69 +243,61 @@
 
 
 
-            </RadioGroup>
+                </RadioGroup>
             </LinearLayout>
 
 
 
     <EditText
         android:layout_marginTop="10dp"
+        android:textColorHint="@android:color/white"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:id="@+id/username"
         android:hint="UserName"
-        android:textColor="#6B6B6B"
-        android:textColorHint="#6B6B6B"
-        android:background="@drawable/grad5"
-        android:inputType="textCapSentences"
-        android:imeOptions="actionNext"
+        android:background="#4d000000"
         />
 
     <EditText
         android:id="@+id/password"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:hint="UserName"
-        android:textColor="#6B6B6B"
-        android:textColorHint="#6B6B6B"
-        android:background="@drawable/grad5"
-        android:inputType="textPassword"
-        android:imeOptions="actionNext"/>
+        android:hint="Password"
+        android:inputType="textPassword" />
 
     <EditText
         android:id="@+id/Confirmpasswd"
+        android:layout_width="280dp"
+        android:layout_height="50dp"
         android:layout_marginTop="10dp"
+        android:background="#4d000000"
+        android:textColorHint="@android:color/white"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:hint="UserName"
-        android:textColor="#6B6B6B"
-        android:textColorHint="#6B6B6B"
-        android:background="@drawable/grad5"
-        android:inputType="textPassword"
-        android:imeOptions="actionNext"/>
+        android:hint="Confirm Password"
+        android:inputType="textPassword" />
 
     <LinearLayout
-        android:layout_gravity="center"
         android:layout_margin="15dp"
-        android:layout_width="match_parent"
+        android:layout_width="150dp"
         android:layout_height="50dp"
         android:gravity="center"
         android:clickable="true"
-        android:background="@drawable/grad2"
+        android:background="@drawable/buttonbgm"
         android:id="@+id/submit"
         >
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="18dp"
-            android:textColor="#ffff"
-            android:text="Submit"/>
-    </LinearLayout>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:textColor="#ffff"
+                    android:text="Sign Up"/>
+            </LinearLayout>
         </LinearLayout>
     </ScrollView>
 

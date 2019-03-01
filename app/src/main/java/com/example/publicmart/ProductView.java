@@ -24,7 +24,7 @@ public class ProductView extends BaseActivity {
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final String[] IMAGES= {"https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7715805/2018/10/30/fd3feded-f5df-4da4-96fb-fb30eb805e201540883421966-Mitera-Magenta-Silk-Blend-Solid-Kanjeevaram-Saree-9711540883421780-1.jpg",
+    private static final String[] IMAGES= {"http://192.168.0.30:7899/images/1.jpg",
             "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7715805/2018/10/30/b7e47f34-55dc-4c8e-986d-7e9a8166a9e41540883421915-Mitera-Magenta-Silk-Blend-Solid-Kanjeevaram-Saree-9711540883421780-3.jpg",
             "https://assets.myntassets.com/h_1440,q_100,w_1080/v1/assets/images/7715805/2018/10/30/6492f428-e370-4736-8fd2-f97a48f4912f1540883421894-Mitera-Magenta-Silk-Blend-Solid-Kanjeevaram-Saree-9711540883421780-4.jpg"};
 

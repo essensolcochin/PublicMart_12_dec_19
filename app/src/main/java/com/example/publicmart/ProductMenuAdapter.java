@@ -3,6 +3,7 @@ package com.example.publicmart;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,16 +13,25 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+
+import java.net.URL;
 import java.util.List;
 
 public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.MenuViewHolder> {
 
     private Context context;
-    private List<String> menu_list;
+    private List<$ProductMenuModel> menu_list;
     private String[] mData;
-    public ProductMenuAdapter(Context context, String[] Data) {
+
+    public ProductMenuAdapter(Context context,  List<$ProductMenuModel> menu_list) {
         this.context = context;
-        this.mData = Data;
+        this.menu_list = menu_list;
     }
 
     @NonNull
@@ -36,6 +46,23 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
     public void onBindViewHolder(@NonNull MenuViewHolder menuViewHolder, int i) {
 
         Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/curvy.ttf");
+
+
+        try {
+            URL url = new URL(menu_list.get(i).getImagePath());
+            ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
+                    .setAutoRotateEnabled(true)
+                    .setResizeOptions(new ResizeOptions(50, 50))
+                    .build();
+            DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                    .setImageRequest(imageRequest)
+                    .build();
+            menuViewHolder.Logo.setController(draweeController);
+        } catch (Exception e) {
+        }
+
+
+        menuViewHolder.MenuTitle.setText(menu_list.get(i).CategoryName);
 
         menuViewHolder.MenuTitle.setTypeface(custom_font);
         menuViewHolder.itemLayout.setOnClickListener(new View.OnClickListener() {
@@ -52,13 +79,13 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
 
     @Override
     public int getItemCount() {
-        return mData.length;
+        return menu_list.size();
     }
 
     public class MenuViewHolder extends RecyclerView.ViewHolder {
 
         TextView MenuTitle;
-        ImageView Logo;
+        SimpleDraweeView Logo;
         LinearLayout itemLayout;
 
         private MenuViewHolder(@NonNull View itemView) {
@@ -66,6 +93,7 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
 
             MenuTitle=itemView.findViewById(R.id.menuTitle);
             itemLayout=itemView.findViewById(R.id.itemlayout);
+            Logo=itemView.findViewById(R.id.menuIcon);
         }
     }
 
