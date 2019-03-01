@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.graphics.Color;
+
 import android.graphics.Typeface;
 
 import android.graphics.drawable.Drawable;
@@ -16,6 +17,7 @@ import android.support.v7.widget.CardView;
 import android.view.View;
 
 
+import android.view.animation.Interpolator;
 import android.webkit.WebView;
 import android.widget.FrameLayout;
 
@@ -23,7 +25,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
-
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,7 +33,7 @@ import java.util.TimerTask;
 import dmax.dialog.SpotsDialog;
 
 public class Home extends BaseActivity {
-
+    static int  i=0;
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
@@ -202,21 +204,26 @@ public class Home extends BaseActivity {
     private void init() {
 
 
+
         for (int i = 0; i < IMAGES.length; i++)
             ImagesArray.add(IMAGES[i]);
 
         mPager = findViewById(R.id.viewflipper);
 
-        PagerAdapter adapter = new SlidingImage_Adapter_Home(Home.this, ImagesArray);
+        final PagerAdapter adapter = new SlidingImage_Adapter_Home(Home.this, ImagesArray);
         mPager.setAdapter(adapter);
 
 
         // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
 
 
-        final float density = getResources().getDisplayMetrics().density;
+
 
         NUM_PAGES = IMAGES.length;
+
+
+
+
 
 
         // Auto start of viewpager
@@ -227,6 +234,8 @@ public class Home extends BaseActivity {
                     currentPage = 0;
                 }
                 mPager.setCurrentItem(currentPage++, true);
+
+
             }
         };
         Timer swipeTimer = new Timer();
@@ -236,7 +245,6 @@ public class Home extends BaseActivity {
                 handler.post(Update);
             }
         }, 5000, 5000);
-
 
 
 

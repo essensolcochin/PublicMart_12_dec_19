@@ -4,19 +4,15 @@ import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toolbar;
-import android.widget.ViewFlipper;
 
 import java.util.ArrayList;
 import java.util.Timer;
@@ -151,7 +147,7 @@ public class FlightTicket extends BaseActivity{
 
         mPager = findViewById(R.id.viewflipper1);
 
-        PagerAdapter adapter = new SlidingText_Adapter_Home(FlightTicket.this, TextArray);
+        PagerAdapter adapter = new SlidingText_Adapter_Flight(FlightTicket.this, TextArray);
         mPager.setAdapter(adapter);
         Log.e("textsizeeeee","flight "+TextArray.size());
 
