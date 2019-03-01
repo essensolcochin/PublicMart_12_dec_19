@@ -13,8 +13,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.crashlytics.android.Crashlytics;
+
 import java.util.ArrayList;
 
+import io.fabric.sdk.android.Fabric;
 
 
 public class ProductView extends BaseActivity {
@@ -39,6 +42,7 @@ public class ProductView extends BaseActivity {
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_product_view, contentFrameLayout);
 
+        Fabric.with(this, new Crashlytics());
         init();
 //        android.support.v7.widget.Toolbar tb=getToolBar();
 //        txtxmpny=(TextView)tb.findViewById(R.id.appname);
@@ -85,7 +89,9 @@ public class ProductView extends BaseActivity {
         });
 
     }
-
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
     private void init() {
 
 

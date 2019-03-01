@@ -17,9 +17,12 @@ import android.widget.TextView;
 
 import com.baoyachi.stepview.HorizontalStepView;
 import com.baoyachi.stepview.bean.StepBean;
+import com.crashlytics.android.Crashlytics;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import io.fabric.sdk.android.Fabric;
 
 public class OrderStatus extends BaseActivity {
     HorizontalStepView horizontalStepView;
@@ -36,7 +39,7 @@ public class OrderStatus extends BaseActivity {
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_order_status_ed, contentFrameLayout);
 
-
+        Fabric.with(this, new Crashlytics());
 
 
 
@@ -158,5 +161,9 @@ public class OrderStatus extends BaseActivity {
 //
 //            }
 //        });
+    }
+
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
     }
 }

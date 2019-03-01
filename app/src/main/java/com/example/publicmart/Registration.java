@@ -9,6 +9,30 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+import com.crashlytics.android.Crashlytics;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import io.fabric.sdk.android.Fabric;
 
 public class Registration extends AppCompatActivity {
     LinearLayout regist;
@@ -19,13 +43,13 @@ public class Registration extends AppCompatActivity {
     String array_day[] = {"DD", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
             "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
             "31"};
-    
+
     String array_Mnth[] = {"MM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
 
     String array_BYear[] = {"YY","1985","1986","1986","1987","1988","1989","1990","1991","1992",
             "1993","1994", "1995", "1996","1997","1998", "1999","2000","2001","2002"
             ,"2003","2004","2005","2006","2007","2008","2009","2010","2011","2012",
-            "2011","2012", "2013","2014","2015","2016","2017","2018"};
+            "2011","2012", "2013","2014","2015","2016","2017","2018"} ;
 
     String Bday,Bmonth,Byear,StateName;
     Integer StateCode;
@@ -42,7 +66,9 @@ public class Registration extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        regist = (LinearLayout)findViewById(R.id.submit);
+
+        Fabric.with(this, new Crashlytics());
+        regist = (LinearLayout)findViewById(R.id.login);
 
         fname = (EditText)findViewById(R.id.fname);
         mname = (EditText)findViewById(R.id.Mname);
@@ -83,17 +109,17 @@ public class Registration extends AppCompatActivity {
 
 
 
-       ArrayAdapter<String> spinner_adapterDay = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> spinner_adapterDay = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, array_day);
         spinner_adapterDay.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Day.setAdapter(spinner_adapterDay);
 
-         ArrayAdapter<String> spinner_adapterMonth = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> spinner_adapterMonth = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, array_Mnth);
         spinner_adapterMonth.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Month.setAdapter(spinner_adapterMonth);
 
-         ArrayAdapter<String> spinner_adapterYear = new ArrayAdapter<String>(this,
+        ArrayAdapter<String> spinner_adapterYear = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, array_BYear);
         spinner_adapterYear.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         Year.setAdapter(spinner_adapterYear);
@@ -203,7 +229,9 @@ public class Registration extends AppCompatActivity {
             }
         });
     }
-
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
 
 
 
@@ -269,7 +297,216 @@ public class Registration extends AppCompatActivity {
                                 Intent intent =new Intent(Registration.this,MainActivity.class);
                                 startActivity(intent);
 
+
+                            }
+
+
+                            else {
+                                Toast.makeText(Registration.this,message,Toast.LENGTH_LONG).show();
+                            }
+
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "No Response From Server ", Toast.LENGTH_LONG).show();
+
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> param = new HashMap<String, String>();
+                param.put("jsonString",request );
+                Log.e("paramssss",""+param);
+                return param;
             }
-        });
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> param = new HashMap<String, String>();
+                param.put("Content-Type","application/x-www-form-urlencoded");
+                return param;
+            }
+        }
+                ;
+
+        // Volley.getInstance(this).addToRequestQueue(stringRequest);
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
     }
+
+
+
+    private void getCodes() {
+
+
+        try {
+            JSONObject values = new JSONObject();
+
+            jsonString = new JSONObject();
+            jsonString.put("Token", "0001");
+            jsonString.put("call", "GetActiveStates");
+            jsonString.put("values", values);
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
+        Log.e("gettttt","in"+request);
+
+
+
+        String URL = "http://192.168.0.30:7899/api/CommonApi/Invoke";
+
+
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Log.e("Jsonnnn",""+response);
+                        // p1.dismiss();
+
+                        try {
+
+
+                            JSONObject o     = new JSONObject(response);
+
+
+                            String data = response;
+                            Object json = new JSONTokener(data).nextValue();
+                            if (json instanceof JSONObject){
+                                Log.e("objectttttt",""+json);
+                            }
+                            //you have an object
+                            else if (json instanceof JSONArray){
+                                Log.e("Arrayyyyyyy",""+json);
+                            }
+
+
+                            Log.e("tryyyyyyyyy","in"+o);
+
+                            ;
+                            code = o.getString("responseCode");
+                            message=o.getString("responseMessage");
+
+                            Log.e("resppppppp",""+code);
+
+
+                            if (code.equalsIgnoreCase("0"))
+                            {
+
+
+
+
+
+                                Log.e("resppppppp","ifffff"+code);
+
+                                JSONArray json_array2 = o.getJSONArray("result");
+
+
+                                JSONObject jsonObject;
+
+
+                                int j;
+                                for (j = 0; j < json_array2.length(); j++) {
+                                    jsonObject = json_array2.getJSONObject(j);
+
+                                    StateName=jsonObject.getString("StateName");
+                                    StateCode=jsonObject.getInt("StateKey");
+                                    SpinnerModel items  =new SpinnerModel(StateCode, StateName);
+                                    names.add(items);
+                                    Log.e("from jsonnnn", "  " + jsonObject.getString("StateName"));
+                                    Log.e("namessssss", "  " + names);
+
+
+                                }
+
+
+                                spinner_adapter = new ArrayAdapter<SpinnerModel>(Registration.this,android.R.layout.simple_spinner_dropdown_item,names);
+                                spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                                state.setAdapter(spinner_adapter);
+
+
+                                state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                                    @Override
+                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                                        Log.e("idddddddddd","test   "+names.get(position).getStateCode());
+                                        Toast.makeText(getApplication(), ""+names.get(position).getStateCode(),Toast.LENGTH_LONG).show();
+                                    }
+
+                                    @Override
+                                    public void onNothingSelected(AdapterView<?> parent) {
+
+                                    }
+                                });
+
+
+                            }
+
+
+                            else {
+                                Toast.makeText(Registration.this,message,Toast.LENGTH_LONG).show();
+                            }
+
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "No Response From Server ", Toast.LENGTH_LONG).show();
+
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> param = new HashMap<String, String>();
+                param.put("jsonString",jsonString.toString() );
+                Log.e("paramssss",""+param);
+                return param;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> param = new HashMap<String, String>();
+                param.put("Content-Type","application/x-www-form-urlencoded");
+                return param;
+            }
+        }
+                ;
+
+        // Volley.getInstance(this).addToRequestQueue(stringRequest);
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
+
+
+
+
+
 }

@@ -25,12 +25,15 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.crashlytics.android.Crashlytics;
+
 import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import dmax.dialog.SpotsDialog;
+import io.fabric.sdk.android.Fabric;
 
 public class Home extends BaseActivity {
     static int  i=0;
@@ -54,7 +57,7 @@ public class Home extends BaseActivity {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_home_test, contentFrameLayout);
-
+        Fabric.with(this, new Crashlytics());
 
         final SpotsDialog progress = new SpotsDialog(Home.this,R.style.Custom);
 
@@ -200,7 +203,9 @@ public class Home extends BaseActivity {
 //        });
 
     }
-
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
     private void init() {
 
 

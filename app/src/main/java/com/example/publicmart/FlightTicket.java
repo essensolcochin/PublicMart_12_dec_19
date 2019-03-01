@@ -8,15 +8,22 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import io.fabric.sdk.android.Fabric;
 
 public class FlightTicket extends BaseActivity{
 
@@ -38,6 +45,8 @@ public class FlightTicket extends BaseActivity{
     RadioGroup rg;
     RadioButton radioButton;
 
+    EditText traveler_name,email_id,contact_no;
+
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
@@ -45,15 +54,17 @@ public class FlightTicket extends BaseActivity{
 
     private ArrayList<String> TextArray = new ArrayList<String>();
     TextInputLayout name,email,contact;
-
-
     TextView txtxmpny;
+
+    JSONObject jsonString;
+    String request,code,message;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_flight_ticket, contentFrameLayout);
+        Fabric.with(this, new Crashlytics());
         name = (TextInputLayout) findViewById(R.id.text_input_layout);
         name.setHint("Enter Your Name");
 
@@ -80,6 +91,10 @@ public class FlightTicket extends BaseActivity{
         bday = findViewById(R.id.bday);
         bmonth = findViewById(R.id.bmonth);
         byear = findViewById(R.id.byear);
+
+        traveler_name=(EditText)findViewById(R.id.traveler_name);
+        email_id=(EditText)findViewById(R.id.email);
+        contact_no=(EditText)findViewById(R.id.contact);
 
 
         final ArrayAdapter<String> spinner_adapter = new ArrayAdapter<String>(this,
@@ -127,6 +142,10 @@ public class FlightTicket extends BaseActivity{
 
     }
 
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
+
 
 
 
@@ -142,23 +161,12 @@ public class FlightTicket extends BaseActivity{
 
         for (int i = 0; i < Text.length; i++)
             TextArray.add(Text[i]);
-
-
-
         mPager = findViewById(R.id.viewflipper1);
 
         PagerAdapter adapter = new SlidingText_Adapter_Flight(FlightTicket.this, TextArray);
         mPager.setAdapter(adapter);
         Log.e("textsizeeeee","flight "+TextArray.size());
-
-
-
-
-
-
         NUM_PAGES = Text.length;
-
-
         // Auto start of viewpager
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
@@ -177,8 +185,7 @@ public class FlightTicket extends BaseActivity{
             }
         }, 1500, 5000);
 
-
-
-
     }
+
+
 }

@@ -6,15 +6,20 @@ import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.ViewFlipper;
 
+import com.crashlytics.android.Crashlytics;
+
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import io.fabric.sdk.android.Fabric;
 
 public class HouseBoat extends BaseActivity {
     String array_membrno[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
@@ -44,6 +49,8 @@ public class HouseBoat extends BaseActivity {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_house_boat_ed, contentFrameLayout);
+
+        Fabric.with(this, new Crashlytics());
         mPager = (ViewPager) findViewById(R.id.viewflipper);
 
         toolbar = findViewById(R.id.toolbar);
@@ -87,6 +94,11 @@ public class HouseBoat extends BaseActivity {
         bcontact.setHint("Enter Your Contact No");
 
     }
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
+
+
     private void init() {
 
 

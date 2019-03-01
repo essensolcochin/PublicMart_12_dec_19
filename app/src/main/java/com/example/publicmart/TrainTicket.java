@@ -18,9 +18,13 @@ import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
 import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
+
+import io.fabric.sdk.android.Fabric;
 
 public class TrainTicket extends BaseActivity {
 
@@ -53,6 +57,8 @@ public class TrainTicket extends BaseActivity {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_train_ticket_ed, contentFrameLayout);
+
+        Fabric.with(this, new Crashlytics());
 
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -142,6 +148,11 @@ public class TrainTicket extends BaseActivity {
 
 
         init();
+    }
+
+
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
     }
 
     private void init() {

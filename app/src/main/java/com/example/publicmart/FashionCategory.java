@@ -2,6 +2,11 @@ package com.example.publicmart;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+
+import com.crashlytics.android.Crashlytics;
+
+import io.fabric.sdk.android.Fabric;
 
 public class FashionCategory extends AppCompatActivity {
 
@@ -9,10 +14,14 @@ public class FashionCategory extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fashion_category);
+        Fabric.with(this, new Crashlytics());
 
 
 
 
+    }
 
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
     }
 }

@@ -26,154 +26,334 @@
                 android:layout_marginBottom="20dp"/>
 
 
-            <ImageView
-                android:layout_gravity="center"
-                android:src="@drawable/publicmartlogo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginBottom="20dp"/>
+
+
+            <TextView
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="@color/col7"
+
+
+                android:text="Personal Details"/>
+
+
+            <EditText
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:id="@+id/fname"
+                android:hint="First Name"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+                android:id="@+id/Mname"
+                android:hint="Middle Name"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
 
 
 
 
-        <TextView
-           android:layout_marginTop="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12dp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:text="Personal Details"/>
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/lname"
+                android:hint="Last Name"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+            <TextView
+                android:textColor="@color/col7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="12dp"
+                android:text="Date of Birth "/>
+
+            <LinearLayout
+                android:layout_marginTop="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_weight=".27"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke">
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:id="@+id/day"
+                        />
+                </RelativeLayout>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textSize="32dp"
+                    android:text="/"/>
+
+                <RelativeLayout
+                    android:layout_weight=".26"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke"
+                    >
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:id="@+id/Bmonth"
+                        />
+                </RelativeLayout>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textSize="32dp"
+                    android:text="/"/>
+
+                <RelativeLayout
+                    android:layout_weight=".25"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke"
+                    >
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:id="@+id/Byear"
+                        />
+                </RelativeLayout>
+
+            </LinearLayout>
 
 
-    <EditText
-        android:layout_marginTop="5dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/fname"
-        android:hint="First Name"
-        android:textColorHint="@android:color/white"
-        android:background="#4d000000"
-        />
-
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/lname"
-        android:hint="Last Name"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
-        <EditText
-            android:layout_marginTop="10dp"
-            android:gravity="center"
-            android:layout_width="280dp"
-            android:layout_height="50dp"
-            android:id="@+id/dob"
-            android:hint="DOB"
-            android:background="#4d000000"
-            android:textColorHint="@android:color/white"
-            />
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/address"
-        android:hint="Address"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
-
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/contactno"
-        android:hint="Contact No"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
-
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/sponcerid"
-        android:hint="Sponcer ID"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
-
-    <TextView
-       android:layout_margin="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="12dp"
-        android:textColor="@android:color/white"
-        android:layout_gravity="center_horizontal"
-        android:gravity="center_horizontal"
-        android:text="Bank Details"/>
 
 
-    <EditText
-
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/bankname"
-        android:hint="Bank Name"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/accno"
-        android:hint="Account No"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/ifsc"
-        android:hint="IFSC code"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
-
-    <EditText
-        android:layout_marginTop="10dp"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/branch"
-        android:hint="Branch Name"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Hno"
+                android:hint="House No"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
 
 
-        <TextView
-            android:layout_margin="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="12dp"
-            android:textColor="@android:color/white"
-            android:layout_gravity="center_horizontal"
-            android:gravity="center_horizontal"
-            android:text="Membership Type"/>
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/tehsil"
+                android:hint="Tehsil"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/village"
+                android:hint="Village"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/district"
+                android:hint="District"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+            <RelativeLayout
+                android:padding="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/stroke">
+
+
+                <Spinner
+                    android:gravity="start"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/state"
+
+                    android:imeOptions="actionNext"
+                    />
+            </RelativeLayout>
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/pin"
+                android:hint="Pincode"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/contactno"
+                android:hint="Contact No"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/email"
+                android:hint="Email"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/sponcerid"
+                android:hint="Sponsor ID"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/nominee"
+                android:hint="Nominee"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/Relation"
+                android:hint="Relationship"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
+
+
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="@color/col7"
+
+                android:text="Membership Type"/>
 
 
 
@@ -197,42 +377,42 @@
 
 
 
-                <RadioButton
-                    android:buttonTint="@android:color/white"
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/oneway"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:checked="false"
-                    android:layout_weight="1"
+                    <RadioButton
+                        android:buttonTint="@color/col10"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/oneway"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:checked="false"
+                        android:layout_weight="1"
 
-                    android:textColor="@android:color/white"
-                    android:text="Gold"
-                    />
-
-
+                        android:textColor="@android:color/black"
+                        android:text="Gold"
+                        />
 
 
-                <RadioButton
-                    android:buttonTint="@android:color/white"
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/roundtrip"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:textColor="@android:color/white"
-                    android:checked="false"
-                    android:text="Silver"
-                    />
 
 
-                <RadioButton
-                    android:buttonTint="@android:color/white"
-                    android:layout_marginLeft="5dp"
-                    android:id="@+id/business"
-                    android:layout_width="wrap_content"
-                    android:layout_height="30dp"
-                    android:textColor="@android:color/white"
-                    android:checked="false"
+                    <RadioButton
+                        android:buttonTint="@color/col10"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/roundtrip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:textColor="@android:color/black"
+                        android:checked="false"
+                        android:text="Silver"
+                        />
+
+
+                    <RadioButton
+                        android:buttonTint="@color/col10"
+                        android:layout_marginLeft="5dp"
+                        android:id="@+id/business"
+                        android:layout_width="wrap_content"
+                        android:layout_height="30dp"
+                        android:textColor="@android:color/black"
+                        android:checked="false"
 
                         android:text="Bronze"
                         />
@@ -248,48 +428,59 @@
 
 
 
-    <EditText
-        android:layout_marginTop="10dp"
-        android:textColorHint="@android:color/white"
-        android:gravity="center"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:id="@+id/username"
-        android:hint="UserName"
-        android:background="#4d000000"
-        />
+            <EditText
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/username"
+                android:hint="UserName"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textCapSentences"
+                android:imeOptions="actionNext"
+                />
 
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        android:gravity="center"
-        android:hint="Password"
-        android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/password"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textPassword"
+                android:imeOptions="actionNext"/>
 
-    <EditText
-        android:id="@+id/Confirmpasswd"
-        android:layout_width="280dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="10dp"
-        android:background="#4d000000"
-        android:textColorHint="@android:color/white"
-        android:gravity="center"
-        android:hint="Confirm Password"
-        android:inputType="textPassword" />
+            <EditText
+                android:id="@+id/Confirmpasswd"
+                android:layout_marginTop="10dp"
+                android:padding="10dp"
+                android:gravity="center_vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Confirm Password"
+                android:textColor="#6B6B6B"
+                android:textColorHint="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:inputType="textPassword"
+                android:imeOptions="actionNext"/>
 
-    <LinearLayout
-        android:layout_margin="15dp"
-        android:layout_width="150dp"
-        android:layout_height="50dp"
-        android:gravity="center"
-        android:clickable="true"
-        android:background="@drawable/buttonbgm"
-        android:id="@+id/submit"
-        >
+            <LinearLayout
+                android:layout_gravity="center"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:gravity="center"
+                android:clickable="true"
+                android:background="@drawable/grad2"
+                android:id="@+id/submit"
+                >
 
                 <TextView
                     android:layout_width="wrap_content"

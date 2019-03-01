@@ -6,11 +6,15 @@ import android.os.Handler;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
 import dmax.dialog.SpotsDialog;
+import io.fabric.sdk.android.Fabric;
 
 public class Fashion extends BaseActivity {
 
@@ -25,7 +29,7 @@ public class Fashion extends BaseActivity {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_fashion, contentFrameLayout);
-
+        Fabric.with(this, new Crashlytics());
 
         final SpotsDialog progress = new SpotsDialog(Fashion.this,R.style.Custom);
 
@@ -79,5 +83,9 @@ public class Fashion extends BaseActivity {
 //             }
 //         });
 
+    }
+
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
     }
 }

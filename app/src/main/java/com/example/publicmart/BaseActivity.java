@@ -19,8 +19,11 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.crashlytics.android.Crashlytics;
+
 import java.util.ArrayList;
 
+import io.fabric.sdk.android.Fabric;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -48,7 +51,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-
+        Fabric.with(this, new Crashlytics());
 
         head =findViewById(R.id.appname);
 
@@ -155,6 +158,11 @@ public class BaseActivity extends AppCompatActivity {
 
 
     }
+
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
+
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);

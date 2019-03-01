@@ -16,7 +16,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.crashlytics.android.Crashlytics;
+
 import dmax.dialog.SpotsDialog;
+import io.fabric.sdk.android.Fabric;
 
 public class Services extends BaseActivity {
 
@@ -30,7 +33,7 @@ public class Services extends BaseActivity {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_services_ed, contentFrameLayout);
-
+        Fabric.with(this, new Crashlytics());
 
         flightTXT = (TextView) findViewById(R.id.flight);
         trainTXT = (TextView) findViewById(R.id.train);
@@ -134,6 +137,11 @@ public class Services extends BaseActivity {
         });
 
 
+    }
+
+
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
     }
 
     public void showToast()
