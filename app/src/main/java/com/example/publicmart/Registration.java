@@ -3,6 +3,7 @@ package com.example.publicmart;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -36,7 +37,7 @@ import io.fabric.sdk.android.Fabric;
 
 public class Registration extends AppCompatActivity {
     LinearLayout regist;
-    EditText fname,mname,lname,dob,house_no,tehsil,village,district,pincode,contact_no,email,sponsership_id,nominee,relationship,username,password,cnfmpassword;
+    EditText fname,mname,lname,house_no,tehsil,village,district,pincode,contact_no,email,sponsership_id,nominee,relationship,username,password,cnfmpassword;
 
     String statecode[] = {"-Select State Code-","01", "02", "03", "04", "05", "06", "07", "08", "09", "10"};
 
@@ -173,7 +174,73 @@ public class Registration extends AppCompatActivity {
         regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (TextUtils.isEmpty(fname.getText()))
+                {
+                    fname.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(mname.getText()))
+                {
+                    mname.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(lname.getText()))
+                {
+                    lname.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(house_no.getText()))
+                {
+                    house_no.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(tehsil.getText()))
+                {
+                    tehsil.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(village.getText()))
+                {
+                    village.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(district.getText()))
+                {
+                    district.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(pincode.getText()))
+                {
+                    pincode.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(contact_no.getText()))
+                {
+                    contact_no.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(email.getText()))
+                {
+                    email.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(sponsership_id.getText()))
+                {
+                    sponsership_id.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty  (nominee.getText()))
+                {
+                    nominee.setError("Field is Mandatory");
 
+                }
+                else if(TextUtils.isEmpty  (relationship.getText()))
+                {
+                    relationship.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty  (username.getText()))
+                {
+                    username.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty  (password.getText()))
+                {
+                    password.setError("Field is Mandatory");
+                }
+                else if(!password.getText().toString().equals(cnfmpassword.getText().toString()))
+                {
+                    cnfmpassword.setError("Not Matching");
+                }
+
+                else {
 
                 try {
 
@@ -222,7 +289,8 @@ public class Registration extends AppCompatActivity {
 
 
 
-                Register(request);
+                    Register(request);
+                }
 
 
 

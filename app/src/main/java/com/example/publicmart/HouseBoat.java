@@ -6,8 +6,11 @@ import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.Spinner;
@@ -20,6 +23,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import io.fabric.sdk.android.Fabric;
+
+import static io.fabric.sdk.android.services.concurrency.AsyncTask.init;
 
 public class HouseBoat extends BaseActivity {
     String array_membrno[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
@@ -39,7 +44,8 @@ public class HouseBoat extends BaseActivity {
     private static int currentPage = 0;
 
     TextInputLayout guest,bemail,bcontact;
-
+    Button submit_boat;
+    EditText passengr_name,email_id,Contact_no;
 
 
 
@@ -60,6 +66,7 @@ public class HouseBoat extends BaseActivity {
         days = findViewById(R.id.day);
         months = findViewById(R.id.month);
         years = findViewById(R.id.year);
+        submit_boat=(Button)findViewById(R.id.boat_submit);
 
         final ArrayAdapter<String> spinner_adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, array_membrno);
@@ -92,6 +99,36 @@ public class HouseBoat extends BaseActivity {
 
         bcontact = (TextInputLayout) findViewById(R.id.bcontact_input_layout);
         bcontact.setHint("Enter Your Contact No");
+
+
+        submit_boat.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+        if (TextUtils.isEmpty(passengr_name.getText()))
+        {
+            passengr_name.setError("Field is Mandatory");
+        }
+        else if(TextUtils.isEmpty(email_id.getText()))
+        {
+            email_id.setError("Field is Mandatory");
+        }
+        else if(TextUtils.isEmpty(Contact_no.getText()))
+        {
+            Contact_no.setError("Field is Mandatory");
+        }
+        else
+        {
+
+
+        }
+
+            }
+        });
+
+
 
     }
     public void forceCrash(View view) {

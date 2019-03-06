@@ -366,7 +366,7 @@
                             android:paddingTop="18dp"
                             android:paddingRight="32dp"
                             android:paddingBottom="18dp"
-
+                            android:id="@+id/boat_submit"
                             android:text="Submit"
                             android:textColor="#ffff"
                             android:textSize="18dp" />

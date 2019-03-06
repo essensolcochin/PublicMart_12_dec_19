@@ -5,6 +5,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -145,6 +146,27 @@ public class FlightTicket extends BaseActivity{
            @Override
            public void onClick(View view) {
 
+
+               if (TextUtils.isEmpty(traveler_name.getText()))
+               {
+                   traveler_name.setError("Field is Mandatory");
+               }
+               else if(TextUtils.isEmpty(email_id.getText()))
+               {
+                   email_id.setError("Field is Mandatory");
+               }
+               else if(TextUtils.isEmpty(contact_no.getText()))
+               {
+                   contact_no.setError("Field is Mandatory");
+               }
+        else
+               {
+
+
+
+
+
+
              //  try {
 //
 //
@@ -163,6 +185,7 @@ public class FlightTicket extends BaseActivity{
 //               e.printStackTrace();
 //           }
 
+               }
 
                }
 //
@@ -210,5 +233,7 @@ public class FlightTicket extends BaseActivity{
         }, 1500, 5000);
 
     }
+
+
 
 }

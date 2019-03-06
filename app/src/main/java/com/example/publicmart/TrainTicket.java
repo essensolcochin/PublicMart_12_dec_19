@@ -7,11 +7,14 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioGroup;
 import android.widget.RelativeLayout;
@@ -25,6 +28,8 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import io.fabric.sdk.android.Fabric;
+
+import static io.fabric.sdk.android.services.concurrency.AsyncTask.init;
 
 public class TrainTicket extends BaseActivity {
 
@@ -42,6 +47,8 @@ public class TrainTicket extends BaseActivity {
     Spinner citycode,citycode2,days,months,years, bday,bmonth,byear;
 
     TextView header1,header2,header3,header4,header5,header6,header7;
+    Button submit_ticket;
+    EditText passengr_name,email_id,Contact_no;
 
     private static ViewPager mPager;
     private static int currentPage = 0;
@@ -75,6 +82,7 @@ public class TrainTicket extends BaseActivity {
         bday = findViewById(R.id.bday);
         bmonth = findViewById(R.id.bmonth);
         byear = findViewById(R.id.byear);
+        submit_ticket=(Button)findViewById(R.id.submitTrain);
 
 
 
@@ -145,9 +153,35 @@ public class TrainTicket extends BaseActivity {
         trcontact = (TextInputLayout) findViewById(R.id.input_layout_contact);
         trcontact.setHint("Enter Your Contact No");
 
-
-
         init();
+
+        submit_ticket.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                if (TextUtils.isEmpty(passengr_name.getText()))
+                {
+                    passengr_name.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(email_id.getText()))
+                {
+                    email_id.setError("Field is Mandatory");
+                }
+                else if(TextUtils.isEmpty(Contact_no.getText()))
+                {
+                    Contact_no.setError("Field is Mandatory");
+                }
+                else
+                {
+
+
+                }
+            }
+
+
+
+        });
     }
 
 

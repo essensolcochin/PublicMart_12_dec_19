@@ -1,8 +1,5 @@
 package com.example.publicmart;
 
-
-
-
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -126,7 +123,7 @@ public class Products extends BaseActivity  {
                                 Log.e("Arrayyyyyyy",""+json);
                             }
 
-                            ///////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////////
 
                             Log.e("tryyyyyyyyy","in"+o);
 
