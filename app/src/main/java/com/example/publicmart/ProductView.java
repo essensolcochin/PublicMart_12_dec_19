@@ -35,6 +35,7 @@ public class ProductView extends BaseActivity {
     private ArrayList<String> ImagesArray = new ArrayList<String>();
     LinearLayout wishlist;
     Button placeorder;
+    String CategoryKey;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,11 +51,11 @@ public class ProductView extends BaseActivity {
 
 
 
+
+
         Product_Name=(TextView)findViewById(R.id.product_name);
         Short_Desc=(TextView)findViewById(R.id.product_desc);
         Product_Details =(TextView)findViewById(R.id.product_detail);
-         detailed_description =(TextView)findViewById(R.id.detail_desc);
-        detailed_description =(TextView)findViewById(R.id.detail_desc);
         detailed_description =(TextView)findViewById(R.id.detail_desc);
         Material=(TextView)findViewById(R.id.material);
         material_care=(TextView)findViewById(R.id.materialcare);
@@ -95,21 +96,15 @@ public class ProductView extends BaseActivity {
     private void init() {
 
 
-        for (int i = 0; i < IMAGES.length; i++)
-            ImagesArray.add(IMAGES[i]);
+        for (String IMAGE : IMAGES)
+
+            ImagesArray.add(IMAGE);
 
         mPager = (ViewPager) findViewById(R.id.pager);
 
 
         PagerAdapter adapter = new SlidingImage_Adapter_Product(ProductView.this, ImagesArray);
         mPager.setAdapter(adapter);
-
-
-        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
-
-
-        final float density = getResources().getDisplayMetrics().density;
-
 
         NUM_PAGES = IMAGES.length;
 

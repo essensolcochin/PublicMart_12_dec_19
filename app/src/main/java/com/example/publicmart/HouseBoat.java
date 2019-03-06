@@ -35,7 +35,7 @@ public class HouseBoat extends BaseActivity {
     String array_Mnth[] = {"MM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     String array_Year[] = {"2019"};
     Spinner membersno, days, months, years;
-
+///gggggg
 
     private static final Integer[] IMAGES = {R.drawable.houseboatwall,R.drawable.houseboatwalll};
     private static ViewPager mPager;

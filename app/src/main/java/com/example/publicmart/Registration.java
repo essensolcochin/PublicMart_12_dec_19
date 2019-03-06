@@ -212,6 +212,7 @@ public class Registration extends AppCompatActivity {
                 }
                 else if(TextUtils.isEmpty(email.getText()))
                 {
+                    ////dddd
                     email.setError("Field is Mandatory");
                 }
                 else if(TextUtils.isEmpty(sponsership_id.getText()))
