@@ -113,6 +113,9 @@ final ProductModelClass List = mylist.get(position);
     byte[] imageAsBytes = Base64.decode(base64.getBytes(), Base64.DEFAULT);
     holder.Image.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
     holder.ProductName.setText(List.ProductName);
+    holder.desc.setText(List.getDescription());
+    holder.Bv.setText(List.getBV());
+    holder.Rs.setText(List.getMRP());
 
 
 
@@ -137,13 +140,16 @@ public int getItemCount() {
 
 
 public class ViewHolder extends RecyclerView.ViewHolder  {
-    TextView ProductName;
+    TextView ProductName,desc,Bv,Rs;
     LinearLayout itemLayout;
     SimpleDraweeView product_image;
     ImageView Image;
         ViewHolder(View itemView) {
         super(itemView);
             ProductName = itemView.findViewById(R.id.info_text);
+            desc = itemView.findViewById(R.id.short_desc);
+            Bv = itemView.findViewById(R.id.BV);
+            Rs = itemView.findViewById(R.id.amount);
         itemLayout = itemView.findViewById(R.id.productLayout);
        // product_image = itemView.findViewById(R.id.image);
         Image = itemView.findViewById(R.id.image);

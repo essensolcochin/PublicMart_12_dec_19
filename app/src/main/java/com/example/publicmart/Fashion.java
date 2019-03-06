@@ -146,7 +146,11 @@ public class Fashion extends BaseActivity {
                                         jsonObject = json_array2.getJSONObject(j);
 
 
-                                        ProductModelClass items = new ProductModelClass(jsonObject.getString("ProductKey"),jsonObject.getString("ProductName"),jsonObject.getString("ImagePath"));
+                                        ProductModelClass items = new ProductModelClass(jsonObject.getString("ProductKey"),
+                                                jsonObject.getString("ProductName"),
+                                                jsonObject.getString("ImagePath"),jsonObject.getString("Description"),
+                                                jsonObject.getString("MRP"),
+                                                jsonObject.getString("BV"));
 
                                         Log.e("resppppppp", "ifffff" + code);
                                         item_list.add(items);

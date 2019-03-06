@@ -153,7 +153,6 @@ public class Products extends BaseActivity  {
                                            jsonObject.getString("CategoryName"),
                                            jsonObject.getString("ImagePath"));
 
-                                  //
                                     menuModel.add(items);
                                     Log.e("fromjsonnnn", "  " + menuModel.size());
 
