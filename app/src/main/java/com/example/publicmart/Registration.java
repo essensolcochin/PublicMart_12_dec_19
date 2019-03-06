@@ -10,7 +10,6 @@ import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
@@ -28,7 +27,6 @@ import org.json.JSONTokener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Registration extends AppCompatActivity {
@@ -49,7 +47,7 @@ public class Registration extends AppCompatActivity {
             "2011","2012", "2013","2014","2015","2016","2017","2018"} ;
 
     String Bday,Bmonth,Byear,StateName;
-    Integer StateCode;
+    Integer StateCode, StateKey;
 
     ArrayAdapter<SpinnerModel> spinner_adapter;
     ArrayList <SpinnerModel> names ;//add names in this list
@@ -162,6 +160,21 @@ public class Registration extends AppCompatActivity {
 //        spinner_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 //        state.setAdapter(spinner_adapter);
 
+        state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+
+                Toast.makeText(getApplication(), ""+names.get(position).getStateCode(),Toast.LENGTH_LONG).show();
+                StateKey = names.get(position).getStateCode();
+                Log.e("codeeeeestaeeeeeee","test   "+ StateKey);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
 
 
 
@@ -182,7 +195,7 @@ public class Registration extends AppCompatActivity {
                     values.put("Tehsil", tehsil.getText().toString());
                     values.put("Village", village.getText().toString());
                     values.put("District", district.getText().toString());
-                    values.put("StateKey", 1);
+                    values.put("StateKey", StateKey);
                     values.put("PinNo", pincode.getText().toString());
                     values.put("MobileNo", contact_no.getText().toString());
                     values.put("AlterMobileNo","");
@@ -419,19 +432,7 @@ public class Registration extends AppCompatActivity {
                                 state.setAdapter(spinner_adapter);
 
 
-                                state.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                                    @Override
-                                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
-                                        Log.e("idddddddddd","test   "+names.get(position).getStateCode());
-                                        Toast.makeText(getApplication(), ""+names.get(position).getStateCode(),Toast.LENGTH_LONG).show();
-                                    }
-
-                                    @Override
-                                    public void onNothingSelected(AdapterView<?> parent) {
-
-                                    }
-                                });
 
 
                             }
@@ -478,6 +479,11 @@ public class Registration extends AppCompatActivity {
         // Volley.getInstance(this).addToRequestQueue(stringRequest);
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
+
+
+        Log.e("statecodeeeeeee",""+ StateKey);
+
+
 
     }
 

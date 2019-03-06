@@ -8,7 +8,10 @@ public class $ProductMenuModel {
         CategoryKey = categoryKey;
         CategoryName = categoryName;
         ImagePath = imagePath;
+
     }
+
+
 
     public String getCategoryKey() {
         return CategoryKey;
