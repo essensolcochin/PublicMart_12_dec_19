@@ -68,7 +68,7 @@ public class Registration extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
 
         Fabric.with(this, new Crashlytics());
-        regist = (LinearLayout)findViewById(R.id.login);
+        regist = (LinearLayout)findViewById(R.id.submit);
 
         fname = (EditText)findViewById(R.id.fname);
         mname = (EditText)findViewById(R.id.Mname);

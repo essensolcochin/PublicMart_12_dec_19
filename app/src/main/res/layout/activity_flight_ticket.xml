@@ -361,7 +361,6 @@
                                     android:id="@+id/oneway"
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
-                                    android:onClick="rbclick"
                                     android:checked="false"
                                     android:layout_weight="1"
                                     android:text="Morning (4 am - 12 pm)"
@@ -373,7 +372,6 @@
                                     android:id="@+id/roundtrip"
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
-                                    android:onClick="rbclick"
                                     android:checked="false"
                                     android:text="Evening (12 pm - 8 pm)"
                                    />
@@ -385,7 +383,6 @@
                                     android:id="@+id/business"
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
-                                    android:onClick="rbclick"
                                     android:checked="false"
                                     android:text="Night (8 pm - 4 am)"
                                     />
@@ -476,6 +473,7 @@
 
 
             <Button
+                android:id="@+id/fsubmit"
                 android:layout_width="200dp"
                 android:layout_height="wrap_content"
                 android:paddingTop="18dp"

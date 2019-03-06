@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.RadioButton;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 
 import com.crashlytics.android.Crashlytics;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
@@ -44,7 +46,7 @@ public class FlightTicket extends BaseActivity{
 
     RadioGroup rg;
     RadioButton radioButton;
-
+    Button submit_flight;
     EditText traveler_name,email_id,contact_no;
 
     private static ViewPager mPager;
@@ -91,7 +93,6 @@ public class FlightTicket extends BaseActivity{
         bday = findViewById(R.id.bday);
         bmonth = findViewById(R.id.bmonth);
         byear = findViewById(R.id.byear);
-
         traveler_name=(EditText)findViewById(R.id.traveler_name);
         email_id=(EditText)findViewById(R.id.email);
         contact_no=(EditText)findViewById(R.id.contact);
@@ -139,6 +140,35 @@ public class FlightTicket extends BaseActivity{
 
        init();
 
+       submit_flight = (Button)findViewById(R.id.fsubmit);
+       submit_flight.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+
+             //  try {
+//
+//
+//               JSONObject values = new JSONObject();
+//               values.put("CustKey", 0);
+//               values.put("FName", fname.getText().toString());
+//               values.put("MName", mname.getText().toString());
+//               jsonString = new JSONObject();
+//               jsonString.put("Token", "0001");
+//               jsonString.put("call", "SaveUpdateCustomerMaster");
+//               jsonString.put("values", values);
+//               request = jsonString.toString();
+//
+//           } catch (
+//           JSONException e) {
+//               e.printStackTrace();
+//           }
+
+
+               }
+//
+       });
+
+
 
     }
 
@@ -149,12 +179,6 @@ public class FlightTicket extends BaseActivity{
 
 
 
-    public void rbclick(View v)
-    {
-        int radiobuttonid = rg.getCheckedRadioButtonId();
-        radioButton = findViewById(radiobuttonid);
-
-    }
 
     private void init() {
 
@@ -186,6 +210,5 @@ public class FlightTicket extends BaseActivity{
         }, 1500, 5000);
 
     }
-
 
 }
