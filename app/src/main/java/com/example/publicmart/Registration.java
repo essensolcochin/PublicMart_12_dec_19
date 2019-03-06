@@ -235,7 +235,7 @@ public class Registration extends AppCompatActivity {
 
 
 
-        String URL = this.getString(R.string.Url);
+        String URL = this.getString(R.string.Url)+"Save";
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -350,7 +350,7 @@ public class Registration extends AppCompatActivity {
 
 
 
-        String URL = this.getString(R.string.Url);
+        String URL = this.getString(R.string.Url)+"Select";
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
