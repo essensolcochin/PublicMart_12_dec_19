@@ -26,9 +26,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center_horizontal"
-        android:text="Order Status"
+        android:text="Make Payment"
         android:textSize="20dp"
-        android:textColor="#105F8C"
+        android:textColor="@android:color/white"
         />
 
 </android.support.v7.widget.Toolbar>

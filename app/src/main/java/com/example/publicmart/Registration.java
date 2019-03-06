@@ -235,7 +235,7 @@ public class Registration extends AppCompatActivity {
 
 
 
-        String URL = "http://192.168.0.30:7899/api/CommonApi/Invoke";
+        String URL = this.getString(R.string.Url);
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -265,10 +265,7 @@ public class Registration extends AppCompatActivity {
 
                             Log.e("tryyyyyyyyy","in"+o);
 
-//                            JSONArray json_array2 = o.getJSONArray("result");
-//                            Log.e("tryyyyyyyyy",""+json_array2);
-//
-//                            JSONObject jsonObject = json_array2.getJSONObject(0);
+
                             code = o.getString("responseCode");
                             message=o.getString("responseMessage");
 
@@ -279,13 +276,6 @@ public class Registration extends AppCompatActivity {
                             {
 
                                 Log.e("resppppppp","ifffff"+code);
-
-//                                JSONArray json_array2 = o.getJSONArray("result");
-//
-//
-//                                JSONObject jsonObject = json_array2.getJSONObject(0);
-//
-//                                Log.e("tryyyyyyyyy","  "+jsonObject.get("UserKey"));
 
                                 Intent intent =new Intent(Registration.this,MainActivity.class);
                                 startActivity(intent);
@@ -334,7 +324,6 @@ public class Registration extends AppCompatActivity {
         }
                 ;
 
-        // Volley.getInstance(this).addToRequestQueue(stringRequest);
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
@@ -361,7 +350,7 @@ public class Registration extends AppCompatActivity {
 
 
 
-        String URL = "http://192.168.0.30:7899/api/CommonApi/Invoke";
+        String URL = this.getString(R.string.Url);
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -400,9 +389,6 @@ public class Registration extends AppCompatActivity {
 
                             if (code.equalsIgnoreCase("0"))
                             {
-
-
-
 
 
                                 Log.e("resppppppp","ifffff"+code);
@@ -462,8 +448,6 @@ public class Registration extends AppCompatActivity {
                             e.printStackTrace();
                         }
                     }
-
-
 
                 },
                 new Response.ErrorListener() {

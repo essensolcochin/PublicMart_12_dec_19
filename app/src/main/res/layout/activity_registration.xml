@@ -38,26 +38,38 @@
 
                 android:text="Personal Details"/>
 
+<android.support.design.widget.TextInputLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    >
 
-            <EditText
-               android:padding="10dp"
-                android:gravity="center_vertical"
-                android:layout_marginTop="5dp"
+    <EditText
+        android:padding="10dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="16dp"
+        android:id="@+id/fname"
+        android:hint="First Name"
+        android:textColor="#6B6B6B"
+        android:textColorHint="#6B6B6B"
+        android:background="@drawable/stroke"
+        android:inputType="textCapSentences"
+        android:imeOptions="actionNext"
+        />
+
+
+
+</android.support.design.widget.TextInputLayout>
+
+
+  <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="16dp"
-                android:id="@+id/fname"
-                android:hint="First Name"
-                android:textColor="#6B6B6B"
-                android:textColorHint="#6B6B6B"
-                android:background="@drawable/stroke"
-                android:inputType="textCapSentences"
-                android:imeOptions="actionNext"
-                />
-
+                android:layout_marginTop="10dp">
 
             <EditText
-                android:layout_marginTop="10dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -72,12 +84,14 @@
                 android:imeOptions="actionNext"
                 />
 
+  </android.support.design.widget.TextInputLayout>
 
-
-
+   <android.support.design.widget.TextInputLayout
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginTop="10dp">
 
             <EditText
-                android:layout_marginTop="10dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -91,6 +105,7 @@
                 android:imeOptions="actionNext"
                 />
 
+   </android.support.design.widget.TextInputLayout>
             <TextView
                 android:textColor="@color/col7"
                 android:layout_width="wrap_content"
@@ -169,11 +184,14 @@
 
             </LinearLayout>
 
+     <android.support.design.widget.TextInputLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
 
 
             <EditText
-                android:layout_marginTop="10dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -186,11 +204,14 @@
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
                 />
+     </android.support.design.widget.TextInputLayout>
 
-
+        <android.support.design.widget.TextInputLayout
+           android:layout_marginTop="10dp"
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content">
 
             <EditText
-                android:layout_marginTop="10dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -204,8 +225,14 @@
                 android:imeOptions="actionNext"
                 />
 
+        </android.support.design.widget.TextInputLayout>
+
+
+       <android.support.design.widget.TextInputLayout
+           android:layout_marginTop="10dp"
+           android:layout_width="match_parent"
+                android:layout_height="wrap_content">
             <EditText
-                android:layout_marginTop="10dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -219,8 +246,14 @@
                 android:imeOptions="actionNext"
                 />
 
-            <EditText
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <EditText
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -233,6 +266,7 @@
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
                 />
+            </android.support.design.widget.TextInputLayout>
 
             <RelativeLayout
                 android:padding="10dp"
@@ -252,8 +286,13 @@
                 />
             </RelativeLayout>
 
-            <EditText
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <EditText
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -267,8 +306,16 @@
                 android:imeOptions="actionNext"
                 />
 
-            <EditText
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <EditText
+
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -282,8 +329,17 @@
                 android:imeOptions="actionNext"
                 />
 
-            <EditText
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            <EditText
+                android:layout_marginTop="5dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -297,9 +353,18 @@
                 android:imeOptions="actionNext"
                 />
 
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
 
             <EditText
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -313,9 +378,19 @@
                 android:imeOptions="actionNext"
                 />
 
+            </android.support.design.widget.TextInputLayout>
+
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
 
             <EditText
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -329,8 +404,18 @@
                 android:imeOptions="actionNext"
                 />
 
+            </android.support.design.widget.TextInputLayout>
+
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
             <EditText
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -343,6 +428,8 @@
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
                 />
+
+            </android.support.design.widget.TextInputLayout>
 
 
 
@@ -427,9 +514,14 @@
             </LinearLayout>
 
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp">
+
 
             <EditText
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -443,9 +535,16 @@
                 android:imeOptions="actionNext"
                 />
 
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                >
+
             <EditText
                 android:id="@+id/password"
-                android:layout_marginTop="10dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -457,9 +556,16 @@
                 android:inputType="textPassword"
                 android:imeOptions="actionNext"/>
 
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                >
+
             <EditText
                 android:id="@+id/Confirmpasswd"
-                android:layout_marginTop="10dp"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
@@ -470,6 +576,8 @@
                 android:background="@drawable/stroke"
                 android:inputType="textPassword"
                 android:imeOptions="actionNext"/>
+
+            </android.support.design.widget.TextInputLayout>
 
             <LinearLayout
                 android:layout_gravity="center"

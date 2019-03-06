@@ -105,7 +105,7 @@
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"
                     android:layout_marginTop="5dp"
-                    android:hint="Type Your Name"
+                    android:hint="Enter Passenger Name"
                     android:id="@+id/traveler_name"/>
 
             </android.support.design.widget.TextInputLayout>
@@ -434,7 +434,7 @@
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
                     android:layout_marginTop="5dp"
-                    android:hint="Type Your Email ID"
+                    android:hint="Enter Passenger Email ID"
                     android:background="@drawable/stroke"
                     android:textSize="18dp"
                     android:paddingLeft="5dp"
@@ -456,7 +456,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
-                    android:hint="Type Your Contact No"
+                    android:hint="Enter Passenger Contact No"
                     android:inputType="number"
                     android:background="@drawable/stroke"
                     android:textSize="18dp"

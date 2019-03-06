@@ -1,12 +1,12 @@
 package com.example.publicmart;
 
-import android.app.ProgressDialog;
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -30,6 +30,7 @@ import org.json.JSONTokener;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout log;
     EditText username,password;
     String code,message,request;
+
+    private static final Random random = new Random();
+    private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
         password= (EditText) findViewById(R.id.password);
 
 
+        getToken(5);
 
 
 
@@ -74,9 +79,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                 try {
-
-
-
 
                     JSONObject values = new JSONObject();
                     values.put("UserName", username.getText().toString());
@@ -124,7 +126,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        String URL = "http://192.168.0.30:7899/api/CommonApi/Invoke";
+        String URL = this.getString(R.string.Url);
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -232,7 +234,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static String getToken(int length) {
+        StringBuilder token = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            token.append(CHARS.charAt(random.nextInt(CHARS.length())));
+        }
+        Log.e("Mytokennnnn",""+token.toString());
+        return token.toString();
 
+    }
 
 
 
