@@ -74,6 +74,8 @@ public class Products extends BaseActivity  {
         try {
 
             JSONObject values = new JSONObject();
+            values.put("ImageType","ProductCategory");
+
             jsonString = new JSONObject();
             jsonString.put("Token", "0001");
             jsonString.put("call", "GetActiveProductCategory");
@@ -88,7 +90,7 @@ public class Products extends BaseActivity  {
 
 
 
-        String URL = this.getString(R.string.Url)+"Select";
+        String URL = this.getString(R.string.Url)+"GetImage";
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -141,7 +143,7 @@ public class Products extends BaseActivity  {
                                 for (j = 0; j < json_array2.length(); j++) {
                                     jsonObject = json_array2.getJSONObject(j);
 
-                                   $ProductMenuModel items =new $ProductMenuModel(jsonObject.getString("CategoryKey"),
+                                   $ProductMenuModel items = new $ProductMenuModel(jsonObject.getString("CategoryKey"),
                                            jsonObject.getString("CategoryName"),
                                            jsonObject.getString("ImagePath"));
 

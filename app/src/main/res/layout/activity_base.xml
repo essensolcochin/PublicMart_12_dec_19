@@ -47,10 +47,12 @@
                     android:textColor="@color/col10"
                     />
                 <ImageView
-                    android:layout_toRightOf="@+id/appname"
-                    android:layout_toEndOf="@+id/appname"
-                    android:layout_marginLeft="50dp"
-                    android:layout_marginStart="50dp"
+                    android:layout_toLeftOf="@+id/cart"
+                    android:layout_toStartOf="@+id/cart"
+                    android:layout_marginRight="40dp"
+                    android:layout_marginEnd="40dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginLeft="10dp"
                     android:id="@+id/search"
                     android:layout_width="30dp"
                     android:layout_height="30dp"

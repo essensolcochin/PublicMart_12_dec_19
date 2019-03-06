@@ -24,12 +24,14 @@
         <activity android:name=".Profile" />
         <activity android:name=".SearchBar" />
         <activity android:name=".BaseActivity" />
-        <activity android:name=".ProductView" />
+        <activity android:name=".ProductView" >
+        </activity>
         <activity android:name=".Bookingstatus" />
         <activity android:name=".Payment" />
         <activity android:name=".orderstatusdet" />
         <activity android:name=".OrderStatus" />
-        <activity android:name=".Fashion" />
+        <activity android:name=".Fashion" >
+        </activity>
         <activity android:name=".Products" >
 
         </activity>
@@ -38,12 +40,12 @@
         <activity android:name=".Home" />
         <activity android:name=".Registration" />
         <activity android:name=".MainActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+
 
         </activity>
 
