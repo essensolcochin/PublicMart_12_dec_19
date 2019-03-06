@@ -1,12 +1,12 @@
 package com.example.publicmart;
 
-import android.app.ProgressDialog;
+
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
-import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -28,6 +28,7 @@ import org.json.JSONTokener;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import io.fabric.sdk.android.Fabric;
 
@@ -40,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     EditText username,password;
     String code,message,request;
 
+    private static final Random random = new Random();
+    private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,12 @@ public class MainActivity extends AppCompatActivity {
 
         username= (EditText) findViewById(R.id.username);
         password= (EditText) findViewById(R.id.password);
+
+
+
+
+
+
         reg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -68,9 +78,6 @@ public class MainActivity extends AppCompatActivity {
 
 
                 try {
-
-
-
 
                     JSONObject values = new JSONObject();
                     values.put("UserName", username.getText().toString());
@@ -110,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        String URL = "http://192.168.0.30:7899/api/CommonApi/Invoke";
+        String URL = this.getString(R.string.Url);
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -217,9 +224,13 @@ public class MainActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
 
     }
-    public void forceCrash(View view) {
-        throw new RuntimeException("This is a crash");
-    }
+
+
+
+
+
+
+
 
 
 }

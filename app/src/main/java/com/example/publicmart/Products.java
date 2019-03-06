@@ -1,20 +1,15 @@
 package com.example.publicmart;
 
 
-import android.os.Handler;
+
 
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 
-import android.view.View;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.ViewFlipper;
-
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -22,32 +17,30 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.crashlytics.android.Crashlytics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import dmax.dialog.SpotsDialog;
 import io.fabric.sdk.android.Fabric;
 
-public class Products extends BaseActivity {
+public class Products extends BaseActivity  {
 
 
     JSONObject jsonString;
-    LinearLayout fashion;
-     String code,message;
-    TextView fash,spice,nut,weight;
+
+    String code,message;
     ProductMenuAdapter adapter;
+    GridLayoutManager layoutManager;
     RecyclerView recyclerView;
     List<$ProductMenuModel>menuModel=new ArrayList<>();
-     SpotsDialog progress ;
+    SpotsDialog progress ;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,8 +55,11 @@ public class Products extends BaseActivity {
 //        android.support.v7.widget.Toolbar tb=getToolBar();
 
         recyclerView = findViewById(R.id.menu);
-        int numberOfColumns = 2;
-        recyclerView.setLayoutManager(new GridLayoutManager(this,2));
+
+
+        layoutManager=new GridLayoutManager(this,2);
+        recyclerView.setLayoutManager(layoutManager);
+
 
         LoadMenu();
 
@@ -99,7 +95,7 @@ public class Products extends BaseActivity {
 
 
 
-        String URL = "http://192.168.0.30:7899/api/CommonApi/Invoke";
+        String URL = this.getString(R.string.Url);
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -111,7 +107,7 @@ public class Products extends BaseActivity {
 
                         Log.e("Jsonnnn",""+response);
 
-                       ////// Checking Json Response Is Object Or Not ///////
+                       ////// Checking Json Response Is JSON Object Or Not ///////
                         try {
 
 
@@ -130,9 +126,7 @@ public class Products extends BaseActivity {
 
                             ///////////////////////////////////////////
 
-
-
-                             Log.e("tryyyyyyyyy","in"+o);
+                            Log.e("tryyyyyyyyy","in"+o);
 
 
                             code = o.getString("responseCode");
@@ -164,9 +158,8 @@ public class Products extends BaseActivity {
 
                                 }
                                 adapter = new ProductMenuAdapter(getApplicationContext(), menuModel);
-
                                 recyclerView.setAdapter(adapter);
-                            }
+                          }
 
 
                             else {
@@ -191,7 +184,10 @@ public class Products extends BaseActivity {
                         Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_LONG).show();
 
                     }
-                }) {
+                })
+
+
+        {
 
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
@@ -214,6 +210,5 @@ public class Products extends BaseActivity {
         requestQueue.add(stringRequest);
 
     }
-
 
 }

@@ -105,7 +105,7 @@
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:background="@drawable/stroke"
-                        android:hint="Guest Name"
+                        android:hint="Enter Passenger Name"
                         android:textSize="18dp"
                         android:paddingLeft="5dp"
                         android:paddingTop="10dp"
@@ -323,7 +323,7 @@
                             android:paddingTop="10dp"
                             android:paddingBottom="10dp"
                             android:background="@drawable/stroke"
-                            android:hint="Email ID"
+                            android:hint="Enter Passenger Email ID"
                             android:padding="10dp"
                             />
                         </android.support.design.widget.TextInputLayout>
@@ -344,7 +344,7 @@
                             android:paddingTop="10dp"
                             android:paddingBottom="10dp"
                             android:background="@drawable/stroke"
-                            android:hint="Contact No"
+                            android:hint="Enter Passenger Contact No"
                             android:inputType="number"
                             android:padding="10dp"/>
                         </android.support.design.widget.TextInputLayout>

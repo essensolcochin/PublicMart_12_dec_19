@@ -49,7 +49,7 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
 
 
         try {
-            URL url = new URL(menu_list.get(i).getImagePath());
+            URL url = new URL("http://192.168.0.30:7899"+menu_list.get(i).getImagePath());
             ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
                     .setAutoRotateEnabled(true)
                     .setResizeOptions(new ResizeOptions(50, 50))
