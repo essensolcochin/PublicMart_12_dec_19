@@ -4,7 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
-import android.net.Uri;
+
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
@@ -16,7 +16,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.facebook.drawee.backends.pipeline.Fresco;
+
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
@@ -30,7 +30,7 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
 
     private Context context;
     private List<$ProductMenuModel> menu_list;
-    private String[] mData;
+
 
     public ProductMenuAdapter(Context context,  List<$ProductMenuModel> menu_list) {
         this.context = context;

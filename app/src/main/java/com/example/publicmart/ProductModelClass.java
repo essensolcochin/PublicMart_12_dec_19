@@ -61,4 +61,6 @@ public class ProductModelClass {
     public void setImagePath(String imagePath) {
         ImagePath = imagePath;
     }
+
+
 }

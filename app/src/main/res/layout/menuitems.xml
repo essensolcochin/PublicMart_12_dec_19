@@ -17,7 +17,6 @@
 
     <ImageView
         android:tint="@color/col7"
-        android:src="@drawable/clothes"
         android:id="@+id/menuIcon"
 
         android:layout_weight=".75"
@@ -50,11 +49,6 @@
 
                     android:layout_height="wrap_content"
                     />
-
-
-
-
-
 
 
 

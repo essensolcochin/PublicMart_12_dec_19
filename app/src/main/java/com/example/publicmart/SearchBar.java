@@ -38,19 +38,21 @@ public class SearchBar extends AppCompatActivity {
         onBackPressed();
     }
 });
-        ArrayList<String> names = new ArrayList<>();
-        names.add("Sarees");
-        names.add("Shoes");
-        names.add("Spices");
-        names.add("Weightloss");
-        names.add("Proteins");
+        ArrayList<SpinnerModel> names = new ArrayList<>();
+
+//        SpinnerModel items = new SpinnerModel(1,"pooru");
+//        names.add(items);
+//        names.add("Sarees");
+//        names.add("Shoes");
+//        names.add("Spices");
+//        names.add("Weightloss");
+//        names.add("Proteins");
 
 
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplication(),"This is my Toast message!",
-                        Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplication(),"This is my Toast message!", Toast.LENGTH_LONG).show();
             }
         });
 

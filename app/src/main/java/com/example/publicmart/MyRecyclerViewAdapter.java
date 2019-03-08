@@ -56,8 +56,8 @@ private String[] mData;
 
 private List<ProductModelClass>mylist;
 
-private final PipelineDraweeControllerBuilder mControllerBuilder =
-            Fresco.newDraweeControllerBuilder();
+//private final PipelineDraweeControllerBuilder mControllerBuilder =
+//            Fresco.newDraweeControllerBuilder();
 
  private Context context;
         // data is passed into the constructor
@@ -142,7 +142,7 @@ public int getItemCount() {
 public class ViewHolder extends RecyclerView.ViewHolder  {
     TextView ProductName,desc,Bv,Rs;
     LinearLayout itemLayout;
-    SimpleDraweeView product_image;
+   // SimpleDraweeView product_image;
     ImageView Image;
         ViewHolder(View itemView) {
         super(itemView);
@@ -156,9 +156,6 @@ public class ViewHolder extends RecyclerView.ViewHolder  {
 
 
         }
-
-
-
 
 
 
