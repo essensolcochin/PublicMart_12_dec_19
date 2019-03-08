@@ -165,7 +165,7 @@ public class Registration extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
-                Toast.makeText(getApplication(), ""+names.get(position).getStateCode(),Toast.LENGTH_LONG).show();
+               // Toast.makeText(getApplication(), ""+names.get(position).getStateCode(),Toast.LENGTH_LONG).show();
                 StateKey = names.get(position).getStateCode();
                 Log.e("codeeeeestaeeeeeee","test   "+ StateKey);
             }
@@ -292,7 +292,7 @@ public class Registration extends AppCompatActivity {
 
                                 Intent intent =new Intent(Registration.this,MainActivity.class);
                                 startActivity(intent);
-
+                                finish();
 
                             }
 

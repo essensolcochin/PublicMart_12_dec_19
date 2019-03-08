@@ -2,6 +2,7 @@ package com.example.publicmart;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
     LinearLayout log;
     EditText username,password;
     String code,message,request;
-
+    SharedPreferences sp;
     private static final Random random = new Random();
     private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
 
@@ -174,15 +175,23 @@ public class MainActivity extends AppCompatActivity {
                             if (code.equals("0"))
                             {
 
-                                JSONArray json_array2 = o.getJSONArray("result");
+
+                             JSONArray json_array2 = o.getJSONArray("result");
 
 
-                            JSONObject jsonObject = json_array2.getJSONObject(0);
+                             JSONObject jsonObject = json_array2.getJSONObject(0);
 
                                 Log.e("tryyyyyyyyy","  "+jsonObject.get("UserKey"));
 
+                                sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                SharedPreferences.Editor editor =sp.edit();
+                                editor.putBoolean("LoggedUser",true);
+                               // editor.putString("UserType",usertype);
+                                editor.apply();
+                                Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
                                 Intent intent =new Intent(MainActivity.this,Home.class);
                                 startActivity(intent);
+                                finish();
 
 
                             }

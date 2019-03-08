@@ -2,24 +2,40 @@ package com.example.publicmart;
 
 public class ProductModelClass {
 
-    String ProductKey,ProductName,ImagePath,Description,MRP,BV;
+    String ProductKey,BrandName,ShortDesc,MRP,BV,ImagePath;
 
 
-    public ProductModelClass(String productKey, String productName, String imagePath, String description, String MRP, String BV) {
+    public ProductModelClass(String productKey, String brandName, String shortDesc, String MRP, String BV, String imagePath) {
         ProductKey = productKey;
-        ProductName = productName;
-        ImagePath = imagePath;
-        Description = description;
+        BrandName = brandName;
+        ShortDesc = shortDesc;
         this.MRP = MRP;
         this.BV = BV;
+        ImagePath = imagePath;
     }
 
-    public String getDescription() {
-        return Description;
+    public String getProductKey() {
+        return ProductKey;
     }
 
-    public void setDescription(String description) {
-        Description = description;
+    public void setProductKey(String productKey) {
+        ProductKey = productKey;
+    }
+
+    public String getBrandName() {
+        return BrandName;
+    }
+
+    public void setBrandName(String brandName) {
+        BrandName = brandName;
+    }
+
+    public String getShortDesc() {
+        return ShortDesc;
+    }
+
+    public void setShortDesc(String shortDesc) {
+        ShortDesc = shortDesc;
     }
 
     public String getMRP() {
@@ -36,22 +52,6 @@ public class ProductModelClass {
 
     public void setBV(String BV) {
         this.BV = BV;
-    }
-
-    public String getProductKey() {
-        return ProductKey;
-    }
-
-    public void setProductKey(String productKey) {
-        ProductKey = productKey;
-    }
-
-    public String getProductName() {
-        return ProductName;
-    }
-
-    public void setProductName(String productName) {
-        ProductName = productName;
     }
 
     public String getImagePath() {

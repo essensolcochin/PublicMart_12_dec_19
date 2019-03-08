@@ -74,11 +74,11 @@ public class Products extends BaseActivity  {
         try {
 
             JSONObject values = new JSONObject();
-            values.put("ImageType","ProductCategory");
+           // values.put("ImageType","ProductCategory");
 
             jsonString = new JSONObject();
             jsonString.put("Token", "0001");
-            jsonString.put("call", "GetActiveProductCategory");
+            jsonString.put("call", "GetActiveProductCategoryList");
             jsonString.put("values", values);
 
         } catch (
@@ -90,7 +90,7 @@ public class Products extends BaseActivity  {
 
 
 
-        String URL = this.getString(R.string.Url)+"GetImage";
+        String URL = this.getString(R.string.Url)+"Select";
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,

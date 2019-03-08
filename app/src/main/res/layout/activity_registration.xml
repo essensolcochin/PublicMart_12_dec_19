@@ -474,7 +474,7 @@
                         android:layout_weight="1"
 
                         android:textColor="@android:color/black"
-                        android:text="Gold"
+                        android:text="Bronze"
                         />
 
 
@@ -501,7 +501,7 @@
                         android:textColor="@android:color/black"
                         android:checked="false"
 
-                        android:text="Bronze"
+                        android:text="Gold"
                         />
 
 

@@ -88,32 +88,36 @@ final ProductModelClass List = mylist.get(position);
 //    Fresco.initialize(context, config);
 //    FLog.setMinimumLoggingLevel(FLog.VERBOSE);
 
-//
-//    try {
-//
-//
-//
-//        URL url = new URL("http://192.168.0.30:7899/images/product_category/saree.png");
-//        ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
-//                .setAutoRotateEnabled(true)
-//                .setResizeOptions(new ResizeOptions(50, 50))
-//                .build();
-//        DraweeController draweeController = Fresco.newDraweeControllerBuilder()
-//                .setImageRequest(imageRequest)
-//                .build();
-//        holder.product_image.setController(draweeController);
-//    } catch (Exception e) {
-//    }
+
+    try {
 
 
 
-    String base64 = List.getImagePath();
-    Log.e("menugeterrrrrrrr","in"+base64);
+        URL url = new URL(context.getString(R.string.ImgUrl)+List.getImagePath());
 
-    byte[] imageAsBytes = Base64.decode(base64.getBytes(), Base64.DEFAULT);
-    holder.Image.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
-    holder.ProductName.setText(List.ProductName);
-    holder.desc.setText(List.getDescription());
+        ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
+                     .setAutoRotateEnabled(true)
+                     //.setResizeOptions(new ResizeOptions(50, 50))
+                     .build();
+
+        DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                         .setImageRequest(imageRequest)
+                         .build();
+        holder.product_image.setController(draweeController);
+    } catch (Exception e) {
+        //
+    }
+
+
+//
+//    String base64 = List.getImagePath();
+//    Log.e("menugeterrrrrrrr","in"+base64);
+//
+//    byte[] imageAsBytes = Base64.decode(base64.getBytes(), Base64.DEFAULT);
+//    holder.Image.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
+
+    holder.ProductName.setText(List.getBrandName());
+    holder.desc.setText(List.getShortDesc());
     holder.Bv.setText(List.getBV());
     holder.Rs.setText(List.getMRP());
 
@@ -151,8 +155,8 @@ public class ViewHolder extends RecyclerView.ViewHolder  {
             Bv = itemView.findViewById(R.id.BV);
             Rs = itemView.findViewById(R.id.amount);
         itemLayout = itemView.findViewById(R.id.productLayout);
-       // product_image = itemView.findViewById(R.id.image);
-        Image = itemView.findViewById(R.id.image);
+       product_image = itemView.findViewById(R.id.image);
+//        Image = itemView.findViewById(R.id.image);
 
 
         }
