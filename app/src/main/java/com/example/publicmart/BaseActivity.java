@@ -19,6 +19,8 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.nex3z.notificationbadge.NotificationBadge;
+
 import java.util.ArrayList;
 
 
@@ -39,11 +41,17 @@ public class BaseActivity extends AppCompatActivity {
     private ValueAdapter valueAdapter;
 
     private TextWatcher mSearchTw;
-
+    NotificationBadge mBadge;
 
     public Toolbar getToolBar(){
         return toolbar;
     }
+
+    public NotificationBadge getmBadge(){
+        return mBadge;
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -55,13 +63,13 @@ public class BaseActivity extends AppCompatActivity {
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Helvetica.ttf");
 
         head.setTypeface(custom_font);
-        head.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(BaseActivity.this, Home.class);
-                startActivity(intent);
-            }
-        });
+//        head.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(BaseActivity.this, Home.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
 

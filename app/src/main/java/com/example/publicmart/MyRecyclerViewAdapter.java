@@ -70,6 +70,9 @@ private final PipelineDraweeControllerBuilder mControllerBuilder =
 @NonNull
 public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.recyclerview_item,parent,false);
+        int height = parent.getMeasuredHeight() / 4;
+        view.setMinimumHeight(height);
+
         return new ViewHolder(view);
         }
 
@@ -77,6 +80,8 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
 final ProductModelClass List = mylist.get(position);
+
+
 
 
 //    Set<RequestListener> requestListeners = new HashSet<>();
@@ -124,11 +129,12 @@ final ProductModelClass List = mylist.get(position);
 
 
 
-holder.itemLayout.setOnClickListener(new View.OnClickListener() {
+        holder.itemLayout.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
         Intent intent = new Intent(context, ProductView.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        intent.putExtra("ProductKey",List.ProductKey);
         context.getApplicationContext().startActivity(intent);
 
     }
@@ -148,6 +154,8 @@ public class ViewHolder extends RecyclerView.ViewHolder  {
     LinearLayout itemLayout;
     SimpleDraweeView product_image;
     ImageView Image;
+
+
         ViewHolder(View itemView) {
         super(itemView);
             ProductName = itemView.findViewById(R.id.info_text);
@@ -161,12 +169,16 @@ public class ViewHolder extends RecyclerView.ViewHolder  {
 
         }
 
+}
 
+public void addData(List<ProductModelClass>list)
+{
+            for (ProductModelClass Mclass:list)
+            {
 
-
-
-
-
+                mylist.add(Mclass);
+            }
+notifyDataSetChanged();
 }
 
 

@@ -4,11 +4,14 @@ package com.example.publicmart;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
@@ -33,11 +36,19 @@ public class Fashion extends BaseActivity {
 
     LinearLayout ll;
     List<ProductModelClass> item_list;
+    List<ProductModelClass>newlist;
+
     MyRecyclerViewAdapter adapter;
     GridLayoutManager layoutManager;
-    public int visibleItemCount,pastVisibleItemCount,totalItemCount,previousCount= 0;
-    public boolean isloading =true;
-    public  int view_threshold =10;
+
+    private  int pageNo=1;
+    private int ItemCount=4;
+    ProgressBar Loader ;
+    private int visibleItemCount,pastVisibleItemCount,totalItemCount,previousCount= 0;
+    private  int view_threshold =10;
+    private boolean isloading = true;
+    private boolean isLastPage =false;
+
     TextView txtxmpny;
     RecyclerView recyclerView;
     String CategoryKey,CategoryName;
@@ -47,9 +58,10 @@ public class Fashion extends BaseActivity {
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_fashion, contentFrameLayout);
 
+        item_list= new ArrayList<>();
 
         final SpotsDialog progress = new SpotsDialog(Fashion.this,R.style.Custom);
-
+        Loader = new ProgressBar(this);
 
         progress.show();
 
@@ -59,7 +71,7 @@ public class Fashion extends BaseActivity {
         String[] data = {"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48"};
 
 
-        item_list= new ArrayList<>();
+
 
         Bundle abBundle= getIntent().getExtras();
         CategoryKey = abBundle.getString("CategoryKey");
@@ -80,6 +92,8 @@ public class Fashion extends BaseActivity {
             JSONObject values = new JSONObject();
            // values.put("ImageType","Product");
             values.put("CategoryKey",CategoryKey);
+//            values.put("PageSize",ItemCount);
+//            values.put("PageNumber",pageNo);
 
 
             jsonString = new JSONObject();
@@ -149,6 +163,8 @@ public class Fashion extends BaseActivity {
                                                 jsonObject.getString("ImagePath"));
 
                                         Log.e("resppppppp", "ifffff" + code);
+
+
                                         item_list.add(items);
 
 
@@ -215,53 +231,195 @@ public class Fashion extends BaseActivity {
         }
 
 
-
-
-
-
-
-
 //        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
 //            @Override
-//            public void onScrolled(@NonNull RecyclerView recyclerView, int dx, int dy) {
+//            public void onScrolled( RecyclerView recyclerView, int dx, int dy) {
 //                super.onScrolled(recyclerView, dx, dy);
+//
 //                visibleItemCount = layoutManager.getChildCount();
 //                totalItemCount = layoutManager.getItemCount();
 //                pastVisibleItemCount =layoutManager.findFirstVisibleItemPosition();
 //
-//                if(dy>0)
-//                {
+//                Log.e("pastVisibleItemCount", " " + pastVisibleItemCount);
+//                Log.e("total item",""+totalItemCount);
+//
+//                Log.e("visibleCount", " " + visibleItemCount);
+//
+//
+//              //-----check this tomorrow  if(isloading&&(visibleItemCount+pastVisibleItemCount==totalItemCount)) -----//
+//
+//
+//
+////                if(dy>0)
+////                {
+//
+//                    Log.e("checkinggg dy","   "+dy);
+//
 //                    if(isloading)
 //                    {
+//
 //                        if(totalItemCount>previousCount)
 //                        {
 //                            isloading =false;
-//                            previousCount =totalItemCount;
+//                            previousCount = totalItemCount;
 //                        }
 //
 //                    }
 //
-//                    if(isloading&&(totalItemCount-visibleItemCount)<=(pastVisibleItemCount+view_threshold))
+//                    if(!isloading&&(totalItemCount-visibleItemCount)<=(pastVisibleItemCount+view_threshold))//false&&(6-4)<=(2+10)
 //                    {
-//                       // LoadItems();
-//                        Toast.makeText(Fashion.this,"Pagination",Toast.LENGTH_LONG).show();
-//                        isloading = true;
+//
+//                            pageNo++;
+//                            Log.e("____PageNo_insideee___", "" + pageNo);
+//                            Perform_pagination();
+//                            Toast.makeText(Fashion.this, "Pagination", Toast.LENGTH_LONG).show();
+//                            isloading = true;
 //
 //                    }
 //
 //
-//                }
+////                }
 //
 //
-//            }
-//        });
+//          }
+//       });
+
+   }
+
+    private void Perform_pagination(){
+        Loader.setVisibility(View.VISIBLE);
+
+        try {
+
+            final JSONObject jsonString;
+            JSONObject values = new JSONObject();
+            values.put("CategoryKey",CategoryKey);
+            values.put("PageSize",ItemCount);
+            values.put("PageNumber",pageNo);
+
+            jsonString = new JSONObject();
+            jsonString.put("Token", "0001");
+            jsonString.put("call", "GetActiveProductListByCategoryId");
+            jsonString.put("values", values);
+
+
+
+            String URL = this.getString(R.string.Url)+"Select";
+
+
+            StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+
+                            Loader.setVisibility(View.GONE);
+
+                            Log.e("Jsonnnn",""+response);
+
+
+                            try {
+
+
+                                JSONObject o     = new JSONObject(response);
+
+
+
+                                Log.e("tryyyyyyyyy","in"+o);
+
+
+                                String  code = o.getString("responseCode");
+                                String  message=o.getString("responseMessage");
 
 
 
 
+                                if (code.equalsIgnoreCase("0")) {
 
+                                    JSONArray json_array2 = o.getJSONArray("result");
+                                    JSONObject jsonObject;
+
+                                    int j;
+                                    for (j = 0; j < json_array2.length(); j++) {
+                                        jsonObject = json_array2.getJSONObject(j);
+
+
+                                        ProductModelClass items = new ProductModelClass(jsonObject.getString("ProductKey"),
+                                                jsonObject.getString("BrandName"),
+                                                jsonObject.getString("ShortDesc"),
+                                                jsonObject.getString("MRP"),
+                                                jsonObject.getString("BV"),
+                                                jsonObject.getString("ImagePath"));
+
+                                        Log.e("resppppppp", "ifffff" + code);
+                                        newlist =new ArrayList<>();
+                                        newlist.add(items);
+
+
+                                    }
+
+                                   // Log.e("____PageNo____",""+pageNo);
+
+                                    adapter.addData(newlist);
+
+
+
+
+                                }
+                                else {
+                                    Toast.makeText(Fashion.this,message,Toast.LENGTH_SHORT).show();
+                                }
+
+
+
+
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+
+
+
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // progress.cancel();
+                            Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_LONG).show();
+
+                        }
+                    })
+
+
+            {
+
+                @Override
+                protected Map<String, String> getParams() throws AuthFailureError {
+                    Map<String, String> param = new HashMap<String, String>();
+                    param.put("jsonString",jsonString.toString() );
+                    Log.e("paramssss",""+param);
+                    return param;
+                }
+
+                @Override
+                public Map<String, String> getHeaders() throws AuthFailureError {
+                    Map<String,String> param = new HashMap<String, String>();
+                    param.put("Content-Type","application/x-www-form-urlencoded");
+                    return param;
+                }
+            }
+                    ;
+
+            RequestQueue requestQueue= Volley.newRequestQueue(this);
+            requestQueue.add(stringRequest);
+
+
+
+        } catch (Exception e) {
+            // JSONException
+        }
 
 
 
     }
+
 }

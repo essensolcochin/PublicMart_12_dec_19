@@ -27,7 +27,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="250dp"
                 android:scaleType="fitXY"
-                fresco:placeholderImage="@drawable/cartlogo"
+                fresco:placeholderImage="@drawable/placeholder"
                 fresco:actualImageScaleType="fitXY"
                 />
 
@@ -35,7 +35,7 @@
                 android:paddingLeft="10dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
                 <TextView
                     android:padding="5dp"
@@ -51,13 +51,12 @@
                     />
 
                 <TextView
+                    android:maxLines="1"
                     android:scrollHorizontally="false"
-                    android:layout_marginTop="5dp"
                     android:id="@+id/short_desc"
                     android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Woven Design Kanjeevaram Saree"
                     android:textSize="12dp"
                     android:textColor="#666666"
                     android:gravity="start"
@@ -65,7 +64,7 @@
 
 
                 <LinearLayout
-                   android:paddingLeft="5dp"
+                   android:paddingLeft="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -99,13 +98,13 @@
 
 
                 <RelativeLayout
-                    android:layout_marginTop="5dp"
+                    android:layout_marginTop="2dp"
                     android:padding="2dp"
                     android:layout_marginBottom="15dp"
                     android:orientation="horizontal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
-                <TextView
+                    <TextView
 
                     android:textStyle="bold"
                     android:id="@+id/amount"
