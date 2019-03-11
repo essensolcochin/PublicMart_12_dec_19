@@ -1,16 +1,23 @@
 package com.example.publicmart;
 
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
+import android.os.Handler;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,8 +37,10 @@ import org.json.JSONTokener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import dmax.dialog.SpotsDialog;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -44,7 +53,7 @@ public class ProductView extends BaseActivity {
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
     private static final String[] IMAGES={};
-    NotificationBadge cartItem;
+    TextView cartItem;
 
     private ArrayList<String> ImagesArray = new ArrayList<String>();
     LinearLayout wishlist;
@@ -52,6 +61,7 @@ public class ProductView extends BaseActivity {
     String CategoryKey,ProductKey;
     private Realm realm;
     private RealmResults<RealmShopModel> cartSIZE;
+    private ProgressBar loading;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +80,11 @@ public class ProductView extends BaseActivity {
         cartSIZE = realm.where(RealmShopModel.class).findAll();
         cartSIZE.load();
 
+
+
+
+
+
         Bundle abBundle= getIntent().getExtras();
         ProductKey = abBundle.getString("ProductKey");
 
@@ -83,7 +98,9 @@ public class ProductView extends BaseActivity {
         placeorder = findViewById(R.id.place_order);
         price = findViewById(R.id.Price);
         BV = findViewById(R.id.BV);
+        loading= findViewById(R.id.loading);
 
+        loading =new ProgressBar(this);
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/CODEBold.otf");
 
 
@@ -209,6 +226,7 @@ public class ProductView extends BaseActivity {
                                     }
                                     mPager = (ViewPager) findViewById(R.id.pager);
 
+
                                     Log.e("Imagearraayyyyyyy","in"+ImagesArray);
 
                                     PagerAdapter adapter = new SlidingImage_Adapter_Product(ProductView.this, ImagesArray);
@@ -271,47 +289,131 @@ public class ProductView extends BaseActivity {
         placeorder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 AddToCart();
+
+//                ItemCountSelectionDialog cdd = new ItemCountSelectionDialog(ProductView.this);
+//                cdd.show();
+
+
+//                final SpotsDialog progress = new SpotsDialog(ProductView.this,R.style.Custom);
+//
+//
+//                progress.show();
+
+
+
+
+
+
+
             }
         });
 
 
-
-
     }
 
-   public  void AddToCart()
+
+
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        final MenuItem menuItem = menu.findItem(R.id.cart_action);
+
+        View actionView = MenuItemCompat.getActionView(menuItem);
+        cartItem = (TextView) actionView.findViewById(R.id.cart_badge);
+
+        if(cartSIZE.size()==0)
+        {
+            cartItem.setVisibility(View.GONE);
+        }
+        else
+        {
+            cartItem.setVisibility(View.VISIBLE);
+            cartItem.setText(Integer.toString(cartSIZE.size()));
+        }
+
+        return  true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case R.id.cart_action:
+                Intent cartIntent = new Intent(ProductView.this, OrderStatus.class);
+                startActivity(cartIntent);
+                return true;
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+
+
+
+    public  void AddToCart()
    {
 
-       android.support.v7.widget.Toolbar tb=getToolBar();
-       cartItem=(NotificationBadge) tb.findViewById(R.id.badge);
+       realm.beginTransaction();
 
+       RealmShopModel addToCart1 = new RealmShopModel();
+       addToCart1.setProductKey(ProductKey);
+       realm.insertOrUpdate(addToCart1);
+
+       realm.commitTransaction();
 
        if(cartSIZE.size()==0)
        {
            cartItem.setVisibility(View.GONE);
        }
-       else {
+       else
+       {
            cartItem.setVisibility(View.VISIBLE);
            cartItem.setText(Integer.toString(cartSIZE.size()));
        }
 
-       try {
+       PostOrderDetails();
+
+   }
+
+public  void PostOrderDetails()
+{
+ SharedPreferences sp = getSharedPreferences("UserLog",0);
+  String CustKey =  sp.getString("UserKey",null);
+
+    Log.e("sharedddddddd",""+CustKey);
+           try {
 
            final JSONObject jsonString;
            JSONObject values = new JSONObject();
-           values.put("ProductKey",ProductKey);
+               values.put("OrderDate","10-2-2019");
+               values.put("CustKey",CustKey);
+               values.put("ProductKey",ProductKey);
+               values.put("Qty",1);
+               values.put("Rate",price.getText().toString());
+               values.put("IsCredit",false);
+               values.put("OrderStatusKey",1);
+               values.put("Status",true);
+               values.put("CreatedBy",CustKey);
 
 
 
            jsonString = new JSONObject();
            jsonString.put("Token", "0001");
-           jsonString.put("call", "GetProductDetailsById");
+           jsonString.put("call", "SaveOrderDetails");
            jsonString.put("values", values);
 
 
 
-           String URL = this.getString(R.string.Url)+"Select";
+           String URL = this.getString(R.string.Url)+"Save";
 
 
            StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -353,47 +455,10 @@ public class ProductView extends BaseActivity {
 
                                Log.e("codeeeeeeeeee","in"+code);
 
-                               if (code.equalsIgnoreCase("0")) {
+                               if (code.equalsIgnoreCase("-100")) {
 
-                                   //JSONArray json_array2 = o.getJSONArray("result");
-                                   JSONObject jsonObject;
-                                   jsonObject= o.getJSONObject("result");
-                                   Log.e("Tableeeee","in"+jsonObject);
-                                   final JSONArray table,table1;
-                                   table = jsonObject.getJSONArray("Table");
+                                   Toast.makeText(ProductView.this,"Your Order Has Been Placed",Toast.LENGTH_LONG).show();
 
-                                   Log.e("Tableeeee","in"+table);
-
-                                   Thread thread = new Thread(new Runnable() {
-                                       @Override
-                                       public void run() {
-                                           realm = null;
-                                           try {
-
-
-                                               realm = Realm.getDefaultInstance();
-
-                                               realm.executeTransaction(new Realm.Transaction() {
-                                                   @Override
-                                                   public void execute(Realm realm) {
-                                                       realm.createOrUpdateAllFromJson(RealmShopModel.class, table);
-
-
-                                                   }
-                                               });
-
-
-                                           } finally {
-                                               if (realm != null) {
-                                                   realm.close();
-                                               }
-                                           }
-                                       }
-                                   });
-
-                                   thread.start();
-
-                                   Log.e("realmmmmmmmm","in"+cartSIZE.size());
                                }
                                else {
                                    Toast.makeText(ProductView.this,message,Toast.LENGTH_LONG).show();
@@ -406,8 +471,6 @@ public class ProductView extends BaseActivity {
                                e.printStackTrace();
                            }
                        }
-
-
 
                    },
                    new Response.ErrorListener() {
@@ -450,9 +513,7 @@ public class ProductView extends BaseActivity {
 
 
 
-   }
-
-
+}
 
     }
 

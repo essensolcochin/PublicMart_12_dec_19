@@ -38,6 +38,7 @@ public class SearchBar extends AppCompatActivity {
         onBackPressed();
     }
 });
+
         ArrayList<String> names = new ArrayList<>();
         names.add("Sarees");
         names.add("Shoes");

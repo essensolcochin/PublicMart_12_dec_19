@@ -63,6 +63,7 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
                     .build();
             DraweeController draweeController = Fresco.newDraweeControllerBuilder()
                     .setImageRequest(imageRequest)
+//                    .setLowResImageRequest()
                     .build();
             menuViewHolder.Logo.setController(draweeController);
         } catch (Exception e) {
