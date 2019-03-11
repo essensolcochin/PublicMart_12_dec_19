@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.graphics.Typeface;
 
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.util.Base64;
@@ -17,6 +18,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 
+import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.common.ResizeOptions;
@@ -51,26 +53,26 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
         Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/curvy.ttf");
         final $ProductMenuModel List = menu_list.get(i);
 
-//        try {
-//            URL url = new URL("http://192.168.0.30:7899"+menu_list.get(i).getImagePath());
-//            ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
-//                    .setAutoRotateEnabled(true)
+        try {
+            URL url = new URL("http://192.168.0.30:7899"+menu_list.get(i).getImagePath());
+            ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
+                    .setAutoRotateEnabled(true)
 //                    .setResizeOptions(new ResizeOptions(50, 50))
-//                    .build();
-//            DraweeController draweeController = Fresco.newDraweeControllerBuilder()
-//                    .setImageRequest(imageRequest)
-//                    .build();
-//            menuViewHolder.Logo.setController(draweeController);
-//        } catch (Exception e) {
-//        }
+                    .build();
+            DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                    .setImageRequest(imageRequest)
+                    .build();
+            menuViewHolder.Logo.setController(draweeController);
+        } catch (Exception e) {
+        }
 
 
 
-        String base64 = menu_list.get(i).getImagePath();
-        Log.e("getterrrrrrrrrMenuiCON","in"+base64);
-        byte[] imageAsBytes = Base64.decode(base64.getBytes(), Base64.DEFAULT);
-
-        menuViewHolder.Logo.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
+//        String base64 = menu_list.get(i).getImagePath();
+//        Log.e("getterrrrrrrrrMenuiCON","in"+base64);
+//        byte[] imageAsBytes = Base64.decode(base64.getBytes(), Base64.DEFAULT);
+//
+//        menuViewHolder.Logo.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
 
         menuViewHolder.MenuTitle.setText(menu_list.get(i).CategoryName);
 
@@ -97,8 +99,8 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
     public class MenuViewHolder extends RecyclerView.ViewHolder {
 
         TextView MenuTitle;
-        //SimpleDraweeView Logo;
-        ImageView Logo;
+        SimpleDraweeView Logo;
+//        ImageView Logo;
         LinearLayout itemLayout;
 
         private MenuViewHolder(@NonNull View itemView) {

@@ -235,14 +235,14 @@
                             android:id="@+id/radiogrp"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
                             android:orientation="vertical">
 
 
                             <RadioButton
                                 android:buttonTint="@color/col7"
-                                android:id="@+id/oneway"
+                                android:id="@+id/daycruise"
                                 android:layout_width="wrap_content"
+                                android:onClick="rbclick"
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
@@ -251,17 +251,20 @@
                                 android:textColor="@android:color/black" />
 
                             <RadioButton
-                                android:id="@+id/roundtrip"
+                                android:onClick="rbclick"
+                                android:id="@+id/nightcruise"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="5dp"
                                 android:buttonTint="@color/col7"                                android:checked="false"
                                 android:text="Night (5 pm - 11 pm)"
-                                android:textColor="@android:color/black" />
+                                android:textColor="@android:color/black"
+                                />
 
 
                             <RadioButton
-                                android:id="@+id/business"
+                                android:onClick="rbclick"
+                                android:id="@+id/fulldaycruise"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="5dp"
@@ -346,6 +349,7 @@
                             android:background="@drawable/stroke"
                             android:hint="Enter Passenger Contact No"
                             android:inputType="number"
+                            android:maxLength="10"
                             android:padding="10dp"/>
                         </android.support.design.widget.TextInputLayout>
 

@@ -83,18 +83,18 @@ public class Fashion extends BaseActivity {
 
             final JSONObject jsonString;
             JSONObject values = new JSONObject();
-            values.put("ImageType","Product");
+           // values.put("ImageType","Product");
             values.put("CategoryKey",CategoryKey);
 
 
             jsonString = new JSONObject();
             jsonString.put("Token", "0001");
-            jsonString.put("call", "GetActiveProductByCategoryId");
+            jsonString.put("call", "GetActiveProductListByCategoryId");
             jsonString.put("values", values);
 
 
 
-            String URL = this.getString(R.string.Url)+"GetImage";
+            String URL = this.getString(R.string.Url)+"Select";
 
 
             StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -147,10 +147,11 @@ public class Fashion extends BaseActivity {
 
 
                                         ProductModelClass items = new ProductModelClass(jsonObject.getString("ProductKey"),
-                                                jsonObject.getString("ProductName"),
-                                                jsonObject.getString("ImagePath"),jsonObject.getString("Description"),
+                                                jsonObject.getString("BrandName"),
+                                                jsonObject.getString("ShortDesc"),
                                                 jsonObject.getString("MRP"),
-                                                jsonObject.getString("BV"));
+                                                jsonObject.getString("BV"),
+                                                jsonObject.getString("ImagePath"));
 
                                         Log.e("resppppppp", "ifffff" + code);
                                         item_list.add(items);

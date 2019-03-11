@@ -7,13 +7,21 @@
     <application
         android:usesCleartextTraffic="true"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:name=".MyApplication"
+        android:icon="@mipmap/ic_launcher_round"
         android:label="@string/app_name"
         android:largeHeap="true"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Splash_Screen"></activity>
+        <activity android:name=".Splash_Screen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
         <activity android:name=".Shopping_List" />
         <activity android:name=".CreditActivity" />
         <activity android:name=".TestActivity" />
@@ -39,19 +47,12 @@
         <activity android:name=".Home" />
         <activity android:name=".Registration" />
         <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-
 
         </activity>
 
         <meta-data
             android:name="io.fabric.ApiKey"
-            android:value="c98163d618bab280600aeaa24746b2f3d795df08"
-            />
+            android:value="c89380f82afe92d8ff261a0e81d3cb84bc08f2c3" />
     </application>
 
 </manifest>

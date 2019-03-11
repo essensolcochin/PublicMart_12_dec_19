@@ -2,6 +2,7 @@ package com.example.publicmart;
 
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,10 +22,12 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
 
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
+
 
 import java.util.HashMap;
 import java.util.Map;
@@ -33,14 +36,13 @@ import java.util.Random;
 import io.fabric.sdk.android.Fabric;
 
 
-
 public class MainActivity extends AppCompatActivity {
     JSONObject jsonString;
     TextView reg;
     LinearLayout log;
     EditText username,password;
     String code,message,request;
-
+    SharedPreferences sp;
     private static final Random random = new Random();
     private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
 
@@ -48,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Fabric.with(this, new Crashlytics());
 
         reg = (TextView) findViewById(R.id.register);
 
@@ -56,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
         password= (EditText) findViewById(R.id.password);
 
 
+        getToken(5);
 
 
 
@@ -99,13 +101,21 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+
+
+
             }
 
         });
 
 
     }
-
+    public void forceCrash(View view) {
+        throw new RuntimeException("This is a crash");
+    }
 
 
 
@@ -131,7 +141,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         Log.e("Jsonnnn",""+response);
-                        // p1.dismiss();
+                       // p1.dismiss();
 
                         try {
 
@@ -165,15 +175,23 @@ public class MainActivity extends AppCompatActivity {
                             if (code.equals("0"))
                             {
 
-                                JSONArray json_array2 = o.getJSONArray("result");
+
+                             JSONArray json_array2 = o.getJSONArray("result");
 
 
-                                JSONObject jsonObject = json_array2.getJSONObject(0);
+                             JSONObject jsonObject = json_array2.getJSONObject(0);
 
                                 Log.e("tryyyyyyyyy","  "+jsonObject.get("UserKey"));
 
+                                sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                SharedPreferences.Editor editor =sp.edit();
+                                editor.putBoolean("LoggedUser",true);
+                               // editor.putString("UserType",usertype);
+                                editor.apply();
+                                Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
                                 Intent intent =new Intent(MainActivity.this,Home.class);
                                 startActivity(intent);
+                                finish();
 
 
                             }
@@ -225,7 +243,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public static String getToken(int length) {
+        StringBuilder token = new StringBuilder(length);
+        for (int i = 0; i < length; i++) {
+            token.append(CHARS.charAt(random.nextInt(CHARS.length())));
+        }
+        Log.e("Mytokennnnn",""+token.toString());
+        return token.toString();
 
+    }
 
 
 

@@ -15,24 +15,25 @@
 
 
 
-    <ImageView
-        android:tint="@color/col7"
-        android:id="@+id/menuIcon"
+    <!--<ImageView-->
+        <!--android:tint="@color/col7"-->
+        <!--android:src="@drawable/clothes"-->
+        <!--android:id="@+id/menuIcon"-->
 
-        android:layout_weight=".75"
-        android:layout_width="50dp"
-        android:layout_height="50dp" />
+        <!--android:layout_weight=".75"-->
+        <!--android:layout_width="50dp"-->
+        <!--android:layout_height="50dp" />-->
 
 
 
-    <!--<com.facebook.drawee.view.SimpleDraweeView-->
-                <!--android:tint="@color/col7"-->
-                <!--android:src="@drawable/clothes"-->
-                <!--android:id="@+id/menuIcon"-->
-
-                <!--android:layout_weight=".75"-->
-                <!--android:layout_width="50dp"-->
-                <!--android:layout_height="50dp" />-->
+    <com.facebook.drawee.view.SimpleDraweeView
+                android:tint="@color/col7"
+                android:src="@drawable/clothes"
+                android:id="@+id/menuIcon"
+                fresco:placeholderImage="@drawable/cart"
+                android:layout_weight=".75"
+                android:layout_width="50dp"
+                android:layout_height="50dp" />
 
 
                 <TextView
@@ -49,6 +50,11 @@
 
                     android:layout_height="wrap_content"
                     />
+
+
+
+
+
 
 
 

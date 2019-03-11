@@ -7,18 +7,37 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
+import android.widget.Toast;
 import android.widget.ViewFlipper;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
+
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -46,9 +65,14 @@ public class HouseBoat extends BaseActivity {
     TextInputLayout guest,bemail,bcontact;
     Button submit_boat;
     EditText passengr_name,email_id,Contact_no;
-
-
-
+    String members,Day,Month,Year;
+    JSONObject jsonString;
+    RadioGroup radioGroup;
+    RadioButton cruise;
+    String request,code,message, radio;
+   // DayCruise,NightCruise,FullDay
+   String radiovalue;
+    String Cruise_Type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,15 +82,29 @@ public class HouseBoat extends BaseActivity {
 
         Fabric.with(this, new Crashlytics());
         mPager = (ViewPager) findViewById(R.id.viewflipper);
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         membersno = findViewById(R.id.noofmembers);
         days = findViewById(R.id.day);
         months = findViewById(R.id.month);
         years = findViewById(R.id.year);
         submit_boat=(Button)findViewById(R.id.boat_submit);
+        passengr_name=(EditText)findViewById(R.id.traveler_name);
+        email_id=(EditText)findViewById(R.id.email);
+        Contact_no=(EditText)findViewById(R.id.contact);
+
+
+
+
+
+
+
+
+
+//
+
+
+
 
         final ArrayAdapter<String> spinner_adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, array_membrno);
@@ -89,17 +127,67 @@ public class HouseBoat extends BaseActivity {
         spinner_adapter_year.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         years.setAdapter(spinner_adapter_year);
 
+
+        membersno.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                members= adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+        days.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Day= adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        months.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Month= adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+        years.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                Year = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
+
+
+
         init();
+
 
         guest = (TextInputLayout) findViewById(R.id.guest_input_layout);
         guest.setHint("Guest Name");
-
         bemail = (TextInputLayout) findViewById(R.id.bemail_input_layout);
         bemail.setHint("Enter Your Email ID");
-
         bcontact = (TextInputLayout) findViewById(R.id.bcontact_input_layout);
         bcontact.setHint("Enter Your Contact No");
-
 
         submit_boat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,39 +210,88 @@ public class HouseBoat extends BaseActivity {
         else
         {
 
+            ////////////////////////////////////////////////////////////////////
+
+            try {
+
+
+                JSONObject values = new JSONObject();
+                values.put("PassengerName", passengr_name.getText().toString());
+                values.put("TravelDate", Day + "-" + Month + "-" + Year);
+                values.put("GuestNos", members);
+              values.put("CruiseType", Cruise_Type);
+
+                values.put("ContactEmail", email_id.getText().toString());
+                values.put("ContactNo", Contact_no.getText().toString());
+                values.put("BookingStatusKey", 1);
+                values.put("Status", true);
+                values.put("CreatedBy", 0);
+                jsonString = new JSONObject();
+                jsonString.put("Token", "0001");
+                jsonString.put("call", "SaveHouseboatBooking");
+                jsonString.put("values", values);
+                request = jsonString.toString();
+
+            } catch (
+                    JSONException e) {
+                e.printStackTrace();
+            }
+
+
+            boat_ticket(request);
+
+
+        }
+                passengr_name.getText().clear();
+                email_id.getText().clear();
+                Contact_no.getText().clear();
+                days.setSelection(0);
+                months.setSelection(0);
+                years.setSelection(0);
+                membersno.setSelection(0);
+        }
+
+
+        });
+    }
+    public void rbclick(View v)
+    {
+        radioGroup = (RadioGroup)findViewById(R.id.radiogrp);
+        int selectedId = radioGroup.getCheckedRadioButtonId();
+
+
+        View  cruise = (RadioButton)findViewById(selectedId);
+        Log.e("radio",""+selectedId);
+        if (selectedId==2131230827)    ///2131230827 Day
+        {
+            Cruise_Type = "D";
+
+        }
+        else  if (selectedId==2131230940)  ////2131230940 Night
+        {
+             Cruise_Type = "N";
+        }
+        else if(selectedId==2131230876)   /////2131230876 Full day
+        {
+            Cruise_Type = "F";
 
         }
 
-            }
-        });
-
-
 
     }
+
+
     public void forceCrash(View view) {
         throw new RuntimeException("This is a crash");
     }
 
-
     private void init() {
-
-
         for (int i = 0; i < IMAGES.length; i++)
             ImagesArray.add(IMAGES[i]);
-
-
-
-
         PagerAdapter adapter = new SlidingImage_Adapter(HouseBoat.this, ImagesArray);
         mPager.setAdapter(adapter);
-
-
         // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
-
-
-        final float density = getResources().getDisplayMetrics().density;
-
-
+        final float density = getResources().getDisplayMetrics().xdpi;
         NUM_PAGES = IMAGES.length;
         // Auto start of viewpager
         final Handler handler = new Handler();
@@ -173,12 +310,98 @@ public class HouseBoat extends BaseActivity {
                 handler.post(Update);
             }
         }, 5000, 5000);
+    }
+
+    private void boat_ticket(final String request)
+    {
+
+        Log.e("gettttt","in"+request);
 
 
+
+        String URL = this.getString(R.string.local)+"Save";
+
+
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        Log.e("Jsonnnn",""+response);
+                        // p1.dismiss();
+
+                        try {
+
+
+                            JSONObject o     = new JSONObject(response);
+
+
+                            String data = response;
+                            Object json = new JSONTokener(data).nextValue();
+                            if (json instanceof JSONObject){
+                                Log.e("objectttttt",""+json);
+                            }
+                            //you have an object
+                            else if (json instanceof JSONArray){
+                                Log.e("Arrayyyyyyy",""+json);
+                            }
+
+
+                            Log.e("tryyyyyyyyy","in"+o);
+
+
+                            code = o.getString("responseCode");
+                            message=o.getString("responseMessage");
+
+                            Log.e("resppppppp",""+code);
+
+
+                            if (code.equalsIgnoreCase("-100"))
+                            {
+                                Log.e("resppppppp","ifffff"+code);
+                                Toast.makeText(HouseBoat.this,"Success",Toast.LENGTH_LONG).show();
+                            }
+
+                            else {
+                                Toast.makeText(HouseBoat.this,message,Toast.LENGTH_LONG).show();
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Toast.makeText(getApplicationContext(), "No Response From Server ", Toast.LENGTH_LONG).show();
+
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> param = new HashMap<String, String>();
+                param.put("jsonString",request );
+                Log.e("paramssss",""+param);
+                return param;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> param = new HashMap<String, String>();
+                param.put("Content-Type","application/x-www-form-urlencoded");
+                return param;
+            }
+        };
+
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
 
     }
 
 
 
-    }
+
+}
 
