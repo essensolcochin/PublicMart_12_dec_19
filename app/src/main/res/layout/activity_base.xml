@@ -48,51 +48,51 @@
                     android:textSize="18dp"
                     android:textColor="@color/col10"
                     />
-                <ImageView
-                    android:layout_toLeftOf="@+id/cart1"
-                    android:layout_toStartOf="@+id/cart1"
-                    android:layout_marginRight="40dp"
-                    android:layout_marginEnd="40dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:id="@+id/search"
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                   android:src="@drawable/ic_action_name"
-                  />
+                <!--<ImageView-->
+                    <!--android:layout_toLeftOf="@+id/cart1"-->
+                    <!--android:layout_toStartOf="@+id/cart1"-->
+                    <!--android:layout_marginRight="40dp"-->
+                    <!--android:layout_marginEnd="40dp"-->
+                    <!--android:layout_marginStart="10dp"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:id="@+id/search"-->
+                    <!--android:layout_width="30dp"-->
+                    <!--android:layout_height="30dp"-->
+                   <!--android:src="@drawable/ic_action_name"-->
+                  <!--/>-->
 
-                <FrameLayout
-                    android:id="@+id/cart1"
-                    android:layout_alignParentEnd="true"
-                    android:layout_alignParentRight="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content">
-
-
-                    <ImageView
-
-                        android:layout_marginRight="30dp"
-                        android:layout_marginEnd="30dp"
-                        android:id="@+id/cart"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:src="@drawable/cart"
-                        />
+                <!--<FrameLayout-->
+                    <!--android:id="@+id/cart1"-->
+                    <!--android:layout_alignParentEnd="true"-->
+                    <!--android:layout_alignParentRight="true"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content">-->
 
 
-                  <com.nex3z.notificationbadge.NotificationBadge
-                   android:layout_marginRight="25dp"
-                    android:layout_marginEnd="25dp"
-                    android:layout_gravity="end"
-                    android:id="@+id/badge"
-                    android:textSize="10dp"
+                    <!--<ImageView-->
 
-                    android:layout_width="20dp"
-                    android:layout_height="20dp"
-                    app:nbBackground="@drawable/badge_bg"
-                    app:nbMaxTextLength="2">
-                    </com.nex3z.notificationbadge.NotificationBadge>
-                 </FrameLayout>
+                        <!--android:layout_marginRight="30dp"-->
+                        <!--android:layout_marginEnd="30dp"-->
+                        <!--android:id="@+id/cart"-->
+                        <!--android:layout_width="30dp"-->
+                        <!--android:layout_height="30dp"-->
+                        <!--android:src="@drawable/cart"-->
+                        <!--/>-->
+
+
+                  <!--<com.nex3z.notificationbadge.NotificationBadge-->
+                   <!--android:layout_marginRight="25dp"-->
+                    <!--android:layout_marginEnd="25dp"-->
+                    <!--android:layout_gravity="end"-->
+                    <!--android:id="@+id/badge"-->
+                    <!--android:textSize="10dp"-->
+
+                    <!--android:layout_width="20dp"-->
+                    <!--android:layout_height="20dp"-->
+                    <!--app:nbBackground="@drawable/badge_bg"-->
+                    <!--app:nbMaxTextLength="2">-->
+                    <!--</com.nex3z.notificationbadge.NotificationBadge>-->
+                 <!--</FrameLayout>-->
 
 
 
