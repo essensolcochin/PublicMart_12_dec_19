@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-    <android.support.v7.widget.CardView
-        android:layout_margin="5dp"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:layout_width="match_parent"
-        app:cardElevation="5dp"
-        android:background="@drawable/edittextbg"
-        android:layout_height="wrap_content">
+<android.support.v7.widget.CardView android:layout_margin="5dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    app:cardElevation="5dp"
+    android:background="@drawable/edittextbg"
+    android:layout_height="wrap_content"
+    xmlns:fresco="http://schemas.android.com/tools">
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:gravity="center_vertical"
             android:background="@drawable/edittextbg"
             android:orientation="vertical">
 
@@ -23,9 +23,23 @@
                 android:background="@drawable/edittextbg"
                 android:orientation="horizontal">
 
+                <com.facebook.drawee.view.SimpleDraweeView
+                    android:layout_marginStart="5dp"
+                    android:layout_marginLeft="5dp"
+                    android:layout_gravity="center_vertical"
+                    android:id="@+id/image"
+                    fresco:actualImageScaleType="fitXY"
+                    android:scaleType="fitXY"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/saree3"/>
+
+
                 <LinearLayout
+                    android:layout_gravity="end"
                     android:layout_marginTop="10dp"
                     android:layout_marginLeft="25dp"
+                    android:layout_marginStart="25dp"
 
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -41,12 +55,12 @@
                         android:textColor="#030303"
                         android:textStyle="bold" />
                     <TextView
+                        android:scrollHorizontally="false"
                         android:layout_marginTop="5dp"
                         android:id="@+id/itemDesc"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="center"
-                        android:text="Woven Design Kanjeevaram Saree"
                         android:textSize="15dp"
                         android:textColor="#666666"
                         />
@@ -78,27 +92,27 @@
                             android:textColor="@color/col10"
                             />
                     </LinearLayout>
-                    <TextView
-                        android:id="@+id/state1"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:text="Status : Payment"/>
-                    <TextView
-                        android:id="@+id/state2"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:text="Status : Shipping"/>
-                    <TextView
-                        android:id="@+id/state0"
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:visibility="gone"
-                        android:text="Status : Approved"/>
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content">
+                       <TextView
+                           android:layout_marginTop="5dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:visibility="visible"
+                           android:text="Status :"/>
+                       <TextView
+                           android:layout_marginLeft="2dp"
+                           android:layout_marginStart="2dp"
+                           android:id="@+id/state"
+                           android:layout_marginTop="5dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:visibility="visible"
+                           />
+
+                   </LinearLayout>
+
 
 
 
@@ -116,7 +130,7 @@
                         android:textColor="#ffff"
                         android:id="@+id/payment"
                         android:textSize="12dp"
-                        android:background="@drawable/bgm"
+                        android:background="@drawable/grad2"
                         android:text="Make Payment"/>
 
 
@@ -129,14 +143,6 @@
 
 
 
-                <ImageView
-                    android:padding="8dp"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="10dp"
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="100dp"
-                    android:src="@drawable/saree3"/>
 
 
 
