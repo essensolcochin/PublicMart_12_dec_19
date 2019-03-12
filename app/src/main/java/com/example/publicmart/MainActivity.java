@@ -186,9 +186,11 @@ public class MainActivity extends AppCompatActivity {
                                 sp = getSharedPreferences("UserLog",MODE_PRIVATE);
                                 SharedPreferences.Editor editor =sp.edit();
                                 editor.putBoolean("LoggedUser",true);
-                               // editor.putString("UserType",usertype);
+                                editor.putString("UserKey",jsonObject.get("UserKey").toString());
+                                editor.putString("Username",jsonObject.get("UserName").toString());
                                 editor.apply();
                                 Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
+                                Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
                                 Intent intent =new Intent(MainActivity.this,Home.class);
                                 startActivity(intent);
                                 finish();

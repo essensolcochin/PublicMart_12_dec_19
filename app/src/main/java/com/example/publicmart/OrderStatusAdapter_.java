@@ -4,6 +4,7 @@ import android.content.Context;
 
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -17,7 +18,14 @@ import android.widget.TextView;
 
 import com.baoyachi.stepview.HorizontalStepView;
 import com.baoyachi.stepview.bean.StepBean;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.interfaces.DraweeController;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,12 +33,12 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
     private String[] mData;
     private LayoutInflater mInflater;
-
+    List<OrderStatusModel>items;
     private Context context;
     // data is passed into the constructor
-    OrderStatusAdapter_(Context context, String[] data) {
+    OrderStatusAdapter_(Context context, List<OrderStatusModel>items) {
         this.context = context;
-        this.mData = data;
+        this.items = items;
     }
 
     @Override
@@ -43,14 +51,19 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
     @Override
     public void onBindViewHolder(@NonNull OrderStatusAdapter_.ViewHolder holder, int position) {
 
+        final OrderStatusModel List = items.get(position);
         Typeface custom_font2 = Typeface.createFromAsset(context.getAssets(),  "fonts/GravityBold.otf");
 
         holder.ItemName.setTypeface(custom_font2);
         holder.ItemDesc.setTypeface(custom_font2);
 
+        holder.ItemName.setText(List.getBrandName());
+        holder.ItemDesc.setText(List.getShortDesc());
+
+
 
         List<StepBean> stepsBeanList = new ArrayList<>();
-        String state = "payment";
+        String state = List.getOrderStatusKey();
 
 
         holder.stepBean0 = new StepBean() ;
@@ -69,7 +82,7 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
         holder.stepBean3 = new StepBean();
 
-
+        holder.stepBean4 = new StepBean();
 
         stepsBeanList.add( holder.stepBean0);
         stepsBeanList.add( holder.stepBean1);
@@ -77,10 +90,9 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
         stepsBeanList.add( holder.stepBean3);
 
         Log.e("step",""+ holder.stepBean2.getState());
-        if(state=="approved"){
-            holder. status.setVisibility(View.GONE);
-            holder.status2.setVisibility(View.GONE);
-            holder.status1.setVisibility(View.VISIBLE);
+
+        if(state =="approved"){
+            holder.status.setText("Approved");
             holder.pay.setVisibility(View.GONE);
             holder.stepBean0.setState(0);
             holder.stepBean0.setName("Approved");
@@ -95,9 +107,7 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
         }
         else  if(state=="payment"){
-            holder.status.setVisibility(View.VISIBLE);
-            holder. status2.setVisibility(View.GONE);
-            holder. status1.setVisibility(View.GONE);
+
             holder. pay.setVisibility(View.VISIBLE);
             holder.stepBean0.setState(1);
             holder.stepBean0.setName("Approved");
@@ -127,6 +137,27 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
 
 
+        try {
+
+
+
+            URL url = new URL(context.getString(R.string.ImgUrl)+List.getImagePath());
+
+            ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
+                    .setAutoRotateEnabled(true)
+                    .setResizeOptions(new ResizeOptions(50, 50))
+                    .build();
+
+            DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                    .setImageRequest(imageRequest)
+                    .build();
+            holder.Icon.setController(draweeController);
+        } catch (Exception e) {
+            //
+        }
+holder.status.setText(List.OrderStatusName);
+
+
 
 
 
@@ -134,7 +165,7 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
     @Override
     public int getItemCount() {
-        return mData.length;
+        return items.size();
     }
 
 
@@ -142,20 +173,20 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
         TextView ItemName,ItemDesc;
         LinearLayout itemLayout;
         HorizontalStepView horizontalStepView;
-
+        SimpleDraweeView Icon;
         Button pay;
-        TextView status,status2, status1;
-        StepBean stepBean0,stepBean1,stepBean2,stepBean3;
+        TextView status;
+        StepBean stepBean0,stepBean1,stepBean2,stepBean3,stepBean4;
 
         ViewHolder(View itemView) {
             super(itemView);
             horizontalStepView = (HorizontalStepView)itemView.findViewById(R.id.step_view) ;
-            status = itemView.findViewById(R.id.state1);
-            status2 = itemView.findViewById(R.id.state2);
-            status1  = itemView.findViewById(R.id.state0);
+
+            status  = itemView.findViewById(R.id.state);
             pay = itemView.findViewById(R.id.payment);
             ItemName = itemView.findViewById(R.id.itemName);
             ItemDesc = itemView.findViewById(R.id.itemDesc);
+            Icon = itemView.findViewById(R.id.image);
 
         }
 

@@ -13,6 +13,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -54,13 +55,17 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
         final $ProductMenuModel List = menu_list.get(i);
 
         try {
-            URL url = new URL("http://192.168.0.30:7899"+menu_list.get(i).getImagePath());
+            URL url = new URL(context.getString(R.string.ImgUrl)+menu_list.get(i).getImagePath());
+
+            Log.e("Imageurllllllll","in "+context.getString(R.string.ImgUrl)+menu_list.get(i).getImagePath());
+
             ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
                     .setAutoRotateEnabled(true)
 //                    .setResizeOptions(new ResizeOptions(50, 50))
                     .build();
             DraweeController draweeController = Fresco.newDraweeControllerBuilder()
                     .setImageRequest(imageRequest)
+//                    .setLowResImageRequest()
                     .build();
             menuViewHolder.Logo.setController(draweeController);
         } catch (Exception e) {
@@ -101,7 +106,7 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
         TextView MenuTitle;
         SimpleDraweeView Logo;
 //        ImageView Logo;
-        LinearLayout itemLayout;
+        FrameLayout itemLayout;
 
         private MenuViewHolder(@NonNull View itemView) {
             super(itemView);

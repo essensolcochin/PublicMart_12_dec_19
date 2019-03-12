@@ -15,7 +15,10 @@ import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.interfaces.DraweeController;
 import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.request.ImageRequest;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+import java.net.URL;
 import java.util.ArrayList;
 
 
@@ -55,24 +58,30 @@ public class SlidingImage_Adapter_Product extends PagerAdapter {
                 .findViewById(R.id.image);
 
 
-        Uri uri = Uri.parse(IMAGES.get(position));
-        DraweeController controller = Fresco.newDraweeControllerBuilder()
-                .setUri(uri)
-                .build();
-        imageView.setController(controller);
+        try {
+            URL url = new URL(context.getString(R.string.ImgUrl)+IMAGES.get(position));
+            ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
+                    .setAutoRotateEnabled(true)
+//                    .setResizeOptions(new ResizeOptions(50, 50))
+                    .build();
+            DraweeController draweeController = Fresco.newDraweeControllerBuilder()
+                    .setImageRequest(imageRequest)
+                    .build();
+            imageView.setController(draweeController);
+        } catch (Exception e) {
+        }
 
-//        Glide.with(context).load(IMAGES.get(position))
-//                .thumbnail(0.5f)
-//                .crossFade()
-//                .diskCacheStrategy(DiskCacheStrategy.ALL)
-//                .into(imageView);
+
 
 
         Log.e("urlllllllllll"," "+IMAGES.get(position).toString());
 
 
         view.addView(imageLayout, 0);
-
+        int width = view.getMeasuredWidth();
+        imageLayout.setMinimumWidth(width);
+        int height = view.getMeasuredWidth()/2;
+        imageLayout.setMinimumHeight(height);
 
         return imageLayout;
     }

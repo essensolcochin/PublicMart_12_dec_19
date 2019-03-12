@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,18 +13,23 @@ import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextWatcher;
 
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Switch;
 import android.widget.TextView;
 
-import com.crashlytics.android.Crashlytics;
+import com.nex3z.notificationbadge.NotificationBadge;
 
 import java.util.ArrayList;
 
-import io.fabric.sdk.android.Fabric;
+import io.realm.Realm;
+import io.realm.RealmResults;
 
 
 public class BaseActivity extends AppCompatActivity {
@@ -42,36 +48,61 @@ public class BaseActivity extends AppCompatActivity {
     private ValueAdapter valueAdapter;
 
     private TextWatcher mSearchTw;
-
+    NotificationBadge mBadge;
 
     public Toolbar getToolBar(){
         return toolbar;
     }
+
+    public NotificationBadge getmBadge(){
+        return mBadge;
+    }
+    private RealmResults<RealmShopModel> cartSIZE;
+    private Realm realm;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
-        Fabric.with(this, new Crashlytics());
+
 
         head =findViewById(R.id.appname);
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Helvetica.ttf");
 
+        realm = Realm.getDefaultInstance();
+
+
+        cartSIZE = realm.where(RealmShopModel.class).findAll();
+        cartSIZE.load();
+
+
         head.setTypeface(custom_font);
-        head.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(BaseActivity.this, Home.class);
-                startActivity(intent);
-            }
-        });
+//        head.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(BaseActivity.this, Home.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
+//
+//       NotificationBadge cartItem=(NotificationBadge) findViewById(R.id.badge);
+//
+//
+//        if(cartSIZE.size()==0)
+//        {
+//            cartItem.setVisibility(View.GONE);
+//        }
+//        else {
+//            cartItem.setVisibility(View.VISIBLE);
+//            cartItem.setText(Integer.toString(cartSIZE.size()));
+//        }
 
 
         toolbar=(Toolbar)findViewById(R.id.toolbar);
-        search=(ImageView)findViewById(R.id.search);
-        cart=(ImageView) findViewById(R.id.cart);
+//        search=(ImageView)findViewById(R.id.search);
+//        cart=(ImageView) findViewById(R.id.cart);
 
         setSupportActionBar(toolbar);
 
@@ -89,13 +120,13 @@ public class BaseActivity extends AppCompatActivity {
 //        Blurry.with(this).radius(25).sampling(2).onto(navigationView);
 
 
-        search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(BaseActivity.this, SearchBar.class);
-                startActivity(intent);
-            }
-        });
+//        search.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(BaseActivity.this, SearchBar.class);
+//                startActivity(intent);
+//            }
+//        });
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -158,46 +189,75 @@ public class BaseActivity extends AppCompatActivity {
 
 
     }
-
-    public void forceCrash(View view) {
-        throw new RuntimeException("This is a crash");
-    }
-
     @Override
     protected void onPostCreate(Bundle savedInstanceState) {
         super.onPostCreate(savedInstanceState);
 
         toggle.syncState();
     }
+
+
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
+    public boolean onCreateOptionsMenu(Menu menu) {
 
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        MenuItem cart = menu.findItem(R.id.cart_action);
+        View actionView = MenuItemCompat.getActionView(cart);
+        MenuItem serach = menu.findItem(R.id.search_action);
 
+        FrameLayout click =(FrameLayout)actionView.findViewById(R.id.cartclick);
 
-//        if (item != null && item.getItemId() == android.R.id.home) {
-//            if (drawerLayout.isDrawerOpen(Gravity.END)) {
-//                drawerLayout.closeDrawer(Gravity.END);
-//            }
-//            else {
-//                drawerLayout.openDrawer(Gravity.END);
-//            }
-//        }
-//        return false;
+        click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cartIntent = new Intent(BaseActivity.this, OrderStatus.class);
+//                cartIntent.putExtra("CustKey",custkey);
+                startActivity(cartIntent);
+                finish();
+            }
+        });
 
+                TextView  cartItem = (TextView) actionView.findViewById(R.id.cart_badge);
 
-
-        if (toggle.onOptionsItemSelected(item)) {
-            return true;
+        if(cartSIZE.size()==0)
+        {
+            cartItem.setVisibility(View.GONE);
         }
-        return super.onOptionsItemSelected(item);
+        else
+        {
+            cartItem.setVisibility(View.VISIBLE);
+            cartItem.setText(Integer.toString(cartSIZE.size()));
+        }
 
+        return  true;
     }
 
 
 
 
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (toggle.onOptionsItemSelected(item)) {
+            return true;
+        }
 
 
+        switch (item.getItemId())
+        {
+            case R.id.search_action:
+                Log.e("checkinggggggggg","  inside cart ");
+
+                Intent intent = new Intent(BaseActivity.this, SearchBar.class);
+               startActivity(intent);
+               break;
+
+
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
 
 }

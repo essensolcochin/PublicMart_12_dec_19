@@ -1,0 +1,23 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.example.publicmart.BaseActivity">
+
+
+    <item
+        android:icon="@drawable/ic_action_name"
+
+        android:id="@+id/search_action"
+        android:orderInCategory="100"
+        android:title="Search"
+        app:showAsAction="always" />
+
+    <item
+        android:id="@+id/cart_action"
+        android:orderInCategory="100"
+        android:title="Cart"
+        app:actionLayout="@layout/badge_layout"
+
+        app:showAsAction="always" />
+
+</menu>

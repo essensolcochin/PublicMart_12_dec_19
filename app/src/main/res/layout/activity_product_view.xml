@@ -97,6 +97,7 @@
                     android:textSize="20dp" />
 
                 <TextView
+                    android:id="@+id/Price"
                     android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_width="wrap_content"
@@ -117,7 +118,7 @@
 
 
                 <TextView
-                    
+                    android:id="@+id/BV"
                     android:layout_marginLeft="10dp"
                     android:layout_marginStart="10dp"
                     android:layout_width="wrap_content"

@@ -11,7 +11,7 @@
         android:scaleType="matrix"
         android:layout_width="fill_parent"
         android:layout_height="match_parent"
-
+        fresco:placeholderImage="@drawable/placeholder"
         android:layout_gravity="center"
         fresco:actualImageScaleType="centerInside"
         fresco:viewAspectRatio="0.82"/>

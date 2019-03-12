@@ -15,7 +15,12 @@ Dry-clean</string>
 
 
     <string name="Url">
-        http://Service.publicmart.in/api/CommonApi/
+                http://Service.publicmart.in/api/CommonApi/
+    </string>
+
+    <string name="Local">
+                     http://192.168.0.30:7899/api/CommonApi/
+
     </string>
 
     <string name="local">
@@ -23,7 +28,14 @@ Dry-clean</string>
     </string>
 
     <string name="ImgUrl">
-        http://Service.publicmart.in
+                        http://Service.publicmart.in
+
+    </string>
+
+    <string name="LocImgUrl">
+         http://192.168.0.30:7899
+
+
     </string>
 
     <string name="Bank">ACCT NAME : PUBLIC MART ACCT NO : 50200034752049   IFSC CODE : HDFC0000628 BRANCH NAME : ALAPPUZHA</string>
