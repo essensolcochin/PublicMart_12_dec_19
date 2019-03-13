@@ -1,6 +1,7 @@
 package com.example.publicmart;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.PagerAdapter;
@@ -68,6 +69,7 @@ public class FlightTicket extends BaseActivity{
     Integer AirportKey;
     ArrayAdapter<AirportModel> airport_adapter;
     String Timing;
+    int selectedRadioGroupId = 0;
 
     ArrayList <AirportModel> names ;
 
@@ -256,11 +258,34 @@ public class FlightTicket extends BaseActivity{
             }
         });
 
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int radioButtonID = radioGroup.getCheckedRadioButtonId();
+                View radioButton = radioGroup.findViewById(radioButtonID);
+                int position = radioGroup.indexOfChild(radioButton);
+                Log.e("radio",""+position);
+                Log.e("radioid",""+radioButtonID);
 
+                if (position==1)
 
+                    {
 
+                     Timing = "M";
 
+                     }
+                     else  if (position==2)
+                       {
+                      Timing = "E";
+                        }
+                     else if(position==2)
+                         {
+                                   Timing = "N";
 
+                         }
+
+            }
+        });
 
 
         airportcode();
@@ -291,7 +316,8 @@ public class FlightTicket extends BaseActivity{
                {
 
 
-
+                   SharedPreferences sp = getSharedPreferences("UserLog",0);
+                   String CustKey =  sp.getString("UserKey",null);
 
 //hhhhhhhh
 
@@ -299,24 +325,26 @@ public class FlightTicket extends BaseActivity{
 
 
                JSONObject values = new JSONObject();
+               values.put("CustKey",Integer.parseInt(CustKey));
                values.put("PassengerName", traveler_name.getText().toString());
                    values.put("DOB", Bday+"-"+Bmonth+"-"+Byear);
                values.put("FromAirportKey", codecity);
                values.put("ToAirportKey", codecity2);
                values.put("TravelDate", Day+"-"+Month+"-"+Year);
                values.put("Timing", Timing);
+
                values.put("ContactEmail", email_id.getText().toString());
                values.put("ContactNo", contact_no.getText().toString());
                values.put("BookingStatusKey", 1);
                values.put("Status", true);
-               values.put("CreatedBy", 0);
+               values.put("CreatedBy",Integer.parseInt(CustKey));
 
                jsonString = new JSONObject();
                jsonString.put("Token", "0001");
                jsonString.put("call", "SaveFlightBooking");
                jsonString.put("values", values);
                request = jsonString.toString();
-
+                   Log.e("timinggggg",""+Timing);
            } catch (
            JSONException e) {
                e.printStackTrace();
@@ -350,31 +378,6 @@ public class FlightTicket extends BaseActivity{
         throw new RuntimeException("This is a crash");
     }
 
-    public void rbclick(View v)
-    {
-        rg = (RadioGroup)findViewById(R.id.radiogrp);
-        int selectedId = rg.getCheckedRadioButtonId();
-
-
-        View  cruise = (RadioButton)findViewById(selectedId);
-        Log.e("radio",""+selectedId);
-        if (selectedId==2131230827)    ///2131230949 Mon
-        {
-            Timing = "M";
-
-        }
-        else  if (selectedId==2131230940)  ////2131230986 Eve
-        {
-            Timing = "E";
-        }
-        else if(selectedId==2131230876)   /////2131230790 Full Nyt
-        {
-            Timing = "N";
-
-        }
-
-
-    }
 
 
 
@@ -421,7 +424,7 @@ public class FlightTicket extends BaseActivity{
 
 
 
-        String URL = this.getString(R.string.local)+"Save";
+        String URL = this.getString(R.string.Url)+"Save";
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -535,7 +538,7 @@ public class FlightTicket extends BaseActivity{
 
 
 
-        String URL = this.getString(R.string.local)+"Select";
+        String URL = this.getString(R.string.Url)+"Select";
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,

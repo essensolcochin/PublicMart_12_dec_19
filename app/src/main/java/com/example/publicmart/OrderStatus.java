@@ -20,6 +20,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -56,10 +57,9 @@ public class OrderStatus extends BaseActivity {
         getLayoutInflater().inflate(R.layout.activity_order_status_ed, contentFrameLayout);
 
 
-item_list=new ArrayList<>();
+    item_list=new ArrayList<>();
 
 
-        String[] data = {"1", "2", "3", "4", "5", "6", "7", "8", "9"};
 
         // set up the RecyclerView
          recyclerView = findViewById(R.id.orderRecycler);
@@ -77,7 +77,7 @@ item_list=new ArrayList<>();
 
             final JSONObject jsonString;
             JSONObject values = new JSONObject();
-            values.put("CustKey",CustKey);
+            values.put("CustKey", CustKey);
 
 
 
@@ -151,7 +151,7 @@ item_list=new ArrayList<>();
                                                 JsonData.getString("OrderStatusKey"),
                                                 JsonData.getString("OrderStatusName"));
 
-                                        Log.e("resppppppp", "ifffff" + code);
+                                        Log.e("itemssss", "ifffff" + items );
 
 
                                         item_list.add(items);

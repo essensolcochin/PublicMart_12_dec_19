@@ -1,5 +1,6 @@
 package com.example.publicmart;
 
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
@@ -266,13 +267,15 @@ public class TrainTicket extends BaseActivity {
                     Contact_no.setError("Field is Mandatory");
                 } else {
 
-
+                    SharedPreferences sp = getSharedPreferences("UserLog",0);
+                    String CustKey =  sp.getString("UserKey",null);
                     ////////////////////////////////////////////////////////////////////
 
                     try {
 
 
                         JSONObject values = new JSONObject();
+                        values.put("CustKey",Integer.parseInt(CustKey));
                         values.put("PassengerName", passengr_name.getText().toString());
                         values.put("DOB", Bday + "-" + Bmonth + "-" + Byear);
                         values.put("FromStationKey", codecity);
@@ -282,7 +285,7 @@ public class TrainTicket extends BaseActivity {
                         values.put("ContactNo", Contact_no.getText().toString());
                         values.put("BookingStatusKey", 1);
                         values.put("Status", true);
-                        values.put("CreatedBy", 0);
+                        values.put("CreatedBy", Integer.parseInt(CustKey));
                         jsonString = new JSONObject();
                         jsonString.put("Token", "0001");
                         jsonString.put("call", "SaveTrainBooking");
@@ -360,7 +363,7 @@ public class TrainTicket extends BaseActivity {
 
 
 
-        String URL = this.getString(R.string.local)+"Save";
+        String URL = this.getString(R.string.Url)+"Save";
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
@@ -470,7 +473,7 @@ public class TrainTicket extends BaseActivity {
 
 
 
-        String URL = this.getString(R.string.local)+"Select";
+        String URL = this.getString(R.string.Url)+"Select";
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,

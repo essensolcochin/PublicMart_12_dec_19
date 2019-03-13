@@ -3,7 +3,9 @@ package com.example.publicmart;
 import android.content.Context;
 
 import android.graphics.Color;
+import android.graphics.PointF;
 import android.graphics.Typeface;
+import android.graphics.drawable.Icon;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -57,13 +59,18 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
         holder.ItemName.setTypeface(custom_font2);
         holder.ItemDesc.setTypeface(custom_font2);
 
+
         holder.ItemName.setText(List.getBrandName());
         holder.ItemDesc.setText(List.getShortDesc());
 
 
 
+
+
+
+
         List<StepBean> stepsBeanList = new ArrayList<>();
-        String state = List.getOrderStatusKey();
+        String state = List.getOrderStatusName();
 
 
         holder.stepBean0 = new StepBean() ;
@@ -71,91 +78,144 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
         holder. stepBean1 = new StepBean() ;
 
-
-//
-
         holder.stepBean2 = new StepBean();
-
-
-
-
 
         holder.stepBean3 = new StepBean();
 
         holder.stepBean4 = new StepBean();
 
+        holder.stepBean5 = new StepBean();
+
         stepsBeanList.add( holder.stepBean0);
         stepsBeanList.add( holder.stepBean1);
         stepsBeanList.add( holder.stepBean2);
         stepsBeanList.add( holder.stepBean3);
+        stepsBeanList.add( holder.stepBean4);
 
-        Log.e("step",""+ holder.stepBean2.getState());
+        Log.e("stepinggggg",""+ state);
 
-        if(state =="approved"){
-            holder.status.setText("Approved");
+
+
+        if(state.equalsIgnoreCase("Pending")){
+
+
+            Log.e("testtttttttt",""+ state);
+
+            holder.status.setText("Pending");
             holder.pay.setVisibility(View.GONE);
             holder.stepBean0.setState(0);
-            holder.stepBean0.setName("Approved");
-            holder.stepBean1.setName("Payment");
+            holder.stepBean0.setName("Pending");
+            holder.stepBean1.setName("Approved");
             holder. stepBean1.setState(-1);
-
-            holder.stepBean2.setName("Shipping");
+            holder.stepBean2.setName("Payment");
             holder.stepBean2.setState(-1);
-            holder.stepBean3.setName("Delivered");
+            holder.stepBean3.setName("Shipping");
             holder. stepBean3.setState(-1);
+            holder.stepBean4.setName("Delivered");
+            holder. stepBean4.setState(-1);
+
+            //0 completed
+            //1 ongoing
+            //-1 pending
 
 
         }
-        else  if(state=="payment"){
-
-            holder. pay.setVisibility(View.VISIBLE);
+        else  if(state.equalsIgnoreCase("Order Confirmed")){
+            holder.status.setText("Approved");
+            holder.pay.setVisibility(View.VISIBLE);
             holder.stepBean0.setState(1);
-            holder.stepBean0.setName("Approved");
-            holder. stepBean1.setName("Payment");
+            holder.stepBean0.setName("Pending");
+            holder.stepBean1.setName("Approved");
             holder.stepBean1.setState(0);
-
-            holder. stepBean2.setName("Shipping");
+            holder. stepBean2.setName("Payment");
             holder.stepBean2.setState(-1);
-            holder.stepBean3.setName("Delivered");
+            holder.stepBean3.setName("Shipping");
             holder.stepBean3.setState(-1);
+            holder.stepBean4.setName("Delivered");
+            holder. stepBean4.setState(-1);
+        }
+        else  if(state.equalsIgnoreCase("Amount Paid")){
+            holder.status.setText("Amount Paid");
+            holder. pay.setVisibility(View.GONE);
+            holder.stepBean0.setState(1);
+            holder.stepBean0.setName("Pending");
+            holder. stepBean1.setName("Approved");
+            holder.stepBean1.setState(1);
+            holder. stepBean2.setName("Amount Paid");
+            holder.stepBean2.setState(0);
+            holder.stepBean3.setName("ProductShipping");
+            holder.stepBean3.setState(-1);
+            holder.stepBean4.setName("Delivered");
+            holder. stepBean4.setState(-1);
+        }
+        else  if(state.equalsIgnoreCase("Shipped")){
 
+            holder.status.setText("Shipped");
+            holder. pay.setVisibility(View.GONE);
+            holder.stepBean0.setState(1);
+            holder.stepBean0.setName("Pending");
+            holder. stepBean1.setName("Approved");
+            holder.stepBean1.setState(1);
+            holder. stepBean2.setName("Payment");
+            holder.stepBean2.setState(1);
+            holder.stepBean3.setName("Shipping");
+            holder.stepBean3.setState(0);
+            holder.stepBean4.setName("Delivered");
+            holder. stepBean4.setState(-1);
+        }
+        else  if(state.equalsIgnoreCase("Delivered"))
+        {
 
+            holder.status.setText("Delivered");
+            holder. pay.setVisibility(View.GONE);
+            holder.stepBean0.setState(1);
+            holder.stepBean0.setName("Pending");
+            holder. stepBean1.setName("Approved");
+            holder.stepBean1.setState(1);
+            holder. stepBean2.setName("Payment");
+            holder.stepBean2.setState(1);
+            holder.stepBean3.setName("Shipping");
+            holder.stepBean3.setState(1);
+            holder.stepBean4.setName("Delivered");
+            holder. stepBean4.setState(0);
         }
 
-        holder. horizontalStepView.setStepViewTexts(stepsBeanList)
-                .setTextSize(12)
-                .setStepsViewIndicatorCompletedLineColor(Color.parseColor("#1b2f42"))
-                .setStepsViewIndicatorUnCompletedLineColor(Color.parseColor("#1b2f42"))
-                .setStepViewComplectedTextColor(Color.parseColor("#1b2f42"))
-                .setStepViewUnComplectedTextColor(Color.parseColor("#1b2f42"))
 
-                .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(context,R.drawable.checkmark))
-                .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(context,R.drawable.radio_normal))
-                .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(context,R.drawable.radio_pressed))
-        ;
+        holder.horizontalStepView.setStepViewTexts(stepsBeanList)
+                .setTextSize(10)//set textSize
 
-
+                .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(context, android.R.color.black))
+                .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(context, R.color.col5))
+                .setStepViewComplectedTextColor(ContextCompat.getColor(context, R.color.col5))
+                .setStepViewUnComplectedTextColor(ContextCompat.getColor(context, R.color.col5))
+                .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(context, R.drawable.radio_pressed))
+                .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(context, R.drawable.radio_bg))
+                .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(context, R.drawable.checkmark));
 
 
         try {
 
+            PointF focusPoint = new PointF(0f, 0.5f);
 
 
             URL url = new URL(context.getString(R.string.ImgUrl)+List.getImagePath());
 
             ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
                     .setAutoRotateEnabled(true)
-                    .setResizeOptions(new ResizeOptions(50, 50))
+                    .setResizeOptions(new ResizeOptions(30, 30))
                     .build();
 
             DraweeController draweeController = Fresco.newDraweeControllerBuilder()
                     .setImageRequest(imageRequest)
                     .build();
+            holder.Icon
+                    .getHierarchy()
+                    .setActualImageFocusPoint(focusPoint);
             holder.Icon.setController(draweeController);
         } catch (Exception e) {
             //
         }
-holder.status.setText(List.OrderStatusName);
+
 
 
 
@@ -176,7 +236,7 @@ holder.status.setText(List.OrderStatusName);
         SimpleDraweeView Icon;
         Button pay;
         TextView status;
-        StepBean stepBean0,stepBean1,stepBean2,stepBean3,stepBean4;
+        StepBean stepBean0,stepBean1,stepBean2,stepBean3,stepBean4,stepBean5;
 
         ViewHolder(View itemView) {
             super(itemView);

@@ -3,21 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical"
     tools:context=".Bookingstatus">
 
 
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="5dp">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+
+
 
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
@@ -52,6 +45,7 @@
                                 android:layout_height="wrap_content"
                                 android:text="Abhijith"
                                 android:textColor="#030303"
+                                android:id="@+id/pass"
                                 android:textSize="20dp"
                                 android:textStyle="bold" />
 
@@ -74,6 +68,7 @@
 
 
                                 <TextView
+                                    android:id="@+id/from_air"
                                     android:layout_weight="1"
                                     android:layout_gravity="start"
                                     android:layout_width="wrap_content"
@@ -103,7 +98,7 @@
                                     android:layout_gravity="start"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
+                                    android:id="@+id/to_air"
                                     android:text="COK"
                                     android:textColor="#030303"
                                     android:textSize="18dp"
@@ -124,37 +119,11 @@
                                     android:layout_gravity="start"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-
+                                    android:id="@+id/date"
                                     android:text="9:00 "
                                     android:textColor="#030303"
                                     android:textSize="15dp"
                                     />
-                                <TextView
-
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginStart="5dp"
-                                    android:layout_marginEnd="5dp"
-                                    android:layout_marginRight="5dp"
-                                    android:layout_weight="1"
-                                    android:gravity="center_vertical"
-                                    android:layout_gravity="start"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-
-                                    android:text="-"
-                                    android:textColor="#030303"
-                                    android:textSize="15dp"
-                                    />
-                                <TextView
-                                    android:layout_weight="1"
-                                    android:layout_gravity="start"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-
-                                    android:text="10:00"
-                                    android:textColor="#030303"
-                                    android:textSize="15dp"
-                                     />
 
                             </LinearLayout>
 
@@ -171,6 +140,7 @@
                                    android:layout_height="wrap_content"
                                    android:layout_alignParentEnd="true"
                                    android:text="1080 ₹"
+                                   android:id="@+id/price"
                                    android:layout_alignParentRight="true" />
 
                             </RelativeLayout>
@@ -186,24 +156,12 @@
 
                             </LinearLayout>
 
-                            <TextView
-                                android:id="@+id/bstate1"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:text="Status : Payment"
-                                android:visibility="gone" />
+
+
+
 
                             <TextView
-                                android:id="@+id/bstate2"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="5dp"
-                                android:text="Status : Shipping"
-                                android:visibility="gone" />
-
-                            <TextView
-                                android:id="@+id/bstate0"
+                                android:id="@+id/status"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
@@ -219,7 +177,7 @@
                                 android:padding="5dp"
                                 android:clickable="true"
                                 android:textColor="#ffff"
-                                android:id="@+id/bpayment"
+                                android:id="@+id/paymentbttn"
                                 android:background="@drawable/bgm"
                                 android:text="Make Payment"/>
 
@@ -260,6 +218,3 @@
 
 
 
-    </ScrollView>
-
-</LinearLayout>

@@ -32,22 +32,22 @@
                 android:background="#ffff">
 
                  <android.support.v4.view.ViewPager
-                android:id="@+id/pager"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                     android:id="@+id/pager"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content">
 
 
-              <android.support.design.widget.TabLayout
+                     <android.support.design.widget.TabLayout
 
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  app:tabBackground="@drawable/tab_selector"
-                  app:tabGravity="center"
-                  android:layout_gravity="bottom"
-                  app:tabIndicatorHeight="0dp"/>
+                         android:layout_width="match_parent"
+                         android:layout_height="wrap_content"
+                         android:layout_gravity="bottom"
+                         app:tabBackground="@drawable/tab_selector"
+                         app:tabGravity="center"
+                         app:tabIndicatorHeight="0dp" />
 
 
-          </android.support.v4.view.ViewPager>
+                 </android.support.v4.view.ViewPager>
 
 
             </LinearLayout>

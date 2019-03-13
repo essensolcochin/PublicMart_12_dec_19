@@ -356,7 +356,7 @@
                         android:id="@+id/radiogrp">
 
                                 <RadioButton
-                                    android:onClick="rbclick"
+
                                     android:buttonTint="@color/col7"
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/oneway"
@@ -368,7 +368,7 @@
                                     />
 
                                 <RadioButton
-                                    android:onClick="rbclick"
+
                                     android:buttonTint="@color/col7"
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/roundtrip"
@@ -380,7 +380,7 @@
 
 
                                 <RadioButton
-                                    android:onClick="rbclick"
+
                                     android:buttonTint="@color/col7"
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/business"

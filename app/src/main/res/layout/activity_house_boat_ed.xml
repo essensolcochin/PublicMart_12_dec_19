@@ -242,7 +242,7 @@
                                 android:buttonTint="@color/col7"
                                 android:id="@+id/daycruise"
                                 android:layout_width="wrap_content"
-                                android:onClick="rbclick"
+
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="5dp"
                                 android:layout_weight="1"
@@ -251,7 +251,7 @@
                                 android:textColor="@android:color/black" />
 
                             <RadioButton
-                                android:onClick="rbclick"
+
                                 android:id="@+id/nightcruise"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
@@ -263,7 +263,7 @@
 
 
                             <RadioButton
-                                android:onClick="rbclick"
+
                                 android:id="@+id/fulldaycruise"
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"

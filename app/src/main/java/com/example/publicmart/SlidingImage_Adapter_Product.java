@@ -1,6 +1,7 @@
 package com.example.publicmart;
 
 import android.content.Context;
+import android.graphics.PointF;
 import android.net.Uri;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
@@ -59,6 +60,8 @@ public class SlidingImage_Adapter_Product extends PagerAdapter {
 
 
         try {
+            PointF focusPoint = new PointF(0f, 0.5f);
+
             URL url = new URL(context.getString(R.string.ImgUrl)+IMAGES.get(position));
             ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
                     .setAutoRotateEnabled(true)
@@ -67,6 +70,10 @@ public class SlidingImage_Adapter_Product extends PagerAdapter {
             DraweeController draweeController = Fresco.newDraweeControllerBuilder()
                     .setImageRequest(imageRequest)
                     .build();
+
+//            imageView.getHierarchy()
+//                     .setActualImageFocusPoint(focusPoint);
+
             imageView.setController(draweeController);
         } catch (Exception e) {
         }

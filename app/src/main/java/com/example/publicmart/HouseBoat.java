@@ -1,6 +1,7 @@
 package com.example.publicmart;
 
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
@@ -176,7 +177,34 @@ public class HouseBoat extends BaseActivity {
             }
         });
 
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int radioButtonID = radioGroup.getCheckedRadioButtonId();
+                View radioButton = radioGroup.findViewById(radioButtonID);
+                int position = radioGroup.indexOfChild(radioButton);
+                Log.e("radio",""+position);
+                Log.e("radioid",""+radioButtonID);
 
+                if (position==1)
+
+                {
+
+                    Cruise_Type = "D";
+
+                }
+                else  if (position==2)
+                {
+                    Cruise_Type = "N";
+                }
+                else if(position==2)
+                {
+                    Cruise_Type = "F";
+
+                }
+
+            }
+        });
 
 
         init();
@@ -209,13 +237,15 @@ public class HouseBoat extends BaseActivity {
         }
         else
         {
-
+            SharedPreferences sp = getSharedPreferences("UserLog",0);
+            String CustKey =  sp.getString("UserKey",null);
             ////////////////////////////////////////////////////////////////////
 
             try {
 
 
                 JSONObject values = new JSONObject();
+                values.put("CustKey",Integer.parseInt(CustKey));
                 values.put("PassengerName", passengr_name.getText().toString());
                 values.put("TravelDate", Day + "-" + Month + "-" + Year);
                 values.put("GuestNos", members);
@@ -225,7 +255,7 @@ public class HouseBoat extends BaseActivity {
                 values.put("ContactNo", Contact_no.getText().toString());
                 values.put("BookingStatusKey", 1);
                 values.put("Status", true);
-                values.put("CreatedBy", 0);
+                values.put("CreatedBy", Integer.parseInt(CustKey));
                 jsonString = new JSONObject();
                 jsonString.put("Token", "0001");
                 jsonString.put("call", "SaveHouseboatBooking");
@@ -254,31 +284,7 @@ public class HouseBoat extends BaseActivity {
 
         });
     }
-    public void rbclick(View v)
-    {
-        radioGroup = (RadioGroup)findViewById(R.id.radiogrp);
-        int selectedId = radioGroup.getCheckedRadioButtonId();
 
-
-        View  cruise = (RadioButton)findViewById(selectedId);
-        Log.e("radio",""+selectedId);
-        if (selectedId==2131230827)    ///2131230827 Day
-        {
-            Cruise_Type = "D";
-
-        }
-        else  if (selectedId==2131230940)  ////2131230940 Night
-        {
-             Cruise_Type = "N";
-        }
-        else if(selectedId==2131230876)   /////2131230876 Full day
-        {
-            Cruise_Type = "F";
-
-        }
-
-
-    }
 
 
     public void forceCrash(View view) {
@@ -319,7 +325,7 @@ public class HouseBoat extends BaseActivity {
 
 
 
-        String URL = this.getString(R.string.local)+"Save";
+        String URL = this.getString(R.string.Url)+"Save";
 
 
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
