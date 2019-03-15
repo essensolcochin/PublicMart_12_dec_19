@@ -21,7 +21,7 @@ public class SlidingImage_Adapter_Home extends PagerAdapter {
     private ArrayList<Integer> IMAGES;
     private LayoutInflater inflater;
     private Context context;
-
+    int pos =0;
 
     public SlidingImage_Adapter_Home(Context context, ArrayList<Integer> IMAGES) {
         this.context = context;
@@ -50,8 +50,15 @@ public class SlidingImage_Adapter_Home extends PagerAdapter {
         final ImageView imageView = (ImageView) imageLayout
                 .findViewById(R.id.image);
 
+if(pos>=IMAGES.size()-1)
+{
+    pos=0;
+}
+else {
+    ++pos;
+}
 
-        imageView.setImageResource(IMAGES.get(position));
+        imageView.setImageResource(IMAGES.get(pos));
 
         view.addView(imageLayout, 0);
 
