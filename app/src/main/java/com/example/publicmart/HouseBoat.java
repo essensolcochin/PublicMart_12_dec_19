@@ -93,7 +93,7 @@ public class HouseBoat extends BaseActivity {
         passengr_name=(EditText)findViewById(R.id.traveler_name);
         email_id=(EditText)findViewById(R.id.email);
         Contact_no=(EditText)findViewById(R.id.contact);
-
+        radioGroup = findViewById(R.id.radiogrp);
 
 
 

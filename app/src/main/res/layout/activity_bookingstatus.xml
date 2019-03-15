@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="5dp"
     android:orientation="vertical"
     tools:context=".Bookingstatus">
 
@@ -34,23 +35,40 @@
                         android:orientation="horizontal">
 
                         <LinearLayout
+                            android:padding="10dp"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="10dp"
                             android:orientation="vertical">
 
-                            <TextView
-                                android:layout_gravity="center"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="Abhijith"
-                                android:textColor="#030303"
-                                android:id="@+id/pass"
-                                android:textSize="20dp"
-                                android:textStyle="bold" />
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+                                <ImageView
+
+                                    android:src="@drawable/plane"
+                                    android:layout_width="30dp"
+                                    android:layout_height="40dp" />
+
+
+
+                                <TextView
+                                    android:gravity="center"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:text="Abhijith"
+                                    android:textColor="@color/col10"
+                                    android:id="@+id/pass"
+                                    android:textSize="20dp"
+                                    android:textStyle="bold" />
+
+
+                            </LinearLayout>
+
 
                             <RelativeLayout
-
+                                android:layout_marginTop="10dp"
                                 android:layout_width="match_parent"
                                 android:orientation="horizontal"
                                 android:layout_height="wrap_content">
@@ -75,7 +93,7 @@
                                     android:layout_height="wrap_content"
                                     android:text="BLR"
                                     android:textColor="#030303"
-                                    android:textSize="18dp"
+                                    android:textSize="20dp"
                                     android:textStyle="bold" />
                                 <TextView
 
@@ -85,7 +103,7 @@
                                     android:layout_marginRight="5dp"
                                     android:layout_weight="1"
                                     android:gravity="center_vertical"
-                                    android:layout_gravity="start"
+                                    android:layout_gravity="center"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="-"
@@ -101,7 +119,7 @@
                                     android:id="@+id/to_air"
                                     android:text="COK"
                                     android:textColor="#030303"
-                                    android:textSize="18dp"
+                                    android:textSize="20dp"
                                     android:textStyle="bold" />
 
                             </LinearLayout>
@@ -109,6 +127,8 @@
 
 
                             <LinearLayout
+                                android:layout_marginTop="5dp"
+
                                 android:orientation="horizontal"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content">
@@ -121,7 +141,7 @@
                                     android:layout_height="wrap_content"
                                     android:id="@+id/date"
                                     android:text="9:00 "
-                                    android:textColor="#030303"
+                                    android:textColor="#7C7C7C"
                                     android:textSize="15dp"
                                     />
 
@@ -165,7 +185,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
-                                android:text="Status : Approved"
+                                android:textColor="@color/col7"
                                 android:visibility="visible" />
 
                             <Button

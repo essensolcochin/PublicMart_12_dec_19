@@ -14,7 +14,6 @@
         android:padding="2dp">
 
         <LinearLayout
-            android:padding="25dp"
 
             android:orientation="vertical"
 
@@ -22,46 +21,38 @@
             android:layout_height="wrap_content">
 
 
-        <android.support.v7.widget.CardView
 
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="10dp"
-            android:layout_margin="5dp"
-            app:cardElevation="5dp">
 
             <LinearLayout
                 android:clickable="true"
                 android:gravity="center"
-                android:paddingTop="20dp"
-                android:paddingBottom="20dp"
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent">
 
-            <ImageView
-                android:tint="@color/col7"
-                android:src="@drawable/plane"
-                android:layout_weight=".75"
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
-            <TextView
-                android:layout_marginTop="10dp"
-                android:id="@+id/flight"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:text="FLIGHT TICKETS"
-                android:textSize="15dp"
-                android:gravity="start"
-                android:textStyle="bold"
-                android:textColor="@color/col5"
-                android:layout_height="wrap_content" />
+            <!--<ImageView-->
+                <!--android:tint="@color/col7"-->
+                <!--android:src="@drawable/plane"-->
+                <!--android:layout_weight=".75"-->
+                <!--android:layout_width="30dp"-->
+                <!--android:layout_height="30dp" />-->
+            <!--<TextView-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:id="@+id/flight"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:text="FLIGHT TICKETS"-->
+                <!--android:textSize="15dp"-->
+                <!--android:gravity="start"-->
+                <!--android:textStyle="bold"-->
+                <!--android:textColor="@color/col5"-->
+                <!--android:layout_height="wrap_content" />-->
 
             <android.support.v4.view.ViewPager
                 android:id="@+id/viewflipper1"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
+                android:layout_height="200dp"
                 >
 
             </android.support.v4.view.ViewPager>
@@ -72,7 +63,6 @@
 
 
 
-         </android.support.v7.widget.CardView>
 
 
 
@@ -81,6 +71,12 @@
 
 
 
+
+            <LinearLayout
+                android:padding="25dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
 
 
@@ -89,6 +85,7 @@
 
 
             <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
                 android:id="@+id/text_input_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -490,6 +487,7 @@
                 android:textSize="18dp"/>
             </LinearLayout>
 
+            </LinearLayout>
 
 
     </LinearLayout>

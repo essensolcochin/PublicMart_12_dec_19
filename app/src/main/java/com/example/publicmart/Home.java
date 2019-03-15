@@ -3,6 +3,7 @@ package com.example.publicmart;
 import android.app.AlertDialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 
 import android.graphics.Typeface;
@@ -14,6 +15,7 @@ import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
 
+import android.util.Log;
 import android.view.View;
 
 
@@ -23,12 +25,27 @@ import android.widget.FrameLayout;
 
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+import org.json.JSONTokener;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -46,11 +63,11 @@ public class Home extends BaseActivity {
     TextView view;
 
     private static final Integer[] IMAGES= {R.drawable.ad,R.drawable.ad,R.drawable.ad2};
-    private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
-
-
+    private ArrayList<HomeAdModel> ImagesArray = new ArrayList<HomeAdModel>();
+    private SpotsDialog progress;
+String code,message;
     int image[] = {R.drawable.ad};
-
+    JSONObject jsonString ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,25 +76,21 @@ public class Home extends BaseActivity {
         getLayoutInflater().inflate(R.layout.activity_home_test, contentFrameLayout);
         Fabric.with(this, new Crashlytics());
 
-        final SpotsDialog progress = new SpotsDialog(Home.this,R.style.Custom);
+         progress = new SpotsDialog(Home.this,R.style.Custom);
 
 
         progress.show();
 
-        Runnable progressRunnable = new Runnable() {
-
-            @Override
-            public void run() {
 
 
-                progress.cancel();
-                init();
 
-            }
-        };
 
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 2000);
+               // init();
+
+
+
+
+
 
 
 
@@ -97,7 +110,7 @@ public class Home extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Home.this, Bookingstatus.class);
+                Intent intent = new Intent(Home.this, TabActivity.class);
                 startActivity(intent);
             }
         });
@@ -141,15 +154,15 @@ public class Home extends BaseActivity {
         bookingstat=(TextView)findViewById(R.id.book);
         credit=(TextView)findViewById(R.id.credit);
 
-        view=findViewById(R.id.textContent);
-
-        String text;
-        text =   "ACCT NAME   : PUBLIC MART\n"+
-                "ACCT NO     : 50200034752049\n"+
-                "IFSC CODE   : HDFC0000628\n"+
-                "BRANCH NAME : ALAPPUZHA\n";
-
-        view.setText(text);
+//        view=findViewById(R.id.textContent);
+//
+//        String text;
+//        text =   "ACCT NAME   : PUBLIC MART\n"+
+//                "ACCT NO     : 50200034752049\n"+
+//                "IFSC CODE   : HDFC0000628\n"+
+//                "BRANCH NAME : ALAPPUZHA\n";
+//
+//        view.setText(text);
 
 
         Product.setTypeface(custom_font);
@@ -170,7 +183,7 @@ public class Home extends BaseActivity {
 
             }
         });
-//
+
 
         product.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -179,80 +192,228 @@ public class Home extends BaseActivity {
                 startActivity(intent);
             }
         });
-//
-//        booking = findViewById(R.id.bookstat);
-//        booking.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Home.this, Bookingstatus.class);
-//                startActivity(intent);
-//            }
-//        });
 
-//        for (int image: image) {
-//            flipperimage(image);
-//        }
 
-//        orderstat = (LinearLayout)findViewById(R.id.orderstatus);
-//        orderstat.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(Home.this, OrderStatus.class);
-//                startActivity(intent);
-//            }
-//        });
+        LoadAdBanner();
 
     }
+
+
+    private void LoadAdBanner() {
+
+
+
+        jsonString =new JSONObject();
+
+
+
+
+        try {
+
+            JSONObject values = new JSONObject();
+            values.put("Type","H");
+
+
+            jsonString = new JSONObject();
+            jsonString.put("Token", "0001");
+            jsonString.put("call", "GetAdvImagesByType");
+            jsonString.put("values", values);
+
+
+
+        } catch (
+                JSONException e) {
+            e.printStackTrace();
+        }
+
+
+
+
+
+        String URL = this.getString(R.string.Url)+"Select";
+
+
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+
+
+                        progress.cancel();
+
+
+                        Log.e("Jsonnnn",""+response);
+                        // p1.dismiss();
+
+                        try {
+
+
+                            JSONObject o     = new JSONObject(response);
+
+
+                            String data = response;
+                            Object json = new JSONTokener(data).nextValue();
+                            if (json instanceof JSONObject){
+                                Log.e("objectttttt",""+json);
+                            }
+                            //you have an object
+                            else if (json instanceof JSONArray){
+                                Log.e("Arrayyyyyyy",""+json);
+                            }
+
+
+                            Log.e("tryyyyyyyyy","in"+o);
+
+//                            JSONArray json_array2 = o.getJSONArray("result");
+//                            Log.e("tryyyyyyyyy",""+json_array2);
+//
+//                            JSONObject jsonObject = json_array2.getJSONObject(0);
+                            code = o.getString("responseCode");
+                            message=o.getString("responseMessage");
+
+                            Log.e("resppppppp",""+code);
+
+
+                            if (code.equals("0"))
+                            {
+
+
+                                JSONArray json_array2 = o.getJSONArray("result");
+
+
+                                JSONObject jsonObject;
+
+
+                                int j;
+                                for (j = 0; j < json_array2.length(); j++) {
+
+                                    jsonObject = json_array2.getJSONObject(j);
+
+                                    HomeAdModel images= new HomeAdModel(jsonObject.getString("AdvImageKey"),
+                                            jsonObject.getString("ImageDesc"),
+                                            jsonObject.getString("ImagePath"));
+
+
+                                    ImagesArray.add(images);
+
+
+                                }
+                                mPager = (ViewPager) findViewById(R.id.viewflipper);
+
+
+                                Log.e("Imagearraayyyyyyy","in"+ImagesArray);
+
+                                PagerAdapter adapter = new SlidingImage_Adapter_Home(Home.this, ImagesArray);
+                                mPager.setAdapter(adapter);
+
+                                 NUM_PAGES =ImagesArray.size();
+                                // Auto start of viewpager
+                                final Handler handler = new Handler();
+                                final Runnable Update = new Runnable() {
+                                    public void run() {
+                                        if (currentPage == NUM_PAGES) {
+
+                                            currentPage= NUM_PAGES-currentPage;
+                                            Log.e("pageeeee","in -- "+currentPage);
+                                            mPager.setCurrentItem(currentPage--, true);
+                                        }
+                                        else{
+                                            mPager.setCurrentItem(currentPage++, true);
+                                            Log.e("pageeeee","in ++ "+currentPage);
+                                        }
+
+
+                                    }
+                                };
+                                Timer swipeTimer = new Timer();
+                                swipeTimer.schedule(new TimerTask() {
+                                    @Override
+                                    public void run() {
+                                        handler.post(Update);
+                                    }
+                                }, 300, 3000);
+
+
+
+
+
+
+
+
+                            }
+
+
+//                            else {
+//                                Toast.makeText(Home.this,message,Toast.LENGTH_LONG).show();
+//                            }
+
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+
+
+
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        progress.cancel();
+                        Toast.makeText(getApplicationContext(), "No Response From Server ", Toast.LENGTH_LONG).show();
+
+                    }
+                }) {
+
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> param = new HashMap<String, String>();
+                param.put("jsonString",jsonString.toString() );
+                Log.e("paramssss",""+param);
+                return param;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String,String> param = new HashMap<String, String>();
+                param.put("Content-Type","application/x-www-form-urlencoded");
+                return param;
+            }
+        }
+                ;
+
+        // Volley.getInstance(this).addToRequestQueue(stringRequest);
+        RequestQueue requestQueue= Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public void forceCrash(View view) {
         throw new RuntimeException("This is a crash");
     }
-    private void init() {
-
-
-
-        for (int i = 0; i < IMAGES.length; i++)
-            ImagesArray.add(IMAGES[i]);
-
-        mPager = findViewById(R.id.viewflipper);
-
-        final PagerAdapter adapter = new SlidingImage_Adapter_Home(Home.this, ImagesArray);
-        mPager.setAdapter(adapter);
-
-
-        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
-
-
-
-
-        NUM_PAGES = IMAGES.length;
 
 
 
 
 
 
-        // Auto start of viewpager
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            public void run() {
-                if (currentPage == NUM_PAGES) {
-                    currentPage = 0;
-                }
-                mPager.setCurrentItem(currentPage++, true);
-
-
-            }
-        };
-        Timer swipeTimer = new Timer();
-        swipeTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(Update);
-            }
-        }, 5000, 5000);
 
 
 
-    }
 
 }

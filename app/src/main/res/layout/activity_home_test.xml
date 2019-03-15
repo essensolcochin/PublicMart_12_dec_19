@@ -341,112 +341,112 @@
 
 
 
-            <LinearLayout
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="25dp">
-                <TextView
-                    android:background="@drawable/stroke"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Your Status"
-                    android:textStyle="bold"
-                    android:textColor="@color/Text"
-                    android:textSize="15dp"/>
-                <TextView
-                    android:background="@drawable/stroke"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
+            <!--<LinearLayout-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="25dp">-->
+                <!--<TextView-->
+                    <!--android:background="@drawable/stroke"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content" />-->
+                <!--<TextView-->
+                    <!--android:gravity="center"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Your Status"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textColor="@color/Text"-->
+                    <!--android:textSize="15dp"/>-->
+                <!--<TextView-->
+                    <!--android:background="@drawable/stroke"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content" />-->
 
-            </LinearLayout>
-
-
-            <RelativeLayout
-                android:layout_marginTop="15dp"
-                android:layout_marginBottom="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:background="@android:color/white"
-
-                android:gravity="center_horizontal">
-
-                <ImageView
-                    android:layout_margin="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/arch"/>
-
-            </RelativeLayout>
+            <!--</LinearLayout>-->
 
 
-            <LinearLayout
-                android:layout_margin="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="25dp">
-                <TextView
-                    android:background="@drawable/stroke"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
-                <TextView
-                    android:gravity="center"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:text="Company Details"
-                    android:textStyle="bold"
-                    android:textColor="@color/Text"
-                    android:textSize="15dp"/>
-                <TextView
-                    android:background="@drawable/stroke"
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content" />
+            <!--<RelativeLayout-->
+                <!--android:layout_marginTop="15dp"-->
+                <!--android:layout_marginBottom="15dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center"-->
+                <!--android:background="@android:color/white"-->
 
-            </LinearLayout>
+                <!--android:gravity="center_horizontal">-->
+
+                <!--<ImageView-->
+                    <!--android:layout_margin="10dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:src="@drawable/arch"/>-->
+
+            <!--</RelativeLayout>-->
 
 
+            <!--<LinearLayout-->
+                <!--android:layout_margin="10dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="25dp">-->
+                <!--<TextView-->
+                    <!--android:background="@drawable/stroke"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content" />-->
+                <!--<TextView-->
+                    <!--android:gravity="center"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="Company Details"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textColor="@color/Text"-->
+                    <!--android:textSize="15dp"/>-->
+                <!--<TextView-->
+                    <!--android:background="@drawable/stroke"-->
+                    <!--android:layout_weight="1"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content" />-->
 
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginBottom="20dp"
-
-                android:gravity="center_horizontal"
-                android:layout_gravity="center_horizontal"
-                android:background="@color/col6"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="HDFC BANK LTD."
-                    android:textSize="20dp"
-                    android:textColor="@color/col10"
-                    android:textStyle="bold"/>
-
-                <TextView
-                    android:layout_gravity="center"
-                    android:gravity="fill"
-                    android:textColor="@color/col10"
-                    android:padding="20dp"
-                    android:id="@+id/textContent"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+            <!--</LinearLayout>-->
 
 
 
-            </LinearLayout>
+
+            <!--<LinearLayout-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent"-->
+                <!--android:layout_marginBottom="20dp"-->
+
+                <!--android:gravity="center_horizontal"-->
+                <!--android:layout_gravity="center_horizontal"-->
+                <!--android:background="@color/col6"-->
+                <!--android:orientation="vertical">-->
+
+                <!--<TextView-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="HDFC BANK LTD."-->
+                    <!--android:textSize="20dp"-->
+                    <!--android:textColor="@color/col10"-->
+                    <!--android:textStyle="bold"/>-->
+
+                <!--<TextView-->
+                    <!--android:layout_gravity="center"-->
+                    <!--android:gravity="fill"-->
+                    <!--android:textColor="@color/col10"-->
+                    <!--android:padding="20dp"-->
+                    <!--android:id="@+id/textContent"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content" />-->
+
+
+
+            <!--</LinearLayout>-->
 
 
         </LinearLayout>

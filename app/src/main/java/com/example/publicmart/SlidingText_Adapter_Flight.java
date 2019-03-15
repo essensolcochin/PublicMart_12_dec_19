@@ -10,15 +10,17 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
 import java.util.ArrayList;
 
 class SlidingText_Adapter_Flight extends PagerAdapter {
-    private ArrayList<String> IMAGES;
+    private ArrayList<Integer> IMAGES;
     private LayoutInflater inflater;
     private Context context;
 
 
-    public SlidingText_Adapter_Flight(Context context, ArrayList<String> IMAGES) {
+    public SlidingText_Adapter_Flight(Context context, ArrayList<Integer> IMAGES) {
         this.context = context;
         this.IMAGES=IMAGES;
         inflater = LayoutInflater.from(context);
@@ -42,10 +44,10 @@ class SlidingText_Adapter_Flight extends PagerAdapter {
         View texlayout = inflater.inflate(R.layout.slidingtext_home_layout, view, false);
 
         assert texlayout != null;
-        final TextView imageView = (TextView) texlayout
+        final SimpleDraweeView imageView = (SimpleDraweeView) texlayout
                 .findViewById(R.id.adTXT);
 
-        imageView.setText(IMAGES.get(position));
+        imageView.setImageResource(IMAGES.get(position));
 
 
         view.addView(texlayout, 0);

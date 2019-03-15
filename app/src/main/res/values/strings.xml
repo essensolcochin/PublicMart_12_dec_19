@@ -11,8 +11,6 @@ Blouse fabric: silk blend
 Dry-clean</string>
     <string name="title_activity_base_sec">Base_sec</string>
 
-    <string name="base64"></string>
-
 
     <string name="Url">
                 http://Service.publicmart.in/api/CommonApi/
@@ -22,7 +20,6 @@ Dry-clean</string>
     <string name="local">
         http://192.168.0.30:7899/api/CommonApi/
     </string>
-
 
 
     <string name="ImgUrl">
@@ -35,4 +32,7 @@ Dry-clean</string>
     </string>
 
     <string name="Bank">ACCT NAME : PUBLIC MART ACCT NO : 50200034752049   IFSC CODE : HDFC0000628 BRANCH NAME : ALAPPUZHA</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
