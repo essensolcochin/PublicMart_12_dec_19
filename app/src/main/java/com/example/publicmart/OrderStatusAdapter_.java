@@ -202,7 +202,6 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
             ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(Uri.parse(url.toURI().toString()))
                     .setAutoRotateEnabled(true)
-                    .setResizeOptions(new ResizeOptions(30, 30))
                     .build();
 
             DraweeController draweeController = Fresco.newDraweeControllerBuilder()
@@ -216,7 +215,8 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
             //
         }
 
-
+        holder.Amount.setText(List.getAmount());
+        holder.BV.setText(List.getBV());
 
 
 
@@ -235,7 +235,7 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
         HorizontalStepView horizontalStepView;
         SimpleDraweeView Icon;
         Button pay;
-        TextView status;
+        TextView status,BV,Amount;
         StepBean stepBean0,stepBean1,stepBean2,stepBean3,stepBean4,stepBean5;
 
         ViewHolder(View itemView) {
@@ -243,6 +243,8 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
             horizontalStepView = (HorizontalStepView)itemView.findViewById(R.id.step_view) ;
 
             status  = itemView.findViewById(R.id.state);
+            Amount  = itemView.findViewById(R.id.amount);
+            BV  = itemView.findViewById(R.id.BV);
             pay = itemView.findViewById(R.id.payment);
             ItemName = itemView.findViewById(R.id.itemName);
             ItemDesc = itemView.findViewById(R.id.itemDesc);

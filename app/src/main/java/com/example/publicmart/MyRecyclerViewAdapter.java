@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CalendarView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -114,12 +115,6 @@ final ProductModelClass List = mylist.get(position);
     }
 
 
-//
-//    String base64 = List.getImagePath();
-//    Log.e("menugeterrrrrrrr","in"+base64);
-//
-//    byte[] imageAsBytes = Base64.decode(base64.getBytes(), Base64.DEFAULT);
-//    holder.Image.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
 
     holder.ProductName.setText(List.getBrandName());
     holder.desc.setText(List.getShortDesc());
@@ -162,8 +157,8 @@ public class ViewHolder extends RecyclerView.ViewHolder  {
             desc = itemView.findViewById(R.id.short_desc);
             Bv = itemView.findViewById(R.id.BV);
             Rs = itemView.findViewById(R.id.amount);
-        itemLayout = itemView.findViewById(R.id.productLayout);
-       product_image = itemView.findViewById(R.id.image);
+            itemLayout = itemView.findViewById(R.id.productLayout);
+            product_image = itemView.findViewById(R.id.image);
 //        Image = itemView.findViewById(R.id.image);
 
 

@@ -2,6 +2,7 @@ package com.example.publicmart;
 
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -203,15 +204,17 @@ public class BaseActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         MenuItem cart = menu.findItem(R.id.cart_action);
         View actionView = MenuItemCompat.getActionView(cart);
-        MenuItem serach = menu.findItem(R.id.search_action);
+
 
         FrameLayout click =(FrameLayout)actionView.findViewById(R.id.cartclick);
 
         click.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+               
+
                 Intent cartIntent = new Intent(BaseActivity.this, OrderStatus.class);
-//                cartIntent.putExtra("CustKey",custkey);
+
                 startActivity(cartIntent);
                 finish();
             }

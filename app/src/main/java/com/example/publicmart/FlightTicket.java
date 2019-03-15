@@ -1,6 +1,5 @@
 package com.example.publicmart;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Handler;
 import android.support.design.widget.TextInputLayout;
@@ -37,7 +36,6 @@ import org.json.JSONTokener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -76,9 +74,10 @@ public class FlightTicket extends BaseActivity{
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final String[] Text= {"Guaranteed Low Price","User Friendly Ticket Cancellation"};
+    private static final Integer[] IMAGES = {R.drawable.airticket,R.drawable.flightbanner};
 
-     ArrayList<String> TextArray = new ArrayList<String>();
+
+    ArrayList<Integer> TextArray = new ArrayList<Integer>();
     TextInputLayout name,email,contact;
     TextView txtxmpny;
 
@@ -384,14 +383,14 @@ public class FlightTicket extends BaseActivity{
     private void init() {
 
 
-        for (int i = 0; i < Text.length; i++)
-            TextArray.add(Text[i]);
+        for (int i = 0; i < IMAGES.length; i++)
+            TextArray.add(IMAGES[i]);
         mPager = findViewById(R.id.viewflipper1);
 
         PagerAdapter adapter = new SlidingText_Adapter_Flight(FlightTicket.this, TextArray);
         mPager.setAdapter(adapter);
         Log.e("textsizeeeee","flight "+TextArray.size());
-        NUM_PAGES = Text.length;
+        NUM_PAGES = IMAGES.length;
         // Auto start of viewpager
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
