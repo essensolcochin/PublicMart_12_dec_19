@@ -1,5 +1,6 @@
 package com.example.publicmart;
 
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -7,6 +8,7 @@ import android.util.Log;
 
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -16,6 +18,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,7 +35,7 @@ public class Products extends BaseActivity  {
 
 
     JSONObject jsonString;
-
+    TextView fresh,fashion;
     String code,message;
     ProductMenuAdapter adapter;
     GridLayoutManager layoutManager;
@@ -59,6 +62,14 @@ public class Products extends BaseActivity  {
         layoutManager=new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
 
+        fresh= (TextView) findViewById(R.id.fresh);
+        fashion= (TextView) findViewById(R.id.fashion);
+
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/collection.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getAssets(),  "fonts/fresh.ttf");
+
+        fresh.setTypeface(custom_font1);
+        fashion.setTypeface(custom_font);
 
         LoadMenu();
 

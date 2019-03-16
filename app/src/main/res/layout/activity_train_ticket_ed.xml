@@ -25,9 +25,33 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <!--Radio Button Start -->
 
-            <!--Radio Button End -->
+
+
+            <LinearLayout
+                android:clickable="true"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewflipper1"
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    >
+
+                </android.support.v4.view.ViewPager>
+
+
+
+            </LinearLayout>
+
+
+
+
 
             <LinearLayout
                 android:padding="25dp"
@@ -36,46 +60,46 @@
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <android.support.v7.widget.CardView
-                    app:cardCornerRadius="10dp"
-                    android:layout_margin="10dp"
-                    app:cardElevation="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    >
-                    <LinearLayout
-                        android:padding="20dp"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                <!--<android.support.v7.widget.CardView-->
+                    <!--app:cardCornerRadius="10dp"-->
+                    <!--android:layout_margin="10dp"-->
+                    <!--app:cardElevation="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--&gt;-->
+                    <!--<LinearLayout-->
+                        <!--android:padding="20dp"-->
+                        <!--android:gravity="center"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="match_parent">-->
 
-                        <ImageView
-                            android:tint="@color/col7"
-                            android:src="@drawable/train"
-                            android:layout_width="30dp"
-                            android:layout_height="30dp" />
+                        <!--<ImageView-->
+                            <!--android:tint="@color/col7"-->
+                            <!--android:src="@drawable/train"-->
+                            <!--android:layout_width="30dp"-->
+                            <!--android:layout_height="30dp" />-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="15dp"
-                            android:textStyle="bold"
-                            android:textColor="#000"
-                            android:text="Train"/>
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:textSize="15dp"-->
+                            <!--android:textStyle="bold"-->
+                            <!--android:textColor="#000"-->
+                            <!--android:text="Train"/>-->
 
-                        <android.support.v4.view.ViewPager
-                            android:id="@+id/viewflipper1"
-                            android:layout_width="match_parent"
-                            android:layout_height="40dp"
-                            >
+                        <!--<android.support.v4.view.ViewPager-->
+                            <!--android:id="@+id/viewflipper1"-->
+                            <!--android:layout_width="match_parent"-->
+                            <!--android:layout_height="40dp"-->
+                            <!--&gt;-->
 
-                        </android.support.v4.view.ViewPager>
+                        <!--</android.support.v4.view.ViewPager>-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
 
-                </android.support.v7.widget.CardView>
+                <!--</android.support.v7.widget.CardView>-->
 
 
                 <android.support.design.widget.TextInputLayout

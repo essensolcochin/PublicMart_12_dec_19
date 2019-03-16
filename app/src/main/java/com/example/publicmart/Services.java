@@ -1,10 +1,14 @@
 package com.example.publicmart;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Handler;
+import android.support.v4.view.PagerAdapter;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,6 +22,10 @@ import android.widget.ViewFlipper;
 
 import com.crashlytics.android.Crashlytics;
 
+import java.util.ArrayList;
+import java.util.Timer;
+import java.util.TimerTask;
+
 import dmax.dialog.SpotsDialog;
 import io.fabric.sdk.android.Fabric;
 
@@ -26,8 +34,11 @@ public class Services extends BaseActivity {
     ViewFlipper viewFlipper;
     int image[] = {R.drawable.ad, R.drawable.travelalert};
     LinearLayout flight, train, boat,tour,travel,gun,insure;
-    TextView flightTXT, trainTXT, boatTXT, tourTXT, travelTXT, gunTXT, insureTXT;
-
+    private static ViewPager mPager;
+    int NUM_PAGES,currentPage=0;
+    TextView flightTXT, trainTXT, boatTXT, tourTXT, travelTXT, gunTXT, insureTXT,our,services;
+//    private static final Integer[] IMAGES = {R.drawable.servicebanner};
+    private ArrayList<Integer> TextArray = new ArrayList<Integer>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +47,11 @@ public class Services extends BaseActivity {
         Fabric.with(this, new Crashlytics());
 
         flightTXT = (TextView) findViewById(R.id.flight);
+
+        our = (TextView) findViewById(R.id.our);
+
+        services = (TextView) findViewById(R.id.services);
+
         trainTXT = (TextView) findViewById(R.id.train);
         boatTXT = (TextView) findViewById(R.id.boat);
         tourTXT = (TextView) findViewById(R.id.tour);
@@ -46,10 +62,13 @@ public class Services extends BaseActivity {
         travel =(LinearLayout)findViewById(R.id.travel_guide);
         gun=(LinearLayout)findViewById(R.id.gun_licence);
         insure=(LinearLayout)findViewById(R.id.insurance);
+//        mPager=(ViewPager) findViewById(R.id.viewflipper1);
 
 
 
         Typeface custom_font = Typeface.createFromAsset(getAssets(), "fonts/curvy.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(getAssets(), "fonts/collection.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/fresh.ttf");
 
         flightTXT.setTypeface(custom_font);
         trainTXT.setTypeface(custom_font);
@@ -59,25 +78,25 @@ public class Services extends BaseActivity {
         gunTXT.setTypeface(custom_font);
         insureTXT.setTypeface(custom_font);
 
+//        init();
 
-
-        final SpotsDialog progress = new SpotsDialog(Services.this,R.style.Custom);
-
-
-        progress.show();
-
-        Runnable progressRunnable = new Runnable() {
-
-            @Override
-            public void run() {
-
-
-                progress.cancel();
-            }
-        };
-
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 2000);
+//        final SpotsDialog progress = new SpotsDialog(Services.this,R.style.Custom);
+//
+//
+//        progress.show();
+//
+//        Runnable progressRunnable = new Runnable() {
+//
+//            @Override
+//            public void run() {
+//
+//
+//                progress.cancel();
+//            }
+//        };
+//
+//        Handler pdCanceller = new Handler();
+//        pdCanceller.postDelayed(progressRunnable, 2000);
 
 //        android.support.v7.widget.Toolbar tb=getToolBar();
 //        txtxmpny=(TextView)tb.findViewById(R.id.appname);
@@ -155,4 +174,46 @@ public class Services extends BaseActivity {
         toast.show();
 
     }
+
+
+
+//    private void init() {
+//
+//        for (int i = 0; i < IMAGES.length; i++)
+//
+//
+//        TextArray.add(IMAGES[i]);
+//
+//        mPager = findViewById(R.id.viewflipper1);
+//
+//        PagerAdapter adapter = new SlidingText_Adapter_(Services.this, TextArray);
+//        mPager.setAdapter(adapter);
+//        Log.e("textsizeeeee", "flight " + TextArray.size());
+//
+//
+////        NUM_PAGES = TextArray.size();
+////        // Auto start of viewpager
+////        final Handler handler = new Handler();
+////        final Runnable Update = new Runnable() {
+////            public void run() {
+////                if (currentPage == NUM_PAGES) {
+////                    currentPage = 0;
+////                }
+////                mPager.setCurrentItem(currentPage++, true);
+////            }
+////        };
+////        Timer swipeTimer = new Timer();
+////        swipeTimer.schedule(new TimerTask() {
+////            @Override
+////            public void run() {
+////                handler.post(Update);
+////            }
+////        }, 1500, 5000);
+//
+//    }
+
+
+
+
+
 }

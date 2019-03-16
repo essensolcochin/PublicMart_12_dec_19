@@ -67,8 +67,8 @@ public class TrainTicket extends BaseActivity {
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final String[] Text= {"Easy Cancellation Process","Convenience charge 50₹"};
-    private ArrayList<String> TextArray = new ArrayList<String>();
+    private static final Integer[] IMAGES = {R.drawable.trainad};
+    private ArrayList<Integer> TextArray = new ArrayList<Integer>();
     TextInputLayout trname,tremail,trcontact;
     Integer codecity,codecity2;
     String StationName,ShortCode;
@@ -327,13 +327,13 @@ public class TrainTicket extends BaseActivity {
     }
 
     private void init() {
-        for (int i = 0; i < Text.length; i++)
-        TextArray.add(Text[i]);
+        for (int i = 0; i < IMAGES.length; i++)
+        TextArray.add(IMAGES[i]);
         mPager = findViewById(R.id.viewflipper1);
         PagerAdapter adapter = new SlidingText_Adapter_Train(TrainTicket.this, TextArray);
         mPager.setAdapter(adapter);
         Log.e("textsizeeeee","flight "+TextArray.size());
-        NUM_PAGES = Text.length;
+        NUM_PAGES = IMAGES.length;
         // Auto start of viewpager
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
