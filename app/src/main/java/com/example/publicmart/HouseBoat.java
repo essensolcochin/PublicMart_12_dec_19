@@ -57,7 +57,7 @@ public class HouseBoat extends BaseActivity {
     Spinner membersno, days, months, years;
 ///gggggg
 
-    private static final Integer[] IMAGES = {R.drawable.houseboatwall,R.drawable.houseboatwalll};
+
     private static ViewPager mPager;
     private ArrayList<Integer> ImagesArray = new ArrayList<Integer>();
     private static int NUM_PAGES = 0;
@@ -291,32 +291,32 @@ public class HouseBoat extends BaseActivity {
         throw new RuntimeException("This is a crash");
     }
 
-    private void init() {
-        for (int i = 0; i < IMAGES.length; i++)
-            ImagesArray.add(IMAGES[i]);
-        PagerAdapter adapter = new SlidingImage_Adapter(HouseBoat.this, ImagesArray);
-        mPager.setAdapter(adapter);
-        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
-        final float density = getResources().getDisplayMetrics().xdpi;
-        NUM_PAGES = IMAGES.length;
-        // Auto start of viewpager
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            public void run() {
-                if (currentPage == NUM_PAGES) {
-                    currentPage = 0;
-                }
-                mPager.setCurrentItem(currentPage++, true);
-            }
-        };
-        Timer swipeTimer = new Timer();
-        swipeTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(Update);
-            }
-        }, 5000, 5000);
-    }
+//    private void init() {
+//        for (int i = 0; i < IMAGES.length; i++)
+//            ImagesArray.add(IMAGES[i]);
+//        PagerAdapter adapter = new SlidingImage_Adapter(HouseBoat.this, ImagesArray);
+//        mPager.setAdapter(adapter);
+//        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
+//        final float density = getResources().getDisplayMetrics().xdpi;
+//        NUM_PAGES = IMAGES.length;
+//        // Auto start of viewpager
+//        final Handler handler = new Handler();
+//        final Runnable Update = new Runnable() {
+//            public void run() {
+//                if (currentPage == NUM_PAGES) {
+//                    currentPage = 0;
+//                }
+//                mPager.setCurrentItem(currentPage++, true);
+//            }
+//        };
+//        Timer swipeTimer = new Timer();
+//        swipeTimer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                handler.post(Update);
+//            }
+//        }, 5000, 5000);
+//    }
 
     private void boat_ticket(final String request)
     {

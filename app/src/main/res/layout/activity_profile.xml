@@ -5,55 +5,53 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-  android:padding="5dp"
-    android:background="@drawable/mainbgm"
+    android:padding="8dp"
+    android:background="#DBDADA"
     tools:context=".Profile">
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
+    <LinearLayout
+         android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <LinearLayout
-        android:layout_marginTop="10dp"
+
         android:layout_width="match_parent"
-        android:background="@drawable/grad3"
-        android:gravity="center"
+        android:background="@color/col7"
         android:orientation="horizontal"
         android:layout_height="200dp">
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
+            android:layout_gravity="center_vertical|start"
+            android:layout_marginStart="25dp"
+            android:layout_marginLeft="25dp"
             >
         <android.support.v7.widget.CardView
 
             android:layout_gravity="start"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            app:cardCornerRadius="40dp"
-
-            app:cardElevation="0dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:cardCornerRadius="50dp"
 
             >
-
-
 
                 <TextView
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:text="K"
-                    android:textColor="@color/toolbar"
+                    android:textColor="@color/col10"
                     android:textSize="50dp"
                     android:textStyle="bold"
                     android:gravity="center"/>
 
-
-
         </android.support.v7.widget.CardView>
         </FrameLayout>
+
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -64,8 +62,8 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
-                android:textSize="18dp"
+                android:textColor="@color/col10"
+                android:textSize="20dp"
                 android:textStyle="bold"
                 android:text="Karthik K K"/>
 
@@ -73,15 +71,15 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="PM100017"
-                android:textColor="@color/toolbar"
-                android:textSize="15dp" />
+                android:textColor="@color/col10"
+                android:textSize="18dp" />
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bronze Member"
                 android:textColor="#FFC107"
-                android:textSize="15dp"
+                android:textSize="18dp"
                 />
         </LinearLayout>
 
@@ -90,10 +88,17 @@
 
 
     </LinearLayout>
+        <android.support.v7.widget.CardView
+            android:layout_marginTop="5dp"
+            app:cardCornerRadius="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@android:color/white"
         android:orientation="horizontal">
 
         <LinearLayout
@@ -122,6 +127,7 @@
 
         </LinearLayout>
 
+
         <LinearLayout
 
             android:layout_width="0dp"
@@ -135,8 +141,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-
-
                 android:text="Joining Amount "/>
 
             <TextView
@@ -153,29 +157,46 @@
 
 
     </LinearLayout>
+        </android.support.v7.widget.CardView>
+
+
     <android.support.v7.widget.CardView
-        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
         app:cardCornerRadius="5dp"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:id="@+id/frame1"
+        >
 
-       >
         <LinearLayout
-
+            android:paddingLeft="5dp"
             android:orientation="vertical"
-            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
 
             <TextView
+                android:layout_weight="1"
                 android:gravity="center_vertical"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:text="Contact Information"
                 android:textStyle="bold"
                 android:textSize="18dp"/>
+           <TextView
+               android:layout_width="0dp"
+               android:layout_height="wrap_content"
+               android:layout_weight=".2"
+               android:text="Edit"
+               android:textColor="@color/col7"
+               android:clickable="true"/>
 
+
+        </LinearLayout>
             <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
@@ -187,7 +208,7 @@
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:layout_marginTop="0dp"
-                    android:layout_weight="1"
+                    android:layout_weight=".6"
                     android:gravity="center_vertical"
                     android:padding="10dp"
                     android:text="Contact Number"
@@ -205,20 +226,17 @@
 
             </LinearLayout>
 
-
-
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_weight="1"
+                    android:layout_weight=".6"
                     android:layout_width="0dp"
                     android:layout_height="50dp"
                     android:padding="10dp"
                     android:text="Email ID"
-
                     />
 
                 <TextView
@@ -234,32 +252,51 @@
 
     </android.support.v7.widget.CardView>
     <android.support.v7.widget.CardView
-        android:layout_margin="5dp"
+        android:layout_marginTop="5dp"
         app:cardCornerRadius="5dp"
+        android:paddingLeft="15dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/frame2"
-
         >
+
         <LinearLayout
+            android:paddingLeft="5dp"
             android:orientation="vertical"
-            android:padding="10dp"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:text="Shipping Address"
-                android:gravity="center_vertical"
-                android:textStyle="bold"
-                android:textSize="18dp"/>
+                android:layout_height="wrap_content"
+                android:background="@android:color/white"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:text="Shipping Information"
+                    android:textSize="18dp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".2"
+                    android:text="Edit"
+                    android:textColor="@color/col7"
+                    android:clickable="true"/>
+
+
+            </LinearLayout>
+
 
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
-
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="5dp"
                 android:id="@+id/shpaddress">
 
                 <TextView
@@ -284,6 +321,7 @@
 
 
         </LinearLayout>
+
 
     </android.support.v7.widget.CardView>
 
