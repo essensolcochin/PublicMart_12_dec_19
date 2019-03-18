@@ -25,7 +25,7 @@ import android.widget.ListView;
 import android.widget.Switch;
 import android.widget.TextView;
 
-import com.nex3z.notificationbadge.NotificationBadge;
+
 
 import java.util.ArrayList;
 
@@ -49,15 +49,11 @@ public class BaseActivity extends AppCompatActivity {
     private ValueAdapter valueAdapter;
 
     private TextWatcher mSearchTw;
-    NotificationBadge mBadge;
 
     public Toolbar getToolBar(){
         return toolbar;
     }
 
-    public NotificationBadge getmBadge(){
-        return mBadge;
-    }
     private RealmResults<RealmShopModel> cartSIZE;
     private Realm realm;
     @Override
