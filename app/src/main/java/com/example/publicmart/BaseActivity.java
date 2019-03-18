@@ -78,6 +78,9 @@ public class BaseActivity extends AppCompatActivity {
 
 
         head.setTypeface(custom_font);
+
+
+
 //        head.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {
@@ -87,23 +90,11 @@ public class BaseActivity extends AppCompatActivity {
 //        });
 
 
-//
-//       NotificationBadge cartItem=(NotificationBadge) findViewById(R.id.badge);
-//
-//
-//        if(cartSIZE.size()==0)
-//        {
-//            cartItem.setVisibility(View.GONE);
-//        }
-//        else {
-//            cartItem.setVisibility(View.VISIBLE);
-//            cartItem.setText(Integer.toString(cartSIZE.size()));
-//        }
+
 
 
         toolbar=(Toolbar)findViewById(R.id.toolbar);
-//        search=(ImageView)findViewById(R.id.search);
-//        cart=(ImageView) findViewById(R.id.cart);
+
 
         setSupportActionBar(toolbar);
 
@@ -118,22 +109,12 @@ public class BaseActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
-//        Blurry.with(this).radius(25).sampling(2).onto(navigationView);
-
-
-//        search.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(BaseActivity.this, SearchBar.class);
-//                startActivity(intent);
-//            }
-//        });
 
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                final String appPackageName = getPackageName();
+//                final String appPackageName = getPackageName();
 
                 int id = item.getItemId();
 
@@ -171,6 +152,12 @@ public class BaseActivity extends AppCompatActivity {
                         break;
 
                     case R.id.logout:
+
+                        SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sp.edit();
+                        editor.putBoolean("LoggedUser",false);
+                        editor.apply();
+
                         intent = new Intent(BaseActivity.this, MainActivity.class);
                         startActivity(intent);
                         drawerLayout.closeDrawers();

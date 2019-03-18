@@ -70,6 +70,9 @@ public class Services extends BaseActivity {
         Typeface custom_font1 = Typeface.createFromAsset(getAssets(), "fonts/collection.ttf");
         Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/fresh.ttf");
 
+        our.setTypeface(custom_font2);
+        services.setTypeface(custom_font1);
+
         flightTXT.setTypeface(custom_font);
         trainTXT.setTypeface(custom_font);
         boatTXT.setTypeface(custom_font);
@@ -169,7 +172,7 @@ public class Services extends BaseActivity {
         View layout = inflater.inflate(R.layout.toast_layout,(ViewGroup) findViewById(R.id.toast_root));
         Toast toast =new Toast(getApplicationContext());
         toast.setGravity(Gravity.BOTTOM,0,0);
-        toast.setDuration(Toast.LENGTH_LONG);
+        toast.setDuration(Toast.LENGTH_SHORT);
         toast.setView(layout);
         toast.show();
 

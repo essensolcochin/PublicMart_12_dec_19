@@ -174,7 +174,7 @@ public class Products extends BaseActivity  {
 
 
                             else {
-                                Toast.makeText(Products.this,message,Toast.LENGTH_LONG).show();
+                                Toast.makeText(Products.this,"Coming Soon",Toast.LENGTH_LONG).show();
                             }
 
 

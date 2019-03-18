@@ -20,8 +20,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.crashlytics.android.Crashlytics;
-import com.facebook.drawee.view.SimpleDraweeView;
 
 
 import org.json.JSONArray;
@@ -34,7 +32,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -194,7 +191,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.apply();
                                 Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
                                 Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
-                                Intent intent =new Intent(MainActivity.this,Payment.class);
+                                Intent intent =new Intent(MainActivity.this,MenuDirect.class);
                                 startActivity(intent);
                                 finish();
 
