@@ -5,13 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".TrainTicket">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true"
-        android:padding="5dp">
+        >
 
         <LinearLayout
 
@@ -25,59 +30,88 @@
             <!--Radio Button End -->
 
             <LinearLayout
-
-                android:background="#F3F1F1"
-                android:padding="10dp"
+                android:padding="25dp"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_marginTop="10dp"
+                <android.support.v7.widget.CardView
+                    app:cardCornerRadius="10dp"
+                    android:layout_margin="10dp"
+                    app:cardElevation="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:orientation="vertical"
-                    android:background="@color/col6">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        android:textColor="#0A0A0A"
-                        android:text="Booking Information"/>
+                    >
+                    <LinearLayout
+                        android:padding="20dp"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                </LinearLayout>
+                        <ImageView
+                            android:tint="@color/col7"
+                            android:src="@drawable/train"
+                            android:layout_width="30dp"
+                            android:layout_height="30dp" />
 
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:textSize="15dp"
+                            android:textStyle="bold"
+                            android:textColor="#000"
+                            android:text="Train"/>
+
+                        <android.support.v4.view.ViewPager
+                            android:id="@+id/viewflipper1"
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            >
+
+                        </android.support.v4.view.ViewPager>
+
+                    </LinearLayout>
+
+
+                </android.support.v7.widget.CardView>
+
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/name_input_layout"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="Name of Traveller"/>
+                    android:layout_marginTop="12dp">
+
 
                 <EditText
+                    android:paddingTop="10dp"
+                    android:layout_marginTop="5dp"
+                    android:background="@drawable/stroke"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
-                   android:layout_marginTop="5dp"
-                    android:hint="Name of the Traveller"
-                    android:padding="12dp"
-                    android:background="@drawable/grad1"
+                   android:padding="10dp"
+
+
+                    android:hint="Enter Passenger Name"
+
 
                     android:id="@+id/traveler_name"/>
-
+                </android.support.design.widget.TextInputLayout>
                 <TextView
-                    android:layout_margin="5dp"
+                    android:id="@+id/header2"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/col7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:text="Date Of Birth"/>
 
 
                 <LinearLayout
-
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -85,57 +119,59 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff">
+                        android:background="@drawable/stroke">
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/bday"
                             />
                     </RelativeLayout>
                     <TextView
+                        android:textColor="@color/col5"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:textSize="32dp"
+                        android:textSize="30dp"
                         android:text="/"/>
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff"
+                        android:background="@drawable/stroke"
                         >
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/bmonth"
                             />
                     </RelativeLayout>
                     <TextView
+                        android:textColor="@color/col5"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:textSize="32dp"
+                        android:textSize="30dp"
                         android:text="/"/>
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff"
+                        android:background="@drawable/stroke"
                         >
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/byear"
                             />
@@ -149,11 +185,15 @@
 
 
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="From"/>
+                <!--<TextView-->
+                    <!--android:id="@+id/header3"-->
+
+                    <!--android:layout_marginTop="20dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:textColor="@android:color/black"-->
+                    <!--android:text="From"/>-->
                 <!--<EditText-->
                 <!--android:layout_width="match_parent"-->
                 <!--android:layout_height="wrap_content"-->
@@ -164,12 +204,25 @@
 
                 <!--android:id="@+id/from"/>-->
 
+
+
+                <TextView
+                    android:id="@+id/header3"
+                    android:textColor="@color/col7"
+                    android:layout_marginTop="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:text="From"/>
+
+
                 <RelativeLayout
+                    android:id="@+id/from"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="#ffff">
+                    android:background="@drawable/stroke">
 
-                    <Spinner
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                         android:id="@+id/city"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -179,18 +232,22 @@
                         android:textSize="18dp" />
                 </RelativeLayout>
 
-
                 <TextView
+                    android:id="@+id/header4"
+                    android:layout_marginTop="20dp"
+                    android:textColor="@color/col7"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:text="To"/>
+
                 <RelativeLayout
+                    android:layout_marginTop="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#ffff">
+                    android:background="@drawable/stroke">
 
-                    <Spinner
+                    <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
 
@@ -210,14 +267,16 @@
 
                 <!--android:id="@+id/to"/>-->
                 <TextView
-                    android:layout_margin="5dp"
+                    android:id="@+id/header5"
+                    android:textColor="@color/col7"
+                    android:layout_marginTop="20dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="12dp"
                     android:text="Date of Journey "/>
 
                 <LinearLayout
-
+                    android:layout_marginTop="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
@@ -225,57 +284,59 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff">
+                        android:background="@drawable/stroke">
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/day"
                             />
                     </RelativeLayout>
                     <TextView
+                        android:textColor="@color/col5"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:textSize="32dp"
+                        android:textSize="30dp"
                         android:text="/"/>
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff"
+                        android:background="@drawable/stroke"
                         >
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/month"
                             />
                     </RelativeLayout>
                     <TextView
+                        android:textColor="@color/col5"
                         android:layout_margin="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="50dp"
-                        android:textSize="32dp"
+                        android:textSize="30dp"
                         android:text="/"/>
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="#ffff"
+                        android:background="@drawable/stroke"
                         >
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="15dp"
                             android:padding="10dp"
                             android:id="@+id/year"
                             />
@@ -297,81 +358,93 @@
                 <!--Radio Button End-->
 
                 <LinearLayout
-                    android:layout_marginTop="10dp"
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="8dp"
                     android:orientation="vertical"
-                    android:background="@color/col6">
+                    android:background="@color/col5">
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="15dp"
                         android:textStyle="bold"
-                        android:textColor="#0A0A0A"
+                        android:textColor="#fff"
                         android:text="Contact Information"/>
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:textSize="10dp"
                         android:textStyle="bold"
-                        android:textColor="#616161"
+                        android:textColor="#ffff"
                         android:text="Your ticket will be sent here"/>
 
                 </LinearLayout>
 
                 <LinearLayout
+                    android:paddingBottom="20dp"
                     android:layout_marginTop="10dp"
-                    android:padding="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_email"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:layout_marginTop="12dp">
 
-                        android:text="Email ID"/>
+
+
                     <EditText
+                        android:layout_marginTop="5dp"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:textSize="18dp"
-                        android:padding="12dp"
-                        android:background="@drawable/grad1"
-                        android:layout_marginTop="5dp"
-                        android:hint="Email ID"
-
+                        android:padding="10dp"
+                        android:background="@drawable/stroke"
+                        android:hint="Enter Passenger Email ID"
                         android:id="@+id/email"/>
-
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-
-                        android:text="Contact No"/>
-
-                    <EditText
-                        android:id="@+id/contact"
+                    </android.support.design.widget.TextInputLayout>
+                    <!--<TextView-->
+                        <!--android:id="@+id/header7"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textSize="16dp"-->
+                        <!--android:textColor="@android:color/black"-->
+                        <!--android:text="Contact No"/>-->
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/input_layout_contact"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp">
+
+
+                    <EditText
                         android:layout_marginTop="5dp"
+                            android:id="@+id/contact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stroke"
+                            android:hint="Enter Passenger Contact No"
+                            android:inputType="number"
+                            android:padding="10dp"
+                            android:maxLength="10"
 
-                        android:padding="12dp"
-                        android:background="@drawable/grad1"
-                        android:hint="Contact No"
-                        android:inputType="number"
+                            android:paddingBottom="10dp"
+                            android:textSize="18dp" />
+                    </android.support.design.widget.TextInputLayout>
 
-                        android:textSize="18dp" />
+
+
 
                 </LinearLayout>
 
 
 
                 <LinearLayout
+                    android:padding="10dp"
                     android:layout_margin="20dp"
                     android:gravity="center_horizontal"
                     android:layout_width="match_parent"
@@ -379,29 +452,20 @@
 
 
                     <Button
-
-                        android:layout_width="200dp"
+                        android:id="@+id/submitTrain"
+                        android:layout_width="150dp"
                         android:layout_height="wrap_content"
-                        android:paddingTop="18dp"
                         android:background="@drawable/grad2"
-                        android:paddingLeft="32dp"
-                        android:paddingRight="32dp"
-                        android:paddingBottom="18dp"
                         android:textColor="#ffff"
-                        android:text="Submit"
-                        android:textSize="18dp"/>
+                        android:text="Book Now"
+                        android:textSize="15dp"/>
                 </LinearLayout>
-
-
 
             </LinearLayout>
 
-
-
-
-
-
         </LinearLayout>
     </ScrollView>
+
+    </LinearLayout>
 
 </LinearLayout>

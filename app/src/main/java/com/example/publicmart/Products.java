@@ -92,13 +92,7 @@ public class Products extends BaseActivity  {
             e.printStackTrace();
         }
 
-
-
-
-
         String URL = this.getString(R.string.Url)+"Select";
-
-
         StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
                 new Response.Listener<String>() {
                     @Override
@@ -113,8 +107,6 @@ public class Products extends BaseActivity  {
 
 
                             JSONObject o     = new JSONObject(response);
-
-
                             String data = response;
                             Object json = new JSONTokener(data).nextValue();
                             if (json instanceof JSONObject){

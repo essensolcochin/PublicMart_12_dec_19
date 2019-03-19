@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    android:orientation="vertical"
+    tools:context=".Edit_Profile">
+
+
+    <LinearLayout
+        android:paddingLeft="5dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:text="Personal Details"
+                android:textStyle="bold"
+                android:textSize="18dp"/>
+
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="First Name"
+                />
+
+            <EditText
+                android:textColor="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="First Name"
+                android:id="@+id/fname_edit"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Middle Name"
+                />
+
+            <EditText
+                android:textColor="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Middle Name"
+                android:id="@+id/mname_edit"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Last Name"
+                />
+
+            <EditText
+                android:textColor="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Last Name"
+                android:id="@+id/lname_edit"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+       >
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="0dp"
+            android:layout_weight=".6"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:text="Contact Number"
+
+            />
+
+        <EditText
+            android:textColor="#6B6B6B"
+            android:background="@drawable/stroke"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:hint="Contact Number"
+            android:id="@+id/contact_numbered"
+            />
+
+
+
+    </LinearLayout>
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            >
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_marginTop="0dp"
+                android:layout_weight=".6"
+                android:gravity="center_vertical"
+                android:padding="10dp"
+                android:text="Email"
+
+                />
+
+            <EditText
+                android:textColor="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Email ID"
+                android:id="@+id/email_ed"
+                />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:gravity="center_vertical"
+                android:text="Shipping Address"
+                android:textSize="18dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="House NO"
+                />
+
+            <EditText
+                android:textColor="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="House NO"
+                android:id="@+id/H_no_edit"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Tehsil"
+                />
+
+            <EditText
+                android:textColor="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Tehsil"
+                android:id="@+id/tehsil_edit"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Village"
+                />
+
+            <EditText
+                android:textColor="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Village"
+                android:id="@+id/village_edit"
+                />
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="District"
+                />
+
+            <EditText
+                android:textColor="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="District"
+                android:id="@+id/district_edit"
+                />
+
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:padding="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/stroke">
+            <Spinner
+                android:gravity="start"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/state_sp"
+                android:imeOptions="actionNext"
+                />
+        </RelativeLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight=".6"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:padding="10dp"
+                android:text="Pincode"
+                />
+
+            <EditText
+                android:textColor="#6B6B6B"
+                android:background="@drawable/stroke"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:hint="Pincode"
+                android:id="@+id/pin_code_edit"
+                />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:clickable="true"
+            android:background="@drawable/grad2"
+            android:id="@+id/submit_pro"
+            >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="18dp"
+                android:textColor="#ffff"
+                android:text="Submit"/>
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+
+</ScrollView>

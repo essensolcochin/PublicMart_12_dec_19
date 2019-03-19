@@ -54,8 +54,10 @@
                 android:id="@+id/fname"
                 android:hint="First Name"
                 android:textColor="#6B6B6B"
-                android:textColorHint="#6B6B6B"
                 android:background="@drawable/stroke"
+                android:textColorHint="#6B6B6B"
+
+
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
                 />

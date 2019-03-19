@@ -1,11 +1,15 @@
 package com.example.publicmart;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.EditText;
 import android.widget.FrameLayout;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,9 +32,11 @@ import java.util.Map;
 
 public class Profile extends BaseActivity {
 
-    TextView name,contact_no,email_id,h_no,tehsil,village,dist,pinode,membership,proicon;
+    TextView  Fname,Mname,Lname,contact_no,email_id,h_no,tehsil,village,dist,pinode,membership,proicon,proid,state_name;
     JSONObject jsonString;
     String request,code,message;
+    TextView edit,save;
+//     contactno,email,Fname_ed,Mname_ed,Lname_ed,h_no_ed,tehsil_ed,village_ed,dist_ed,pinode_ed;
 
 
     @Override
@@ -42,19 +48,37 @@ public class Profile extends BaseActivity {
         contact_no=(TextView)findViewById(R.id.contact_number);
         email_id=(TextView)findViewById(R.id.email_id);
         pinode=(TextView)findViewById(R.id.pin_code);
-        name=(TextView)findViewById(R.id.name);
+        proid=(TextView)findViewById(R.id.profileid);
+        Fname=(TextView)findViewById(R.id.fname);
+        Mname=(TextView)findViewById(R.id.mname);
+        Lname=(TextView)findViewById(R.id.lname);
         h_no=(TextView)findViewById(R.id.H_no);
         tehsil=(TextView)findViewById(R.id.tehsil_);
         village=(TextView)findViewById(R.id.village_);
         dist=(TextView)findViewById(R.id.district_);
         membership=(TextView)findViewById(R.id.membership);
         proicon=(TextView)findViewById(R.id.proicon);
+        state_name=(TextView)findViewById(R.id.state_view);
+        edit=findViewById(R.id.edit);
 
 
 
-
-
+//        statecode();
+//        names = new ArrayList<SpinnerModel>();
         profile_view();
+
+
+
+
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent =new Intent(Profile.this,Edit_Profile.class);
+                startActivity(intent);
+            }
+        });
+
 
 
     }
@@ -64,10 +88,9 @@ public class Profile extends BaseActivity {
         SharedPreferences sp = getSharedPreferences("UserLog",0);
         String CustKey =  sp.getString("UserKey",null);
 
-
         try {
             JSONObject values = new JSONObject();
-            values.put("CustKey",CustKey);
+            values.put("CustKey",Integer.parseInt(CustKey));
 
             jsonString = new JSONObject();
             jsonString.put("Token", "0001");
@@ -135,9 +158,12 @@ public class Profile extends BaseActivity {
                                 for (j = 0; j < json_array2.length(); j++) {
                                     jsonObject = json_array2.getJSONObject(j);
 
-                                   name.setText(jsonObject.getString("FName")+"\t"+jsonObject.getString("MName")+"\t"+jsonObject.getString("LName"));
+                                   Fname.setText(jsonObject.getString("FName"));
+                                   Mname.setText(jsonObject.getString("MName"));
+                                   Lname.setText(jsonObject.getString("LName"));
+                                    proid.setText(jsonObject.getString("CustCode"));
                                     proicon.setText(jsonObject.getString("FName").substring(0,1));
-                                    membership.setText(jsonObject.getString("MemberShip"));
+                                    membership.setText(jsonObject.getString("MSTypeKey"));
                                    contact_no.setText(jsonObject.getString("MobileNo"));
                                     email_id.setText(jsonObject.getString("Email"));
                                     h_no.setText(jsonObject.getString("HouseNo"));
@@ -145,28 +171,12 @@ public class Profile extends BaseActivity {
                                     village.setText(jsonObject.getString("Village"));
                                     dist.setText(jsonObject.getString("District"));
                                     pinode.setText(jsonObject.getString("PinNo"));
-
-
-
-
+                                    state_name.setText(jsonObject.getString("StateName"));
                                 }
-
-
-//
-
-
-
-
-
                             }
-
-
                             else {
                                 Toast.makeText(Profile.this,message,Toast.LENGTH_LONG).show();
                             }
-
-
-
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -198,15 +208,22 @@ public class Profile extends BaseActivity {
             }
         }
                 ;
-
-        // Volley.getInstance(this).addToRequestQueue(stringRequest);
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
-
-     //   Log.e("statecodeeeeeee",""+ StationKey);
-
-
-
     }
+
+
+
+
+
+
+
+    /////EDIT PROFILE/////
+
+
+
+
+
+
 }

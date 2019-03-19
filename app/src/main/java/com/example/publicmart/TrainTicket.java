@@ -83,7 +83,7 @@ public class TrainTicket extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        getLayoutInflater().inflate(R.layout.activity_train_ticket_ed, contentFrameLayout);
+        getLayoutInflater().inflate(R.layout.activity_train_ticket, contentFrameLayout);
         Fabric.with(this, new Crashlytics());
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -115,6 +115,7 @@ public class TrainTicket extends BaseActivity {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 codecity = names.get(i).getStationKey();
+                Log.e("stationcode","ifffff  "+codecity);
             }
 
             @Override
@@ -544,8 +545,6 @@ public class TrainTicket extends BaseActivity {
                                 stationadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                 citycode.setAdapter(stationadapter);
                                 citycode2.setAdapter(stationadapter);
-
-
 
 
 

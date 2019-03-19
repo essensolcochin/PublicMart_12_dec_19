@@ -202,46 +202,44 @@
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
                     android:paddingLeft="10dp"
-
                     android:paddingRight="10dp"
                     android:paddingEnd="10dp"
-
                     android:background="@drawable/stroke">
-                <Spinner
-                    android:layout_width="match_parent"
-                android:layout_height="wrap_content"
 
-               android:textSize="18dp"
-                android:padding="10dp"
-                    android:id="@+id/city"
-              />
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="18dp"
+                    android:padding="10dp"
+                    android:id="@+id/city"/>
+
                 </RelativeLayout>
 
 
-            <TextView
+                <TextView
                 android:textColor="@color/col7"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
                 android:textSize="12dp"
                 android:text="To"/>
+
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
                     android:paddingLeft="10dp"
-
                     android:paddingRight="10dp"
                     android:paddingEnd="10dp"
                     android:background="@drawable/stroke">
 
-                <Spinner
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="18dp"
                     android:padding="10dp"
-                    android:id="@+id/city2"
-                    />
+                    android:id="@+id/city2"/>
+
                 </RelativeLayout>
             <!--<EditText-->
                 <!--android:layout_marginTop="5dp"-->
@@ -319,7 +317,6 @@
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:textSize="18dp"
                         android:padding="10dp"
                         android:id="@+id/year"
@@ -353,19 +350,17 @@
                         android:id="@+id/radiogrp">
 
                                 <RadioButton
-
                                     android:buttonTint="@color/col7"
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/oneway"
                                     android:layout_width="wrap_content"
                                     android:layout_height="30dp"
-                                    android:checked="false"
+                                    android:checked="true"
                                     android:layout_weight="1"
                                     android:text="Morning (4 am - 12 pm)"
                                     />
 
                                 <RadioButton
-
                                     android:buttonTint="@color/col7"
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/roundtrip"
@@ -377,7 +372,6 @@
 
 
                                 <RadioButton
-
                                     android:buttonTint="@color/col7"
                                     android:layout_marginLeft="5dp"
                                     android:id="@+id/business"
@@ -392,7 +386,6 @@
 
                 </LinearLayout>
 
-
                 <!--Radio Button End-->
 
             <LinearLayout
@@ -402,6 +395,7 @@
                 android:padding="8dp"
                 android:orientation="vertical"
                 android:background="@color/col10">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
