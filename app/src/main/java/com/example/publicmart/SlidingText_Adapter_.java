@@ -1,6 +1,7 @@
 package com.example.publicmart;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.util.Log;
@@ -9,15 +10,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.facebook.drawee.view.SimpleDraweeView;
+
 import java.util.ArrayList;
 
-class SlidingText_Adapter_ extends PagerAdapter {
-    private ArrayList<String> IMAGES;
+public class SlidingText_Adapter_ extends PagerAdapter {
+    private ArrayList<Integer> IMAGES;
     private LayoutInflater inflater;
     private Context context;
+    Typeface custom_font;
 
-
-    public SlidingText_Adapter_(Context context, ArrayList<String> IMAGES) {
+    public SlidingText_Adapter_(Context context, ArrayList<Integer> IMAGES) {
         this.context = context;
         this.IMAGES=IMAGES;
         inflater = LayoutInflater.from(context);
@@ -38,13 +41,18 @@ class SlidingText_Adapter_ extends PagerAdapter {
 
     @Override
     public Object instantiateItem(ViewGroup view, int position) {
-        View texlayout = inflater.inflate(R.layout.slidingtext_train_layout, view, false);
+        View texlayout = inflater.inflate(R.layout.sliding_text_services, view, false);
 
         assert texlayout != null;
-        final TextView imageView = (TextView) texlayout
+        final SimpleDraweeView imageView = (SimpleDraweeView) texlayout
                 .findViewById(R.id.adTXT);
 
-        imageView.setText(IMAGES.get(position));
+//        custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/north.ttf");
+//        imageView.setTypeface(custom_font);
+
+
+
+        imageView.setActualImageResource(IMAGES.get(position));
 
 
         view.addView(texlayout, 0);

@@ -14,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -67,8 +68,8 @@ public class TrainTicket extends BaseActivity {
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final String[] Text= {"Easy Cancellation Process","Convenience charge 50₹"};
-    private ArrayList<String> TextArray = new ArrayList<String>();
+    private static final Integer[] IMAGES = {R.drawable.trainad};
+    private ArrayList<Integer> TextArray = new ArrayList<Integer>();
     TextInputLayout trname,tremail,trcontact;
     Integer codecity,codecity2;
     String StationName,ShortCode;
@@ -78,6 +79,8 @@ public class TrainTicket extends BaseActivity {
     JSONObject jsonString;
     String request,code,message;
     String Bday,Bmonth,Byear,Day,Month,Year;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +102,8 @@ public class TrainTicket extends BaseActivity {
         bmonth = findViewById(R.id.bmonth);
         byear = findViewById(R.id.byear);
         submit_ticket=(Button)findViewById(R.id.submitTrain);
+
+
         header2 = findViewById(R.id.header2);
         header3 = findViewById(R.id.header3);
         header4 = findViewById(R.id.header4);
@@ -111,11 +116,18 @@ public class TrainTicket extends BaseActivity {
 
         traincode();
 
+
+
+
+
+
         citycode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 codecity = names.get(i).getStationKey();
-                Log.e("stationcode","ifffff  "+codecity);
+
+
+
             }
 
             @Override
@@ -328,13 +340,13 @@ public class TrainTicket extends BaseActivity {
     }
 
     private void init() {
-        for (int i = 0; i < Text.length; i++)
-        TextArray.add(Text[i]);
+        for (int i = 0; i < IMAGES.length; i++)
+        TextArray.add(IMAGES[i]);
         mPager = findViewById(R.id.viewflipper1);
         PagerAdapter adapter = new SlidingText_Adapter_Train(TrainTicket.this, TextArray);
         mPager.setAdapter(adapter);
         Log.e("textsizeeeee","flight "+TextArray.size());
-        NUM_PAGES = Text.length;
+        NUM_PAGES = IMAGES.length;
         // Auto start of viewpager
         final Handler handler = new Handler();
         final Runnable Update = new Runnable() {
@@ -545,6 +557,8 @@ public class TrainTicket extends BaseActivity {
                                 stationadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
                                 citycode.setAdapter(stationadapter);
                                 citycode2.setAdapter(stationadapter);
+
+
 
 
 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".MenuDirect">
+
+
+    <LinearLayout
+        android:id="@+id/publicmart"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:textColor="@android:color/white"
+        android:background="@drawable/grad2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dirLogo1"
+            android:scaleType="fitXY"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:tint="@android:color/white"
+            fresco:actualImageScaleType="fitXY"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:layout_marginRight="10dp"
+        android:layout_marginEnd="10dp"
+        android:gravity="center"
+        android:text="Publicmart"
+        android:textColor="@android:color/white"
+        android:background="@android:color/transparent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:textColor="@android:color/white"
+        android:background="@drawable/grad2"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content" >
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/dirLogo2"
+            android:scaleType="fitXY"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:tint="@android:color/white"
+            fresco:actualImageScaleType="fitXY"
+            android:layout_width="30dp"
+            android:layout_height="30dp" />
+
+        <Button
+            android:layout_gravity="center_horizontal"
+            android:layout_marginRight="10dp"
+            android:layout_marginEnd="10dp"
+            android:gravity="center"
+            android:text="Food Delivery"
+            android:textColor="@android:color/white"
+            android:background="@android:color/transparent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -74,7 +74,7 @@ public class FlightTicket extends BaseActivity{
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
-    private static final Integer[] IMAGES = {R.drawable.airticket,R.drawable.flightbanner};
+    private static final Integer[] IMAGES = {R.drawable.flightbanner};
 
 
     ArrayList<Integer> TextArray = new ArrayList<Integer>();
@@ -396,6 +396,7 @@ public class FlightTicket extends BaseActivity{
         final Runnable Update = new Runnable() {
             public void run() {
                 if (currentPage == NUM_PAGES) {
+
                     currentPage = 0;
                 }
                 mPager.setCurrentItem(currentPage++, true);
@@ -407,7 +408,7 @@ public class FlightTicket extends BaseActivity{
             public void run() {
                 handler.post(Update);
             }
-        }, 1500, 5000);
+        }, 2000, 5000);
 
     }
 

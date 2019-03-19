@@ -30,6 +30,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -70,6 +71,7 @@ public class HouseBoat extends BaseActivity {
     JSONObject jsonString;
     RadioGroup radioGroup;
     RadioButton cruise;
+    SimpleDraweeView image;
     String request,code,message, radio;
    // DayCruise,NightCruise,FullDay
    String radiovalue;
@@ -82,7 +84,7 @@ public class HouseBoat extends BaseActivity {
         getLayoutInflater().inflate(R.layout.activity_house_boat_ed, contentFrameLayout);
 
         Fabric.with(this, new Crashlytics());
-        mPager = (ViewPager) findViewById(R.id.viewflipper);
+       // mPager = (ViewPager) findViewById(R.id.viewflipper);
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         membersno = findViewById(R.id.noofmembers);
@@ -94,8 +96,9 @@ public class HouseBoat extends BaseActivity {
         email_id=(EditText)findViewById(R.id.email);
         Contact_no=(EditText)findViewById(R.id.contact);
         radioGroup = findViewById(R.id.radiogrp);
+        image = findViewById(R.id.image);
 
-
+        image.setImageResource(R.drawable.houseboatad);
 
 
 
@@ -207,7 +210,7 @@ public class HouseBoat extends BaseActivity {
         });
 
 
-        init();
+//        init();
 
 
         guest = (TextInputLayout) findViewById(R.id.guest_input_layout);

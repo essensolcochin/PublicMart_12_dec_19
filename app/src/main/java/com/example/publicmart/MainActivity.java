@@ -20,7 +20,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.crashlytics.android.Crashlytics;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,7 +31,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
-import io.fabric.sdk.android.Fabric;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -45,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
     private static final Random random = new Random();
     private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
 
         username= (EditText) findViewById(R.id.username);
         password= (EditText) findViewById(R.id.password);
+
 
 
         getToken(5);
@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.apply();
                                 Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
                                 Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
-                                Intent intent =new Intent(MainActivity.this,Payment.class);
+                                Intent intent =new Intent(MainActivity.this,MenuDirect.class);
                                 startActivity(intent);
                                 finish();
 

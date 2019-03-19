@@ -7,12 +7,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context=".MainActivity">
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/rvNumbers"
-        android:layout_above="@+id/main_progress"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        
+        
+        <android.support.v7.widget.RecyclerView
+            android:layout_above="@+id/main_progress"
+
+            android:id="@+id/rvNumbers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            />
+   
     <ProgressBar
         android:layout_centerHorizontal="true"
         android:visibility="gone"
