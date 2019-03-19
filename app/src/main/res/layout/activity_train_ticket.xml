@@ -5,403 +5,466 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+
     tools:context=".TrainTicket">
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        >
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fillViewport="true"
-        android:padding="5dp">
-
-        <LinearLayout
-
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
+        <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-
-            <!--Radio Button Start -->
-
-            <!--Radio Button End -->
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            android:scrollbars="none">
 
             <LinearLayout
 
-                android:background="#F3F1F1"
-                android:padding="10dp"
-                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:orientation="vertical"
-                    android:background="@color/col6">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        android:textColor="#0A0A0A"
-                        android:text="Booking Information"/>
-
-                </LinearLayout>
-
-                <TextView
-                    android:layout_marginTop="10dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="Name of Traveller"/>
-
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                   android:layout_marginTop="5dp"
-                    android:hint="Name of the Traveller"
-                    android:padding="12dp"
-                    android:background="@drawable/grad1"
-
-                    android:id="@+id/traveler_name"/>
-
-                <TextView
-                    android:layout_margin="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="Date Of Birth"/>
-
 
                 <LinearLayout
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#ffff">
-
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
-                            android:padding="10dp"
-                            android:id="@+id/bday"
-                            />
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:textSize="32dp"
-                        android:text="/"/>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#ffff"
-                        >
-
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
-                            android:padding="10dp"
-                            android:id="@+id/bmonth"
-                            />
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:textSize="32dp"
-                        android:text="/"/>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#ffff"
-                        >
-
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
-                            android:padding="10dp"
-                            android:id="@+id/byear"
-                            />
-                    </RelativeLayout>
-
-
-
-
-
-                </LinearLayout>
-
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="From"/>
-                <!--<EditText-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:textSize="18dp"-->
-                <!--android:padding="10dp"-->
-                <!--android:hint="Enter the city or Code"-->
-                <!--android:background="@drawable/edittextbg"-->
-
-                <!--android:id="@+id/from"/>-->
-
-                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="#ffff">
-
-                    <Spinner
-                        android:id="@+id/city"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginBottom="0dp"
-                        android:padding="10dp"
-                        android:textSize="18dp" />
-                </RelativeLayout>
-
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="To"/>
-                <RelativeLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="#ffff">
-
-                    <Spinner
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-
-                        android:textSize="18dp"
-                        android:padding="10dp"
-                        android:id="@+id/city2"
-                        />
-                </RelativeLayout>
-                <!--<EditText-->
-                <!--android:layout_marginTop="5dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:textSize="18dp"-->
-                <!--android:padding="10dp"-->
-                <!--android:hint="Enter the city or Code"-->
-                <!--android:background="@drawable/edittextbg"-->
-
-                <!--android:id="@+id/to"/>-->
-                <TextView
-                    android:layout_margin="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="18dp"
-                    android:text="Date of Journey "/>
-
-                <LinearLayout
-
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#ffff">
-
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
-                            android:padding="10dp"
-                            android:id="@+id/day"
-                            />
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:textSize="32dp"
-                        android:text="/"/>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#ffff"
-                        >
-
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
-                            android:padding="10dp"
-                            android:id="@+id/month"
-                            />
-                    </RelativeLayout>
-                    <TextView
-                        android:layout_margin="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="50dp"
-                        android:textSize="32dp"
-                        android:text="/"/>
-
-                    <RelativeLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:background="#ffff"
-                        >
-
-                        <Spinner
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
-                            android:padding="10dp"
-                            android:id="@+id/year"
-                            />
-                    </RelativeLayout>
-
-
-
-
-
-                </LinearLayout>
-
-
-                <!--Radio Button Start-->
-
-
-
-
-
-                <!--Radio Button End-->
-
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:padding="8dp"
-                    android:orientation="vertical"
-                    android:background="@color/col6">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="15dp"
-                        android:textStyle="bold"
-                        android:textColor="#0A0A0A"
-                        android:text="Contact Information"/>
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="10dp"
-                        android:textStyle="bold"
-                        android:textColor="#616161"
-                        android:text="Your ticket will be sent here"/>
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:padding="5dp"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
+                    android:clickable="true"
+                    android:gravity="center"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
 
-                        android:text="Email ID"/>
-                    <EditText
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/viewflipper1"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-                        android:padding="12dp"
-                        android:background="@drawable/grad1"
-                        android:layout_marginTop="5dp"
-                        android:hint="Email ID"
+                        android:layout_height="200dp">
 
-                        android:id="@+id/email"/>
+                    </android.support.v4.view.ViewPager>
 
-
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textSize="18dp"
-
-                        android:text="Contact No"/>
-
-                    <EditText
-                        android:id="@+id/contact"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-
-                        android:padding="12dp"
-                        android:background="@drawable/grad1"
-                        android:hint="Contact No"
-                        android:inputType="number"
-
-                        android:textSize="18dp" />
 
                 </LinearLayout>
-
 
 
                 <LinearLayout
-                    android:layout_margin="20dp"
-                    android:gravity="center_horizontal"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical"
+                    android:padding="25dp">
+
+                    <!--<android.support.v7.widget.CardView-->
+                    <!--app:cardCornerRadius="10dp"-->
+                    <!--android:layout_margin="10dp"-->
+                    <!--app:cardElevation="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--&gt;-->
+                    <!--<LinearLayout-->
+                    <!--android:padding="20dp"-->
+                    <!--android:gravity="center"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent">-->
+
+                    <!--<ImageView-->
+                    <!--android:tint="@color/col7"-->
+                    <!--android:src="@drawable/train"-->
+                    <!--android:layout_width="30dp"-->
+                    <!--android:layout_height="30dp" />-->
+
+                    <!--<TextView-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="15dp"-->
+                    <!--android:textStyle="bold"-->
+                    <!--android:textColor="#000"-->
+                    <!--android:text="Train"/>-->
+
+                    <!--<android.support.v4.view.ViewPager-->
+                    <!--android:id="@+id/viewflipper1"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="40dp"-->
+                    <!--&gt;-->
+
+                    <!--</android.support.v4.view.ViewPager>-->
+
+                    <!--</LinearLayout>-->
 
 
-                    <Button
+                    <!--</android.support.v7.widget.CardView>-->
 
-                        android:layout_width="200dp"
+
+                    <android.support.design.widget.TextInputLayout
+                        android:id="@+id/name_input_layout"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:paddingTop="18dp"
-                        android:background="@drawable/grad2"
-                        android:paddingLeft="32dp"
-                        android:paddingRight="32dp"
-                        android:paddingBottom="18dp"
-                        android:textColor="#ffff"
-                        android:text="Submit"
-                        android:textSize="18dp"/>
+                        android:layout_marginTop="12dp">
+
+
+                        <EditText
+                            android:id="@+id/traveler_name"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/stroke"
+                            android:hint="Enter Passenger Name"
+                            android:padding="10dp"
+
+
+                            android:paddingTop="10dp"
+
+
+                            android:textSize="18dp" />
+                    </android.support.design.widget.TextInputLayout>
+
+                    <TextView
+                        android:id="@+id/header2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Date Of Birth"
+                        android:textColor="@color/col7"
+                        android:textSize="12dp" />
+
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stroke">
+
+                            <Spinner
+                                android:id="@+id/bday"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textSize="15dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:text="/"
+                            android:textColor="@color/col5"
+                            android:textSize="30dp" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stroke">
+
+                            <Spinner
+                                android:id="@+id/bmonth"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textSize="15dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:text="/"
+                            android:textColor="@color/col5"
+                            android:textSize="30dp" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stroke">
+
+                            <Spinner
+                                android:id="@+id/byear"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textSize="15dp" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                    <!--<TextView-->
+                    <!--android:id="@+id/header3"-->
+
+                    <!--android:layout_marginTop="20dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="16dp"-->
+                    <!--android:textColor="@android:color/black"-->
+                    <!--android:text="From"/>-->
+                    <!--<EditText-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="18dp"-->
+                    <!--android:padding="10dp"-->
+                    <!--android:hint="Enter the city or Code"-->
+                    <!--android:background="@drawable/edittextbg"-->
+
+                    <!--android:id="@+id/from"/>-->
+
+
+                    <TextView
+                        android:id="@+id/header3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="From"
+                        android:textColor="@color/col7"
+                        android:textSize="12dp" />
+
+
+
+                    <RelativeLayout
+                        android:id="@+id/from"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/stroke">
+
+                        <Spinner
+                            android:id="@+id/city"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginBottom="0dp"
+                            android:padding="10dp"
+
+                            android:textSize="18dp" />
+                    </RelativeLayout>
+
+                    <TextView
+                        android:id="@+id/header4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="To"
+                        android:textColor="@color/col7"
+                        android:textSize="12dp" />
+
+                    <RelativeLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:background="@drawable/stroke">
+
+                        <Spinner
+                            android:id="@+id/city2"
+                            android:layout_width="match_parent"
+
+                            android:layout_height="wrap_content"
+                            android:padding="10dp"
+                            android:textSize="18dp" />
+                    </RelativeLayout>
+                    <!--<EditText-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:textSize="18dp"-->
+                    <!--android:padding="10dp"-->
+                    <!--android:hint="Enter the city or Code"-->
+                    <!--android:background="@drawable/edittextbg"-->
+
+                    <!--android:id="@+id/to"/>-->
+                    <TextView
+                        android:id="@+id/header5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:text="Date of Journey "
+                        android:textColor="@color/col7"
+                        android:textSize="12dp" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="horizontal">
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stroke">
+
+                            <Spinner
+                                android:id="@+id/day"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textSize="15dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:text="/"
+                            android:textColor="@color/col5"
+                            android:textSize="30dp" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stroke">
+
+                            <Spinner
+                                android:id="@+id/month"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textSize="15dp" />
+                        </RelativeLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="50dp"
+                            android:layout_margin="5dp"
+                            android:text="/"
+                            android:textColor="@color/col5"
+                            android:textSize="30dp" />
+
+                        <RelativeLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/stroke">
+
+                            <Spinner
+                                android:id="@+id/year"
+                                android:layout_width="wrap_content"
+
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:textSize="15dp" />
+                        </RelativeLayout>
+
+
+                    </LinearLayout>
+
+
+                    <!--Radio Button Start-->
+
+
+                    <!--Radio Button End-->
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/col5"
+                        android:orientation="vertical"
+                        android:padding="8dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Contact Information"
+                            android:textColor="#fff"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Your ticket will be sent here"
+                            android:textColor="#ffff"
+                            android:textSize="10dp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:orientation="vertical"
+                        android:paddingBottom="20dp">
+
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/input_layout_email"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp">
+
+
+                            <EditText
+                                android:id="@+id/email"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/stroke"
+                                android:hint="Enter Passenger Email ID"
+                                android:padding="10dp"
+                                android:textSize="18dp" />
+                        </android.support.design.widget.TextInputLayout>
+                        <!--<TextView-->
+                        <!--android:id="@+id/header7"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:textSize="16dp"-->
+                        <!--android:textColor="@android:color/black"-->
+                        <!--android:text="Contact No"/>-->
+                        <android.support.design.widget.TextInputLayout
+                            android:id="@+id/input_layout_contact"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp">
+
+
+                            <EditText
+                                android:id="@+id/contact"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="5dp"
+                                android:background="@drawable/stroke"
+                                android:hint="Enter Passenger Contact No"
+                                android:inputType="number"
+                                android:maxLength="10"
+                                android:padding="10dp"
+
+                                android:paddingBottom="10dp"
+                                android:textSize="18dp" />
+                        </android.support.design.widget.TextInputLayout>
+
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="20dp"
+                        android:gravity="center_horizontal"
+                        android:padding="10dp">
+
+
+                        <Button
+                            android:id="@+id/submitTrain"
+                            android:layout_width="150dp"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/grad2"
+                            android:text="Book Now"
+                            android:textColor="#ffff"
+                            android:textSize="15dp" />
+                    </LinearLayout>
+
                 </LinearLayout>
 
-
-
             </LinearLayout>
+        </ScrollView>
 
-
-
-
-
-
-        </LinearLayout>
-    </ScrollView>
+    </LinearLayout>
 
 </LinearLayout>

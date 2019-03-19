@@ -10,6 +10,7 @@
 
 
     <LinearLayout
+        android:id="@+id/publicmart"
         android:gravity="center"
         android:orientation="horizontal"
         android:textColor="@android:color/white"

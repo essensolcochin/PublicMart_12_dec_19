@@ -14,6 +14,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.FrameLayout;
@@ -79,11 +80,13 @@ public class TrainTicket extends BaseActivity {
     String request,code,message;
     String Bday,Bmonth,Byear,Day,Month,Year;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        getLayoutInflater().inflate(R.layout.activity_train_ticket_ed, contentFrameLayout);
+        getLayoutInflater().inflate(R.layout.activity_train_ticket, contentFrameLayout);
         Fabric.with(this, new Crashlytics());
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -99,6 +102,8 @@ public class TrainTicket extends BaseActivity {
         bmonth = findViewById(R.id.bmonth);
         byear = findViewById(R.id.byear);
         submit_ticket=(Button)findViewById(R.id.submitTrain);
+
+
         header2 = findViewById(R.id.header2);
         header3 = findViewById(R.id.header3);
         header4 = findViewById(R.id.header4);
@@ -111,10 +116,18 @@ public class TrainTicket extends BaseActivity {
 
         traincode();
 
+
+
+
+
+
         citycode.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 codecity = names.get(i).getStationKey();
+
+
+
             }
 
             @Override

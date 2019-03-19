@@ -20,14 +20,13 @@ import com.facebook.drawee.view.SimpleDraweeView;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 
+
 import org.jetbrains.annotations.NotNull;
 
 import java.net.URL;
 import java.util.ArrayList;
 
-/**
- * Created by SONU on 29/08/15.
- */
+
 public class SlidingImage_Adapter_Home extends PagerAdapter {
 
 
