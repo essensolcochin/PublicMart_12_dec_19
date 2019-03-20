@@ -2,13 +2,13 @@ package com.example.publicmart;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.v7.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
+
 import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -35,7 +35,7 @@ import java.util.Map;
 public class Edit_Profile extends BaseActivity {
 
     LinearLayout submit;
-    JSONObject jsonString;
+    JSONObject jsonString,JsonString;
     String request,code,message;
     EditText Fname,Mname,Lname,contact_no,email_id,h_no,tehsil,village,dist,pinode;
     Integer StateCode, StateKey;
@@ -43,6 +43,8 @@ public class Edit_Profile extends BaseActivity {
     ArrayAdapter<SpinnerModel> spinner_adapter;
     ArrayList<SpinnerModel> names ;
     String StateName;
+    SharedPreferences sp;
+    String CustKey;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,10 +64,17 @@ public class Edit_Profile extends BaseActivity {
         pinode=(EditText)findViewById(R.id.pin_code_edit);
         state=(Spinner)findViewById(R.id.state_sp);
 
-        Ed_profile_view();
+        names = new ArrayList<SpinnerModel>();
+
+
+        sp = getSharedPreferences("UserLog",0);
+         CustKey =  sp.getString("UserKey",null);
 
         statecode();
-        names = new ArrayList<SpinnerModel>();
+
+
+
+
 
 
 
@@ -74,7 +83,6 @@ public class Edit_Profile extends BaseActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
 
-                // Toast.makeText(getApplication(), ""+names.get(position).getStateCode(),Toast.LENGTH_LONG).show();
                 StateKey = names.get(position).getStateCode();
                 Log.e("codeeeeestaeeeeeee","test   "+ StateKey);
             }
@@ -86,19 +94,12 @@ public class Edit_Profile extends BaseActivity {
         });
 
 
-
-
-
-
-
-
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 try {
-                    SharedPreferences sp = getSharedPreferences("UserLog", 0);
-                    String CustKey = sp.getString("UserKey", null);
+
 
                     JSONObject values = new JSONObject();
                     values.put("CustKey",Integer.parseInt(CustKey));
@@ -135,8 +136,7 @@ public class Edit_Profile extends BaseActivity {
         private void editprofile(final String request) {
 
 
-            Log.e("gettttt","in"+request);
-
+            Log.e("inside_profile"," "+CustKey);
 
 
             String URL = this.getString(R.string.Url)+"Save";
@@ -171,22 +171,21 @@ public class Edit_Profile extends BaseActivity {
 
                                 Log.e("resppppppp", "" + code);
 
-//                                if (code.equalsIgnoreCase("-100"))
-//                                {
-//
-//                                    Log.e("resppppppp","ifffff"+code);
+                                if (code.equalsIgnoreCase("-200"))
+                                {
 
+                                    Log.e("resppppppp","ifffff"+code);
 
-//                            }
-                                     Toast.makeText(Edit_Profile.this,message,Toast.LENGTH_LONG).show();
                                     Intent intent =new Intent(Edit_Profile.this,Profile.class);
                                     startActivity(intent);
 
+                            }
 
 
-//                                else {
-//                                    Toast.makeText(Edit_Profile.this,message,Toast.LENGTH_LONG).show();
-//                                }
+
+                                else {
+                                    Toast.makeText(Edit_Profile.this,message,Toast.LENGTH_LONG).show();
+                                }
 
 
 
@@ -227,23 +226,22 @@ public class Edit_Profile extends BaseActivity {
         }
     public void Ed_profile_view()
     {
-        SharedPreferences sp = getSharedPreferences("UserLog",0);
-        String CustKey =  sp.getString("UserKey",null);
+
 
         try {
             JSONObject values = new JSONObject();
             values.put("CustKey",CustKey);
 
-            jsonString = new JSONObject();
-            jsonString.put("Token", "0001");
-            jsonString.put("call", "GetCustDetailsById");
-            jsonString.put("values", values);
+            JsonString = new JSONObject();
+            JsonString.put("Token", "0001");
+            JsonString.put("call", "GetCustDetailsById");
+            JsonString.put("values", values);
         } catch (JSONException e) {
             e.printStackTrace();
         }
 
 
-        Log.e("gettttt","in"+request);
+        Log.e("inside_profile_view"," "+CustKey);
 
 
 
@@ -333,8 +331,8 @@ public class Edit_Profile extends BaseActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> param = new HashMap<String, String>();
-                param.put("jsonString",jsonString.toString() );
-                Log.e("paramssss",""+param);
+                param.put("jsonString",JsonString.toString() );
+                Log.e("View_paramssss",""+param);
                 return param;
             }
 
@@ -352,6 +350,9 @@ public class Edit_Profile extends BaseActivity {
     }
 
     private void statecode() {
+
+        Ed_profile_view();
+
 
 
         try {
@@ -470,7 +471,7 @@ public class Edit_Profile extends BaseActivity {
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> param = new HashMap<String, String>();
                 param.put("jsonString",jsonString.toString() );
-                Log.e("paramssss",""+param);
+                Log.e("State_paramssss",""+param);
                 return param;
             }
 

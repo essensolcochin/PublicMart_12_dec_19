@@ -10,6 +10,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RadioGroup;
 import android.widget.Spinner;
 import android.widget.Toast;
 
@@ -59,7 +60,8 @@ public class Registration extends AppCompatActivity {
     Spinner state,Day,Month,Year;
     JSONObject jsonString;
     String request,code,message;
-
+    RadioGroup radioGroup;
+    Integer Membership_Type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,7 +79,7 @@ public class Registration extends AppCompatActivity {
         Day = (Spinner) findViewById(R.id.day);
         Month = (Spinner) findViewById(R.id.Bmonth);
         Year = (Spinner) findViewById(R.id.Byear);
-
+        radioGroup = findViewById(R.id.membershipgrp);
         house_no = (EditText)findViewById(R.id.Hno);
         tehsil = (EditText)findViewById(R.id.tehsil);
         village = (EditText)findViewById(R.id.village);
@@ -101,6 +103,34 @@ public class Registration extends AppCompatActivity {
 
         Log.e("getcodeeeeee","test   "+names.size());
 
+        radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                int radioButtonID = radioGroup.getCheckedRadioButtonId();
+                View radioButton = radioGroup.findViewById(radioButtonID);
+                int position = radioGroup.indexOfChild(radioButton);
+                Log.e("radio",""+position);
+                Log.e("radioid",""+radioButtonID);
+
+                if (position==1)
+
+                {
+
+                    Membership_Type = 1;
+
+                }
+                else  if (position==2)
+                {
+                    Membership_Type = 2;
+                }
+                else if(position==3)
+                {
+                    Membership_Type = 3;
+
+                }
+
+            }
+        });
 
 
 
@@ -281,7 +311,7 @@ public class Registration extends AppCompatActivity {
                     values.put("Nominee", nominee.getText().toString());
                     values.put("Relationship", relationship.getText().toString());
                     values.put("SponsorId", sponsership_id.getText());
-                    values.put("MSTypeKey", 4);
+                    values.put("MSTypeKey", Membership_Type);
                     values.put("Status", true);
                     values.put("CreatedBy", 0);
 //                    values.put("ReturnValue", 0);
