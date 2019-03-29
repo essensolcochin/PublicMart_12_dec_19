@@ -40,7 +40,7 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:padding="5dp"
+                    android:padding="2dp"
                     android:layout_marginTop="10dp"
                     android:id="@+id/info_text"
                     android:text="Product Name"
@@ -56,7 +56,7 @@
                     android:maxLines="1"
                     android:scrollHorizontally="false"
                     android:id="@+id/short_desc"
-                    android:padding="5dp"
+                    android:padding="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textSize="12dp"
@@ -66,7 +66,7 @@
 
 
                 <LinearLayout
-                   android:paddingLeft="2dp"
+                   android:padding="2dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -99,7 +99,7 @@
 
 
                 <RelativeLayout
-                    android:layout_marginTop="2dp"
+                    android:layout_marginTop="1dp"
                     android:padding="2dp"
                     android:layout_marginBottom="15dp"
                     android:orientation="horizontal"

@@ -73,6 +73,7 @@ public class BaseActivity extends AppCompatActivity {
         cartSIZE.load();
 
 
+
         head.setTypeface(custom_font);
 
 
@@ -153,7 +154,10 @@ public class BaseActivity extends AppCompatActivity {
                         SharedPreferences.Editor editor = sp.edit();
                         editor.putBoolean("LoggedUser",false);
                         editor.apply();
-
+                        realm.beginTransaction();
+                        cartSIZE.deleteAllFromRealm();
+                        realm.commitTransaction();
+                        realm.close();
                         intent = new Intent(BaseActivity.this, MainActivity.class);
                         startActivity(intent);
                         drawerLayout.closeDrawers();

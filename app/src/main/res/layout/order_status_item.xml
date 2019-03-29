@@ -52,7 +52,7 @@
                         android:layout_height="wrap_content"
 
                         android:text="MIMOSA SAREES"
-                        android:textSize="20dp"
+                        android:textSize="18dp"
                         android:textColor="#030303"
                         android:textStyle="bold" />
                     <TextView

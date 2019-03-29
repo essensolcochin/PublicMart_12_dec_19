@@ -60,7 +60,8 @@ public class _CustomArrayAdapterSearch_ extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.name.setText(friendList.get(position).StationName);
+        holder.name.setText(friendList.get(position).getStationName());
+        holder.category.setText(friendList.get(position).getShortCode());
 
 
 

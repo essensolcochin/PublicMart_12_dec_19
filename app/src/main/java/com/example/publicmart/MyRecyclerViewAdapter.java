@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -82,17 +83,10 @@ public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
 final ProductModelClass List = mylist.get(position);
 
+    Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
 
 
 
-//    Set<RequestListener> requestListeners = new HashSet<>();
-//    requestListeners.add(new RequestLoggingListener());
-//    ImagePipelineConfig config = ImagePipelineConfig.newBuilder(context)
-//            // other setters
-//            .setRequestListeners(requestListeners)
-//            .build();
-//    Fresco.initialize(context, config);
-//    FLog.setMinimumLoggingLevel(FLog.VERBOSE);
 
 
     try {
@@ -117,9 +111,13 @@ final ProductModelClass List = mylist.get(position);
 
 
     holder.ProductName.setText(List.getBrandName());
+    holder.ProductName.setTypeface(custom_font);
     holder.desc.setText(List.getShortDesc());
+    holder.desc.setTypeface(custom_font);
     holder.Bv.setText(List.getBV());
+
     holder.Rs.setText(List.getMRP());
+
 
 
 

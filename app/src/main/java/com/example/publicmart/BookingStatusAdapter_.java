@@ -1,6 +1,7 @@
 package com.example.publicmart;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -46,14 +47,33 @@ public class BookingStatusAdapter_ extends RecyclerView.Adapter<BookingStatusAda
     public void onBindViewHolder(@NonNull View_holder view_holder, int i) {
         final BookingstatusModel List = items.get(i);
 
+        Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
 
+        Typeface custom_font2 = Typeface.createFromAsset(context.getAssets(),  "fonts/RalewayBold.ttf");
 
         view_holder.passenger_name.setText(List.getPassengerName());
+        view_holder.passenger_name.setTypeface(custom_font2);
+
+
         view_holder.from_airport.setText(List.getFromAirportCode());
+        view_holder.from_airport.setTypeface(custom_font2);
         view_holder.to_airport.setText(List.getToAirportCode());
+        view_holder.to_airport.setTypeface(custom_font2);
+
+
         view_holder.date.setText(List.getTravelDate().substring(0, 10));
-        view_holder.amount.setText(List.getAmount());
+        if(List.getAmount().equalsIgnoreCase("null"))
+        {
+            view_holder.amount.setText("N/A");
+        }
+        else{
+            view_holder.amount.setText(List.getAmount());
+        }
+
+
         view_holder.status.setText(List.getBookingStatusName());
+        view_holder.status.setTypeface(custom_font);
+
 
         Log.e("checkinggg",""+List.getBookingStatusName());
 
