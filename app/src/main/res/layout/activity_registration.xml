@@ -54,8 +54,10 @@
                 android:id="@+id/fname"
                 android:hint="First Name"
                 android:textColor="#6B6B6B"
-                android:textColorHint="#6B6B6B"
                 android:background="@drawable/stroke"
+                android:textColorHint="#6B6B6B"
+
+
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
                 />
@@ -277,7 +279,7 @@
                 android:background="@drawable/stroke">
 
 
-                <Spinner
+                <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:gravity="start"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -459,7 +461,7 @@
                     android:orientation="vertical"
                     android:layout_height="wrap_content"
 
-                    android:id="@+id/radiogrp">
+                    android:id="@+id/membershipgrp">
 
 
 
@@ -473,9 +475,8 @@
                         android:layout_height="30dp"
                         android:checked="false"
                         android:layout_weight="1"
-
                         android:textColor="@android:color/black"
-                        android:text="Bronze"
+                        android:text="Gold"
                         />
 
 
@@ -501,8 +502,8 @@
                         android:layout_height="30dp"
                         android:textColor="@android:color/black"
                         android:checked="false"
+                        android:text="Bronze"
 
-                        android:text="Gold"
                         />
 
 

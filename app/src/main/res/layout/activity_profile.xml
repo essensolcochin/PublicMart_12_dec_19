@@ -6,23 +6,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
-    android:fillViewport="true"
-    android:scrollbars="none"
     android:background="#DBDADA"
     tools:context=".Profile">
 
 
     <LinearLayout
          android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
-
-      <LinearLayout
-
+    <LinearLayout
         android:layout_width="match_parent"
-        android:background="@color/col10"
+        android:background="@color/col7"
+        android:layout_height="wrap_content"
+        android:gravity="end"
+        android:padding="5dp"
+        android:layout_gravity="end">
+
+        <TextView
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Edit"
+            android:id="@+id/edit"
+            android:textSize="20dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold|italic"
+           />
+    </LinearLayout>
+
+            <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/col7"
         android:orientation="horizontal"
-        android:layout_height="200dp">
+        android:layout_height="150dp"
+                android:paddingBottom="30dp">
 
         <FrameLayout
             android:layout_width="wrap_content"
@@ -56,31 +73,58 @@
 
 
         <LinearLayout
-            android:padding="5dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_marginLeft="10dp"
-            android:layout_marginStart="10dp"
-            android:gravity="center"
-            android:layout_gravity="center">
+            android:layout_marginLeft="20dp"
+
+            android:layout_gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
 
 
             <TextView
-                android:gravity="center"
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@android:color/white"
+                android:textColor="@color/col10"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:id="@+id/name"
-                />
+                android:id="@+id/fname"
+                android:text="Karthik "/>
+                <TextView
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/col10"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:id="@+id/lname"
+                    android:text="Karthik "/>
+                <TextView
+                    android:paddingLeft="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/col10"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    android:id="@+id/mname"
+                    android:text="Karthik "/>
+
+
+            </LinearLayout>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:text="PM100017"
                 android:id="@+id/profileid"
-                android:textColor="@android:color/white"
+                android:textColor="@color/col10"
                 android:textSize="18dp" />
 
             <TextView
@@ -123,14 +167,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
-                android:textColor="@color/col10"
+
 
                 android:text="Main Balance "/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/col11"
                 android:textSize="18dp"
                 android:text="20000 ₹"/>
 
@@ -149,14 +192,12 @@
             android:layout_weight="1">
 
             <TextView
-                android:textColor="@color/col10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
                 android:text="Joining Amount "/>
 
             <TextView
-                android:textColor="@color/col11"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18dp"
@@ -198,16 +239,9 @@
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:text="Contact Information"
-                android:textColor="@color/col10"
                 android:textStyle="bold"
                 android:textSize="18dp"/>
-           <TextView
-               android:layout_width="0dp"
-               android:layout_height="wrap_content"
-               android:layout_weight=".2"
-               android:text="Edit"
-               android:textColor="@color/col7"
-               android:clickable="true"/>
+
 
 
         </LinearLayout>
@@ -228,16 +262,30 @@
                     android:text="Contact Number"
 
                     />
-                <TextView
-
-                    android:layout_weight="1"
+                <FrameLayout
                     android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    >
+
+
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="995845621"
-                    android:id="@+id/contact_number"
+                    android:id="@+id/contact_number"/>
 
-                    />
+                    <EditText
+                        android:textColor="#6B6B6B"
+                        android:background="@drawable/stroke"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:id="@+id/contact_numbered"
+                  />
+                </FrameLayout>
 
             </LinearLayout>
 
@@ -253,15 +301,31 @@
                     android:padding="10dp"
                     android:text="Email ID"
                     />
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="50dp"
+                    >
+
 
                 <TextView
-                    android:layout_weight="1"
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="10dp"
                     android:text="essensol.cochin@gmail.com"
                     android:id="@+id/email_id"
                     />
+                    <EditText
+                        android:textColor="#6B6B6B"
+                        android:background="@drawable/stroke"
+                        android:visibility="gone"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:padding="10dp"
+                        android:id="@+id/email_id_edit"
+                        />
+
+                </FrameLayout>
             </LinearLayout>
         </LinearLayout>
 
@@ -292,17 +356,9 @@
                     android:layout_height="50dp"
                     android:layout_weight="1"
                     android:gravity="center_vertical"
-                    android:textColor="@color/col10"
                     android:text="Shipping Information"
                     android:textSize="18dp"
                     android:textStyle="bold" />
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight=".2"
-                    android:text="Edit"
-                    android:textColor="@color/col7"
-                    android:clickable="true"/>
 
 
             </LinearLayout>
@@ -316,28 +372,28 @@
                 android:id="@+id/shpaddress">
 
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:padding="10dp"
                     android:id="@+id/H_no"
                     />
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:padding="10dp"
                     android:id="@+id/tehsil_"
                     />
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:padding="10dp"
                     android:id="@+id/village_"
                     />
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="0dp"
                     android:padding="10dp"
@@ -345,11 +401,20 @@
                     />
 
                 <TextView
-                    android:layout_marginLeft="10dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="15dp"
+                    android:layout_marginTop="0dp"
+                    android:padding="10dp"
                     android:id="@+id/pin_code"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="0dp"
+                    android:padding="10dp"
+
+                    android:id="@+id/state_view"/>
+
 
 
 

@@ -44,6 +44,7 @@
         <activity android:name=".Home" />
         <activity android:name=".Registration" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".Edit_Profile" />
 
         <meta-data
             android:name="io.fabric.ApiKey"

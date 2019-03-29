@@ -20,7 +20,6 @@
 
 
 
-
         <LinearLayout
             android:gravity="center_horizontal"
             android:orientation="vertical"

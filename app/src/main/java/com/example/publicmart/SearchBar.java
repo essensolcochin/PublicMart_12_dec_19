@@ -83,7 +83,7 @@ public class SearchBar extends AppCompatActivity {
             }
         });
 
-        traincode();
+        searchitems();
 
 
         editText.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -134,7 +134,7 @@ public class SearchBar extends AppCompatActivity {
 
 
 
-    private void traincode() {
+    private void searchitems() {
 
 
         try {
