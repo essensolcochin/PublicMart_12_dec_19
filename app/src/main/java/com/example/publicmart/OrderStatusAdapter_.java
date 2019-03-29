@@ -55,9 +55,12 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
         final OrderStatusModel List = items.get(position);
         Typeface custom_font2 = Typeface.createFromAsset(context.getAssets(),  "fonts/GravityBold.otf");
+        Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
 
-        holder.ItemName.setTypeface(custom_font2);
-        holder.ItemDesc.setTypeface(custom_font2);
+        Typeface custom_font3 = Typeface.createFromAsset(context.getAssets(),  "fonts/RalewayBold.ttf");
+
+        holder.ItemName.setTypeface(custom_font3);
+        holder.ItemDesc.setTypeface(custom_font);
 
 
         holder.ItemName.setText(List.getBrandName());

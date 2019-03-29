@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
 
                 android:gravity="start"
-                android:textSize="20dp"
+                android:textSize="16dp"
                 android:textColor="#030303"
                 android:textStyle="bold" />
             <TextView
@@ -93,7 +93,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="₹"
-                    android:textStyle="bold"
                     android:textColor="@color/col7"
                     android:textSize="20dp" />
 
@@ -112,7 +111,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="BV"
-                    android:textStyle="bold"
                     android:textColor="@color/col10"
                     android:textSize="20dp" />
 
@@ -133,6 +131,7 @@
 
             <android.support.v7.widget.CardView
                 android:layout_marginTop="5dp"
+                app:cardElevation="2dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 >
@@ -150,7 +149,7 @@
                         android:layout_height="wrap_content"
 
                         android:text="PRODUCT DETAILS"
-                        android:textSize="20dp"
+                        android:textSize="16dp"
                         android:textColor="#030303"
                         android:textStyle="bold" />
                     <TextView
@@ -182,7 +181,7 @@
                         android:layout_height="wrap_content"
 
                         android:text="MATERIAL AND CARE"
-                        android:textSize="20dp"
+                        android:textSize="16dp"
                         android:textColor="#030303"
                         android:textStyle="bold" />
                     <TextView

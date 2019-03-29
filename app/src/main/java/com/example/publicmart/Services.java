@@ -134,27 +134,26 @@ public class Services extends BaseActivity {
         tour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               showToast();
-
+                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
             }
         });
 
         travel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast();
+                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
             }
         });
         gun.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast();
+                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
             }
         });
         insure.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast();
+                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
             }
         });
 

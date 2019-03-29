@@ -107,16 +107,15 @@
             android:layout_weight="1" >
 
                 <LinearLayout
-                    android:layout_margin="1dp"
+                android:layout_margin="1dp"
                 android:clickable="true"
                 android:id="@+id/Product_layout"
-                android:paddingTop="40dp"
-                android:paddingBottom="40dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:background="@android:color/white"
                 android:orientation="vertical"
                 android:layout_width="0dp"
+                android:padding="40dp"
 
                 android:layout_height="match_parent">
 
@@ -124,8 +123,8 @@
                     android:tint="@color/col7"
                     android:src="@drawable/bag"
 
-                    android:layout_width="50dp"
-                    android:layout_height="50dp" />
+                    android:layout_width="40dp"
+                    android:layout_height="40dp" />
                 <TextView
                     android:layout_marginTop="10dp"
                     android:id="@+id/product"
@@ -145,8 +144,8 @@
                 <LinearLayout
                     android:layout_margin="1dp"
                     android:id="@+id/service"
-                    android:paddingTop="40dp"
-                    android:paddingBottom="40dp"
+                    android:padding="40dp"
+
                     android:layout_weight="1"
                     android:gravity="center"
                     android:background="@android:color/white"
@@ -158,8 +157,8 @@
                         android:tint="@color/col7"
 
                         android:src="@drawable/airplaneticket"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                        android:layout_width="40dp"
+                        android:layout_height="40dp" />
                     <TextView
                         android:layout_marginTop="10dp"
                         android:id="@+id/services"
@@ -200,8 +199,8 @@
                         android:tint="@color/col7"
 
                         android:src="@drawable/cartlogo"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                        android:layout_width="40dp"
+                        android:layout_height="40dp" />
                     <TextView
                         android:layout_marginTop="10dp"
                         android:id="@+id/Order"
@@ -234,8 +233,8 @@
                     <ImageView
                         android:tint="@color/col7"
                         android:src="@drawable/booking"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp" />
+                        android:layout_width="40dp"
+                        android:layout_height="40dp" />
                     <TextView
                         android:layout_marginTop="10dp"
                         android:id="@+id/book"
@@ -273,8 +272,8 @@
 
                     <ImageView
                     android:tint="@color/col7"
-                    android:layout_width="50dp"
-                    android:layout_height="50dp"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:src="@drawable/shoplist" />
 
                     <TextView
@@ -309,8 +308,8 @@
 
                     <ImageView
                         android:tint="@color/col7"
-                        android:layout_width="50dp"
-                        android:layout_height="50dp"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
                         android:src="@drawable/credit" />
 
                     <TextView

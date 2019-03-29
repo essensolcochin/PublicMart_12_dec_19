@@ -100,23 +100,22 @@ public class ProductView extends BaseActivity {
         loading= findViewById(R.id.loading);
 
         loading =new ProgressBar(this);
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/CODEBold.otf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/ralewayM.ttf");
 
-
-        Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/GravityBold.otf");
-        detailed_description.setTypeface(custom_font2);
+        Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/RalewayBold.ttf");
+        detailed_description.setTypeface(custom_font);
         Product_Details.setTypeface(custom_font2);
-        Short_Desc.setTypeface(custom_font2);
+        Short_Desc.setTypeface(custom_font);
         Product_Name.setTypeface(custom_font2);
         Material.setTypeface(custom_font2);
-        material_care.setTypeface(custom_font2);
+        material_care.setTypeface(custom_font);
 
 
         wishlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplication(), "Product added to Wishlist",Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplication(), "Product added to Wishlist",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -325,6 +324,23 @@ public class ProductView extends BaseActivity {
         View actionView = MenuItemCompat.getActionView(menuItem);
         cartItem = (TextView) actionView.findViewById(R.id.cart_badge);
 
+
+        FrameLayout click =(FrameLayout)actionView.findViewById(R.id.cartclick);
+
+        click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent cartIntent = new Intent(ProductView.this, OrderStatus.class);
+
+                startActivity(cartIntent);
+                finish();
+            }
+        });
+
+
+
         if(cartSIZE.size()==0)
         {
             cartItem.setVisibility(View.GONE);
@@ -338,20 +354,20 @@ public class ProductView extends BaseActivity {
         return  true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        switch (item.getItemId())
-        {
-            case R.id.cart_action:
-                Intent cartIntent = new Intent(ProductView.this, OrderStatus.class);
-                startActivity(cartIntent);
-                return true;
-        }
-
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        switch (item.getItemId())
+//        {
+//            case R.id.cart_action:
+//                Intent cartIntent = new Intent(ProductView.this, OrderStatus.class);
+//                startActivity(cartIntent);
+//                return true;
+//        }
+//
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
 
 

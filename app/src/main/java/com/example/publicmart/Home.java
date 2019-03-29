@@ -143,7 +143,7 @@ String code,message;
 
 
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/curvy.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/ralewayM.ttf");
 
 
 

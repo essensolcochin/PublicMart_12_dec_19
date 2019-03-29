@@ -1,6 +1,7 @@
 package com.example.publicmart;
 
 import android.content.Context;
+import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
@@ -41,9 +42,15 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
     @Override
     public void onBindViewHolder(@NonNull _BookingStatusBoatAdapter_.View_holder view_holder, int i) {
         final BoatStausModel List = boatItems.get(i);
+        Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
 
+        Typeface custom_font2 = Typeface.createFromAsset(context.getAssets(),  "fonts/RalewayBold.ttf");
 
         view_holder.passenger_name.setText(List.getPassengerName());
+        view_holder.passenger_name.setTypeface(custom_font2);
+        view_holder.cruiseType.setTypeface(custom_font);
+        view_holder.toc.setTypeface(custom_font);
+
         if(List.getCruiseType().equalsIgnoreCase("D"))
         {
             view_holder.cruiseType.setText("Day");
@@ -61,8 +68,17 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
         }
 
         view_holder.guestCount.setText(List.getGuestNos());
+
         view_holder.date.setText(List.getTravelDate());
-        view_holder.amount.setText(List.getAmount());
+
+        if(List.getAmount().equalsIgnoreCase("null"))
+        {
+            view_holder.amount.setText("N/A");
+        }
+        else{
+            view_holder.amount.setText(List.getAmount());
+        }
+
         view_holder.status.setText(List.getBookingStatusName());
 
         Log.e("checkinggg",""+List.getPassengerName());
@@ -193,7 +209,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
     public class View_holder extends RecyclerView.ViewHolder
 
     {
-        TextView passenger_name,cruiseType,guestCount,amount,status,date;
+        TextView passenger_name,cruiseType,guestCount,amount,status,date,toc;
         HorizontalStepView horizontalStepView;
         Button payment;
         StepBean stepBean0,stepBean1,stepBean2,stepBean3,stepBean4,stepBean5;
@@ -208,6 +224,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
             status=itemView.findViewById(R.id.status);
             date=itemView.findViewById(R.id.date);
             payment=itemView.findViewById(R.id.paymentbttn);
+            toc=itemView.findViewById(R.id.from_air);
 
 
         }

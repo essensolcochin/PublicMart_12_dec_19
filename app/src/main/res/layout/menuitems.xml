@@ -29,22 +29,36 @@
                 fresco:actualImageScaleType="fitXY"
                 android:layout_width="match_parent"
                 fresco:placeholderImage="@drawable/placeholder"
-                android:layout_height="200dp" />
+                android:layout_height="180dp" />
 
+                <!--<LinearLayout-->
+                    <!--android:background="#73000000"-->
+
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="match_parent">-->
+
+                <!--</LinearLayout>-->
 
                 <TextView
-                    android:padding="10dp"
-                    android:background="#73000000"
+                    android:layout_marginBottom="5dp"
+                    android:background="#C8FFFFFF"
+                    android:paddingLeft="20dp"
+                    android:paddingRight="20dp"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+
+
+
                     android:id="@+id/menuTitle"
-                    android:layout_gravity="bottom"
+                    android:layout_gravity="center|bottom"
                     android:layout_width="match_parent"
                     android:text="FASHION"
-                    android:textSize="20dp"
+                    android:textSize="16dp"
                     android:gravity="center"
                     android:textStyle="bold"
-                    android:textColor="@android:color/white"
+                    android:textColor="@android:color/black"
 
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     />
 
 

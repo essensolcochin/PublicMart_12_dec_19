@@ -179,7 +179,7 @@ public class Fashion extends BaseActivity {
 
                                 }
                                 else {
-                                    Toast.makeText(Fashion.this,message,Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Fashion.this,"Coming Shortly",Toast.LENGTH_SHORT).show();
                                 }
 
 
@@ -197,7 +197,7 @@ public class Fashion extends BaseActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             // progress.cancel();
-                            Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
 
                         }
                     })
