@@ -20,6 +20,9 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,6 +60,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         getToken(5);
+
+
+        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( MainActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+            @Override
+            public void onSuccess(InstanceIdResult instanceIdResult) {
+                String newToken = instanceIdResult.getToken();
+                Log.e("newTokennnnnnnn  ",newToken);
+
+            }
+        });
 
 
 
@@ -190,7 +203,7 @@ public class MainActivity extends AppCompatActivity {
                                 editor.apply();
                                 Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
                                 Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
-                                Intent intent =new Intent(MainActivity.this,MenuDirect.class);
+                                Intent intent =new Intent(MainActivity.this,Payment.class);
                                 startActivity(intent);
                                 finish();
 
@@ -256,7 +269,10 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-
+    @Override
+    public void onBackPressed() {
+        moveTaskToBack(true);
+    }
 
 
 

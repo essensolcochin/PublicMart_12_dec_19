@@ -118,7 +118,8 @@ final ProductModelClass List = mylist.get(position);
 
     holder.Rs.setText(List.getMRP());
 
-
+Log.e("urlllllllllll"," "+"http://publicmart.in"+
+    List.getImagePath());
 
 
 

@@ -291,7 +291,7 @@ public class FlightTicket extends BaseActivity{
 
 
 
-       init();
+//       init();
 
        submit_flight = (Button)findViewById(R.id.fsubmit);
        submit_flight.setOnClickListener(new View.OnClickListener() {

@@ -264,7 +264,7 @@ public class TrainTicket extends BaseActivity {
         trcontact = (TextInputLayout) findViewById(R.id.input_layout_contact);
         trcontact.setHint("Enter Your Contact No");
 
-        init();
+//        init();
 
 
 

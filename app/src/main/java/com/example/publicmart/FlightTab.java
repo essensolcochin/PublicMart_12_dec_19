@@ -204,9 +204,9 @@ private  void LoadItems()
 
 
 
-                            else {
-                                Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
-                            }
+//                            else {
+//                                Toast.makeText(getContext(),message,Toast.LENGTH_LONG).show();
+//                            }
 
 
 

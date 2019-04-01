@@ -47,7 +47,7 @@ public class Fashion extends BaseActivity {
     private int ItemCount=4;
     ProgressBar Loader ;
     private int visibleItemCount,pastVisibleItemCount,totalItemCount,previousCount= 0;
-    private  int view_threshold =10;
+    private  int view_threshold =5;
     private boolean isloading = true;
     private boolean isLastPage =false;
 
@@ -141,7 +141,7 @@ public class Fashion extends BaseActivity {
 
 
                                 String  code = o.getString("responseCode");
-                                String  message=o.getString("responseMessage");
+                                String  message =o.getString("responseMessage");
 
 
 
@@ -251,35 +251,16 @@ public class Fashion extends BaseActivity {
 //
 //
 //
-////                if(dy>0)
-////                {
+
 //
-//                    Log.e("checkinggg dy","   "+dy);
-//
-//                    if(isloading)
-//                    {
-//
-//                        if(totalItemCount>previousCount)
-//                        {
-//                            isloading =false;
-//                            previousCount = totalItemCount;
-//                        }
-//
-//                    }
-//
-//                    if(!isloading&&(totalItemCount-visibleItemCount)<=(pastVisibleItemCount+view_threshold))//false&&(6-4)<=(2+10)
-//                    {
-//
-//                            pageNo++;
-//                            Log.e("____PageNo_insideee___", "" + pageNo);
-//                            Perform_pagination();
-//                            Toast.makeText(Fashion.this, "Pagination", Toast.LENGTH_LONG).show();
-//                            isloading = true;
-//
-//                    }
+//                        if(isloading&&(visibleItemCount+pastVisibleItemCount==totalItemCount))
+//        if (!isloading && (pastVisibleItemCount + visibleItemCount + view_threshold) >= totalItemCount ) {
+//            isloading = true;
+//            Perform_pagination(pageNo + 1);
+//        }
 //
 //
-////                }
+//
 //
 //
 //          }
@@ -287,7 +268,7 @@ public class Fashion extends BaseActivity {
 
    }
 
-    private void Perform_pagination(){
+    private void Perform_pagination(int Pageno){
         Loader.setVisibility(View.VISIBLE);
 
         try {
@@ -361,7 +342,7 @@ public class Fashion extends BaseActivity {
                                    // Log.e("____PageNo____",""+pageNo);
 
                                     adapter.addData(newlist);
-
+                                    adapter.notifyDataSetChanged();
 
 
 
@@ -424,3 +405,5 @@ public class Fashion extends BaseActivity {
     }
 
 }
+
+

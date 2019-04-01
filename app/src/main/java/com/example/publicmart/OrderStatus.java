@@ -162,9 +162,9 @@ public class OrderStatus extends BaseActivity {
 
 
                                 }
-                                else {
-                                    Toast.makeText(OrderStatus.this,message,Toast.LENGTH_LONG).show();
-                                }
+//                                else {
+//                                    Toast.makeText(OrderStatus.this,message,Toast.LENGTH_LONG).show();
+//                                }
 
 
 
