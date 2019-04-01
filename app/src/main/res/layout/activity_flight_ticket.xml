@@ -26,43 +26,43 @@
 
 
 
-            <LinearLayout
-                android:clickable="true"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
+            <!--<LinearLayout-->
+                <!--android:clickable="true"-->
+                <!--android:gravity="center"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="match_parent">-->
 
-            <!--<ImageView-->
-                <!--android:tint="@color/col7"-->
-                <!--android:src="@drawable/plane"-->
-                <!--android:layout_weight=".75"-->
-                <!--android:layout_width="30dp"-->
-                <!--android:layout_height="30dp" />-->
-            <!--<TextView-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:id="@+id/flight"-->
-                <!--android:layout_gravity="center"-->
-                <!--android:layout_weight="1"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:text="FLIGHT TICKETS"-->
-                <!--android:textSize="15dp"-->
-                <!--android:gravity="start"-->
-                <!--android:textStyle="bold"-->
-                <!--android:textColor="@color/col5"-->
-                <!--android:layout_height="wrap_content" />-->
+            <!--&lt;!&ndash;<ImageView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:tint="@color/col7"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:src="@drawable/plane"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_weight=".75"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="30dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="30dp" />&ndash;&gt;-->
+            <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_marginTop="10dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:id="@+id/flight"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_gravity="center"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_weight="1"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:text="FLIGHT TICKETS"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textSize="15dp"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:gravity="start"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textStyle="bold"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:textColor="@color/col5"&ndash;&gt;-->
+                <!--&lt;!&ndash;android:layout_height="wrap_content" />&ndash;&gt;-->
 
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewflipper1"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                >
+            <!--<android.support.v4.view.ViewPager-->
+                <!--android:id="@+id/viewflipper1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="200dp"-->
+                <!--&gt;-->
 
-            </android.support.v4.view.ViewPager>
+            <!--</android.support.v4.view.ViewPager>-->
 
 
 
-        </LinearLayout>
+        <!--</LinearLayout>-->
 
 
 
@@ -452,10 +452,25 @@
                     />
             </android.support.design.widget.TextInputLayout>
 
+                <LinearLayout
+                    android:layout_marginTop="15dp"
+                    android:gravity="center_horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                    android:gravity="center"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/declare"
+                    android:textSize="12dp"/>
+
+                </LinearLayout>
+
 
 
             <LinearLayout
-                android:layout_margin="20dp"
+                android:layout_margin="15dp"
                 android:gravity="center_horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -474,6 +489,9 @@
                 android:text="Submit"
                 android:textSize="18dp"/>
             </LinearLayout>
+
+
+
 
             </LinearLayout>
 
