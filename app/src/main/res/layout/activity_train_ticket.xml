@@ -286,7 +286,6 @@
                             android:layout_height="wrap_content"
                             android:layout_alignParentBottom="true"
                             android:layout_marginBottom="0dp"
-                            android:padding="10dp"
 
                             android:textSize="18dp" />
                     </RelativeLayout>
@@ -303,7 +302,6 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:background="@drawable/stroke">
 
                         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
@@ -311,7 +309,6 @@
                             android:layout_width="match_parent"
 
                             android:layout_height="wrap_content"
-                            android:padding="10dp"
                             android:textSize="18dp" />
                     </RelativeLayout>
                     <!--<EditText-->

@@ -5,8 +5,7 @@
     android:layout_height="match_parent"
     android:scrollbars="none"
     android:fillViewport="true"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:orientation="vertical"
 
     tools:context=".HouseBoat">
@@ -290,14 +289,16 @@
 
 
                             <RadioButton
+
                                 android:buttonTint="@color/col7"
                                 android:id="@+id/daycruise"
                                 android:layout_width="wrap_content"
 
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="5dp"
+                                android:layout_marginStart="5dp"
                                 android:layout_weight="1"
-                                android:checked="false"
+                                android:checked="true"
                                 android:text="Day (11 am - 5 pm)"
                                 android:textColor="@android:color/black" />
 
@@ -307,7 +308,9 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="5dp"
-                                android:buttonTint="@color/col7"                                android:checked="false"
+                                android:layout_marginStart="5dp"
+                                android:buttonTint="@color/col7"
+                                android:checked="false"
                                 android:text="Night (5 pm - 11 pm)"
                                 android:textColor="@android:color/black"
                                 />

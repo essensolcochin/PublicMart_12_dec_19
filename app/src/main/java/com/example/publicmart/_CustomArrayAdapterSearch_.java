@@ -2,11 +2,13 @@ package com.example.publicmart;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -16,10 +18,10 @@ import java.util.Locale;
 public class _CustomArrayAdapterSearch_ extends BaseAdapter {
 
     private Context activity;
-    private List<StationModel> friendList;
-    private List<StationModel> searchList;
+    private List<SearchFilterModel> friendList;
+    private List<SearchFilterModel> searchList;
 
-    public _CustomArrayAdapterSearch_(Context context, List<StationModel> objects) {
+    public _CustomArrayAdapterSearch_(Context context, List<SearchFilterModel> objects) {
 
         this.activity = context;
         this.friendList = objects;
@@ -43,7 +45,7 @@ public class _CustomArrayAdapterSearch_ extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
+    public View getView(final int position, View convertView, ViewGroup parent) {
 
 
         ViewHolder holder;
@@ -60,11 +62,19 @@ public class _CustomArrayAdapterSearch_ extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.name.setText(friendList.get(position).getStationName());
-        holder.category.setText(friendList.get(position).getShortCode());
+        holder.name.setText(friendList.get(position).getBrandName());
+        holder.category.setText(friendList.get(position).getShortDesc());
 
 
-
+        holder.click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(activity, Fashion.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("CategoryKey",searchList.get(position).getCategoryKey());
+                activity.getApplicationContext().startActivity(intent);
+            }
+        });
 
         return convertView;
     }
@@ -77,8 +87,12 @@ public class _CustomArrayAdapterSearch_ extends BaseAdapter {
             searchList.addAll(friendList);
         }
         else {
-            for (StationModel model : searchList){
-                if (model.getStationName().toLowerCase(Locale.getDefault())
+            for (SearchFilterModel model : searchList){
+                if (model.getBrandName().toLowerCase(Locale.getDefault())
+                        .contains(charText)){
+                    friendList.add(model);
+                }
+                else  if (model.getShortDesc().toLowerCase(Locale.getDefault())
                         .contains(charText)){
                     friendList.add(model);
                 }
@@ -91,11 +105,12 @@ public class _CustomArrayAdapterSearch_ extends BaseAdapter {
     private class ViewHolder {
 
         private TextView name,category;
-
+        private LinearLayout click;
         public ViewHolder(View v) {
 
             name = (TextView) v.findViewById(R.id.itemname);
             category = (TextView) v.findViewById(R.id.itemcategory);
+            click = (LinearLayout) v.findViewById(R.id.click);
         }
     }
 }

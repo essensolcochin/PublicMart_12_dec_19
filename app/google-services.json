@@ -15,14 +15,6 @@
       },
       "oauth_client": [
         {
-          "client_id": "1019441641841-e0mhpo6j0anoda37uj7kt5h33ehh39al.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.example.publicmart",
-            "certificate_hash": "ba77d28a0b4ffbcf67d00cc5885c6789ee22da9a"
-          }
-        },
-        {
           "client_id": "1019441641841-cas5tjh553bgo7nr2sn6mkdeg01l0ncm.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -37,13 +29,8 @@
           "status": 1
         },
         "appinvite_service": {
-          "status": 2,
-          "other_platform_oauth_client": [
-            {
-              "client_id": "1019441641841-cas5tjh553bgo7nr2sn6mkdeg01l0ncm.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
+          "status": 1,
+          "other_platform_oauth_client": []
         },
         "ads_service": {
           "status": 2

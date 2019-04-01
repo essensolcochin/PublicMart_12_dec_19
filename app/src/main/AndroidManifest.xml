@@ -46,6 +46,16 @@
         <activity android:name=".MainActivity" />
         <activity android:name=".Edit_Profile" />
 
+
+        <service
+            android:name=".FirebaseInstanceIDService"
+            android:stopWithTask="false">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="c89380f82afe92d8ff261a0e81d3cb84bc08f2c3" />

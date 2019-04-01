@@ -96,9 +96,9 @@ public class HouseBoat extends BaseActivity {
         email_id=(EditText)findViewById(R.id.email);
         Contact_no=(EditText)findViewById(R.id.contact);
         radioGroup = findViewById(R.id.radiogrp);
-        image = findViewById(R.id.image);
+//        image = findViewById(R.id.image);
 
-        image.setImageResource(R.drawable.houseboatad);
+//        image.setImageResource(R.drawable.houseboatad);
 
 
 
