@@ -31,6 +31,11 @@ Dry-clean</string>
          http://192.168.0.30:7899
     </string>
 
+    <string name="declare">
+        "By pressing submit, I agree to the t&amp;c and privacy policy,
+and declare that the above information are true.
+    </string>
+
     <string name="Bank">ACCT NAME : PUBLIC MART ACCT NO : 50200034752049   IFSC CODE : HDFC0000628 BRANCH NAME : ALAPPUZHA</string>
 
     <!-- TODO: Remove or change this placeholder text -->
