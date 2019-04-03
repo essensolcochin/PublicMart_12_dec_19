@@ -219,67 +219,62 @@ public class Registration extends AppCompatActivity {
             public void onClick(View v) {
                 if (TextUtils.isEmpty(fname.getText()))
                 {
+                    fname.setFocusable(true);
                     fname.setError("Field is Mandatory");
                 }
-                else if(TextUtils.isEmpty(mname.getText()))
-                {
-                    mname.setError("Field is Mandatory");
-                }
-                else if(TextUtils.isEmpty(lname.getText()))
+
+                 if(TextUtils.isEmpty(lname.getText()))
                 {
                     lname.setError("Field is Mandatory");
                 }
-                else if(TextUtils.isEmpty(house_no.getText()))
-                {
-                    house_no.setError("Field is Mandatory");
-                }
-                else if(TextUtils.isEmpty(tehsil.getText()))
-                {
-                    tehsil.setError("Field is Mandatory");
-                }
-                else if(TextUtils.isEmpty(village.getText()))
-                {
-                    village.setError("Field is Mandatory");
-                }
-                else if(TextUtils.isEmpty(district.getText()))
-                {
-                    district.setError("Field is Mandatory");
-                }
-                else if(TextUtils.isEmpty(pincode.getText()))
+//                 if(TextUtils.isEmpty(house_no.getText()))
+//                {
+//                    house_no.setError("Field is Mandatory");
+//                }
+//                 if(TextUtils.isEmpty(tehsil.getText()))
+//                {
+//                    tehsil.setError("Field is Mandatory");
+//                }
+
+//                 if(TextUtils.isEmpty(district.getText()))
+//                {
+//                    district.setError("Field is Mandatory");
+//                }
+                 if(TextUtils.isEmpty(pincode.getText()))
                 {
                     pincode.setError("Field is Mandatory");
                 }
-                else if(TextUtils.isEmpty(contact_no.getText()))
+                 if(TextUtils.isEmpty(contact_no.getText()))
                 {
                     contact_no.setError("Field is Mandatory");
                 }
-                else if(TextUtils.isEmpty(email.getText()))
+                 if(TextUtils.isEmpty(email.getText()))
                 {
                     ////dddd
                     email.setError("Field is Mandatory");
                 }
-                else if(TextUtils.isEmpty(sponsership_id.getText()))
-                {
-                    sponsership_id.setError("Field is Mandatory");
-                }
-                else if(TextUtils.isEmpty  (nominee.getText()))
-                {
-                    nominee.setError("Field is Mandatory");
-
-                }
-                else if(TextUtils.isEmpty  (relationship.getText()))
-                {
-                    relationship.setError("Field is Mandatory");
-                }
-                else if(TextUtils.isEmpty  (username.getText()))
+//                 if(TextUtils.isEmpty(sponsership_id.getText()))
+//                {
+//                    sponsership_id.setError("Field is Mandatory");
+//                }
+//                 if(TextUtils.isEmpty  (nominee.getText()))
+//                {
+//                    nominee.setError("Field is Mandatory");
+//
+//                }
+//                 if(TextUtils.isEmpty  (relationship.getText()))
+//                {
+//                    relationship.setError("Field is Mandatory");
+//                }
+                 if(TextUtils.isEmpty  (username.getText()))
                 {
                     username.setError("Field is Mandatory");
                 }
-                else if(TextUtils.isEmpty  (password.getText()))
+                 if(TextUtils.isEmpty  (password.getText()))
                 {
                     password.setError("Field is Mandatory");
                 }
-                else if(!password.getText().toString().equals(cnfmpassword.getText().toString()))
+                 if(!password.getText().toString().equals(cnfmpassword.getText().toString()))
                 {
                     cnfmpassword.setError("Not Matching");
                 }

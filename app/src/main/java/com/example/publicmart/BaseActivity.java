@@ -22,11 +22,12 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
-
+import android.widget.Switch;
 import android.widget.TextView;
 
 
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,14 +53,14 @@ public class BaseActivity extends AppCompatActivity {
 
     private TextWatcher mSearchTw;
 
-
-
     public Toolbar getToolBar(){
         return toolbar;
     }
 
     private RealmResults<RealmShopModel> cartSIZE;
     private Realm realm;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

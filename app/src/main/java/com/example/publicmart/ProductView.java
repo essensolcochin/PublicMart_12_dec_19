@@ -468,7 +468,8 @@ public class ProductView extends BaseActivity {
 public  void PostOrderDetails()
 {
  SharedPreferences sp = getSharedPreferences("UserLog",0);
-  String CustKey =  sp.getString("UserKey",null);
+  String CustKey =  sp.getString("CustKey",null);
+    String UserKey =  sp.getString("UserKey",null);
 
 
     Date todayDate = Calendar.getInstance().getTime();
@@ -490,7 +491,7 @@ public  void PostOrderDetails()
                values.put("IsCredit",false);
                values.put("OrderStatusKey",1);
                values.put("Status",true);
-               values.put("CreatedBy",CustKey);
+               values.put("CreatedBy",UserKey);
 
 
 

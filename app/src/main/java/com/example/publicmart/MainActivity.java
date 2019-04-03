@@ -223,6 +223,7 @@ public class MainActivity extends AppCompatActivity {
                                 SharedPreferences.Editor editor =sp.edit();
 
                                 editor.putString("UserKey",jsonObject.get("UserKey").toString());
+                                editor.putString("CustKey",jsonObject.get("CustKey").toString());
                                 editor.putString("Username",jsonObject.get("UserName").toString());
                                 editor.apply();
                                 Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
