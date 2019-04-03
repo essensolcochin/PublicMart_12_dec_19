@@ -54,6 +54,6 @@ String ProductKey,CategoryKey,CategoryName,BrandName,ShortDesc;
 
     @Override
     public String toString() {
-        return BrandName+ShortDesc;
+        return CategoryKey;
     }
 }

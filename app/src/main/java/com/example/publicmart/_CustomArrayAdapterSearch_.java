@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -71,7 +72,7 @@ public class _CustomArrayAdapterSearch_ extends BaseAdapter {
             public void onClick(View v) {
                 Intent intent = new Intent(activity, Fashion.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("CategoryKey",searchList.get(position).getCategoryKey());
+                intent.putExtra("CategoryKey",friendList.get(position).getCategoryKey());
                 activity.getApplicationContext().startActivity(intent);
             }
         });

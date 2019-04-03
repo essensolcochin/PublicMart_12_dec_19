@@ -3,8 +3,8 @@ package com.example.publicmart;
 
 
 import android.os.Bundle;
-import android.os.Handler;
-import android.support.annotation.NonNull;
+
+import android.os.CountDownTimer;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
@@ -21,7 +21,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.facebook.drawee.view.SimpleDraweeView;
+
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -43,8 +43,8 @@ public class Fashion extends BaseActivity {
     MyRecyclerViewAdapter adapter;
     GridLayoutManager layoutManager;
 
-    private  int pageNo=1;
-    private int ItemCount=4;
+      int pageNo= 1;
+    private int ItemCount= 6;
     ProgressBar Loader ;
     private int visibleItemCount,pastVisibleItemCount,totalItemCount,previousCount= 0;
     private  int view_threshold =5;
@@ -62,7 +62,7 @@ public class Fashion extends BaseActivity {
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_fashion, contentFrameLayout);
 
-        item_list= new ArrayList<>();
+        item_list = new ArrayList<>();
 
         final SpotsDialog progress = new SpotsDialog(Fashion.this,R.style.Custom);
         Loader = new ProgressBar(this);
@@ -93,8 +93,8 @@ public class Fashion extends BaseActivity {
             JSONObject values = new JSONObject();
            // values.put("ImageType","Product");
             values.put("CategoryKey",CategoryKey);
-//            values.put("PageSize",ItemCount);
-//            values.put("PageNumber",pageNo);
+            values.put("PageSize",ItemCount);
+            values.put("PageNumber",pageNo);
 
 
             jsonString = new JSONObject();
@@ -232,43 +232,70 @@ public class Fashion extends BaseActivity {
         }
 
 
-//        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrolled( RecyclerView recyclerView, int dx, int dy) {
-//                super.onScrolled(recyclerView, dx, dy);
-//
-//                visibleItemCount = layoutManager.getChildCount();
-//                totalItemCount = layoutManager.getItemCount();
-//                pastVisibleItemCount =layoutManager.findFirstVisibleItemPosition();
-//
-//                Log.e("pastVisibleItemCount", " " + pastVisibleItemCount);
-//                Log.e("total item",""+totalItemCount);
-//
-//                Log.e("visibleCount", " " + visibleItemCount);
-//
-//
-//              //-----check this tomorrow  if(isloading&&(visibleItemCount+pastVisibleItemCount==totalItemCount)) -----//
-//
-//
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled( RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+
+                visibleItemCount = layoutManager.getChildCount();
+                totalItemCount = layoutManager.getItemCount();
+                pastVisibleItemCount =layoutManager.findFirstVisibleItemPosition();
+
+                Log.e("pastVisibleItemCount", " " + pastVisibleItemCount);
+                Log.e("total item",""+totalItemCount);
+
+                Log.e("visibleCount", " " + visibleItemCount);
+
+
+
+//                if(totalItemCount>previousCount)
+//                {
+//                    isloading = false;
+//                    previousCount=totalItemCount;
+//                }
 //
 
-//
-//                        if(isloading&&(visibleItemCount+pastVisibleItemCount==totalItemCount))
+                if(isloading && (visibleItemCount+pastVisibleItemCount == totalItemCount))
+                {
+
+//                    pageNo = pageNo++;
+
+                    Loader.setVisibility(View.VISIBLE);
+                    Perform_pagination(pageNo+1);
+                    isloading = false;
+
+
+
+
+
+                    Log.e("insideIFFFFF", " " + pageNo );
+
+                }
+
+
+
+
+              //-----check this tomorrow  if(isloading&&(visibleItemCount+pastVisibleItemCount==totalItemCount)) -----//
+
+
 //        if (!isloading && (pastVisibleItemCount + visibleItemCount + view_threshold) >= totalItemCount ) {
-//            isloading = true;
-//            Perform_pagination(pageNo + 1);
-//        }
-//
-//
-//
-//
-//
-//          }
-//       });
+
+
+
+
+
+
+
+          }
+       });
 
    }
 
     private void Perform_pagination(int Pageno){
+
+        Log.e("insideFUNCTION", " " + Pageno );
+
+
         Loader.setVisibility(View.VISIBLE);
 
         try {
@@ -277,7 +304,7 @@ public class Fashion extends BaseActivity {
             JSONObject values = new JSONObject();
             values.put("CategoryKey",CategoryKey);
             values.put("PageSize",ItemCount);
-            values.put("PageNumber",pageNo);
+            values.put("PageNumber",Pageno);
 
             jsonString = new JSONObject();
             jsonString.put("Token", "0001");
@@ -317,6 +344,8 @@ public class Fashion extends BaseActivity {
 
                                 if (code.equalsIgnoreCase("0")) {
 
+                                    newlist = new ArrayList<>();
+
                                     JSONArray json_array2 = o.getJSONArray("result");
                                     JSONObject jsonObject;
 
@@ -332,24 +361,23 @@ public class Fashion extends BaseActivity {
                                                 jsonObject.getString("BV"),
                                                 jsonObject.getString("ImagePath"));
 
-                                        Log.e("resppppppp", "ifffff" + code);
-                                        newlist =new ArrayList<>();
+
                                         newlist.add(items);
 
 
                                     }
 
-                                   // Log.e("____PageNo____",""+pageNo);
+                                    Log.e("listttttt ", "LIST " + newlist.size());
 
                                     adapter.addData(newlist);
-                                    adapter.notifyDataSetChanged();
 
+//                                    isloading = true;
 
 
                                 }
-                                else {
-                                    Toast.makeText(Fashion.this,message,Toast.LENGTH_SHORT).show();
-                                }
+//                                else {
+//                                    Toast.makeText(Fashion.this,message,Toast.LENGTH_SHORT).show();
+//                                }
 
 
 

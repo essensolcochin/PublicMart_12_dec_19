@@ -1,8 +1,10 @@
 package com.example.publicmart;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -41,7 +43,7 @@ public class MainActivity extends AppCompatActivity {
     TextView reg;
     LinearLayout log;
     EditText username,password;
-    String code,message,request;
+    String code,message,request,token;
     SharedPreferences sp;
     private static final Random random = new Random();
     private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
@@ -60,16 +62,36 @@ public class MainActivity extends AppCompatActivity {
 
 
         getToken(5);
+//
+//        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+//        token =  SaveToken.getString("Token",null);
+////        Log.e("newTokennnnnnnn  ",token);
 
+        final ProgressDialog progress = new ProgressDialog(MainActivity.this);
+        progress.setTitle("Publicmart");
+        progress.setMessage("Gathering Information");
+        progress.show();
 
-        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( MainActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+        Runnable progressRunnable = new Runnable() {
+
             @Override
-            public void onSuccess(InstanceIdResult instanceIdResult) {
-                String newToken = instanceIdResult.getToken();
-                Log.e("newTokennnnnnnn  ",newToken);
+            public void run() {
 
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( MainActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        String newToken = instanceIdResult.getToken();
+                        Log.e("newTokennnnnnnn  ",newToken);
+                        token = newToken;
+                    }
+                });
+
+                progress.cancel();
             }
-        });
+        };
+
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 500);
 
 
 
@@ -96,6 +118,8 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject values = new JSONObject();
                     values.put("UserName", username.getText().toString());
                     values.put("UserPwd", password.getText().toString());
+                    values.put("AppToken", token);
+                    values.put("Mode", "M");
 
                     jsonString = new JSONObject();
                     jsonString.put("Token", "0001");

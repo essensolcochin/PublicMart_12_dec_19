@@ -22,11 +22,13 @@ import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.Switch;
+
 import android.widget.TextView;
 
 
+import com.google.firebase.iid.FirebaseInstanceId;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import io.realm.Realm;
@@ -49,6 +51,8 @@ public class BaseActivity extends AppCompatActivity {
     private ValueAdapter valueAdapter;
 
     private TextWatcher mSearchTw;
+
+
 
     public Toolbar getToolBar(){
         return toolbar;
@@ -149,6 +153,22 @@ public class BaseActivity extends AppCompatActivity {
                         break;
 
                     case R.id.logout:
+
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                try {
+                                    FirebaseInstanceId.getInstance().deleteInstanceId();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                            }
+                        }).start();
+                        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+                        SharedPreferences.Editor edit =SaveToken.edit();
+                        edit.putString("Token","");
+                        edit.apply();
+
 
                         SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
                         SharedPreferences.Editor editor = sp.edit();

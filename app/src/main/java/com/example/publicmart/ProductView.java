@@ -1,10 +1,15 @@
 package com.example.publicmart;
 
 
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Handler;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -14,10 +19,14 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,7 +43,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -46,7 +58,7 @@ import io.realm.RealmResults;
 
 public class ProductView extends BaseActivity {
 
-    TextView Product_Name,Short_Desc,Product_Details,detailed_description,Material,material_care,price,BV;
+    TextView Product_Name,Short_Desc,Product_Details,detailed_description,Material,material_care,price,BV,size,sizeTitle;
 
     private static ViewPager mPager;
     private static int currentPage = 0;
@@ -57,10 +69,17 @@ public class ProductView extends BaseActivity {
     private ArrayList<String> ImagesArray = new ArrayList<String>();
     LinearLayout wishlist;
     Button placeorder;
-    String CategoryKey,ProductKey;
+    String CategoryKey,ProductKey,quantity;
     private Realm realm;
     private RealmResults<RealmShopModel> cartSIZE;
     private ProgressBar loading;
+    private ImageView add,minus;
+    Integer count =1;
+    AnimatorSet set;
+//    String count[] = {"Qty", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
+
+    TextView Qty;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -98,6 +117,11 @@ public class ProductView extends BaseActivity {
         price = findViewById(R.id.Price);
         BV = findViewById(R.id.BV);
         loading= findViewById(R.id.loading);
+        size= findViewById(R.id.size1);
+        sizeTitle= findViewById(R.id.size);
+        add= findViewById(R.id.plus);
+        minus= findViewById(R.id.minus);
+        Qty = findViewById(R.id.quantity);
 
         loading =new ProgressBar(this);
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/ralewayM.ttf");
@@ -109,6 +133,11 @@ public class ProductView extends BaseActivity {
         Product_Name.setTypeface(custom_font2);
         Material.setTypeface(custom_font2);
         material_care.setTypeface(custom_font);
+        size.setTypeface(custom_font);
+        sizeTitle.setTypeface(custom_font2);
+
+
+
 
 
         wishlist.setOnClickListener(new View.OnClickListener() {
@@ -119,14 +148,40 @@ public class ProductView extends BaseActivity {
             }
         });
 
-        placeorder.setOnClickListener(new View.OnClickListener() {
+
+        minus.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplication(), "Your Order Has Been Placed",Toast.LENGTH_LONG).show();
+            public void onClick(View v) {
+
+                if(count <=1)
+                {
+                 Qty.setText(String.valueOf(count));
+                 Qty.setTextColor(Color.parseColor("#DC143C"));
+                }
+                else {
+                    count--;
+                    Qty.setTextColor(Color.parseColor("#475c7a"));
+                    Qty.setText(String.valueOf(count));
+                }
             }
         });
 
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                if(count >=10)
+                {
+                    Qty.setText(String.valueOf(count));
+                    Qty.setTextColor(Color.parseColor("#DC143C"));
+                }
+                else {
+                    count++;
+                    Qty.setTextColor(Color.parseColor("#475c7a"));
+                    Qty.setText(String.valueOf(count));
+                }
+            }
+        });
 
 
 
@@ -204,6 +259,19 @@ public class ProductView extends BaseActivity {
                                     price.setText(tableObject.getString("MRP"));
                                     BV.setText(tableObject.getString("BV"));
                                     detailed_description.setText(tableObject.getString("ProductDetails"));
+                                    material_care.setText(tableObject.getString("Material"));
+
+                                    if(tableObject.getString("Size").equalsIgnoreCase("null"))
+                                    {
+                                        size.setText("Not Available");
+                                        size.setTextSize(12);
+
+                                    }
+
+                                    else{
+                                        size.setBackgroundDrawable(ContextCompat.getDrawable(ProductView.this, R.drawable.circularborder));
+                                        size.setText(tableObject.getString("Size"));
+                                    }
 
                                     Log.e("Tableeeee","in"+Product_Name);
 
@@ -275,7 +343,7 @@ public class ProductView extends BaseActivity {
             }
                     ;
 
-            RequestQueue requestQueue= Volley.newRequestQueue(this);
+            RequestQueue requestQueue = Volley.newRequestQueue(this);
             requestQueue.add(stringRequest);
 
 
@@ -285,19 +353,17 @@ public class ProductView extends BaseActivity {
         }
 
         placeorder.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("ResourceType")
             @Override
             public void onClick(View v) {
 
-                AddToCart();
+                set = (AnimatorSet) AnimatorInflater.loadAnimator(ProductView.this, R.anim.flipping);
+                set.setTarget(placeorder);
 
-//                ItemCountSelectionDialog cdd = new ItemCountSelectionDialog(ProductView.this);
-//                cdd.show();
+                set.start();
 
+                PostOrderDetails();
 
-//                final SpotsDialog progress = new SpotsDialog(ProductView.this,R.style.Custom);
-//
-//
-//                progress.show();
 
 
 
@@ -395,7 +461,7 @@ public class ProductView extends BaseActivity {
            cartItem.setText(Integer.toString(cartSIZE.size()));
        }
 
-       PostOrderDetails();
+
 
    }
 
@@ -404,15 +470,22 @@ public  void PostOrderDetails()
  SharedPreferences sp = getSharedPreferences("UserLog",0);
   String CustKey =  sp.getString("UserKey",null);
 
+
+    Date todayDate = Calendar.getInstance().getTime();
+    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
+    String todayString = formatter.format(todayDate);
+
+
+
     Log.e("sharedddddddd",""+CustKey);
            try {
 
            final JSONObject jsonString;
            JSONObject values = new JSONObject();
-               values.put("OrderDate","10-2-2019");
+               values.put("OrderDate",todayString);
                values.put("CustKey",CustKey);
                values.put("ProductKey",ProductKey);
-               values.put("Qty",1);
+               values.put("Qty",Qty.getText().toString());
                values.put("Rate",price.getText().toString());
                values.put("IsCredit",false);
                values.put("OrderStatusKey",1);
@@ -471,6 +544,9 @@ public  void PostOrderDetails()
                                Log.e("codeeeeeeeeee","in"+code);
 
                                if (code.equalsIgnoreCase("-100")) {
+
+                                   AddToCart();
+                                   placeorder.setText("View Order");
 
                                    Toast.makeText(ProductView.this,"Your Order Has Been Placed",Toast.LENGTH_LONG).show();
 

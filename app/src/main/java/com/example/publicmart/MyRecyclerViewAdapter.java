@@ -81,11 +81,9 @@ public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 @Override
 public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
-final ProductModelClass List = mylist.get(position);
+    final ProductModelClass List = mylist.get(position);
 
     Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
-
-
 
 
 

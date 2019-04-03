@@ -121,11 +121,11 @@ public class SearchBar extends AppCompatActivity {
 //            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 //
 //
-//                Intent intent = new Intent(SearchBar.this, Fashion.class);
-//                intent.putExtra()
-//                startActivity(intent);
+////                Intent intent = new Intent(SearchBar.this, Fashion.class);
+////                intent.putExtra()
+////                startActivity(intent);
 //
-//                Toast.makeText(getApplicationContext(), adapter.getItem(position)., Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(), adapter.getItem(position).toString(), Toast.LENGTH_LONG).show();
 //
 //
 //            }
