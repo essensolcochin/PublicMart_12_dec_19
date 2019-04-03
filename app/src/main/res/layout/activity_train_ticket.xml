@@ -43,14 +43,62 @@
 
 
                 <!--</LinearLayout>-->
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginRight="10dp"
+                    android:padding="20dp"
+                    android:background="#D5E9E7E7"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:textColor="@color/col10"
+                        android:id="@+id/adtext1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/trainad"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/col11"
+                        android:id="@+id/adtext2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/trainad1"
+                        android:textSize="20dp" />
+
+                    <TextView
+                        android:layout_marginTop="5dp"
+                        android:textColor="#E05E5E"
+                        android:id="@+id/adtext3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="@string/trainad2"
+                        android:textSize="20dp" />
+
+
+                </LinearLayout>
+
 
 
                 <LinearLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="10dp"
+
                     android:orientation="vertical"
                     android:padding="25dp">
+
+
 
                     <!--<android.support.v7.widget.CardView-->
                     <!--app:cardCornerRadius="10dp"-->
@@ -98,7 +146,7 @@
                         android:id="@+id/name_input_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp">
+                        android:layout_marginTop="15dp">
 
 
                         <EditText

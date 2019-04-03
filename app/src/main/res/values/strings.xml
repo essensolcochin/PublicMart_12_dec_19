@@ -45,4 +45,16 @@ and declare that the above information are true.
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="flightad">Cheap Ticket !</string>
+    <string name="flightad2">100% Money Back</string>
+    <string name="flightad3">Book On Credit</string>
+
+    <string name="trainad">Minimum Service Charge</string>
+    <string name="trainad1">Easy Ticket Reservation</string>
+    <string name="trainad2">Book On Credit</string>
+
+    <string name="boatad">Flat 50% OFF</string>
+    <string name="boattad2">Finest Facilities &amp; Care</string>
+    <string name="boatad3">24x7 Customer Support</string>
+
 </resources>
