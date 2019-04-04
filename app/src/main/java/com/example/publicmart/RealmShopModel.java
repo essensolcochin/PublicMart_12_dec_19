@@ -7,15 +7,15 @@ import io.realm.annotations.PrimaryKey;
 public class RealmShopModel extends RealmObject {
 
     private @PrimaryKey
-    String ProductKey ;
+    String Count;
    // String ProductCode,BrandName,ShortDesc,ProductDetails;
 
     public RealmShopModel() {
 
     }
 
-    public RealmShopModel(String productKey /* String productCode, String brandName, String shortDesc, String productDetails*/) {
-        ProductKey = productKey;
+    public RealmShopModel(String count /* String productCode, String brandName, String shortDesc, String productDetails*/) {
+        Count = count;
 //        ProductCode = productCode;
 //        BrandName = brandName;
 //        ShortDesc = shortDesc;
@@ -23,12 +23,12 @@ public class RealmShopModel extends RealmObject {
     }
 
 
-    public String getProductKey() {
-        return ProductKey;
+    public String getCount() {
+        return Count;
     }
 
-    public void setProductKey(String productKey) {
-        ProductKey = productKey;
+    public void setCount(String count) {
+        Count = count;
     }
 
 //    public String getProductCode() {

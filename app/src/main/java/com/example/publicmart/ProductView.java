@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
-import android.os.Handler;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.PagerAdapter;
@@ -19,14 +18,11 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
-import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -48,10 +44,8 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-import dmax.dialog.SpotsDialog;
 import io.realm.Realm;
 import io.realm.RealmResults;
 
@@ -97,7 +91,6 @@ public class ProductView extends BaseActivity {
 
         cartSIZE = realm.where(RealmShopModel.class).findAll();
         cartSIZE.load();
-
 
 
 
@@ -362,6 +355,16 @@ public class ProductView extends BaseActivity {
 
                 set.start();
 
+                if(placeorder.getText().toString().equalsIgnoreCase("View Order"))
+                {
+                    SharedPreferences sp = getSharedPreferences("UserLog",0);
+                    String CustKey =  sp.getString("CustKey",null);
+
+                    Intent intent = new Intent(ProductView.this,OrderStatus.class);
+                    intent.putExtra("CustKey",CustKey);
+                    startActivity(intent);
+                }
+
                 PostOrderDetails();
 
 
@@ -414,7 +417,11 @@ public class ProductView extends BaseActivity {
         else
         {
             cartItem.setVisibility(View.VISIBLE);
-            cartItem.setText(Integer.toString(cartSIZE.size()));
+            for(int i=0;i<cartSIZE.size();i++) {
+                if (cartSIZE.get(i) != null) {
+                    cartItem.setText(cartSIZE.get(i).getCount());
+                }
+            }
         }
 
         return  true;
@@ -440,13 +447,13 @@ public class ProductView extends BaseActivity {
 
 
 
-    public  void AddToCart()
+    public  void AddToCart(String Count)
    {
 
        realm.beginTransaction();
 
        RealmShopModel addToCart1 = new RealmShopModel();
-       addToCart1.setProductKey(ProductKey);
+       addToCart1.setCount(Count);
        realm.insertOrUpdate(addToCart1);
 
        realm.commitTransaction();
@@ -458,7 +465,11 @@ public class ProductView extends BaseActivity {
        else
        {
            cartItem.setVisibility(View.VISIBLE);
-           cartItem.setText(Integer.toString(cartSIZE.size()));
+           for(int i=0;i<cartSIZE.size();i++) {
+               if (cartSIZE.get(i) != null) {
+                   cartItem.setText(cartSIZE.get(i).getCount());
+               }
+           }
        }
 
 
@@ -545,8 +556,9 @@ public  void PostOrderDetails()
                                Log.e("codeeeeeeeeee","in"+code);
 
                                if (code.equalsIgnoreCase("-100")) {
+                                   String Count =o.getString("Count");
 
-                                   AddToCart();
+                                   AddToCart(Count);
                                    placeorder.setText("View Order");
 
                                    Toast.makeText(ProductView.this,"Your Order Has Been Placed",Toast.LENGTH_LONG).show();

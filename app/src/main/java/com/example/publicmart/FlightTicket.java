@@ -103,7 +103,9 @@ public class FlightTicket extends BaseActivity{
         toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-
+        android.support.v7.widget.Toolbar tb=getToolBar();
+        txtxmpny=(TextView)tb.findViewById(R.id.appname);
+        txtxmpny.setText("Flight Booking");
 
         rg = (RadioGroup)findViewById(R.id.radiogrp);
 

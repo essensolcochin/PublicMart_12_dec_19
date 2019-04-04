@@ -36,6 +36,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
 
+import io.realm.Realm;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -45,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
     EditText username,password;
     String code,message,request,token;
     SharedPreferences sp;
+    Realm realm;
     private static final Random random = new Random();
     private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
 
@@ -59,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
         username= (EditText) findViewById(R.id.username);
         password= (EditText) findViewById(R.id.password);
 
-
+        realm = Realm.getDefaultInstance();
 
         getToken(5);
 //
@@ -219,8 +221,23 @@ public class MainActivity extends AppCompatActivity {
 
                                 Log.e("tryyyyyyyyy","  "+jsonObject.get("UserKey"));
 
+                                String Count = jsonObject.get("CartCount").toString();
+
+                                if(!Count.equalsIgnoreCase("0"))
+                                {
+                                    realm.beginTransaction();
+                                    RealmShopModel addToCart1 = new RealmShopModel();
+                                    addToCart1.setCount(Count);
+                                    realm.insertOrUpdate(addToCart1);
+                                    realm.commitTransaction();
+                                }
+
+
+
+
                                 sp = getSharedPreferences("UserLog",MODE_PRIVATE);
                                 SharedPreferences.Editor editor =sp.edit();
+
 
                                 editor.putString("UserKey",jsonObject.get("UserKey").toString());
                                 editor.putString("CustKey",jsonObject.get("CustKey").toString());

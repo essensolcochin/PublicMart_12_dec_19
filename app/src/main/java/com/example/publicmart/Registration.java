@@ -217,14 +217,17 @@ public class Registration extends AppCompatActivity {
         regist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
                 if (TextUtils.isEmpty(fname.getText()))
                 {
-                    fname.setFocusable(true);
+                    fname.requestFocus();
                     fname.setError("Field is Mandatory");
                 }
 
-                 if(TextUtils.isEmpty(lname.getText()))
+                else if(TextUtils.isEmpty(lname.getText()))
                 {
+                    lname.requestFocus();
                     lname.setError("Field is Mandatory");
                 }
 //                 if(TextUtils.isEmpty(house_no.getText()))
@@ -240,17 +243,19 @@ public class Registration extends AppCompatActivity {
 //                {
 //                    district.setError("Field is Mandatory");
 //                }
-                 if(TextUtils.isEmpty(pincode.getText()))
+                else  if(TextUtils.isEmpty(pincode.getText()))
                 {
+                    pincode.requestFocus();
                     pincode.setError("Field is Mandatory");
                 }
-                 if(TextUtils.isEmpty(contact_no.getText()))
+                else if(TextUtils.isEmpty(contact_no.getText()))
                 {
+                    contact_no.requestFocus();
                     contact_no.setError("Field is Mandatory");
                 }
-                 if(TextUtils.isEmpty(email.getText()))
+                else if(TextUtils.isEmpty(email.getText()))
                 {
-                    ////dddd
+                    email.requestFocus();
                     email.setError("Field is Mandatory");
                 }
 //                 if(TextUtils.isEmpty(sponsership_id.getText()))
@@ -266,16 +271,19 @@ public class Registration extends AppCompatActivity {
 //                {
 //                    relationship.setError("Field is Mandatory");
 //                }
-                 if(TextUtils.isEmpty  (username.getText()))
+                else if(TextUtils.isEmpty  (username.getText()))
                 {
+                    username.requestFocus();
                     username.setError("Field is Mandatory");
                 }
-                 if(TextUtils.isEmpty  (password.getText()))
+                else if(TextUtils.isEmpty  (password.getText()))
                 {
+                    password.requestFocus();
                     password.setError("Field is Mandatory");
                 }
-                 if(!password.getText().toString().equals(cnfmpassword.getText().toString()))
+                else if(!password.getText().toString().equals(cnfmpassword.getText().toString()))
                 {
+                    cnfmpassword.requestFocus();
                     cnfmpassword.setError("Not Matching");
                 }
 

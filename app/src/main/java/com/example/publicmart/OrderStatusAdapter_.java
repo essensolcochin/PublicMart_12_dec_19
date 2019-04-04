@@ -2,6 +2,7 @@ package com.example.publicmart;
 
 import android.content.Context;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PointF;
 import android.graphics.Typeface;
@@ -65,6 +66,17 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
         holder.ItemName.setText(List.getBrandName());
         holder.ItemDesc.setText(List.getShortDesc());
+
+        holder.pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, Payment.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                intent.putExtra("ProductKey",List.ProductKey);
+                context.getApplicationContext().startActivity(intent);
+            }
+        });
 
 
 

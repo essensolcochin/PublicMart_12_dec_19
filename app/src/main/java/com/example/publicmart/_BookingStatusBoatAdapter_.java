@@ -1,6 +1,7 @@
 package com.example.publicmart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
@@ -195,6 +196,19 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
                 .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(context, R.drawable.checkmark))
                 .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(context, R.drawable.radio_bg))
                 .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(context, R.drawable.radio_normal));
+
+
+
+
+        view_holder.payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, Payment.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(intent);
+            }
+        });
 
 
 

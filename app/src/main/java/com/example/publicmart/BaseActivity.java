@@ -69,7 +69,7 @@ public class BaseActivity extends AppCompatActivity {
 
         head =findViewById(R.id.appname);
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/Helvetica.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/RalewayBold.ttf");
 
         realm = Realm.getDefaultInstance();
 
@@ -77,7 +77,7 @@ public class BaseActivity extends AppCompatActivity {
         cartSIZE = realm.where(RealmShopModel.class).findAll();
         cartSIZE.load();
 
-
+        Log.e("checkinggggggggg","  inside cart "+cartSIZE);
 
         head.setTypeface(custom_font);
 
@@ -124,6 +124,7 @@ public class BaseActivity extends AppCompatActivity {
                     case R.id.hom:
                         Intent intent = new Intent(BaseActivity.this, Home.class);
                         startActivity(intent);
+                        finish();
                         drawerLayout.closeDrawers();
                         break;
                     case R.id.prof:
@@ -237,7 +238,10 @@ public class BaseActivity extends AppCompatActivity {
         else
         {
             cartItem.setVisibility(View.VISIBLE);
-            cartItem.setText(Integer.toString(cartSIZE.size()));
+            Log.e("checkinggggggggg","  inside cart "+cartSIZE.get(0).getCount());
+
+            for (int i =0;i<cartSIZE.size();i++)
+            cartItem.setText(cartSIZE.get(i).getCount());
         }
 
         return  true;

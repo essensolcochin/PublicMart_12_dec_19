@@ -35,7 +35,7 @@ public class Payment extends AppCompatActivity {
         spinner_adapter_year.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         years.setAdapter(spinner_adapter_year);
 
-    confirmPay.setOnClickListener(new View.OnClickListener() {
+        confirmPay.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
 

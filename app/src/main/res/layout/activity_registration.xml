@@ -42,6 +42,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
+    android:textColorHint="#E44E4E"
+
     >
 
             <EditText
@@ -53,10 +55,9 @@
                 android:layout_height="wrap_content"
                 android:textSize="16dp"
                 android:id="@+id/fname"
-                android:hint="First Name"
+                android:hint="First Name *"
                 android:textColor="#6B6B6B"
                 android:background="@drawable/stroke"
-                android:textColorHint="#E44E4E"
 
 
                 android:inputType="textCapSentences"
@@ -93,7 +94,9 @@
    <android.support.design.widget.TextInputLayout
          android:layout_width="match_parent"
          android:layout_height="wrap_content"
-         android:layout_marginTop="10dp">
+         android:textColorHint="#E44E4E"
+
+       android:layout_marginTop="10dp">
 
             <EditText
                 android:padding="10dp"
@@ -101,9 +104,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/lname"
-                android:hint="Last Name"
+                android:hint="Last Name *"
                 android:textColor="#6B6B6B"
-                android:textColorHint="#E44E4E"
                 android:background="@drawable/stroke"
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
@@ -293,6 +295,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_marginTop="10dp"
+                android:textColorHint="#E44E4E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -302,9 +305,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/pin"
-                android:hint="Pincode"
+                android:hint="Pincode *"
                 android:textColor="#6B6B6B"
-                android:textColorHint="#E44E4E"
                 android:background="@drawable/stroke"
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
@@ -315,6 +317,7 @@
 
             <android.support.design.widget.TextInputLayout
                 android:layout_marginTop="10dp"
+                android:textColorHint="#E44E4E"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -325,9 +328,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/contactno"
-                android:hint="Contact No"
+                android:hint="Contact No *"
                 android:textColor="#6B6B6B"
-                android:textColorHint="#E44E4E"
                 android:background="@drawable/stroke"
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
@@ -340,6 +342,7 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
+                android:textColorHint="#E44E4E"
                 android:layout_height="wrap_content">
 
             <EditText
@@ -349,9 +352,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/email"
-                android:hint="Email"
+                android:hint="Email *"
                 android:textColor="#6B6B6B"
-                android:textColorHint="#E44E4E"
                 android:background="@drawable/stroke"
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
@@ -474,10 +476,11 @@
                         android:id="@+id/oneway"
                         android:layout_width="wrap_content"
                         android:layout_height="30dp"
+
                         android:checked="true"
                         android:layout_weight="1"
                         android:textColor="@android:color/black"
-                        android:text="Gold"
+                        android:text="Gold    ( ₹ 6500 )"
                         />
 
 
@@ -491,7 +494,7 @@
                         android:layout_height="30dp"
                         android:textColor="@android:color/black"
                         android:checked="false"
-                        android:text="Silver"
+                        android:text="Silver   ( ₹ 4500 )"
                         />
 
 
@@ -503,7 +506,7 @@
                         android:layout_height="30dp"
                         android:textColor="@android:color/black"
                         android:checked="false"
-                        android:text="Bronze"
+                        android:text="Bronze( ₹ 3500 )"
 
                         />
 
@@ -520,6 +523,7 @@
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:textColorHint="#E44E4E"
                 android:layout_marginTop="10dp">
 
 
@@ -530,9 +534,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/username"
-                android:hint="UserName"
+                android:hint="UserName *"
                 android:textColor="#6B6B6B"
-                android:textColorHint="#E44E4E"
                 android:background="@drawable/stroke"
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
@@ -544,6 +547,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textColorHint="#E44E4E"
                 >
 
             <EditText
@@ -554,7 +558,6 @@
                 android:layout_height="wrap_content"
                 android:hint="Password"
                 android:textColor="#6B6B6B"
-                android:textColorHint="#E44E4E"
                 android:background="@drawable/stroke"
                 android:inputType="textPassword"
                 android:imeOptions="actionNext"/>
@@ -565,6 +568,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:textColorHint="#E44E4E"
                 >
 
             <EditText
@@ -575,7 +579,6 @@
                 android:layout_height="wrap_content"
                 android:hint="Confirm Password"
                 android:textColor="#6B6B6B"
-                android:textColorHint="#E44E4E"
                 android:background="@drawable/stroke"
                 android:inputType="textPassword"
                 android:imeOptions="actionNext"/>

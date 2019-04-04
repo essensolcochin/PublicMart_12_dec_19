@@ -73,7 +73,7 @@ public class FlightTab extends Fragment {
 private  void LoadItems()
 {
     SharedPreferences sp = getActivity().getSharedPreferences("UserLog",0);
-    String CustKey =  sp.getString("UserKey",null);
+    String CustKey =  sp.getString("CustKey",null);
 
 
        try {

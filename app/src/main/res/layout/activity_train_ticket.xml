@@ -50,7 +50,6 @@
                     android:layout_marginEnd="10dp"
                     android:layout_marginRight="10dp"
                     android:padding="20dp"
-                    android:background="#D5E9E7E7"
                     android:gravity="center"
                     android:orientation="vertical"
                     android:layout_width="match_parent"
@@ -146,45 +145,50 @@
                         android:id="@+id/name_input_layout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp">
+                        app:hintTextAppearance="@style/EditTextHint"
+                        android:layout_marginTop="5dp">
 
 
                         <EditText
+
+
                             android:id="@+id/traveler_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="5dp"
                             android:background="@drawable/stroke"
                             android:hint="Enter Passenger Name"
-                            android:padding="10dp"
-
-
                             android:paddingTop="10dp"
-
-
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
                             android:textSize="18dp" />
                     </android.support.design.widget.TextInputLayout>
 
                     <TextView
+                        android:paddingStart="5dp"
+                        android:paddingLeft="5dp"
                         android:id="@+id/header2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="12dp"
                         android:text="Date Of Birth"
                         android:textColor="@color/col7"
-                        android:textSize="12dp" />
+                        android:textSize="11.5dp" />
 
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:background="@drawable/stroke"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:orientation="horizontal">
 
                         <RelativeLayout
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/stroke">
+                            >
 
                             <Spinner
                                 android:id="@+id/bday"
@@ -195,16 +199,17 @@
                                 android:textSize="15dp" />
                         </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="50dp"
-                            android:layout_margin="5dp"
-                            android:text="/"
-                            android:textColor="@color/col5"
-                            android:textSize="30dp" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:layout_margin="5dp"-->
+                            <!--android:text="/"-->
+                            <!--android:textColor="@color/col5"-->
+                            <!--android:textSize="30dp" />-->
 
                         <RelativeLayout
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/stroke">
 
@@ -217,16 +222,17 @@
                                 android:textSize="15dp" />
                         </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="50dp"
-                            android:layout_margin="5dp"
-                            android:text="/"
-                            android:textColor="@color/col5"
-                            android:textSize="30dp" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:layout_margin="5dp"-->
+                            <!--android:text="/"-->
+                            <!--android:textColor="@color/col5"-->
+                            <!--android:textSize="30dp" />-->
 
                         <RelativeLayout
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/stroke">
 
@@ -264,13 +270,15 @@
 
 
                     <TextView
+                        android:paddingStart="5dp"
+                        android:paddingLeft="5dp"
                         android:id="@+id/header3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="12dp"
                         android:text="From"
                         android:textColor="@color/col7"
-                        android:textSize="12dp" />
+                        android:textSize="11.5dp" />
 
 
 
@@ -291,13 +299,15 @@
                     </RelativeLayout>
 
                     <TextView
+                        android:paddingStart="5dp"
+                        android:paddingLeft="5dp"
                         android:id="@+id/header4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="12dp"
                         android:text="To"
                         android:textColor="@color/col7"
-                        android:textSize="12dp" />
+                        android:textSize="11.5dp" />
 
                     <RelativeLayout
                         android:layout_width="wrap_content"
@@ -322,22 +332,26 @@
 
                     <!--android:id="@+id/to"/>-->
                     <TextView
+                        android:paddingStart="5dp"
+                        android:paddingLeft="5dp"
                         android:id="@+id/header5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
+                        android:layout_marginTop="12dp"
                         android:text="Date of Journey "
                         android:textColor="@color/col7"
-                        android:textSize="12dp" />
+                        android:textSize="11.5dp" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:background="@drawable/stroke"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
                         android:orientation="horizontal">
 
                         <RelativeLayout
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/stroke">
 
@@ -350,18 +364,19 @@
                                 android:textSize="15dp" />
                         </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="50dp"
-                            android:layout_margin="5dp"
-                            android:text="/"
-                            android:textColor="@color/col5"
-                            android:textSize="30dp" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:layout_margin="5dp"-->
+                            <!--android:text="/"-->
+                            <!--android:textColor="@color/col5"-->
+                            <!--android:textSize="30dp" />-->
 
                         <RelativeLayout
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/stroke">
+                           >
 
                             <Spinner
                                 android:id="@+id/month"
@@ -372,16 +387,17 @@
                                 android:textSize="15dp" />
                         </RelativeLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="50dp"
-                            android:layout_margin="5dp"
-                            android:text="/"
-                            android:textColor="@color/col5"
-                            android:textSize="30dp" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="50dp"-->
+                            <!--android:layout_margin="5dp"-->
+                            <!--android:text="/"-->
+                            <!--android:textColor="@color/col5"-->
+                            <!--android:textSize="30dp" />-->
 
                         <RelativeLayout
-                            android:layout_width="wrap_content"
+                            android:layout_weight="1"
+                            android:layout_width="0dp"
                             android:layout_height="wrap_content"
                             android:background="@drawable/stroke">
 
@@ -403,40 +419,36 @@
 
                     <!--Radio Button End-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="20dp"
-                        android:background="@color/col5"
-                        android:orientation="vertical"
-                        android:padding="8dp">
+                    <!--<LinearLayout-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="20dp"-->
+                        <!--android:background="@color/col5"-->
+                        <!--android:orientation="vertical"-->
+                        <!--android:padding="8dp">-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Contact Information"
-                            android:textColor="#fff"
-                            android:textSize="15dp"
-                            android:textStyle="bold" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="Contact Information"-->
+                            <!--android:textColor="#fff"-->
+                            <!--android:textSize="15dp"-->
+                            <!--android:textStyle="bold" />-->
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="Your ticket will be sent here"
-                            android:textColor="#ffff"
-                            android:textSize="10dp"
-                            android:textStyle="bold" />
+                        <!--<TextView-->
+                            <!--android:layout_width="wrap_content"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:text="Your ticket will be sent here"-->
+                            <!--android:textColor="#ffff"-->
+                            <!--android:textSize="10dp"-->
+                            <!--android:textStyle="bold" />-->
 
-                    </LinearLayout>
+                    <!--</LinearLayout>-->
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:orientation="vertical"
-                        android:paddingBottom="20dp">
+
 
                         <android.support.design.widget.TextInputLayout
+                            app:hintTextAppearance="@style/EditTextHint"
                             android:id="@+id/input_layout_email"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -450,7 +462,10 @@
                                 android:layout_marginTop="5dp"
                                 android:background="@drawable/stroke"
                                 android:hint="Enter Passenger Email ID"
-                                android:padding="10dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
                                 android:textSize="18dp" />
                         </android.support.design.widget.TextInputLayout>
                         <!--<TextView-->
@@ -462,6 +477,7 @@
                         <!--android:textColor="@android:color/black"-->
                         <!--android:text="Contact No"/>-->
                         <android.support.design.widget.TextInputLayout
+                            app:hintTextAppearance="@style/EditTextHint"
                             android:id="@+id/input_layout_contact"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -477,14 +493,15 @@
                                 android:hint="Enter Passenger Contact No"
                                 android:inputType="number"
                                 android:maxLength="10"
-                                android:padding="10dp"
-
+                                android:paddingTop="10dp"
                                 android:paddingBottom="10dp"
+                                android:paddingLeft="5dp"
+                                android:paddingRight="5dp"
                                 android:textSize="18dp" />
                         </android.support.design.widget.TextInputLayout>
 
 
-                    </LinearLayout>
+
                     <LinearLayout
                         android:layout_marginTop="15dp"
                         android:gravity="center_horizontal"
@@ -503,14 +520,14 @@
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_margin="20dp"
+                        android:layout_margin="15dp"
                         android:gravity="center_horizontal"
                         android:padding="10dp">
 
 
                         <Button
                             android:id="@+id/submitTrain"
-                            android:layout_width="150dp"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:background="@drawable/grad2"
                             android:text="Book Now"

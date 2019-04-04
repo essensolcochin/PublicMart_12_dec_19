@@ -1,11 +1,11 @@
 package com.example.publicmart;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.RecyclerView;
-import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,13 +16,11 @@ import android.widget.TextView;
 import com.baoyachi.stepview.HorizontalStepView;
 import com.baoyachi.stepview.bean.StepBean;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+
 import java.util.List;
-import java.util.Locale;
+
 
 public class BookingStatusAdapter_ extends RecyclerView.Adapter<BookingStatusAdapter_.View_holder> {
 
@@ -188,6 +186,19 @@ public class BookingStatusAdapter_ extends RecyclerView.Adapter<BookingStatusAda
                 .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(context, R.drawable.radio_pressed))
                 .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(context, R.drawable.radio_bg))
                 .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(context, R.drawable.  checkmark));
+
+
+
+        view_holder.payment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(context, Payment.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                context.getApplicationContext().startActivity(intent);
+            }
+        });
+
 
 
     }

@@ -103,16 +103,20 @@ public class TrainTicket extends BaseActivity {
         byear = findViewById(R.id.byear);
         submit_ticket=(Button)findViewById(R.id.submitTrain);
 
+        android.support.v7.widget.Toolbar tb=getToolBar();
+        TextView txtxmpny=(TextView)tb.findViewById(R.id.appname);
+        txtxmpny.setText("Train Booking");
 
-        header2 = findViewById(R.id.header2);
-        header3 = findViewById(R.id.header3);
-        header4 = findViewById(R.id.header4);
-        header5 = findViewById(R.id.header5);
-        Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/GravityBold.otf");
-        header2.setTypeface(custom_font2);
-        header3.setTypeface(custom_font2);
-        header4.setTypeface(custom_font2);
-        header5.setTypeface(custom_font2);
+
+//        header2 = findViewById(R.id.header2);
+//        header3 = findViewById(R.id.header3);
+//        header4 = findViewById(R.id.header4);
+//        header5 = findViewById(R.id.header5);
+//        Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/GravityBold.otf");
+//        header2.setTypeface(custom_font2);
+//        header3.setTypeface(custom_font2);
+//        header4.setTypeface(custom_font2);
+//        header5.setTypeface(custom_font2);
 
         traincode();
 

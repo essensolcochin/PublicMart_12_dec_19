@@ -51,7 +51,7 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
     @Override
     public void onBindViewHolder(@NonNull MenuViewHolder menuViewHolder,  int i) {
 
-        Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/RalewayBold.ttf");
+        Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
         final $ProductMenuModel List = menu_list.get(i);
 
         try {
