@@ -14,25 +14,23 @@ Dry-clean</string>
 
     <string name="Url">
 
-        http://192.168.0.30:7899/api/CommonApi/
+      http://Service.publicmart.in/api/CommonApi/
 
     </string>
 
 
     <string name="local">
+                http://192.168.0.30:7899/api/CommonApi/
 
-                        http://Service.publicmart.in/api/CommonApi/
     </string>
 
 
     <string name="ImgUrl">
-         http://192.168.0.30:7899
-
+               http://publicmart.in
     </string>
 
     <string name="LocImgUrl">
-
-               http://publicmart.in
+         http://192.168.0.30:7899
 
     </string>
 

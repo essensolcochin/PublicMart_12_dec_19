@@ -268,14 +268,14 @@ public class FlightTicket extends BaseActivity{
                 Log.e("radio",""+position);
                 Log.e("radioid",""+radioButtonID);
 
-                if (position==1)
+                if (position==0)
 
                     {
 
                      Timing = "M";
 
                      }
-                     else  if (position==2)
+                     else  if (position==1)
                        {
                       Timing = "E";
                         }
@@ -318,7 +318,9 @@ public class FlightTicket extends BaseActivity{
 
 
                    SharedPreferences sp = getSharedPreferences("UserLog",0);
-                   String CustKey =  sp.getString("UserKey",null);
+                   String CustKey =  sp.getString("CustKey",null);
+                   String UserKey =  sp.getString("UserKey",null);
+
 
 //hhhhhhhh
 
@@ -338,7 +340,7 @@ public class FlightTicket extends BaseActivity{
                values.put("ContactNo", contact_no.getText().toString());
                values.put("BookingStatusKey", 1);
                values.put("Status", true);
-               values.put("CreatedBy",Integer.parseInt(CustKey));
+               values.put("CreatedBy",Integer.parseInt(UserKey));
 
                jsonString = new JSONObject();
                jsonString.put("Token", "0001");

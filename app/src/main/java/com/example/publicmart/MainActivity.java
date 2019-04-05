@@ -245,9 +245,26 @@ public class MainActivity extends AppCompatActivity {
                                 editor.apply();
                                 Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
                                 Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
-                                Intent intent =new Intent(MainActivity.this,Payment.class);
-                                startActivity(intent);
-                                finish();
+
+
+                                if(jsonObject.get("PaidStatus").toString().equalsIgnoreCase("True"))
+                                {
+                                    SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                    SharedPreferences.Editor edit = sp.edit();
+                                    edit.putBoolean("LoggedUser",true);
+                                    edit.apply();
+                                    Intent intent =new Intent(MainActivity.this,Home.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+                                else{
+
+                                    Intent intent =new Intent(MainActivity.this,Payment.class);
+                                    startActivity(intent);
+                                    finish();
+                                    }
+
 
 
                             }

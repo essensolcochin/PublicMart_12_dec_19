@@ -86,7 +86,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
 
 
         List<StepBean> stepsBeanList = new ArrayList<>();
-        String state = List.getBookingStatusKey();
+        String state = List.getBookingStatusName();
 
 
         view_holder.stepBean0 = new StepBean() ;
@@ -112,16 +112,16 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
 
 
 
-        if(state =="Pending"){
-            view_holder.status.setText("Pending");
+
+        if(state.equalsIgnoreCase("Pending")){
             view_holder.payment.setVisibility(View.GONE);
             view_holder.stepBean0.setState(0);
             view_holder.stepBean0.setName("Pending");
-            view_holder.stepBean1.setName("OrderConfirmed");
+            view_holder.stepBean1.setName("Approved");
             view_holder. stepBean1.setState(-1);
             view_holder.stepBean2.setName("Payment");
             view_holder.stepBean2.setState(-1);
-            view_holder.stepBean3.setName("ProductShipping");
+            view_holder.stepBean3.setName("Booked");
             view_holder. stepBean3.setState(-1);
             view_holder.stepBean4.setName("Delivered");
             view_holder. stepBean4.setState(-1);
@@ -129,58 +129,57 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
 
 
         }
-        else  if(state=="Order Confirmed"){
-            view_holder.status.setText("Order Confirmed");
+        else  if(state.equalsIgnoreCase("Booking Confirmed")){
             view_holder. payment.setVisibility(View.VISIBLE);
             view_holder.stepBean0.setState(1);
             view_holder.stepBean0.setName("Pending");
-            view_holder. stepBean1.setName("OrderConfirmed");
+            view_holder. stepBean1.setName("Approved");
             view_holder.stepBean1.setState(0);
             view_holder. stepBean2.setName("Payment");
             view_holder.stepBean2.setState(-1);
-            view_holder.stepBean3.setName("ProductShipping");
+            view_holder.stepBean3.setName("Booked");
             view_holder.stepBean3.setState(-1);
             view_holder.stepBean4.setName("Delivered");
             view_holder.stepBean4.setState(-1);
         }
-        else  if(state=="Amount Paid"){
-            view_holder.status.setText("Amount Paid");
+        else  if(state.equalsIgnoreCase("Ticket Booked")){
+
             view_holder. payment.setVisibility(View.GONE);
             view_holder.stepBean0.setState(1);
             view_holder.stepBean0.setName("Pending");
-            view_holder.stepBean1.setName("OrderConfirmed");
+            view_holder.stepBean1.setName("Approved");
             view_holder.stepBean1.setState(1);
-            view_holder.stepBean2.setName("Amount Paid");
+            view_holder.stepBean2.setName("Payment");
             view_holder.stepBean2.setState(0);
-            view_holder.stepBean3.setName("ProductShipping");
+            view_holder.stepBean3.setName("Booked");
             view_holder.stepBean3.setState(-1);
             view_holder.stepBean4.setName("Delivered");
             view_holder.stepBean4.setState(-1);
         }
-        else  if(state=="Product Shipping"){
-            view_holder.status.setText("Shipping");
+        else  if(state.equalsIgnoreCase("Ticket Delivered")){
+
             view_holder. payment.setVisibility(View.GONE);
             view_holder.stepBean0.setState(1);
             view_holder.stepBean0.setName("Pending");
-            view_holder. stepBean1.setName("OrderConfirmed");
+            view_holder. stepBean1.setName("Approved");
             view_holder.stepBean1.setState(1);
             view_holder. stepBean2.setName("Payment");
             view_holder.stepBean2.setState(1);
-            view_holder.stepBean3.setName("ProductShipping");
+            view_holder.stepBean3.setName("Booked");
             view_holder.stepBean3.setState(0);
             view_holder.stepBean4.setName("Delivered");
             view_holder. stepBean4.setState(-1);
         }
-        else  if(state=="Product Delivered"){
-            view_holder.status.setText("Delivered");
+        else  if(state.equalsIgnoreCase("Feedback")){
+
             view_holder. payment.setVisibility(View.GONE);
             view_holder.stepBean0.setState(1);
             view_holder.stepBean0.setName("Pending");
-            view_holder. stepBean1.setName("OrderConfirmed");
+            view_holder. stepBean1.setName("Approved");
             view_holder.stepBean1.setState(1);
             view_holder. stepBean2.setName("Payment");
             view_holder.stepBean2.setState(1);
-            view_holder.stepBean3.setName("ProductShipping");
+            view_holder.stepBean3.setName("Booked");
             view_holder.stepBean3.setState(1);
             view_holder.stepBean4.setName("Delivered");
             view_holder. stepBean4.setState(0);
@@ -188,14 +187,15 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
 
 
         view_holder.horizontalStepView.setStepViewTexts(stepsBeanList)
-                .setTextSize(16)//set textSize
+                .setTextSize(10)//set textSize
+
                 .setStepsViewIndicatorCompletedLineColor(ContextCompat.getColor(context, android.R.color.black))
                 .setStepsViewIndicatorUnCompletedLineColor(ContextCompat.getColor(context, R.color.col5))
                 .setStepViewComplectedTextColor(ContextCompat.getColor(context, R.color.col5))
-                .setStepViewUnComplectedTextColor(ContextCompat.getColor(context, R.color.uncompleted_text_color))
-                .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(context, R.drawable.checkmark))
+                .setStepViewUnComplectedTextColor(ContextCompat.getColor(context, R.color.col5))
+                .setStepsViewIndicatorCompleteIcon(ContextCompat.getDrawable(context, R.drawable.radio_pressed))
                 .setStepsViewIndicatorDefaultIcon(ContextCompat.getDrawable(context, R.drawable.radio_bg))
-                .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(context, R.drawable.radio_normal));
+                .setStepsViewIndicatorAttentionIcon(ContextCompat.getDrawable(context, R.drawable.  checkmark));
 
 
 

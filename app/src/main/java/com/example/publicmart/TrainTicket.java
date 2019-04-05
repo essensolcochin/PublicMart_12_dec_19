@@ -285,7 +285,8 @@ public class TrainTicket extends BaseActivity {
                 } else {
 
                     SharedPreferences sp = getSharedPreferences("UserLog",0);
-                    String CustKey =  sp.getString("UserKey",null);
+                    String CustKey =  sp.getString("CustKey",null);
+                    String UserKey =  sp.getString("UserKey",null);
                     ////////////////////////////////////////////////////////////////////
 
                     try {
@@ -302,7 +303,7 @@ public class TrainTicket extends BaseActivity {
                         values.put("ContactNo", Contact_no.getText().toString());
                         values.put("BookingStatusKey", 1);
                         values.put("Status", true);
-                        values.put("CreatedBy", Integer.parseInt(CustKey));
+                        values.put("CreatedBy", Integer.parseInt(UserKey));
                         jsonString = new JSONObject();
                         jsonString.put("Token", "0001");
                         jsonString.put("call", "SaveTrainBooking");

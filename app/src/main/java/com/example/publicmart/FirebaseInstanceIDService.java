@@ -45,14 +45,17 @@ public class FirebaseInstanceIDService  extends FirebaseMessagingService {
                 (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         int notificationId = new Random().nextInt(60000);
         //Setting up Notification channels for android O and above
+
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
 
 
             NotificationCompat.Builder notification = new NotificationCompat.Builder(this, CHANNEL_ID)
                     .setContentTitle(remoteMessage.getNotification().getTitle())
                     .setContentText(remoteMessage.getNotification().getBody())
-                    .setSmallIcon(R.mipmap.ic_launcher);
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setChannelId(CHANNEL_ID)
 //                    .setContentIntent(pendingIntent);
+                    .setVibrate(new long[]{0,400,200,400});
             notificationManager.notify(notificationId, notification.build());
 
 
@@ -65,13 +68,22 @@ public class FirebaseInstanceIDService  extends FirebaseMessagingService {
 
 
 
+
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(this)
                         .setSmallIcon(R.mipmap.ic_launcher)
                         .setContentTitle(remoteMessage.getNotification().getTitle())
                         .setContentText(remoteMessage.getNotification().getBody())
 //                        .setContentIntent(pendingIntent)
-                        .setVibrate(new long[]{500, 500, 500, 500, 500});
+                        .setVibrate(new long[]{0,400,200,400});
+
+
+        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            mBuilder.setSmallIcon(R.drawable.publicmartlogo);
+            mBuilder.setColor(Color.parseColor("#FFFFFF"));
+        } else {
+            mBuilder.setSmallIcon(R.mipmap.ic_launcher);
+        }
 
 
         NotificationManager mNotificationManager = (NotificationManager) this.getSystemService(Context.NOTIFICATION_SERVICE);

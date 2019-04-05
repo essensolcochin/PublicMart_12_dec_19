@@ -112,21 +112,29 @@ public class Registration extends AppCompatActivity {
                 Log.e("radio",""+position);
                 Log.e("radioid",""+radioButtonID);
 
-                if (position==1)
+                switch (position) {
 
-                {
+                    case 0:
+                        Log.e("positionnnn", " " + position);
+                        Membership_Type = 1;
+                        Log.e("positionnnn", "Membership_Type" + Membership_Type);
 
-                    Membership_Type = 1;
+                        break;
 
-                }
-                else  if (position==2)
-                {
-                    Membership_Type = 2;
-                }
-                else if(position==3)
-                {
-                    Membership_Type = 3;
+                    case 1:
 
+                        Log.e("positionnnn", " " + position);
+                        Membership_Type = 2;
+                        Log.e("positionnnn", "Membership_Type" + Membership_Type);
+                        break;
+                    case 2:
+
+                        Log.e("positionnnn", " " + position);
+                        Membership_Type = 3;
+                        Log.e("positionnnn", "Membership_Type" + Membership_Type);
+                        break;
+                        default:
+                            break;
                 }
 
             }
