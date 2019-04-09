@@ -384,37 +384,37 @@ public class FlightTicket extends BaseActivity{
 
 
 
-    private void init() {
-
-
-        for (int i = 0; i < IMAGES.length; i++)
-            TextArray.add(IMAGES[i]);
-        mPager = findViewById(R.id.viewflipper1);
-
-        PagerAdapter adapter = new SlidingText_Adapter_Flight(FlightTicket.this, TextArray);
-        mPager.setAdapter(adapter);
-        Log.e("textsizeeeee","flight "+TextArray.size());
-        NUM_PAGES = IMAGES.length;
-        // Auto start of viewpager
-        final Handler handler = new Handler();
-        final Runnable Update = new Runnable() {
-            public void run() {
-                if (currentPage == NUM_PAGES) {
-
-                    currentPage = 0;
-                }
-                mPager.setCurrentItem(currentPage++, true);
-            }
-        };
-        Timer swipeTimer = new Timer();
-        swipeTimer.schedule(new TimerTask() {
-            @Override
-            public void run() {
-                handler.post(Update);
-            }
-        }, 2000, 5000);
-
-    }
+//    private void init() {
+//
+//
+//        for (int i = 0; i < IMAGES.length; i++)
+//            TextArray.add(IMAGES[i]);
+//        mPager = findViewById(R.id.viewflipper1);
+//
+//        PagerAdapter adapter = new SlidingText_Adapter_Flight(FlightTicket.this, TextArray);
+//        mPager.setAdapter(adapter);
+//        Log.e("textsizeeeee","flight "+TextArray.size());
+//        NUM_PAGES = IMAGES.length;
+//        // Auto start of viewpager
+//        final Handler handler = new Handler();
+//        final Runnable Update = new Runnable() {
+//            public void run() {
+//                if (currentPage == NUM_PAGES) {
+//
+//                    currentPage = 0;
+//                }
+//                mPager.setCurrentItem(currentPage++, true);
+//            }
+//        };
+//        Timer swipeTimer = new Timer();
+//        swipeTimer.schedule(new TimerTask() {
+//            @Override
+//            public void run() {
+//                handler.post(Update);
+//            }
+//        }, 2000, 5000);
+//
+//    }
 
 
 

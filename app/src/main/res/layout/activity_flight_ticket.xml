@@ -132,6 +132,8 @@
 
 
                 <EditText
+                    android:imeOptions="actionDone"
+                    android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="@drawable/stroke"
@@ -457,12 +459,14 @@
             <android.support.design.widget.TextInputLayout
                 app:hintTextAppearance="@style/EditTextHint"
                 android:id="@+id/email_input_layout"
+                android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">
 
 
                 <EditText
+                    android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingTop="10dp"
@@ -479,6 +483,7 @@
             <android.support.design.widget.TextInputLayout
                 app:hintTextAppearance="@style/EditTextHint"
                 android:id="@+id/contact_input_layout"
+                android:imeOptions="actionDone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp">

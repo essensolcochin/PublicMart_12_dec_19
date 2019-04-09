@@ -150,8 +150,8 @@
 
 
                         <EditText
-
-
+                            android:imeOptions="actionDone"
+                            android:inputType="text"
                             android:id="@+id/traveler_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
@@ -451,11 +451,13 @@
                             app:hintTextAppearance="@style/EditTextHint"
                             android:id="@+id/input_layout_email"
                             android:layout_width="match_parent"
+                            android:imeOptions="actionNext"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp">
 
 
                             <EditText
+                                android:inputType="textEmailAddress"
                                 android:id="@+id/email"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -479,6 +481,7 @@
                         <android.support.design.widget.TextInputLayout
                             app:hintTextAppearance="@style/EditTextHint"
                             android:id="@+id/input_layout_contact"
+                            android:imeOptions="actionDone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="12dp">

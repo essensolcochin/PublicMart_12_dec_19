@@ -40,7 +40,7 @@ public class BaseActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private ActionBarDrawerToggle toggle;
     public Toolbar toolbar;
-    public TextView head;
+    public TextView head,prof,profname,number,memtype;
     private ImageView search,cart;
     private NavigationView navigationView;
     private ListView mSearchNFilterLv;
@@ -108,6 +108,22 @@ public class BaseActivity extends AppCompatActivity {
         toggle= new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.Open,R.string.Close);
         drawerLayout.addDrawerListener(toggle);
 
+
+        SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+
+
+        View headerView = navigationView.getHeaderView(0);
+        prof = (TextView) headerView.findViewById(R.id.profPic);
+        profname = (TextView) headerView.findViewById(R.id.profName);
+        number = (TextView) headerView.findViewById(R.id.profNo);
+        memtype = (TextView) headerView.findViewById(R.id.menType);
+
+        profname.setText(sp.getString("CustomerName",null));
+        number.setText(sp.getString("CustCode",null));
+        prof.setText(sp.getString("CustomerName",null).substring(0,1));
+        memtype.setText(sp.getString("MemberShip",null));
+
+
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
 
@@ -166,10 +182,10 @@ public class BaseActivity extends AppCompatActivity {
                                 }
                             }
                         }).start();
-                        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
-                        SharedPreferences.Editor edit =SaveToken.edit();
-                        edit.putString("Token","");
-                        edit.apply();
+//                        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+//                        SharedPreferences.Editor edit =SaveToken.edit();
+//                        edit.putString("Token","");
+//                        edit.apply();
 
 
                         SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);

@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
     String code,message,request,token;
     SharedPreferences sp;
     Realm realm;
+    private    ProgressDialog progressdialog;
     private static final Random random = new Random();
     private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
 
@@ -62,6 +63,9 @@ public class MainActivity extends AppCompatActivity {
         password= (EditText) findViewById(R.id.password);
 
         realm = Realm.getDefaultInstance();
+
+
+        progressdialog = new ProgressDialog(MainActivity.this);
 
         getToken(5);
 //
@@ -112,7 +116,9 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
 
 
-
+                progressdialog.setTitle("Publicmart");
+                progressdialog.setMessage("Gathering Information");
+                progressdialog.show();
 
 
                 try {
@@ -179,8 +185,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                         Log.e("Jsonnnn",""+response);
-                       // p1.dismiss();
-
+                        progressdialog.cancel();
                         try {
 
 
@@ -200,10 +205,6 @@ public class MainActivity extends AppCompatActivity {
 
                             Log.e("tryyyyyyyyy","in"+o);
 
-//                            JSONArray json_array2 = o.getJSONArray("result");
-//                            Log.e("tryyyyyyyyy",""+json_array2);
-//
-//                            JSONObject jsonObject = json_array2.getJSONObject(0);
                             code = o.getString("responseCode");
                             message=o.getString("responseMessage");
 
@@ -242,6 +243,9 @@ public class MainActivity extends AppCompatActivity {
                                 editor.putString("UserKey",jsonObject.get("UserKey").toString());
                                 editor.putString("CustKey",jsonObject.get("CustKey").toString());
                                 editor.putString("Username",jsonObject.get("UserName").toString());
+                                editor.putString("CustomerName",jsonObject.get("CustomerName").toString());
+                                editor.putString("CustCode",jsonObject.get("CustCode").toString());
+                                editor.putString("MemberShip",jsonObject.get("MemberShip").toString());
                                 editor.apply();
                                 Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
                                 Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
@@ -288,6 +292,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
+                        progressdialog.show();
                         Toast.makeText(getApplicationContext(), "No Response From Server ", Toast.LENGTH_LONG).show();
 
                     }
@@ -310,7 +315,6 @@ public class MainActivity extends AppCompatActivity {
         }
                 ;
 
-        // Volley.getInstance(this).addToRequestQueue(stringRequest);
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 

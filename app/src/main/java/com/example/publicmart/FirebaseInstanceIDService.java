@@ -3,12 +3,12 @@ package com.example.publicmart;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
-import android.content.SharedPreferences;
+
 import android.graphics.Color;
-import android.media.RingtoneManager;
-import android.net.Uri;
+
+
 import android.os.Build;
-import android.support.annotation.RequiresApi;
+
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
@@ -28,17 +28,16 @@ public class FirebaseInstanceIDService  extends FirebaseMessagingService {
         super.onNewToken(s);
         Log.e("NEW_TOKEN",s);
 
-        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
-        SharedPreferences.Editor editor =SaveToken.edit();
-        editor.putString("Token",s);
-        editor.apply();
+//        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+//        SharedPreferences.Editor editor =SaveToken.edit();
+//        editor.putString("Token",s);
+//        editor.apply();
     }
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
-//        Log.e("NEW_TOKEN",remoteMessage.getNotification().getTitle());
 
 
         notificationManager =
@@ -113,21 +112,21 @@ public class FirebaseInstanceIDService  extends FirebaseMessagingService {
 
 
     }
-    @RequiresApi(api = Build.VERSION_CODES.O)
-    private void setupChannels(){
-        CharSequence adminChannelName = "Publicmart";
-        String adminChannelDescription = "Shoppingapp";
-
-        NotificationChannel adminChannel;
-        adminChannel = new NotificationChannel(CHANNEL_ID, adminChannelName, NotificationManager.IMPORTANCE_LOW);
-        adminChannel.setDescription(adminChannelDescription);
-        adminChannel.enableLights(true);
-        adminChannel.setLightColor(Color.RED);
-        adminChannel.enableVibration(true);
-        if (notificationManager != null) {
-            notificationManager.createNotificationChannel(adminChannel);
-        }
-    }
+//    @RequiresApi(api = Build.VERSION_CODES.O)
+//    private void setupChannels(){
+//        CharSequence adminChannelName = "Publicmart";
+//        String adminChannelDescription = "Shoppingapp";
+//
+//        NotificationChannel adminChannel;
+//        adminChannel = new NotificationChannel(CHANNEL_ID, adminChannelName, NotificationManager.IMPORTANCE_LOW);
+//        adminChannel.setDescription(adminChannelDescription);
+//        adminChannel.enableLights(true);
+//        adminChannel.setLightColor(Color.RED);
+//        adminChannel.enableVibration(true);
+//        if (notificationManager != null) {
+//            notificationManager.createNotificationChannel(adminChannel);
+//        }
+//    }
 
     }
 
