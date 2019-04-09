@@ -81,19 +81,7 @@
                         <!--/>-->
 
 
-                  <!--<com.nex3z.notificationbadge.NotificationBadge-->
-                   <!--android:layout_marginRight="25dp"-->
-                    <!--android:layout_marginEnd="25dp"-->
-                    <!--android:layout_gravity="end"-->
-                    <!--android:id="@+id/badge"-->
-                    <!--android:textSize="10dp"-->
 
-                    <!--android:layout_width="20dp"-->
-                    <!--android:layout_height="20dp"-->
-                    <!--app:nbBackground="@drawable/badge_bg"-->
-                    <!--app:nbMaxTextLength="2">-->
-                    <!--</com.nex3z.notificationbadge.NotificationBadge>-->
-                 <!--</FrameLayout>-->
 
 
 
