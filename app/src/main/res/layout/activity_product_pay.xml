@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.NestedScrollView
+    android:fillViewport="true"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".ProductPay">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+    <com.facebook.drawee.view.SimpleDraweeView
+        android:id="@+id/productImage"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp" />
+    <LinearLayout
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="0dp">
+        <TextView
+            android:layout_marginTop="10dp"
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:gravity="start"
+            android:textSize="16dp"
+            android:textColor="#030303"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/product_desc"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="15dp"
+            android:textColor="#666666"
+            />
+        <LinearLayout
+            android:layout_marginTop="5dp"
+            android:padding="5dp"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:orientation="horizontal">
+            <TextView
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="₹"
+                android:textColor="@color/col7"
+                android:textSize="20dp" />
+
+            <TextView
+                android:id="@+id/Price"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/col7"
+                android:textSize="20dp" />
+
+            <TextView
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BV"
+                android:textColor="@color/col10"
+                android:textSize="20dp" />
+
+
+            <TextView
+                android:id="@+id/BV"
+                android:layout_marginLeft="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/col10"
+                android:textSize="20dp" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/product_detail"
+
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="PRODUCT DETAILS"
+            android:textSize="16dp"
+            android:textColor="#030303"
+            android:textStyle="bold" />
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/detail_desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="13dp"
+            android:textColor="#666666"
+            />
+
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/size"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:text="SIZE"
+            android:textSize="16dp"
+            android:textColor="#030303"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_gravity="start"
+            android:id="@+id/size1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="13dp"
+            android:textColor="#666666"
+            />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/Qty"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="QTY"
+            android:textSize="16dp"
+            android:textColor="#030303"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_marginTop="5dp"
+            android:id="@+id/Qty1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:textSize="13dp"
+            android:textColor="#666666"
+            />
+
+
+        <TextView
+            android:text="PROCEED TO PAY"
+            android:padding="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/grad2"
+            android:layout_marginTop="5dp"
+            android:id="@+id/payment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="13dp"
+            android:textColor="@android:color/white"
+            />
+
+
+
+    </LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>

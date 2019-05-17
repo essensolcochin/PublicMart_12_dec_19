@@ -282,7 +282,7 @@
                     android:layout_gravity="center"
                     android:layout_marginTop="10dp"
                     android:gravity="start"
-                    android:text="SHOPPING LIST"
+                    android:text="SHOPPING HISTORY"
                     android:textColor="@color/col10"
                     android:textSize="15dp"
                     android:textStyle="bold" />

@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.publicmart">
+    package="com.essensol.publicmart">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.VIBRATE" />
+
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -14,7 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MenuDirect"></activity>
+        <activity android:name=".ProductPay"></activity>
+        <activity android:name=".WebViewActivity" />
+        <activity android:name=".MenuDirect" />
         <activity android:name=".TabActivity" />
         <activity android:name=".Splash_Screen">
             <intent-filter>
@@ -26,7 +29,6 @@
         <activity android:name=".Shopping_List" />
         <activity android:name=".CreditActivity" />
         <activity android:name=".TestActivity" />
-        <activity android:name=".FashionCategory" />
         <activity android:name=".HouseBoat" />
         <activity android:name=".TrainTicket" />
         <activity android:name=".Profile" />
@@ -45,7 +47,7 @@
         <activity android:name=".Registration" />
         <activity android:name=".MainActivity" />
         <activity android:name=".Edit_Profile" />
-
+        <activity android:name=".StatusActivity" />
 
         <service
             android:name=".FirebaseInstanceIDService"
@@ -54,7 +56,6 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
 
         <meta-data
             android:name="io.fabric.ApiKey"
