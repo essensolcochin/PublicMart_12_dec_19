@@ -307,18 +307,18 @@
                                 android:text="Day (11 am - 5 pm)"
                                 android:textColor="@android:color/black" />
 
-                            <RadioButton
+                            <!--<RadioButton-->
 
-                                android:id="@+id/nightcruise"
-                                android:layout_width="wrap_content"
-                                android:layout_height="30dp"
-                                android:layout_marginLeft="5dp"
-                                android:layout_marginStart="5dp"
-                                android:buttonTint="@color/col7"
-                                android:checked="false"
-                                android:text="Night (5 pm - 11 pm)"
-                                android:textColor="@android:color/black"
-                                />
+                                <!--android:id="@+id/nightcruise"-->
+                                <!--android:layout_width="wrap_content"-->
+                                <!--android:layout_height="30dp"-->
+                                <!--android:layout_marginLeft="5dp"-->
+                                <!--android:layout_marginStart="5dp"-->
+                                <!--android:buttonTint="@color/col7"-->
+                                <!--android:checked="false"-->
+                                <!--android:text="Night (5 pm - 11 pm)"-->
+                                <!--android:textColor="@android:color/black"-->
+                                <!--/>-->
 
 
                             <RadioButton
@@ -327,7 +327,8 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="30dp"
                                 android:layout_marginLeft="5dp"
-                                android:buttonTint="@color/col7"                                android:checked="false"
+                                android:buttonTint="@color/col7"
+                                android:checked="false"
                                 android:text="Fullday (11 am - 11 pm)"
                                 android:textColor="@android:color/black" />
 

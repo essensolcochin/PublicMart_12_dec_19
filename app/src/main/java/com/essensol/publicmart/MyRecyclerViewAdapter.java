@@ -88,7 +88,7 @@ public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
 
     holder.Rs.setText(List.getMRP());
 
-Log.e("urlllllllllll"," "+"http://publicmart.in"+
+    Log.e("urlllllllllll"," "+"http://publicmart.in"+
     List.getImagePath());
 
 

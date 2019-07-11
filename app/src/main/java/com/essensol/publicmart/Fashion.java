@@ -42,7 +42,7 @@ public class Fashion extends BaseActivity {
     MyRecyclerViewAdapter adapter;
     GridLayoutManager layoutManager;
 
-      int pageNo= 1;
+    int pageNo= 1;
     private int ItemCount= 6;
     ProgressBar Loader ;
     private int visibleItemCount,pastVisibleItemCount,totalItemCount,previousCount= 0;

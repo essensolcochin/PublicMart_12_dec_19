@@ -3,6 +3,7 @@
     package="com.essensol.publicmart">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
@@ -15,7 +16,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".ProductPay"></activity>
+        <activity android:name=".ServicePayment"></activity>
+        <activity android:name=".ProductPay" />
         <activity android:name=".WebViewActivity" />
         <activity android:name=".MenuDirect" />
         <activity android:name=".TabActivity" />

@@ -6,47 +6,48 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="8dp"
+    android:fillViewport="true"
     android:background="#DBDADA"
     tools:context=".Profile">
 
 
     <LinearLayout
          android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:background="@color/col7"
-        android:layout_height="wrap_content"
-        android:gravity="end"
-        android:padding="5dp"
-        android:layout_gravity="end">
-
-        <TextView
-
-            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Edit"
-            android:id="@+id/edit"
-            android:textSize="20dp"
-            android:textColor="@android:color/white"
-            android:textStyle="bold|italic"
-           />
-    </LinearLayout>
+            android:orientation="vertical">
+    <!--<LinearLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:background="@color/col10"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:gravity="end"-->
+        <!--android:padding="5dp"-->
+        <!--android:layout_gravity="end">-->
+
+        <!--<TextView-->
+
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Edit"-->
+            <!--android:id="@+id/edit"-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@android:color/white"-->
+           <!--/>-->
+    <!--</LinearLayout>-->
 
             <LinearLayout
+        android:padding="10dp"
         android:layout_width="match_parent"
-        android:background="@color/col7"
+        android:background="@color/col10"
         android:orientation="horizontal"
         android:layout_height="150dp"
-                android:paddingBottom="30dp">
+        android:paddingBottom="30dp">
 
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical|start"
-            android:layout_marginStart="25dp"
-            android:layout_marginLeft="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginLeft="20dp"
             >
         <android.support.v7.widget.CardView
 
@@ -61,7 +62,6 @@
                     android:layout_gravity="center"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:text="K"
                     android:id="@+id/proicon"
                     android:textColor="@color/col10"
                     android:textSize="50dp"
@@ -95,26 +95,9 @@
                 android:textColor="@color/col10"
                 android:textSize="20dp"
                 android:textStyle="bold"
-                android:id="@+id/fname"
-                android:text="Karthik "/>
-                <TextView
-                    android:paddingLeft="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/col10"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:id="@+id/lname"
-                    android:text="Karthik "/>
-                <TextView
-                    android:paddingLeft="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/col10"
-                    android:textSize="20dp"
-                    android:textStyle="bold"
-                    android:id="@+id/mname"
-                    android:text="Karthik "/>
+                android:id="@+id/name"
+               />
+
 
 
             </LinearLayout>
@@ -122,7 +105,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="PM100017"
                 android:id="@+id/profileid"
                 android:textColor="@color/col10"
                 android:textSize="18dp" />
@@ -130,7 +112,6 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Bronze Member"
                 android:textColor="#FFC107"
                 android:textSize="18dp"
                 android:id="@+id/membership"
@@ -142,291 +123,320 @@
 
 
     </LinearLayout>
-        <android.support.v7.widget.CardView
-            android:layout_marginTop="5dp"
-            app:cardCornerRadius="5dp"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:orientation="horizontal">
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-
-
-                android:text="Main Balance "/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:text="20000 ₹"/>
-
-
-
-        </LinearLayout>
-
-
-        <LinearLayout
-
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:gravity="center_horizontal"
-            android:orientation="vertical"
-            android:layout_weight="1">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:text="Joining Amount "/>
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="18dp"
-                android:text="4000 ₹"/>
-
-
-
-        </LinearLayout>
-
-
-
-
-    </LinearLayout>
-        </android.support.v7.widget.CardView>
-
-
-    <android.support.v7.widget.CardView
-        android:layout_marginTop="5dp"
-        app:cardCornerRadius="5dp"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/frame1"
-        >
-
-        <LinearLayout
-            android:paddingLeft="5dp"
+            android:padding="20dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_weight="1"
-                android:gravity="center_vertical"
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:text="Contact Information"
-                android:textStyle="bold"
-                android:textSize="18dp"/>
-
-
-
-        </LinearLayout>
-            <LinearLayout
-                android:orientation="horizontal"
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:gravity="center"
                 android:layout_height="wrap_content"
-                android:id="@+id/cntctpersn">
+                android:layout_marginTop="5dp"
 
-                <TextView
-                    android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:layout_marginTop="0dp"
-                    android:layout_weight=".6"
-                    android:gravity="center_vertical"
+                >
+
+                <EditText
+
                     android:padding="10dp"
-                    android:text="Contact Number"
-
-                    />
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="50dp"
-                    >
-
-
-                <TextView
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="995845621"
-                    android:id="@+id/contact_number"/>
+                    android:textSize="16dp"
+                    android:id="@+id/name"
+                    android:hint="Name"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
 
-                    <EditText
-                        android:textColor="#6B6B6B"
-                        android:background="@drawable/stroke"
-                        android:visibility="gone"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:id="@+id/contact_numbered"
-                  />
-                </FrameLayout>
 
-            </LinearLayout>
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
+
+
+
+            </android.support.design.widget.TextInputLayout>
+
+
+
+            <TextView
+                android:textColor="@color/col10"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="12dp"
+                android:text="Date of Birth "/>
 
             <LinearLayout
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:layout_weight=".6"
+                <RelativeLayout
+                    android:layout_weight=".27"
                     android:layout_width="0dp"
-                    android:layout_height="50dp"
-                    android:padding="10dp"
-                    android:text="Email ID"
-                    />
-                <FrameLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="50dp"
-                    >
-
-
-                <TextView
-                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:padding="10dp"
-                    android:text="essensol.cochin@gmail.com"
-                    android:id="@+id/email_id"
-                    />
-                    <EditText
-                        android:textColor="#6B6B6B"
-                        android:background="@drawable/stroke"
-                        android:visibility="gone"
-                        android:layout_width="match_parent"
+                    android:background="@drawable/stroke">
+
+                    <Spinner
+                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+
+                        android:textSize="18dp"
                         android:padding="10dp"
-                        android:id="@+id/email_id_edit"
+                        android:id="@+id/day"
                         />
-
-                </FrameLayout>
-            </LinearLayout>
-        </LinearLayout>
-
-    </android.support.v7.widget.CardView>
-    <android.support.v7.widget.CardView
-        android:layout_marginTop="5dp"
-        app:cardCornerRadius="5dp"
-        android:paddingLeft="15dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/frame2"
-        >
-
-        <LinearLayout
-            android:paddingLeft="5dp"
-            android:orientation="vertical"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@android:color/white"
-                android:orientation="horizontal">
-
+                </RelativeLayout>
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="50dp"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:text="Shipping Information"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
+                    android:textSize="32dp"
+                    android:text="/"/>
 
+                <RelativeLayout
+                    android:layout_weight=".26"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke"
+                    >
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:id="@+id/Bmonth"
+                        />
+                </RelativeLayout>
+                <TextView
+                    android:layout_margin="5dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:textSize="32dp"
+                    android:text="/"/>
+
+                <RelativeLayout
+                    android:layout_weight=".25"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke"
+                    >
+
+                    <Spinner
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="18dp"
+                        android:padding="10dp"
+                        android:id="@+id/Byear"
+                        />
+                </RelativeLayout>
 
             </LinearLayout>
 
-
-            <LinearLayout
-                android:orientation="vertical"
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/email"
+                    android:hint="Email"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textEmailAddress"
+                    android:imeOptions="actionNext"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/address"
+                    android:hint="Address"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/contact"
+                    android:hint="Phone"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="number"
+                    android:imeOptions="actionNext"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <TextView
+                android:textColor="@color/col11"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:id="@+id/shpaddress">
+                android:layout_marginTop="20dp"
+                android:textSize="18dp"
+                android:text="Bank Details"/>
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginTop="5dp"
                     android:padding="10dp"
-                    android:id="@+id/H_no"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:padding="10dp"
-                    android:id="@+id/tehsil_"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:padding="10dp"
-                    android:id="@+id/village_"
-                    />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
-                    android:padding="10dp"
-                    android:id="@+id/district_"
+                    android:id="@+id/AcchName"
+                    android:hint="A/C Holder Name"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
                     />
 
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginTop="5dp"
                     android:padding="10dp"
-                    android:id="@+id/pin_code"/>
-
-                <TextView
-                    android:layout_width="wrap_content"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="0dp"
+                    android:id="@+id/AccNo"
+                    android:hint="A/C No."
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <EditText
+                    android:layout_marginTop="5dp"
                     android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ifsc"
+                    android:hint="IFSC code"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
 
-                    android:id="@+id/state_view"/>
+            </android.support.design.widget.TextInputLayout>
 
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/BankName"
+                    android:hint="Bank Name"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
 
+            </android.support.design.widget.TextInputLayout>
 
-            </LinearLayout>
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Branch"
+                    android:hint="Branch Name"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
+
+            </android.support.design.widget.TextInputLayout>
 
 
 
         </LinearLayout>
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="20dp"
+            android:padding="10dp"
+            android:background="@drawable/grad2"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:textColor="@android:color/white"
+                android:textSize="18dp"
+                android:text="Submit"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
 
-
-    </android.support.v7.widget.CardView>
 
         </LinearLayout>
     </ScrollView>

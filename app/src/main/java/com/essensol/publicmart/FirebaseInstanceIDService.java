@@ -4,6 +4,7 @@ import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.content.Context;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 
 
@@ -15,6 +16,9 @@ import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.Random;
 
@@ -28,16 +32,17 @@ public class FirebaseInstanceIDService  extends FirebaseMessagingService {
         super.onNewToken(s);
         Log.e("NEW_TOKEN",s);
 
-//        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
-//        SharedPreferences.Editor editor =SaveToken.edit();
-//        editor.putString("Token",s);
-//        editor.apply();
+        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+        SharedPreferences.Editor editor =SaveToken.edit();
+        editor.putString("Token",s);
+        editor.apply();
     }
 
     @Override
     public void onMessageReceived(RemoteMessage remoteMessage) {
         super.onMessageReceived(remoteMessage);
 
+//        Log.e("Json Pushssssss11111",remoteMessage.getNotification().getClickAction());
 
 
         notificationManager =

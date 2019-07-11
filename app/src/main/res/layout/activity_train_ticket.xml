@@ -142,6 +142,9 @@
                     <!--</android.support.v7.widget.CardView>-->
 
 
+
+
+
                     <android.support.design.widget.TextInputLayout
                         android:id="@+id/name_input_layout"
                         android:layout_width="match_parent"
@@ -166,88 +169,117 @@
                             android:textSize="18dp" />
                     </android.support.design.widget.TextInputLayout>
 
-                    <TextView
-                        android:paddingStart="5dp"
-                        android:paddingLeft="5dp"
-                        android:id="@+id/header2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:text="Date Of Birth"
-                        android:textColor="@color/col7"
-                        android:textSize="11.5dp" />
 
-
-                    <LinearLayout
-                        android:background="@drawable/stroke"
+                    <android.support.design.widget.TextInputLayout
+                        app:hintTextAppearance="@style/EditTextHint"
                         android:layout_width="match_parent"
+                        android:imeOptions="actionNext"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:orientation="horizontal">
+                        android:layout_marginTop="12dp">
 
-                        <RelativeLayout
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
+
+                        <EditText
+                            android:inputType="textEmailAddress"
+                            android:id="@+id/age"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            >
-
-                            <Spinner
-                                android:id="@+id/bday"
-                                android:layout_width="wrap_content"
-
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:textSize="15dp" />
-                        </RelativeLayout>
-
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="50dp"-->
-                            <!--android:layout_margin="5dp"-->
-                            <!--android:text="/"-->
-                            <!--android:textColor="@color/col5"-->
-                            <!--android:textSize="30dp" />-->
-
-                        <RelativeLayout
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/stroke">
-
-                            <Spinner
-                                android:id="@+id/bmonth"
-                                android:layout_width="wrap_content"
-
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:textSize="15dp" />
-                        </RelativeLayout>
-
-                        <!--<TextView-->
-                            <!--android:layout_width="wrap_content"-->
-                            <!--android:layout_height="50dp"-->
-                            <!--android:layout_margin="5dp"-->
-                            <!--android:text="/"-->
-                            <!--android:textColor="@color/col5"-->
-                            <!--android:textSize="30dp" />-->
-
-                        <RelativeLayout
-                            android:layout_weight="1"
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:background="@drawable/stroke">
-
-                            <Spinner
-                                android:id="@+id/byear"
-                                android:layout_width="wrap_content"
-
-                                android:layout_height="wrap_content"
-                                android:padding="10dp"
-                                android:textSize="15dp" />
-                        </RelativeLayout>
+                            android:layout_marginTop="5dp"
+                            android:background="@drawable/stroke"
+                            android:hint="Enter Passenger Age"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:paddingLeft="5dp"
+                            android:paddingRight="5dp"
+                            android:textSize="18dp" />
+                    </android.support.design.widget.TextInputLayout>
 
 
-                    </LinearLayout>
+
+
+
+
+                    <!--<TextView-->
+                        <!--android:paddingStart="5dp"-->
+                        <!--android:paddingLeft="5dp"-->
+                        <!--android:id="@+id/header2"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="12dp"-->
+                        <!--android:text="Date Of Birth"-->
+                        <!--android:textColor="@color/col7"-->
+                        <!--android:textSize="11.5dp" />-->
+
+
+                    <!--<LinearLayout-->
+                        <!--android:background="@drawable/stroke"-->
+                        <!--android:layout_width="match_parent"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:orientation="horizontal">-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:layout_width="0dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--&gt;-->
+
+                            <!--<Spinner-->
+                                <!--android:id="@+id/bday"-->
+                                <!--android:layout_width="wrap_content"-->
+
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:padding="10dp"-->
+                                <!--android:textSize="15dp" />-->
+                        <!--</RelativeLayout>-->
+
+                        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_height="50dp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_margin="5dp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="/"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:textColor="@color/col5"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:textSize="30dp" />&ndash;&gt;-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:layout_width="0dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:background="@drawable/stroke">-->
+
+                            <!--<Spinner-->
+                                <!--android:id="@+id/bmonth"-->
+                                <!--android:layout_width="wrap_content"-->
+
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:padding="10dp"-->
+                                <!--android:textSize="15dp" />-->
+                        <!--</RelativeLayout>-->
+
+                        <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_height="50dp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:layout_margin="5dp"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:text="/"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:textColor="@color/col5"&ndash;&gt;-->
+                            <!--&lt;!&ndash;android:textSize="30dp" />&ndash;&gt;-->
+
+                        <!--<RelativeLayout-->
+                            <!--android:layout_weight="1"-->
+                            <!--android:layout_width="0dp"-->
+                            <!--android:layout_height="wrap_content"-->
+                            <!--android:background="@drawable/stroke">-->
+
+                            <!--<Spinner-->
+                                <!--android:id="@+id/byear"-->
+                                <!--android:layout_width="wrap_content"-->
+
+                                <!--android:layout_height="wrap_content"-->
+                                <!--android:padding="10dp"-->
+                                <!--android:textSize="15dp" />-->
+                        <!--</RelativeLayout>-->
+
+
+                    <!--</LinearLayout>-->
 
 
                     <!--<TextView-->

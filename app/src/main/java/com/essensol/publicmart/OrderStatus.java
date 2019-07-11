@@ -1,10 +1,17 @@
 package com.essensol.publicmart;
 
+import android.app.AlertDialog;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.view.MenuItemCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
@@ -31,6 +38,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import io.realm.Realm;
+import io.realm.RealmResults;
+
 public class OrderStatus extends BaseActivity {
     HorizontalStepView horizontalStepView;
     LinearLayout ll;
@@ -41,14 +51,25 @@ public class OrderStatus extends BaseActivity {
     OrderStatusAdapter_ adapter_;
     List<OrderStatusModel>item_list;
     RecyclerView recyclerView;
+    private Realm realm;
+    private RealmResults<RealmShopModel> cartSIZE;
+    ProgressDialog dialog;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_order_status_ed, contentFrameLayout);
 
+        realm = Realm.getDefaultInstance();
 
-    item_list=new ArrayList<>();
+
+        cartSIZE = realm.where(RealmShopModel.class).findAll();
+        cartSIZE.load();
+        dialog =new ProgressDialog(OrderStatus.this);
+        dialog.setTitle("Your Cart");
+        dialog.setMessage("Loading Cart Items...");
+
+        item_list=new ArrayList<>();
 
 
 
@@ -63,6 +84,7 @@ public class OrderStatus extends BaseActivity {
         SharedPreferences sp = getSharedPreferences("UserLog",0);
         String CustKey =  sp.getString("CustKey",null);
 
+        dialog.show();
 
         try {
 
@@ -122,6 +144,7 @@ public class OrderStatus extends BaseActivity {
                                 Log.e("codeeeeeeeeee","in"+code);
 
                                 if (code.equalsIgnoreCase("0")) {
+                                    dialog.cancel();
 
                                     //JSONArray json_array2 = o.getJSONArray("result");
                                     JSONArray jsonObject;
@@ -153,9 +176,16 @@ public class OrderStatus extends BaseActivity {
 
 
                                 }
-//                                else {
-//                                    Toast.makeText(OrderStatus.this,message,Toast.LENGTH_LONG).show();
-//                                }
+                                else {
+                                    dialog.cancel();
+                                    if(cartSIZE!=null){
+                                        realm.beginTransaction();
+                                        cartSIZE.deleteAllFromRealm();
+                                        realm.commitTransaction();
+                                        realm.close();
+                                    }
+
+                                }
 
 
 
@@ -171,8 +201,8 @@ public class OrderStatus extends BaseActivity {
                     new Response.ErrorListener() {
                         @Override
                         public void onErrorResponse(VolleyError error) {
-                            // progress.cancel();
-                            Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
+                             dialog.cancel();
+//                            Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
 
                         }
                     })
@@ -210,6 +240,49 @@ public class OrderStatus extends BaseActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        final MenuItem menuItem = menu.findItem(R.id.cart_action);
+
+        View actionView = MenuItemCompat.getActionView(menuItem);
+       TextView cartItem = (TextView) actionView.findViewById(R.id.cart_badge);
+
+
+        FrameLayout click =(FrameLayout)actionView.findViewById(R.id.cartclick);
+
+        click.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                Intent cartIntent = new Intent(OrderStatus.this, OrderStatus.class);
+
+                startActivity(cartIntent);
+                finish();
+            }
+        });
+
+
+
+        if(cartSIZE.size()==0)
+        {
+            cartItem.setVisibility(View.GONE);
+        }
+        else
+        {
+            cartItem.setVisibility(View.VISIBLE);
+            for(int i=0;i<cartSIZE.size();i++) {
+                if (cartSIZE.get(i) != null) {
+                    cartItem.setText(cartSIZE.get(i).getCount());
+                }
+            }
+        }
+
+        return  true;
+    }
 
 
 

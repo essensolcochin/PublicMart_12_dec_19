@@ -19,6 +19,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -48,7 +49,6 @@ public class HouseBoat extends BaseActivity {
     String array_Mnth[] = {"MM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
     String array_Year[] = {"2019"};
     Spinner membersno, days, months, years;
-///gggggg
 
 
     private static ViewPager mPager;
@@ -188,11 +188,11 @@ public class HouseBoat extends BaseActivity {
                     Cruise_Type = "D";
 
                 }
-                else  if (position==1)
-                {
-                    Cruise_Type = "N";
-                }
-                else if(position==2)
+//                else  if (position==1)
+//                {
+//                    Cruise_Type = "N";
+//                }
+                else if(position==1)
                 {
                     Cruise_Type = "F";
 
@@ -395,6 +395,11 @@ public class HouseBoat extends BaseActivity {
                 return param;
             }
         };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);

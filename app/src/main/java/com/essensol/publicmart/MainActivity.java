@@ -2,23 +2,34 @@ package com.essensol.publicmart;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -50,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private    ProgressDialog progressdialog;
     private static final Random random = new Random();
     private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
-
+    ProgressDialog progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,8 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
         reg = (TextView) findViewById(R.id.register);
 
-        username= (EditText) findViewById(R.id.username);
-        password= (EditText) findViewById(R.id.password);
+        username = (EditText) findViewById(R.id.username);
+        password = (EditText) findViewById(R.id.password);
 
         realm = Realm.getDefaultInstance();
 
@@ -68,37 +79,40 @@ public class MainActivity extends AppCompatActivity {
         progressdialog = new ProgressDialog(MainActivity.this);
 
         getToken(5);
+
+//        Utility.ShowCustomToast("Test",MainActivity.this);
+
+//        progress = new ProgressDialog(MainActivity.this);
+//        progress.setTitle("Publicmart");
+//        progress.setMessage("Gathering Information");
+//        progress.show();
 //
-//        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
-//        token =  SaveToken.getString("Token",null);
-////        Log.e("newTokennnnnnnn  ",token);
-
-        final ProgressDialog progress = new ProgressDialog(MainActivity.this);
-        progress.setTitle("Publicmart");
-        progress.setMessage("Gathering Information");
-        progress.show();
-
-        Runnable progressRunnable = new Runnable() {
-
-            @Override
-            public void run() {
-
-                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( MainActivity.this,  new OnSuccessListener<InstanceIdResult>() {
-                    @Override
-                    public void onSuccess(InstanceIdResult instanceIdResult) {
-                        String newToken = instanceIdResult.getToken();
-                        Log.e("newTokennnnnnnn  ",newToken);
-                        token = newToken;
-                    }
-                });
-
-                progress.cancel();
-            }
-        };
-
-        Handler pdCanceller = new Handler();
-        pdCanceller.postDelayed(progressRunnable, 500);
-
+//        if (isNetworkConnectionAvailable()) {
+//            Runnable progressRunnable = new Runnable() {
+//
+//                @Override
+//                public void run() {
+//
+//                    FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
+//                        @Override
+//                        public void onSuccess(InstanceIdResult instanceIdResult) {
+//                            String newToken = instanceIdResult.getToken();
+//                            Log.e("newTokennnnnnnn  ", newToken);
+//                            token = newToken;
+//                        }
+//                    });
+//
+//                    progress.cancel();
+//                }
+//            };
+//
+//            Handler pdCanceller = new Handler();
+//            pdCanceller.postDelayed(progressRunnable, 500);
+//        }
+//        else{
+//            Toast.makeText(MainActivity.this,"No Network Connectivity",Toast.LENGTH_LONG).show();
+//
+//        }
 
 
 
@@ -114,7 +128,8 @@ public class MainActivity extends AppCompatActivity {
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+                token=SaveToken.getString("Token",null);
 
                 progressdialog.setTitle("Publicmart");
                 progressdialog.setMessage("Gathering Information");
@@ -141,7 +156,9 @@ public class MainActivity extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                Login(request);
+                if(isNetworkConnectionAvailable()) {
+                    Login(request);
+                }
 
 
 
@@ -286,7 +303,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                             else {
-                                Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
+//                                Toast.makeText(MainActivity.this,message,Toast.LENGTH_LONG).show();
                             }
 
 
@@ -303,8 +320,23 @@ public class MainActivity extends AppCompatActivity {
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        progressdialog.show();
-                        Toast.makeText(getApplicationContext(), "Some Error Occurred", Toast.LENGTH_SHORT).show();
+                        progressdialog.cancel();
+
+
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                            Utility.ShowCustomToast(" No Network Connection",MainActivity.this);
+                        } else if (error instanceof AuthFailureError) {
+                            Utility.ShowCustomToast("Authentication Failed",MainActivity.this);
+                        } else if (error instanceof ServerError) {
+                            Utility.ShowCustomToast("Server Error Occurred",MainActivity.this);
+                        } else if (error instanceof NetworkError) {
+                            Utility.ShowCustomToast("Some Network Error Occurred",MainActivity.this);
+                        } else if (error instanceof ParseError) {
+
+                            Utility.ShowCustomToast("Some Error Occurred",MainActivity.this);
+                        }
+
+
 
                     }
                 }) {
@@ -347,6 +379,49 @@ public class MainActivity extends AppCompatActivity {
     public void onBackPressed() {
         moveTaskToBack(true);
     }
+
+
+    boolean isNetworkConnectionAvailable() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        assert cm != null;
+        NetworkInfo info = cm.getActiveNetworkInfo();
+        if (info == null) return false;
+        NetworkInfo.State network = info.getState();
+        return (network == NetworkInfo.State.CONNECTED || network == NetworkInfo.State.CONNECTING);
+    }
+
+//    @Override
+//    protected void onResume() {
+//        super.onResume();
+//        if(isNetworkConnectionAvailable()){
+//            Runnable progressRunnable = new Runnable() {
+//
+//                @Override
+//                public void run() {
+//
+//                    FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
+//                        @Override
+//                        public void onSuccess(InstanceIdResult instanceIdResult) {
+//                            String newToken = instanceIdResult.getToken();
+//                            Log.e("newTokennnnnnnn  ", newToken);
+//                            token = newToken;
+//                        }
+//                    });
+//
+//                    progress.cancel();
+//                }
+//            };
+//
+//            Handler pdCanceller = new Handler();
+//            pdCanceller.postDelayed(progressRunnable, 500);
+//
+//        }
+//        else{
+//            Toast.makeText(MainActivity.this,"No Network Connectivity",Toast.LENGTH_LONG).show();
+//
+//        }
+//    }
+
 
 
 

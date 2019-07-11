@@ -49,29 +49,26 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
 
         Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
         final $ProductMenuModel List = menu_list.get(i);
+//        Log.e("Imageurllllllll","in "+context.getString(R.string.ImgUrl)+List.getImagePath());
+        Log.e("size Adapter","in "+menu_list.size());
 
         try {
-
-
-
-            URL url = new URL(context.getString(R.string.ImgUrl)+menu_list.get(i).getImagePath());
+       URL url = new URL(context.getString(R.string.ImgUrl)+List.getImagePath());
 
             Uri _URI = Uri.parse(url.toURI().toString());
 
-            Log.e("Imageurllllllll","in "+context.getString(R.string.ImgUrl)+menu_list.get(i).getImagePath());
+
 
             ImageRequest imageRequest = ImageRequestBuilder.newBuilderWithSource(_URI)
                     .setAutoRotateEnabled(true)
-//                    .setResizeOptions(new ResizeOptions(50, 50))
                     .build();
             DraweeController draweeController = Fresco.newDraweeControllerBuilder()
                     .setImageRequest(imageRequest)
-//                    .setLowResImageRequest()
                     .build();
             menuViewHolder.Logo.setController(draweeController);
 
-            ImagePipeline imagePipeline = Fresco.getImagePipeline();
-            imagePipeline.evictFromCache(_URI);
+//            ImagePipeline imagePipeline = Fresco.getImagePipeline();
+//            imagePipeline.evictFromCache(_URI);
 
 
         } catch (Exception e) {

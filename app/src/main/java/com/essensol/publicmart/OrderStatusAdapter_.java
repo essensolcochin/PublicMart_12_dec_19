@@ -68,7 +68,7 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(context, ProductPay.class);
+                Intent intent = new Intent(context, Payment.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 intent.putExtra("ProductKey",List.ProductKey);
                 context.getApplicationContext().startActivity(intent);
@@ -107,89 +107,112 @@ public class OrderStatusAdapter_ extends RecyclerView.Adapter<OrderStatusAdapter
 
 
 
-        if(state.equalsIgnoreCase("Pending")){
 
 
-            Log.e("testtttttttt",""+ state);
+        switch (state.trim()){
+            case "Pending":
 
-            holder.status.setText("Pending");
-            holder.pay.setVisibility(View.GONE);
-            holder.stepBean0.setState(0);
-            holder.stepBean0.setName("Pending");
-            holder.stepBean1.setName("Approved");
-            holder. stepBean1.setState(-1);
-            holder.stepBean2.setName("Payment");
-            holder.stepBean2.setState(-1);
-            holder.stepBean3.setName("Shipping");
-            holder. stepBean3.setState(-1);
-            holder.stepBean4.setName("Delivered");
-            holder. stepBean4.setState(-1);
+                holder.status.setText("Pending");
+                holder.pay.setVisibility(View.GONE);
+                holder.stepBean0.setState(0);
+                holder.stepBean0.setName("Pending");
+                holder.stepBean1.setName("Approved");
+                holder. stepBean1.setState(-1);
+                holder.stepBean2.setName("Payment");
+                holder.stepBean2.setState(-1);
+                holder.stepBean3.setName("Shipping");
+                holder. stepBean3.setState(-1);
+                holder.stepBean4.setName("Delivered");
+                holder. stepBean4.setState(-1);
+                break;
+            case "Order Confirmed":
 
-            //0 completed
-            //1 ongoing
-            //-1 pending
+                holder.status.setText("Approved");
+                holder.pay.setVisibility(View.VISIBLE);
+                holder.stepBean0.setState(1);
+                holder.stepBean0.setName("Pending");
+                holder.stepBean1.setName("Approved");
+                holder.stepBean1.setState(0);
+                holder. stepBean2.setName("Payment");
+                holder.stepBean2.setState(-1);
+                holder.stepBean3.setName("Shipping");
+                holder.stepBean3.setState(-1);
+                holder.stepBean4.setName("Delivered");
+                holder. stepBean4.setState(-1);
+                break;
+            case "Amount Paid":
+                holder.status.setText("Amount Paid");
+                holder. pay.setVisibility(View.GONE);
+                holder.stepBean0.setState(1);
+                holder.stepBean0.setName("Pending");
+                holder. stepBean1.setName("Approved");
+                holder.stepBean1.setState(1);
+                holder. stepBean2.setName("Amount Paid");
+                holder.stepBean2.setState(0);
+                holder.stepBean3.setName("Shipping");
+                holder.stepBean3.setState(-1);
+                holder.stepBean4.setName("Delivered");
+                holder. stepBean4.setState(-1);
+                break;
+            case "Shipped":
 
+                holder.status.setText("Shipped");
+                holder. pay.setVisibility(View.GONE);
+                holder.stepBean0.setState(1);
+                holder.stepBean0.setName("Pending");
+                holder. stepBean1.setName("Approved");
+                holder.stepBean1.setState(1);
+                holder. stepBean2.setName("Payment");
+                holder.stepBean2.setState(1);
+                holder.stepBean3.setName("Shipping");
+                holder.stepBean3.setState(0);
+                holder.stepBean4.setName("Delivered");
+                holder. stepBean4.setState(-1);
+                break;
+            case "Order Cancelled":
+
+                holder.horizontalStepView.setVisibility(View.GONE);
+                break;
+
+            case "Delivered":
+
+                holder.status.setText("Delivered");
+                holder. pay.setVisibility(View.GONE);
+                holder.stepBean0.setState(1);
+                holder.stepBean0.setName("Pending");
+                holder. stepBean1.setName("Approved");
+                holder.stepBean1.setState(1);
+                holder. stepBean2.setName("Payment");
+                holder.stepBean2.setState(1);
+                holder.stepBean3.setName("Shipping");
+                holder.stepBean3.setState(1);
+                holder.stepBean4.setName("Delivered");
+                holder. stepBean4.setState(0);
+                break;
+            case "Feedback":
+
+                holder.status.setText("Delivered");
+                holder. pay.setVisibility(View.GONE);
+                holder.stepBean0.setState(1);
+                holder.stepBean0.setName("Pending");
+                holder. stepBean1.setName("Approved");
+                holder.stepBean1.setState(1);
+                holder. stepBean2.setName("Payment");
+                holder.stepBean2.setState(1);
+                holder.stepBean3.setName("Shipping");
+                holder.stepBean3.setState(1);
+                holder.stepBean4.setName("Delivered");
+                holder. stepBean4.setState(0);
+                break;
+//                default:
+//                    view_holder.horizontalStepView.setVisibility(View.GONE);
+//                    break;
 
         }
-        else  if(state.equalsIgnoreCase("Order Confirmed")){
-            holder.status.setText("Approved");
-            holder.pay.setVisibility(View.VISIBLE);
-            holder.stepBean0.setState(1);
-            holder.stepBean0.setName("Pending");
-            holder.stepBean1.setName("Approved");
-            holder.stepBean1.setState(0);
-            holder. stepBean2.setName("Payment");
-            holder.stepBean2.setState(-1);
-            holder.stepBean3.setName("Shipping");
-            holder.stepBean3.setState(-1);
-            holder.stepBean4.setName("Delivered");
-            holder. stepBean4.setState(-1);
-        }
-        else  if(state.equalsIgnoreCase("Amount Paid")){
-            holder.status.setText("Amount Paid");
-            holder. pay.setVisibility(View.GONE);
-            holder.stepBean0.setState(1);
-            holder.stepBean0.setName("Pending");
-            holder. stepBean1.setName("Approved");
-            holder.stepBean1.setState(1);
-            holder. stepBean2.setName("Amount Paid");
-            holder.stepBean2.setState(0);
-            holder.stepBean3.setName("ProductShipping");
-            holder.stepBean3.setState(-1);
-            holder.stepBean4.setName("Delivered");
-            holder. stepBean4.setState(-1);
-        }
-        else  if(state.equalsIgnoreCase("Shipped")){
 
-            holder.status.setText("Shipped");
-            holder. pay.setVisibility(View.GONE);
-            holder.stepBean0.setState(1);
-            holder.stepBean0.setName("Pending");
-            holder. stepBean1.setName("Approved");
-            holder.stepBean1.setState(1);
-            holder. stepBean2.setName("Payment");
-            holder.stepBean2.setState(1);
-            holder.stepBean3.setName("Shipping");
-            holder.stepBean3.setState(0);
-            holder.stepBean4.setName("Delivered");
-            holder. stepBean4.setState(-1);
-        }
-        else  if(state.equalsIgnoreCase("Delivered"))
-        {
 
-            holder.status.setText("Delivered");
-            holder. pay.setVisibility(View.GONE);
-            holder.stepBean0.setState(1);
-            holder.stepBean0.setName("Pending");
-            holder. stepBean1.setName("Approved");
-            holder.stepBean1.setState(1);
-            holder. stepBean2.setName("Payment");
-            holder.stepBean2.setState(1);
-            holder.stepBean3.setName("Shipping");
-            holder.stepBean3.setState(1);
-            holder.stepBean4.setName("Delivered");
-            holder. stepBean4.setState(0);
-        }
+
+
 
 
         holder.horizontalStepView.setStepViewTexts(stepsBeanList)

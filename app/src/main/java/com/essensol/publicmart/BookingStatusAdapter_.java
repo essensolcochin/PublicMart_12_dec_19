@@ -93,6 +93,8 @@ public class BookingStatusAdapter_ extends RecyclerView.Adapter<BookingStatusAda
 
 
 
+
+
         stepsBeanList.add( view_holder.stepBean0);
         stepsBeanList.add( view_holder.stepBean1);
         stepsBeanList.add( view_holder.stepBean2);
@@ -101,79 +103,201 @@ public class BookingStatusAdapter_ extends RecyclerView.Adapter<BookingStatusAda
 
         Log.e("steppppppppp"," "+state);
 
+        switch (state.trim()){
+            case "Pending":
 
+                view_holder.payment.setVisibility(View.GONE);
+                view_holder.stepBean0.setState(0);
+                view_holder.stepBean0.setName("Pending");
+                view_holder.stepBean1.setName("Approved");
+                view_holder. stepBean1.setState(-1);
+                view_holder.stepBean2.setName("Payment");
+                view_holder.stepBean2.setState(-1);
+                view_holder.stepBean3.setName("Booked");
+                view_holder. stepBean3.setState(-1);
+                view_holder.stepBean4.setName("Delivered");
+                view_holder. stepBean4.setState(-1);
+                break;
+            case "Booking Confirmed":
 
-        if(state.equalsIgnoreCase("Pending")){
-            view_holder.payment.setVisibility(View.GONE);
-            view_holder.stepBean0.setState(0);
-            view_holder.stepBean0.setName("Pending");
-            view_holder.stepBean1.setName("Approved");
-            view_holder. stepBean1.setState(-1);
-            view_holder.stepBean2.setName("Payment");
-            view_holder.stepBean2.setState(-1);
-            view_holder.stepBean3.setName("Booked");
-            view_holder. stepBean3.setState(-1);
-            view_holder.stepBean4.setName("Delivered");
-            view_holder. stepBean4.setState(-1);
+                view_holder.payment.setVisibility(View.VISIBLE);
+                view_holder.stepBean0.setState(1);
+                view_holder.stepBean0.setName("Pending");
+                view_holder.stepBean1.setName("Approved");
+                view_holder.stepBean1.setState(0);
+                view_holder.stepBean2.setName("Payment");
+                view_holder.stepBean2.setState(-1);
+                view_holder.stepBean3.setName("Booked");
+                view_holder.stepBean3.setState(-1);
+                view_holder.stepBean4.setName("Delivered");
+                view_holder.stepBean4.setState(-1);
+                break;
+            case "Amount Paid":
+                Log.e("steppppppppp","Inside Case Amount "+state);
+                view_holder.payment.setVisibility(View.GONE);
+                view_holder.stepBean0.setState(1);
+                view_holder.stepBean0.setName("Pending");
+                view_holder.stepBean1.setName("Approved");
+                view_holder.stepBean1.setState(1);
+                view_holder.stepBean2.setName("Payment");
+                view_holder.stepBean2.setState(0);
+                view_holder.stepBean3.setName("Booked");
+                view_holder.stepBean3.setState(-1);
+                view_holder.stepBean4.setName("Delivered");
+                view_holder.stepBean4.setState(-1);
+                break;
+            case "Ticket Booked":
 
+                view_holder. payment.setVisibility(View.GONE);
+                view_holder.stepBean0.setState(1);
+                view_holder.stepBean0.setName("Pending");
+                view_holder.stepBean1.setName("Approved");
+                view_holder.stepBean1.setState(1);
+                view_holder.stepBean2.setName("Payment");
+                view_holder.stepBean2.setState(1);
+                view_holder.stepBean3.setName("Booked");
+                view_holder.stepBean3.setState(0);
+                view_holder.stepBean4.setName("Delivered");
+                view_holder.stepBean4.setState(-1);
+                break;
+            case "Booking Cancelled":
 
+                view_holder.horizontalStepView.setVisibility(View.GONE);
+                break;
+
+            case "Ticket Delivered":
+
+                view_holder. payment.setVisibility(View.GONE);
+                view_holder.stepBean0.setState(1);
+                view_holder.stepBean0.setName("Pending");
+                view_holder. stepBean1.setName("Approved");
+                view_holder.stepBean1.setState(1);
+                view_holder. stepBean2.setName("Payment");
+                view_holder.stepBean2.setState(1);
+                view_holder.stepBean3.setName("Booked");
+                view_holder.stepBean3.setState(1);
+                view_holder.stepBean4.setName("Delivered");
+                view_holder. stepBean4.setState(0);
+                break;
+            case "Feedback":
+
+                view_holder. payment.setVisibility(View.GONE);
+                view_holder.stepBean0.setState(1);
+                view_holder.stepBean0.setName("Pending");
+                view_holder. stepBean1.setName("Approved");
+                view_holder.stepBean1.setState(1);
+                view_holder. stepBean2.setName("Payment");
+                view_holder.stepBean2.setState(1);
+                view_holder.stepBean3.setName("Booked");
+                view_holder.stepBean3.setState(1);
+                view_holder.stepBean4.setName("Delivered");
+                view_holder. stepBean4.setState(0);
+                break;
+//                default:
+//                    view_holder.horizontalStepView.setVisibility(View.GONE);
+//                    break;
 
         }
-        else  if(state.equalsIgnoreCase("Booking Confirmed")){
-            view_holder. payment.setVisibility(View.VISIBLE);
-            view_holder.stepBean0.setState(1);
-            view_holder.stepBean0.setName("Pending");
-            view_holder. stepBean1.setName("Approved");
-            view_holder.stepBean1.setState(0);
-            view_holder. stepBean2.setName("Payment");
-            view_holder.stepBean2.setState(-1);
-            view_holder.stepBean3.setName("Booked");
-            view_holder.stepBean3.setState(-1);
-            view_holder.stepBean4.setName("Delivered");
-            view_holder.stepBean4.setState(-1);
-        }
-        else  if(state.equalsIgnoreCase("Ticket Booked")){
 
-            view_holder. payment.setVisibility(View.GONE);
-            view_holder.stepBean0.setState(1);
-            view_holder.stepBean0.setName("Pending");
-            view_holder.stepBean1.setName("Approved");
-            view_holder.stepBean1.setState(1);
-            view_holder.stepBean2.setName("Payment");
-            view_holder.stepBean2.setState(0);
-            view_holder.stepBean3.setName("Booked");
-            view_holder.stepBean3.setState(-1);
-            view_holder.stepBean4.setName("Delivered");
-            view_holder.stepBean4.setState(-1);
-        }
-        else  if(state.equalsIgnoreCase("Ticket Delivered")){
 
-            view_holder. payment.setVisibility(View.GONE);
-            view_holder.stepBean0.setState(1);
-            view_holder.stepBean0.setName("Pending");
-            view_holder. stepBean1.setName("Approved");
-            view_holder.stepBean1.setState(1);
-            view_holder. stepBean2.setName("Payment");
-            view_holder.stepBean2.setState(1);
-            view_holder.stepBean3.setName("Booked");
-            view_holder.stepBean3.setState(0);
-            view_holder.stepBean4.setName("Delivered");
-            view_holder. stepBean4.setState(-1);
-        }
-        else  if(state.equalsIgnoreCase("Feedback")){
 
-            view_holder. payment.setVisibility(View.GONE);
-            view_holder.stepBean0.setState(1);
-            view_holder.stepBean0.setName("Pending");
-            view_holder. stepBean1.setName("Approved");
-            view_holder.stepBean1.setState(1);
-            view_holder. stepBean2.setName("Payment");
-            view_holder.stepBean2.setState(1);
-            view_holder.stepBean3.setName("Booked");
-            view_holder.stepBean3.setState(1);
-            view_holder.stepBean4.setName("Delivered");
-            view_holder. stepBean4.setState(0);
-        }
+//        if(state.equalsIgnoreCase("Pending")){
+//            view_holder.payment.setVisibility(View.GONE);
+//            view_holder.stepBean0.setState(0);
+//            view_holder.stepBean0.setName("Pending");
+//            view_holder.stepBean1.setName("Approved");
+//            view_holder. stepBean1.setState(-1);
+//            view_holder.stepBean2.setName("Payment");
+//            view_holder.stepBean2.setState(-1);
+//            view_holder.stepBean3.setName("Booked");
+//            view_holder. stepBean3.setState(-1);
+//            view_holder.stepBean4.setName("Delivered");
+//            view_holder. stepBean4.setState(-1);
+//
+//            //0 completed
+//            //1 ongoing
+//            //-1 pending
+//
+//
+//        }
+//        else  if(state.equalsIgnoreCase("Booking Confirmed")){
+//            view_holder. payment.setVisibility(View.VISIBLE);
+//            view_holder.stepBean0.setState(1);
+//            view_holder.stepBean0.setName("Pending");
+//            view_holder. stepBean1.setName("Approved");
+//            view_holder.stepBean1.setState(0);
+//            view_holder. stepBean2.setName("Payment");
+//            view_holder.stepBean2.setState(-1);
+//            view_holder.stepBean3.setName("Booked");
+//            view_holder.stepBean3.setState(-1);
+//            view_holder.stepBean4.setName("Delivered");
+//            view_holder.stepBean4.setState(-1);
+//        }
+
+//        else  if(state.equalsIgnoreCase("Amount Paid")){
+//            view_holder. payment.setVisibility(View.VISIBLE);
+//            view_holder.stepBean0.setState(1);
+//            view_holder.stepBean0.setName("Pending");
+//            view_holder. stepBean1.setName("Approved");
+//            view_holder.stepBean1.setState(1);
+//            view_holder. stepBean2.setName("Payment");
+//            view_holder.stepBean2.setState(0);
+//            view_holder.stepBean3.setName("Booked");
+//            view_holder.stepBean3.setState(-1);
+//            view_holder.stepBean4.setName("Delivered");
+//            view_holder.stepBean4.setState(-1);
+//        }
+
+
+//        else  if(state.equalsIgnoreCase("Ticket Booked")){
+//
+//            view_holder. payment.setVisibility(View.GONE);
+//            view_holder.stepBean0.setState(1);
+//            view_holder.stepBean0.setName("Pending");
+//            view_holder.stepBean1.setName("Approved");
+//            view_holder.stepBean1.setState(1);
+//            view_holder.stepBean2.setName("Payment");
+//            view_holder.stepBean2.setState(1);
+//            view_holder.stepBean3.setName("Booked");
+//            view_holder.stepBean3.setState(0);
+//            view_holder.stepBean4.setName("Delivered");
+//            view_holder.stepBean4.setState(-1);
+//        }
+
+//        else  if(state.equalsIgnoreCase("Booking Cancelled")){
+//
+//          view_holder.horizontalStepView.setVisibility(View.GONE);
+//        }
+//
+//
+//        else  if(state.equalsIgnoreCase("Ticket Delivered")){
+//
+//            view_holder. payment.setVisibility(View.GONE);
+//            view_holder.stepBean0.setState(1);
+//            view_holder.stepBean0.setName("Pending");
+//            view_holder. stepBean1.setName("Approved");
+//            view_holder.stepBean1.setState(1);
+//            view_holder. stepBean2.setName("Payment");
+//            view_holder.stepBean2.setState(1);
+//            view_holder.stepBean3.setName("Booked");
+//            view_holder.stepBean3.setState(1);
+//            view_holder.stepBean4.setName("Delivered");
+//            view_holder. stepBean4.setState(0);
+//        }
+//        else  if(state.equalsIgnoreCase("Feedback")){
+//
+//            view_holder. payment.setVisibility(View.GONE);
+//            view_holder.stepBean0.setState(1);
+//            view_holder.stepBean0.setName("Pending");
+//            view_holder. stepBean1.setName("Approved");
+//            view_holder.stepBean1.setState(1);
+//            view_holder. stepBean2.setName("Payment");
+//            view_holder.stepBean2.setState(1);
+//            view_holder.stepBean3.setName("Booked");
+//            view_holder.stepBean3.setState(1);
+//            view_holder.stepBean4.setName("Delivered");
+//            view_holder. stepBean4.setState(0);
+//        }
 
 
         view_holder.horizontalStepView.setStepViewTexts(stepsBeanList)

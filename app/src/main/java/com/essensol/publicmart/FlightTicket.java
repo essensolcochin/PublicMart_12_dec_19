@@ -19,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -55,7 +56,7 @@ public class FlightTicket extends BaseActivity{
     Spinner citycode,citycode2,days,months,years, bday,bmonth,byear;
     String Bday,Bmonth,Byear,Day,Month,Year;
     Integer codecity,codecity2;
-    RadioGroup rg;
+//    RadioGroup rg;
     RadioButton radioButton;
     Button submit_flight;
     EditText traveler_name,email_id,contact_no;
@@ -87,13 +88,13 @@ public class FlightTicket extends BaseActivity{
         getLayoutInflater().inflate(R.layout.activity_flight_ticket, contentFrameLayout);
         Fabric.with(this, new Crashlytics());
         name = (TextInputLayout) findViewById(R.id.text_input_layout);
-        name.setHint("Enter Your Name");
+        name.setHint("Enter Passenger Name");
 
         email = (TextInputLayout) findViewById(R.id.email_input_layout);
-        email.setHint("Enter Your Email ID");
+        email.setHint("Enter Passenger Email ID");
 
         contact = (TextInputLayout) findViewById(R.id.contact_input_layout);
-        contact.setHint("Enter Your Contact No");
+        contact.setHint("Enter Passenger Contact No");
 
 
         toolbar =  findViewById(R.id.toolbar);
@@ -103,7 +104,7 @@ public class FlightTicket extends BaseActivity{
         txtxmpny=(TextView)tb.findViewById(R.id.appname);
         txtxmpny.setText("Flight Booking");
 
-        rg = (RadioGroup)findViewById(R.id.radiogrp);
+//        rg = (RadioGroup)findViewById(R.id.radiogrp);
 
 
         citycode = findViewById(R.id.city);
@@ -255,34 +256,34 @@ public class FlightTicket extends BaseActivity{
             }
         });
 
-        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(RadioGroup radioGroup, int i) {
-                int radioButtonID = radioGroup.getCheckedRadioButtonId();
-                View radioButton = radioGroup.findViewById(radioButtonID);
-                int position = radioGroup.indexOfChild(radioButton);
-                Log.e("radio",""+position);
-                Log.e("radioid",""+radioButtonID);
-
-                if (position==0)
-
-                    {
-
-                     Timing = "M";
-
-                     }
-                     else  if (position==1)
-                       {
-                      Timing = "E";
-                        }
-                     else if(position==2)
-                         {
-                                   Timing = "N";
-
-                         }
-
-            }
-        });
+//        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+//            @Override
+//            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+//                int radioButtonID = radioGroup.getCheckedRadioButtonId();
+//                View radioButton = radioGroup.findViewById(radioButtonID);
+//                int position = radioGroup.indexOfChild(radioButton);
+//                Log.e("radio",""+position);
+//                Log.e("radioid",""+radioButtonID);
+//
+//                if (position==0)
+//
+//                    {
+//
+//                     Timing = "M";
+//
+//                     }
+//                     else  if (position==1)
+//                       {
+//                      Timing = "E";
+//                        }
+//                     else if(position==2)
+//                         {
+//                                   Timing = "N";
+//
+//                         }
+//
+//            }
+//        });
 
 
         airportcode();
@@ -350,20 +351,21 @@ public class FlightTicket extends BaseActivity{
            }
 
 
-                   book_ticket(request);
+                   if(Utility.isNetworkConnectionAvailable(FlightTicket.this)){
+                       book_ticket(request);
+                   }
+                   else {
+                       Utility.ShowCustomToast("No Network Available Check Your Internet Connectivity",FlightTicket.this);
+                   }
+
+
+
+
+
+
 
                }
-               traveler_name .getText().clear();
-               email_id .getText().clear();
-               contact_no.getText().clear();
-               citycode.setSelection(0);
-               citycode2.setSelection(0);
-               days.setSelection(0);
-               months.setSelection(0);
-               years.setSelection(0);
-               bday.setSelection(0);
-               bmonth.setSelection(0);
-               byear.setSelection(0);
+
 
                }
 //
@@ -464,15 +466,24 @@ public class FlightTicket extends BaseActivity{
                             if (code.equalsIgnoreCase("-100"))
                             {
 
-                                Log.e("resppppppp","ifffff"+code);
+                                traveler_name .getText().clear();
+                                email_id .getText().clear();
+                                contact_no.getText().clear();
+                                citycode.setSelection(0);
+                                citycode2.setSelection(0);
+                                days.setSelection(0);
+                                months.setSelection(0);
+                                years.setSelection(0);
+                                bday.setSelection(0);
+                                bmonth.setSelection(0);
+                                byear.setSelection(0);
 
-
-                                Toast.makeText(FlightTicket.this,"Success",Toast.LENGTH_LONG).show();
+                                Utility.ShowCustomToast("Booking Successful",FlightTicket.this);
                             }
 
 
                             else {
-                                Toast.makeText(FlightTicket.this,message,Toast.LENGTH_LONG).show();
+                                Utility.ShowCustomToast("Booking Failed",FlightTicket.this);
                             }
 
 
@@ -649,8 +660,11 @@ public class FlightTicket extends BaseActivity{
                 param.put("Content-Type","application/x-www-form-urlencoded");
                 return param;
             }
-        }
-                ;
+        } ;
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         // Volley.getInstance(this).addToRequestQueue(stringRequest);
         RequestQueue requestQueue= Volley.newRequestQueue(this);

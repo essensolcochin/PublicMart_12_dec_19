@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
+    android:fillViewport="true"
     android:orientation="vertical"
     tools:context=".Edit_Profile">
 
@@ -13,7 +14,7 @@
         android:paddingLeft="5dp"
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
 
         <LinearLayout

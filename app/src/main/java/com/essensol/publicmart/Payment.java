@@ -47,18 +47,18 @@ public class Payment extends AppCompatActivity {
 
         confirmPay = findViewById(R.id.submit_pay);
         amount = (TextView) findViewById(R.id.amount);
-        curncy = (TextView) findViewById(R.id.currency);
+//        curncy = (TextView) findViewById(R.id.currency);
         name = (TextView) findViewById(R.id.name);
-        plan = (TextView) findViewById(R.id.planname);
+//        plan = (TextView) findViewById(R.id.planname);
 
          sp = getSharedPreferences("UserLog",0);
         CustKey =  sp.getString("CustKey",null);
 
 
         amount.setText(sp.getString("amnt",null));
-        curncy.setText("INR");
-        name.setText(sp.getString("CustomerName",null));
-        plan.setText(sp.getString("MemberShip",null));
+//        curncy.setText("INR");
+//        name.setText(sp.getString("CustomerName",null));
+//        plan.setText(sp.getString("MemberShip",null));
 
 
 
@@ -74,7 +74,6 @@ public class Payment extends AppCompatActivity {
         intent.putExtra(AvenuesParams.ORDER_ID, CustKey);
         intent.putExtra(AvenuesParams.CURRENCY, "INR");
         intent.putExtra(AvenuesParams.AMOUNT,vAmount);
-//http://122.182.6.216/merchant/ccavResponseHandler.jsp
         intent.putExtra(AvenuesParams.REDIRECT_URL, "http://publicmart.in/transaction/ccavResponseHandler.php");
         intent.putExtra(AvenuesParams.CANCEL_URL, "http://publicmart.in/transaction/ccavResponseHandler.php");
         intent.putExtra(AvenuesParams.RSA_KEY_URL, "http://publicmart.in/transaction/getRSA.php");
@@ -194,35 +193,20 @@ public class Payment extends AppCompatActivity {
                                 if (code.equals("0"))
                                 {
 
-
-                                    JSONArray json_array2 = o.getJSONArray("result");
-
-
-                                    JSONObject jsonObject = json_array2.getJSONObject(0);
-
-                                    Log.e("tryyyyyyyyy","  "+jsonObject.get("UserKey"));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                   SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                   SharedPreferences.Editor edit = sp.edit();
+                                   edit.putBoolean("LoggedUser",true);
+                                   edit.apply();
+                                   Intent intent = new Intent(Payment.this,Home.class);
+                                   startActivity(intent);
+                                   finish();
 
 
                                 }
 
 
                                 else {
-                                    Toast.makeText(Payment.this,message,Toast.LENGTH_LONG).show();
+                                    Toast.makeText(Payment.this,message,Toast.LENGTH_SHORT).show();
                                 }
 
 

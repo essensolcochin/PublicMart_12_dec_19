@@ -27,6 +27,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -365,15 +366,15 @@ public class ProductView extends BaseActivity {
 
                 set.start();
 
-                if(placeorder.getText().toString().equalsIgnoreCase("View Order"))
-                {
-                    SharedPreferences sp = getSharedPreferences("UserLog",0);
-                    String CustKey =  sp.getString("CustKey",null);
-
-                    Intent intent = new Intent(ProductView.this,OrderStatus.class);
-                    intent.putExtra("CustKey",CustKey);
-                    startActivity(intent);
-                }
+//                if(placeorder.getText().toString().equalsIgnoreCase("View Order"))
+//                {
+//                    SharedPreferences sp = getSharedPreferences("UserLog",0);
+//                    String CustKey =  sp.getString("CustKey",null);
+//
+//                    Intent intent = new Intent(ProductView.this,OrderStatus.class);
+//                    intent.putExtra("CustKey",CustKey);
+//                    startActivity(intent);
+//                }
 
                 PostOrderDetails();
 
@@ -569,7 +570,6 @@ public  void PostOrderDetails()
                                    String Count =o.getString("Count");
 
                                    AddToCart(Count);
-                                   placeorder.setText("View Order");
 
                                    Toast.makeText(ProductView.this,"Your Order Has Been Placed",Toast.LENGTH_SHORT).show();
 
@@ -613,8 +613,12 @@ public  void PostOrderDetails()
                    param.put("Content-Type","application/x-www-form-urlencoded");
                    return param;
                }
-           }
-                   ;
+           } ;
+
+               stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                       0,
+                       DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                       DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
            RequestQueue requestQueue= Volley.newRequestQueue(this);
            requestQueue.add(stringRequest);

@@ -57,7 +57,7 @@ public class Home extends BaseActivity {
     private static final Integer[] IMAGES= {R.drawable.ad,R.drawable.ad,R.drawable.ad2};
     private ArrayList<HomeAdModel> ImagesArray = new ArrayList<HomeAdModel>();
     private SpotsDialog progress;
-String code,message;
+    String code,message;
     int image[] = {R.drawable.ad};
     JSONObject jsonString ;
 
@@ -314,12 +314,12 @@ String code,message;
                                         if (currentPage == NUM_PAGES) {
 
                                             currentPage= NUM_PAGES-currentPage;
-                                            Log.e("pageeeee","in -- "+currentPage);
+//                                            Log.e("pageeeee","in -- "+currentPage);
                                             mPager.setCurrentItem(currentPage--, true);
                                         }
                                         else{
                                             mPager.setCurrentItem(currentPage++, true);
-                                            Log.e("pageeeee","in ++ "+currentPage);
+//                                            Log.e("pageeeee","in ++ "+currentPage);
                                         }
 
 
@@ -384,7 +384,6 @@ String code,message;
         }
                 ;
 
-        // Volley.getInstance(this).addToRequestQueue(stringRequest);
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);
 
@@ -407,12 +406,9 @@ String code,message;
     }
 
 
-
-
-
-
-
-
-
-
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        moveTaskToBack(true);
+    }
 }

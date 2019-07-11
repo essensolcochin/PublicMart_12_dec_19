@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,7 +32,7 @@ public class Profile extends BaseActivity {
     JSONObject jsonString;
     String request,code,message;
     TextView edit,save;
-//     contactno,email,Fname_ed,Mname_ed,Lname_ed,h_no_ed,tehsil_ed,village_ed,dist_ed,pinode_ed;
+    EditText contact,email,name,address,accHname,accNo,ifscc,Bname,Branch;
 
 
     @Override
@@ -40,20 +41,22 @@ public class Profile extends BaseActivity {
 
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
         getLayoutInflater().inflate(R.layout.activity_profile, contentFrameLayout);
-        contact_no=(TextView)findViewById(R.id.contact_number);
-        email_id=(TextView)findViewById(R.id.email_id);
-        pinode=(TextView)findViewById(R.id.pin_code);
+
         proid=(TextView)findViewById(R.id.profileid);
         Fname=(TextView)findViewById(R.id.fname);
-        Mname=(TextView)findViewById(R.id.mname);
-        Lname=(TextView)findViewById(R.id.lname);
-        h_no=(TextView)findViewById(R.id.H_no);
-        tehsil=(TextView)findViewById(R.id.tehsil_);
-        village=(TextView)findViewById(R.id.village_);
-        dist=(TextView)findViewById(R.id.district_);
-        membership=(TextView)findViewById(R.id.membership);
+
+        contact=(EditText) findViewById(R.id.contact);
+        email=(EditText) findViewById(R.id.email);
+        name=(EditText) findViewById(R.id.name);
+        address=(EditText) findViewById(R.id.address);
+        accHname=(EditText) findViewById(R.id.AcchName);
+        accNo=(EditText) findViewById(R.id.AccNo);
+        ifscc=(EditText) findViewById(R.id.ifsc);
+        Bname=(EditText) findViewById(R.id.BankName);
+        Branch=(EditText) findViewById(R.id.Branch);
+
         proicon=(TextView)findViewById(R.id.proicon);
-        state_name=(TextView)findViewById(R.id.state_view);
+
         edit=findViewById(R.id.edit);
 
 

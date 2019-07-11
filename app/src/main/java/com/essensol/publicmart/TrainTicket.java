@@ -1,5 +1,6 @@
 package com.essensol.publicmart;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.ViewPager;
@@ -17,6 +18,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -52,7 +54,7 @@ public class TrainTicket extends BaseActivity {
 
     TextView header1,header2,header3,header4,header5,header6,header7;
     Button submit_ticket;
-    EditText passengr_name,email_id,Contact_no;
+    EditText passengr_name,email_id,Contact_no,age;
     private static ViewPager mPager;
     private static int currentPage = 0;
     private static int NUM_PAGES = 0;
@@ -86,9 +88,9 @@ public class TrainTicket extends BaseActivity {
         days = findViewById(R.id.day);
         months = findViewById(R.id.month);
         years = findViewById(R.id.year);
-        bday = findViewById(R.id.bday);
-        bmonth = findViewById(R.id.bmonth);
-        byear = findViewById(R.id.byear);
+        age = findViewById(R.id.age);
+//        bmonth = findViewById(R.id.bmonth);
+//        byear = findViewById(R.id.byear);
         submit_ticket=(Button)findViewById(R.id.submitTrain);
 
         android.support.v7.widget.Toolbar tb=getToolBar();
@@ -140,41 +142,41 @@ public class TrainTicket extends BaseActivity {
             }
         });
 
-        bday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Bday = adapterView.getItemAtPosition(i).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        bmonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Bmonth = adapterView.getItemAtPosition(i).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
-        byear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                Byear = adapterView.getItemAtPosition(i).toString();
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
+//        bday.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                Bday = adapterView.getItemAtPosition(i).toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+//
+//        bmonth.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                Bmonth = adapterView.getItemAtPosition(i).toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
+//
+//        byear.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                Byear = adapterView.getItemAtPosition(i).toString();
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//            }
+//        });
 
         days.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -231,30 +233,30 @@ public class TrainTicket extends BaseActivity {
         spinner_adapter_year.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         years.setAdapter(spinner_adapter_year);
 
-        final ArrayAdapter<String> spinner_adapter_bday = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, array_day);
-        spinner_adapter_bday.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        final ArrayAdapter<String> spinner_adapter_bday = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_spinner_item, array_day);
+//        spinner_adapter_bday.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        bday.setAdapter(spinner_adapter_bday);
-        final ArrayAdapter<String> spinner_adapter_mbday = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, array_Mnth);
-        spinner_adapter_mbday.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        bday.setAdapter(spinner_adapter_bday);
+//        final ArrayAdapter<String> spinner_adapter_mbday = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_spinner_item, array_Mnth);
+//        spinner_adapter_mbday.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        bmonth.setAdapter(spinner_adapter_mbday);
+//        bmonth.setAdapter(spinner_adapter_mbday);
 
-        final ArrayAdapter<String> spinner_adapter_yday = new ArrayAdapter<String>(this,
-                android.R.layout.simple_spinner_item, array_BYear);
-        spinner_adapter_yday.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        byear.setAdapter(spinner_adapter_yday);
+//        final ArrayAdapter<String> spinner_adapter_yday = new ArrayAdapter<String>(this,
+//                android.R.layout.simple_spinner_item, array_BYear);
+//        spinner_adapter_yday.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        byear.setAdapter(spinner_adapter_yday);
 
         trname = (TextInputLayout) findViewById(R.id.name_input_layout);
-        trname.setHint("Enter Your Name");
+        trname.setHint("Enter Passenger Name");
 
         tremail = (TextInputLayout) findViewById(R.id.input_layout_email);
-        tremail.setHint("Enter Your Email ID");
+        tremail.setHint("Enter Passenger Email ID");
 
         trcontact = (TextInputLayout) findViewById(R.id.input_layout_contact);
-        trcontact.setHint("Enter Your Contact No");
+        trcontact.setHint("Enter Passenger Contact No");
 
 //        init();
 
@@ -283,7 +285,7 @@ public class TrainTicket extends BaseActivity {
                         JSONObject values = new JSONObject();
                         values.put("CustKey",Integer.parseInt(CustKey));
                         values.put("PassengerName", passengr_name.getText().toString());
-                        values.put("DOB", Bday + "-" + Bmonth + "-" + Byear);
+                        values.put("Age", age.getText().toString());
                         values.put("FromStationKey", codecity);
                         values.put("ToStationKey", codecity2);
                         values.put("TravelDate", Day + "-" + Month + "-" + Year);
@@ -312,14 +314,15 @@ public class TrainTicket extends BaseActivity {
                 passengr_name.getText().clear();
                 email_id.getText().clear();
                 Contact_no.getText().clear();
+                age.getText().clear();
                 citycode.setSelection(0);
                 citycode2.setSelection(0);
                 days.setSelection(0);
                 months.setSelection(0);
                 years.setSelection(0);
-                bday.setSelection(0);
-                bmonth.setSelection(0);
-                byear.setSelection(0);
+//                bday.setSelection(0);
+//                bmonth.setSelection(0);
+//                byear.setSelection(0);
             }
 
 
@@ -409,7 +412,10 @@ public class TrainTicket extends BaseActivity {
                             if (code.equalsIgnoreCase("-100"))
                             {
                                 Log.e("resppppppp","ifffff"+code);
-                                Toast.makeText(TrainTicket.this,"Success",Toast.LENGTH_LONG).show();
+                                Toast.makeText(TrainTicket.this,"Booking Successful",Toast.LENGTH_LONG).show();
+                                Intent intent=new Intent(TrainTicket.this,Home.class);
+                                startActivity(intent);
+                                finish();
                             }
 
                             else {
@@ -443,8 +449,12 @@ public class TrainTicket extends BaseActivity {
                 param.put("Content-Type","application/x-www-form-urlencoded");
                 return param;
             }
-        }
-                ;
+        };
+
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                0,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
 
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);

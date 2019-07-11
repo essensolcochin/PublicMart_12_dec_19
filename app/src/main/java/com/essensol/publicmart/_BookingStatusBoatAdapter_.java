@@ -72,7 +72,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
 
         view_holder.date.setText(List.getTravelDate());
 
-        if(List.getAmount().equalsIgnoreCase("null"))
+        if(List.getAmount().trim().equalsIgnoreCase("null"))
         {
             view_holder.amount.setText("N/A");
         }
@@ -113,7 +113,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
 
 
 
-        if(state.equalsIgnoreCase("Pending")){
+        if(state.trim().equalsIgnoreCase("Pending")){
             view_holder.payment.setVisibility(View.GONE);
             view_holder.stepBean0.setState(0);
             view_holder.stepBean0.setName("Pending");
@@ -129,7 +129,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
 
 
         }
-        else  if(state.equalsIgnoreCase("Booking Confirmed")){
+        else  if(state.trim().equalsIgnoreCase("Booking Confirmed")){
             view_holder. payment.setVisibility(View.VISIBLE);
             view_holder.stepBean0.setState(1);
             view_holder.stepBean0.setName("Pending");
@@ -142,7 +142,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
             view_holder.stepBean4.setName("Delivered");
             view_holder.stepBean4.setState(-1);
         }
-        else  if(state.equalsIgnoreCase("Ticket Booked")){
+        else  if(state.trim().equalsIgnoreCase("Ticket Booked")){
 
             view_holder. payment.setVisibility(View.GONE);
             view_holder.stepBean0.setState(1);
@@ -156,7 +156,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
             view_holder.stepBean4.setName("Delivered");
             view_holder.stepBean4.setState(-1);
         }
-        else  if(state.equalsIgnoreCase("Ticket Delivered")){
+        else  if(state.trim().equalsIgnoreCase("Ticket Delivered")){
 
             view_holder. payment.setVisibility(View.GONE);
             view_holder.stepBean0.setState(1);
@@ -170,7 +170,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
             view_holder.stepBean4.setName("Delivered");
             view_holder. stepBean4.setState(-1);
         }
-        else  if(state.equalsIgnoreCase("Feedback")){
+        else  if(state.trim().equalsIgnoreCase("Feedback")){
 
             view_holder. payment.setVisibility(View.GONE);
             view_holder.stepBean0.setState(1);

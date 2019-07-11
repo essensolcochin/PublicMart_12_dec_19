@@ -252,7 +252,7 @@ public class BaseActivity extends AppCompatActivity {
         else
         {
             cartItem.setVisibility(View.VISIBLE);
-            Log.e("checkinggggggggg","  inside cart "+cartSIZE.get(0).getCount());
+            Log.e("checkinggggggggg","  inside cart get(i) "+cartSIZE.get(0).getCount());
 
             for (int i =0;i<cartSIZE.size();i++)
             cartItem.setText(cartSIZE.get(i).getCount());

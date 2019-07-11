@@ -13,7 +13,6 @@
     android:layout_width="match_parent"
     android:gravity="center_horizontal"
     android:layout_height="wrap_content"
-    android:layout_alignParentTop="true"
     android:background="@android:color/white"
     android:elevation="6dp"
     android:minHeight="50dp"
@@ -54,38 +53,40 @@
        >
 
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Name "/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Name "/>-->
 
-        <TextView
-            android:id="@+id/name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:background="@drawable/edittextbg"
-             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Plan Name "/>
+        <!--<TextView-->
+            <!--android:id="@+id/name"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:padding="10dp"-->
+            <!--android:background="@drawable/edittextbg"-->
+             <!--/>-->
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Plan Name "/>-->
 
-        <TextView
-            android:id="@+id/planname"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:background="@drawable/edittextbg"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/planname"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:padding="10dp"-->
+            <!--android:background="@drawable/edittextbg"-->
+            <!--/>-->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Amount "/>
 
         <TextView
+            android:textStyle="bold"
+            android:textSize="20dp"
             android:id="@+id/amount"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -93,19 +94,19 @@
             android:padding="10dp"
             android:background="@drawable/edittextbg"
             />
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Currency "/>
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Currency "/>-->
 
-        <TextView
-            android:id="@+id/currency"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:padding="10dp"
-            android:background="@drawable/edittextbg"
-            />
+        <!--<TextView-->
+            <!--android:id="@+id/currency"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:padding="10dp"-->
+            <!--android:background="@drawable/edittextbg"-->
+            <!--/>-->
 
 
 
