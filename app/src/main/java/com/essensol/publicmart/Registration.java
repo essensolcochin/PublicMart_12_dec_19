@@ -45,14 +45,7 @@ public class Registration extends AppCompatActivity {
 
     String statecode[] = {"-Select State Code-","01", "02", "03", "04", "05", "06", "07", "08", "09", "10"};
 
-    String array_day[] = {"DD", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-            "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-            "31"};
 
-    String array_Mnth[] = {"MM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-
-    String array_BYear[] = {"YY","1975","1976","1977","1978","1979","1980","1981","1982","1983","1984","1985","1986","1986","1987","1988","1989","1990","1991","1992",
-            "1993","1994", "1995", "1996","1997","1998", "1999","2000","2001","2002","2003","2004","2005"} ;
 
     String Bday,Bmonth,Byear,StateName;
     Integer StateCode, StateKey;
@@ -149,58 +142,6 @@ public class Registration extends AppCompatActivity {
 
 
 
-//        ArrayAdapter<String> spinner_adapterDay = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, array_day);
-//        spinner_adapterDay.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        Day.setAdapter(spinner_adapterDay);
-//
-//        ArrayAdapter<String> spinner_adapterMonth = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, array_Mnth);
-//        spinner_adapterMonth.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        Month.setAdapter(spinner_adapterMonth);
-//
-//        ArrayAdapter<String> spinner_adapterYear = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, array_BYear);
-//        spinner_adapterYear.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        Year.setAdapter(spinner_adapterYear);
-//
-//
-//
-//        Day.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Bday = parent.getItemAtPosition(position).toString();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-//
-//        Month.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Bmonth = parent.getItemAtPosition(position).toString();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
-//
-//        Year.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Byear = parent.getItemAtPosition(position).toString();
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//
-//            }
-//        });
 //
 ////        ArrayAdapter<SpinnerModel> spinner_adapter = new ArrayAdapter<SpinnerModel>(this,
 ////                android.R.layout.simple_spinner_item, names);

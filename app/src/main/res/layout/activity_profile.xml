@@ -1,14 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="8dp"
-    android:fillViewport="true"
     android:background="#DBDADA"
     tools:context=".Profile">
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:gravity="center_horizontal"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:elevation="6dp"
+        android:minHeight="50dp"
+
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <RelativeLayout
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <TextView
+                android:id="@+id/appname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="start"
+                android:textStyle="bold"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:clickable="true"
+                android:text="Publicmart"
+                android:layout_marginLeft="10dp"
+                android:textSize="18dp"
+                android:textColor="@color/col10"
+                />
+
+            <!--<ImageView-->
+            <!--android:layout_toLeftOf="@+id/cart1"-->
+            <!--android:layout_toStartOf="@+id/cart1"-->
+            <!--android:layout_marginRight="40dp"-->
+            <!--android:layout_marginEnd="40dp"-->
+            <!--android:layout_marginStart="10dp"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:id="@+id/search"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:src="@drawable/ic_action_name"-->
+            <!--/>-->
+
+            <!--<FrameLayout-->
+            <!--android:id="@+id/cart1"-->
+            <!--android:layout_alignParentEnd="true"-->
+            <!--android:layout_alignParentRight="true"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content">-->
+
+
+            <!--<ImageView-->
+
+            <!--android:layout_marginRight="30dp"-->
+            <!--android:layout_marginEnd="30dp"-->
+            <!--android:id="@+id/cart"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:layout_height="30dp"-->
+            <!--android:src="@drawable/cart"-->
+            <!--/>-->
+
+
+
+
+
+
+
+        </RelativeLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <ScrollView
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
 
     <LinearLayout
@@ -77,6 +157,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
 
             android:layout_gravity="center_vertical">
 
@@ -92,10 +173,10 @@
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/col10"
-                android:textSize="20dp"
+                android:textColor="@color/col11"
+                android:textSize="18dp"
                 android:textStyle="bold"
-                android:id="@+id/name"
+                android:id="@+id/fname"
                />
 
 
@@ -106,8 +187,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/profileid"
-                android:textColor="@color/col10"
-                android:textSize="18dp" />
+                android:textColor="@android:color/white"
+                android:textSize="16dp" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -159,85 +240,116 @@
 
             </android.support.design.widget.TextInputLayout>
 
-
-
             <TextView
-                android:textColor="@color/col10"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:textSize="12dp"
-                android:text="Date of Birth "/>
-
-            <LinearLayout
-                android:layout_marginTop="5dp"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:textSize="12dp"
+                android:textColor="@color/col7"
 
-                <RelativeLayout
-                    android:layout_weight=".27"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/stroke">
 
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                android:text="D.O.B"/>
 
-                        android:textSize="18dp"
-                        android:padding="10dp"
-                        android:id="@+id/day"
-                        />
-                </RelativeLayout>
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                >
+
                 <TextView
-                    android:layout_margin="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="32dp"
-                    android:text="/"/>
 
-                <RelativeLayout
-                    android:layout_weight=".26"
-                    android:layout_width="0dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="5dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:textSize="16dp"
+                    android:id="@+id/Dob"
+                    android:hint="D.O.B"
+                    android:textColor="@color/col10"
                     android:background="@drawable/stroke"
-                    >
 
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
 
-                        android:textSize="18dp"
-                        android:padding="10dp"
-                        android:id="@+id/Bmonth"
-                        />
-                </RelativeLayout>
-                <TextView
-                    android:layout_margin="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="50dp"
-                    android:textSize="32dp"
-                    android:text="/"/>
 
-                <RelativeLayout
-                    android:layout_weight=".25"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/stroke"
-                    >
+                    />
 
-                    <Spinner
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:textSize="18dp"
-                        android:padding="10dp"
-                        android:id="@+id/Byear"
-                        />
-                </RelativeLayout>
 
-            </LinearLayout>
+
+            </android.support.design.widget.TextInputLayout>
+
+
+            <!--<LinearLayout-->
+                <!--android:layout_marginTop="5dp"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="horizontal">-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_weight=".27"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/stroke">-->
+
+                    <!--<Spinner-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+
+                        <!--android:textSize="18dp"-->
+                        <!--android:padding="10dp"-->
+                        <!--android:id="@+id/day"-->
+                        <!--/>-->
+                <!--</RelativeLayout>-->
+                <!--<TextView-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:textSize="32dp"-->
+                    <!--android:text="/"/>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_weight=".26"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/stroke"-->
+                    <!--&gt;-->
+
+                    <!--<Spinner-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+
+                        <!--android:textSize="18dp"-->
+                        <!--android:padding="10dp"-->
+                        <!--android:id="@+id/Bmonth"-->
+                        <!--/>-->
+                <!--</RelativeLayout>-->
+                <!--<TextView-->
+                    <!--android:layout_margin="5dp"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="50dp"-->
+                    <!--android:textSize="32dp"-->
+                    <!--android:text="/"/>-->
+
+                <!--<RelativeLayout-->
+                    <!--android:layout_weight=".25"-->
+                    <!--android:layout_width="0dp"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:background="@drawable/stroke"-->
+                    <!--&gt;-->
+
+                    <!--<Spinner-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center"-->
+                        <!--android:textSize="18dp"-->
+                        <!--android:padding="10dp"-->
+                        <!--android:id="@+id/Byear"-->
+                        <!--/>-->
+                <!--</RelativeLayout>-->
+
+            <!--</LinearLayout>-->
 
             <android.support.design.widget.TextInputLayout
                 android:layout_marginTop="10dp"
@@ -413,7 +525,7 @@
                     android:textColor="@color/col10"
                     android:background="@drawable/stroke"
                     android:inputType="textCapSentences"
-                    android:imeOptions="actionNext"
+                    android:imeOptions="actionDone"
                     />
 
             </android.support.design.widget.TextInputLayout>
@@ -422,6 +534,11 @@
 
         </LinearLayout>
         <LinearLayout
+            android:layout_marginStart="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginEnd="20dp"
+            android:id="@+id/submit"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="20dp"
             android:padding="10dp"
@@ -440,4 +557,6 @@
 
         </LinearLayout>
     </ScrollView>
+
+    </LinearLayout>
 

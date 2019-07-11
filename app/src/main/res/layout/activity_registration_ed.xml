@@ -330,9 +330,10 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/contactno"
                 android:hint="Contact No *"
+
                 android:textColor="#6B6B6B"
                 android:background="@drawable/stroke"
-                android:inputType="textCapSentences"
+                android:inputType="number"
                 android:imeOptions="actionNext"
                 />
 
@@ -356,7 +357,7 @@
                 android:hint="Email *"
                 android:textColor="#6B6B6B"
                 android:background="@drawable/stroke"
-                android:inputType="textCapSentences"
+                android:inputType="textWebEmailAddress"
                 android:imeOptions="actionNext"
                 />
 
@@ -583,7 +584,7 @@
                 android:textColor="#6B6B6B"
                 android:background="@drawable/stroke"
                 android:inputType="textPassword"
-                android:imeOptions="actionNext"/>
+                android:imeOptions="actionDone"/>
 
             </android.support.design.widget.TextInputLayout>
 

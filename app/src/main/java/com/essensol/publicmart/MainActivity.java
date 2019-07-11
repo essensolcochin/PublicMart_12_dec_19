@@ -82,37 +82,44 @@ public class MainActivity extends AppCompatActivity {
 
 //        Utility.ShowCustomToast("Test",MainActivity.this);
 
-//        progress = new ProgressDialog(MainActivity.this);
-//        progress.setTitle("Publicmart");
-//        progress.setMessage("Gathering Information");
-//        progress.show();
-//
-//        if (isNetworkConnectionAvailable()) {
-//            Runnable progressRunnable = new Runnable() {
-//
-//                @Override
-//                public void run() {
-//
-//                    FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
-//                        @Override
-//                        public void onSuccess(InstanceIdResult instanceIdResult) {
-//                            String newToken = instanceIdResult.getToken();
-//                            Log.e("newTokennnnnnnn  ", newToken);
-//                            token = newToken;
-//                        }
-//                    });
-//
-//                    progress.cancel();
-//                }
-//            };
-//
-//            Handler pdCanceller = new Handler();
-//            pdCanceller.postDelayed(progressRunnable, 500);
-//        }
-//        else{
-//            Toast.makeText(MainActivity.this,"No Network Connectivity",Toast.LENGTH_LONG).show();
-//
-//        }
+        progress = new ProgressDialog(MainActivity.this);
+        progress.setTitle("Publicmart");
+        progress.setMessage("Gathering Information");
+        progress.show();
+
+        if (Utility.isNetworkConnectionAvailable(MainActivity.this)) {
+            Runnable progressRunnable = new Runnable() {
+
+                @Override
+                public void run() {
+
+                    FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
+                        @Override
+                        public void onSuccess(InstanceIdResult instanceIdResult) {
+                            String newToken = instanceIdResult.getToken();
+                            Log.e("newTokennnnnnnn  ", newToken);
+                            token = newToken;
+
+
+                            SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+                            SharedPreferences.Editor editor =SaveToken.edit();
+                            editor.putString("Token",token);
+                            editor.apply();
+                        }
+                    });
+
+                    progress.cancel();
+                }
+            };
+
+            Handler pdCanceller = new Handler();
+            pdCanceller.postDelayed(progressRunnable, 500);
+        }
+        else{
+            progress.cancel();
+            Utility.ShowCustomToast(" No Network Connection",MainActivity.this);
+
+        }
 
 
 
@@ -125,40 +132,87 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         log = findViewById(R.id.login);
+
+
+
         log.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
-                token=SaveToken.getString("Token",null);
-
-                progressdialog.setTitle("Publicmart");
-                progressdialog.setMessage("Gathering Information");
-                progressdialog.show();
-
-
-                try {
-
-                    JSONObject values = new JSONObject();
-                    values.put("UserName", username.getText().toString());
-                    values.put("UserPwd", password.getText().toString());
-                    values.put("AppToken", token);
-                    values.put("Mode", "M");
-
-                    jsonString = new JSONObject();
-                    jsonString.put("Token", "0001");
-                    jsonString.put("call", "CheckLogin");
-                    jsonString.put("values", values);
-                    request = jsonString.toString();
-
-
-                } catch (
-                        JSONException e) {
-                    e.printStackTrace();
+                if(username.getText().toString().equalsIgnoreCase("")){
+                    username.setError("Field Empty");
                 }
 
-                if(isNetworkConnectionAvailable()) {
-                    Login(request);
+                else if(password.getText().toString().equalsIgnoreCase(""))
+                {
+                    password.setError("Field Empty");
                 }
+                   else{
+
+
+
+                    SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+                    token=SaveToken.getString("Token",null);
+
+                    if(token==null)
+                    {
+                       FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
+                        @Override
+                        public void onSuccess(InstanceIdResult instanceIdResult) {
+                            String newToken = instanceIdResult.getToken();
+                            Log.e("newTokennnnnnnn  ", newToken);
+                            token = newToken;
+
+
+                            SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+                            SharedPreferences.Editor editor =SaveToken.edit();
+                            editor.putString("Token",token);
+                            editor.apply();
+                        }
+                    });
+
+                    }
+
+                    progressdialog.setTitle("Publicmart");
+                    progressdialog.setMessage("Gathering Information");
+                    progressdialog.show();
+
+
+                    try {
+
+                        JSONObject values = new JSONObject();
+                        values.put("UserName", username.getText().toString());
+                        values.put("UserPwd", password.getText().toString());
+                        values.put("AppToken", token);
+                        values.put("Mode", "M");
+
+                        jsonString = new JSONObject();
+                        jsonString.put("Token", "0001");
+                        jsonString.put("call", "CheckLogin");
+                        jsonString.put("values", values);
+                        request = jsonString.toString();
+
+
+                    } catch (
+                            JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                    if(Utility.isNetworkConnectionAvailable(MainActivity.this)) {
+                        Login(request);
+                    }
+                    else {
+                        progressdialog.cancel();
+                        Utility.ShowCustomToast("No Network Connectivity",MainActivity.this);
+                    }
+
+
+
+
+                }
+
+//                if(token=null)
+//                {
+
 
 
 
@@ -273,14 +327,27 @@ public class MainActivity extends AppCompatActivity {
 
 
                                 if(jsonObject.get("PaidStatus").toString().equalsIgnoreCase("True"))
+
                                 {
-                                    SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+
+                                    if(jsonObject.getString("Profile").equalsIgnoreCase("True"))
+                                    {
+                                      SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
                                     SharedPreferences.Editor edit = sp.edit();
                                     edit.putBoolean("LoggedUser",true);
                                     edit.apply();
-                                    Intent intent =new Intent(MainActivity.this,Home.class);
-                                    startActivity(intent);
-                                    finish();
+                                        Intent intent =new Intent(MainActivity.this,Home.class);
+                                        startActivity(intent);
+                                        finish();
+
+                                    }
+                                    else {
+                                        Intent intent =new Intent(MainActivity.this,Profile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+
                                 }
 
                                 else{

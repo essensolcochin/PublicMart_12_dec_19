@@ -193,11 +193,8 @@ public class Payment extends AppCompatActivity {
                                 if (code.equals("0"))
                                 {
 
-                                   SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
-                                   SharedPreferences.Editor edit = sp.edit();
-                                   edit.putBoolean("LoggedUser",true);
-                                   edit.apply();
-                                   Intent intent = new Intent(Payment.this,Home.class);
+
+                                   Intent intent = new Intent(Payment.this,Profile.class);
                                    startActivity(intent);
                                    finish();
 

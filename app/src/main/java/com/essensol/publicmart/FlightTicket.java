@@ -20,9 +20,14 @@ import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -56,7 +61,6 @@ public class FlightTicket extends BaseActivity{
     Spinner citycode,citycode2,days,months,years, bday,bmonth,byear;
     String Bday,Bmonth,Byear,Day,Month,Year;
     Integer codecity,codecity2;
-//    RadioGroup rg;
     RadioButton radioButton;
     Button submit_flight;
     EditText traveler_name,email_id,contact_no;
@@ -418,8 +422,7 @@ public class FlightTicket extends BaseActivity{
 
 
 
-    private void book_ticket(final String request)
-    {
+    private void book_ticket(final String request) {
 
 
         Log.e("gettttt","in"+request);
@@ -500,8 +503,21 @@ public class FlightTicket extends BaseActivity{
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
 
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                            Utility.ShowCustomToast(" No Network Connection",FlightTicket.this);
+                        } else if (error instanceof AuthFailureError) {
+                            Utility.ShowCustomToast("Authentication Failed",FlightTicket.this);
+                        } else if (error instanceof ServerError) {
+
+                            Utility.ShowCustomToast("Server Error Occurred",FlightTicket.this);
+                        } else if (error instanceof NetworkError) {
+
+                            Utility.ShowCustomToast("Some Network Error Occurred",FlightTicket.this);
+                        } else if (error instanceof ParseError) {
+
+                            Utility.ShowCustomToast("Some Error Occurred",FlightTicket.this);
+                        }
                     }
                 }) {
 
@@ -625,9 +641,9 @@ public class FlightTicket extends BaseActivity{
                             }
 
 
-                            else {
-                                Toast.makeText(FlightTicket.this,message,Toast.LENGTH_LONG).show();
-                            }
+//                            else {
+//                                Toast.makeText(FlightTicket.this,message,Toast.LENGTH_LONG).show();
+//                            }
 
 
 
@@ -641,8 +657,21 @@ public class FlightTicket extends BaseActivity{
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
 
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                            Utility.ShowCustomToast(" No Network Connection",FlightTicket.this);
+                        } else if (error instanceof AuthFailureError) {
+                            Utility.ShowCustomToast("Authentication Failed",FlightTicket.this);
+                        } else if (error instanceof ServerError) {
+
+                            Utility.ShowCustomToast("Server Error Occurred",FlightTicket.this);
+                        } else if (error instanceof NetworkError) {
+
+                            Utility.ShowCustomToast("Some Network Error Occurred",FlightTicket.this);
+                        } else if (error instanceof ParseError) {
+
+                            Utility.ShowCustomToast("Some Error Occurred",FlightTicket.this);
+                        }
                     }
                 }) {
 
