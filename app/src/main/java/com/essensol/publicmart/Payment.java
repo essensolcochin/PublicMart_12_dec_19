@@ -193,7 +193,7 @@ public class Payment extends AppCompatActivity {
                                 if (code.equals("0"))
                                 {
 
-
+                                   Utility.ShowCustomToast("Your Payment Was Successful",Payment.this);
                                    Intent intent = new Intent(Payment.this,Profile.class);
                                    startActivity(intent);
                                    finish();
@@ -240,8 +240,7 @@ public class Payment extends AppCompatActivity {
                     param.put("Content-Type","application/x-www-form-urlencoded");
                     return param;
                 }
-            }
-                    ;
+            };
 
             RequestQueue requestQueue= Volley.newRequestQueue(this);
             requestQueue.add(stringRequest);

@@ -3,6 +3,7 @@ package com.essensol.publicmart;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,9 +14,14 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.NetworkError;
+import com.android.volley.NoConnectionError;
+import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
+import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
@@ -44,6 +50,12 @@ public class FlightTab extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+//        setUserVisibleHint(false);
+    }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -65,10 +77,36 @@ public class FlightTab extends Fragment {
 
 
         item_list = new ArrayList<>();
-        LoadItems();
+
+        if(getUserVisibleHint()){
+
+            LoadItems();
+        }
+
+
+
 
         return RootView;
     }
+
+
+
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        if(isVisibleToUser&&isResumed()){
+
+            LoadItems();
+
+        }
+
+
+
+    }
+
+
 
 private  void LoadItems()
 {
@@ -222,8 +260,21 @@ private  void LoadItems()
                 new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
-                        // progress.cancel();
-                        Toast.makeText(getContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
+
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                            Utility.ShowCustomToast(" No Network Connection",getContext());
+                        } else if (error instanceof AuthFailureError) {
+                            Utility.ShowCustomToast("Authentication Failed",getContext());
+                        } else if (error instanceof ServerError) {
+
+                            Utility.ShowCustomToast("Server Error Occurred",getContext());
+                        } else if (error instanceof NetworkError) {
+
+                            Utility.ShowCustomToast("Some Network Error Occurred",getContext());
+                        } else if (error instanceof ParseError) {
+
+                            Utility.ShowCustomToast("Some Error Occurred",getContext());
+                        }
 
                     }
                 })

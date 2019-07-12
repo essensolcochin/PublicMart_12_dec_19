@@ -350,7 +350,8 @@ public class Registration extends AppCompatActivity {
 
 
                             else {
-                                Toast.makeText(Registration.this,message,Toast.LENGTH_LONG).show();
+                                Utility.ShowCustomToast(" Registration Failed ",Registration.this);
+                               // Toast.makeText(Registration.this,message,Toast.LENGTH_LONG).show();
                             }
 
 
@@ -400,8 +401,7 @@ public class Registration extends AppCompatActivity {
                 param.put("Content-Type","application/x-www-form-urlencoded");
                 return param;
             }
-        }
-                ;
+        };
 
         RequestQueue requestQueue= Volley.newRequestQueue(this);
         requestQueue.add(stringRequest);

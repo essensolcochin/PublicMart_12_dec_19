@@ -23,7 +23,6 @@ public class Utility {
 
         Toast toast = new Toast(context);
         toast.setGravity(Gravity.BOTTOM, 0, 90);
-//        toast.setMargin(0,90);
         toast.setDuration(Toast.LENGTH_LONG);
         toast.setView(layout);
         toast.show();
