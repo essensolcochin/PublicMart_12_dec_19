@@ -4,6 +4,7 @@ package com.essensol.publicmart;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -33,6 +34,10 @@ import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.essensol.publicmart.RetrofitUtils.ApiClient;
+import com.essensol.publicmart.RetrofitUtils.ApiInterface;
+import com.essensol.publicmart.RetrofitUtils.RetrofitResponseClasses.LoginResponse;
+import com.essensol.publicmart.Utils.ConnectivityManagerClass;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
@@ -43,11 +48,15 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 
+import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
 import io.realm.Realm;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -58,11 +67,13 @@ public class MainActivity extends AppCompatActivity {
     String code,message,request,token;
     SharedPreferences sp;
     Realm realm;
-    private    ProgressDialog progressdialog;
+    private ProgressDialog progressdialog;
     private static final Random random = new Random();
     private static final String CHARS = "abcdefghijkmnopqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ234567890!@#$";
     ProgressDialog progress;
-
+    int j;
+    ApiInterface apiInterface;
+//    ConnectivityManagerClass reciever =null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,48 +89,41 @@ public class MainActivity extends AppCompatActivity {
 
         progressdialog = new ProgressDialog(MainActivity.this);
 
-        getToken(5);
+//
+
+
+
+
 
 //        Utility.ShowCustomToast("Test",MainActivity.this);
 
         progress = new ProgressDialog(MainActivity.this);
         progress.setTitle("Publicmart");
         progress.setMessage("Gathering Information");
-        progress.show();
+
+
+
+//        reciever =new ConnectivityManagerClass();
+//
+//        registerReceiver(reciever, new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION));
+
 
         if (Utility.isNetworkConnectionAvailable(MainActivity.this)) {
-            Runnable progressRunnable = new Runnable() {
-
-                @Override
-                public void run() {
-
-                    FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
-                        @Override
-                        public void onSuccess(InstanceIdResult instanceIdResult) {
-                            String newToken = instanceIdResult.getToken();
-                            Log.e("newTokennnnnnnn  ", newToken);
-                            token = newToken;
 
 
-                            SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
-                            SharedPreferences.Editor editor =SaveToken.edit();
-                            editor.putString("Token",token);
-                            editor.apply();
-                        }
-                    });
-
-                    progress.cancel();
-                }
-            };
-
-            Handler pdCanceller = new Handler();
-            pdCanceller.postDelayed(progressRunnable, 500);
+            progress.show();
+            getFirebaseToken();
         }
         else{
             progress.cancel();
-            Utility.ShowCustomToast(" No Network Connection",MainActivity.this);
+            Utility.ShowCustomToast(" No Network Connection Available Check Your Internet Settings ",MainActivity.this);
+
+//            changeNetworkStatus(false);
 
         }
+
+
+        apiInterface= ApiClient.getClient().create(ApiInterface.class);
 
 
 
@@ -198,25 +202,17 @@ public class MainActivity extends AppCompatActivity {
                     }
 
                     if(Utility.isNetworkConnectionAvailable(MainActivity.this)) {
-                        Login(request);
+                        loginUser(request);
                     }
                     else {
                         progressdialog.cancel();
-                        Utility.ShowCustomToast("No Network Connectivity",MainActivity.this);
+                        Utility.ShowCustomToast(" No Network Connection Available Check Your Internet Settings",MainActivity.this);
                     }
 
 
 
 
                 }
-
-//                if(token=null)
-//                {
-
-
-
-
-
 
 
 
@@ -390,16 +386,73 @@ public class MainActivity extends AppCompatActivity {
                         progressdialog.cancel();
 
 
-                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                            Utility.ShowCustomToast(" No Network Connection",MainActivity.this);
-                        } else if (error instanceof AuthFailureError) {
-                            Utility.ShowCustomToast("Authentication Failed",MainActivity.this);
-                        } else if (error instanceof ServerError) {
-                            Utility.ShowCustomToast("Server Error Occurred",MainActivity.this);
-                        } else if (error instanceof NetworkError) {
-                            Utility.ShowCustomToast("Some Network Error Occurred",MainActivity.this);
-                        } else if (error instanceof ParseError) {
+//
+//                        try {
+//                            String responseBody = new String(error.networkResponse.data, "utf-8");
+//                            JSONObject data = new JSONObject(responseBody);
+//                            JSONArray errors = data.getJSONArray("errors");
+//                            JSONObject jsonMessage = errors.getJSONObject(0);
+//                            String message = jsonMessage.getString("message");
+//                            Log.e("Tag----->Common","Error Code "+message);
+//                        } catch (JSONException e) {
+//                        } catch (UnsupportedEncodingException errorr) {
+//                        }
 
+
+                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
+                            if(error.networkResponse != null && error.networkResponse.statusCode!=0)
+                            {
+                                Log.e("Tag----->","NoConnectionError Code "+error.networkResponse.statusCode);
+
+
+                            }
+
+
+                            Utility.ShowCustomToast(" No Network Connection Available Check Your Internet Settings",MainActivity.this);
+                        }
+
+                        else if (error instanceof AuthFailureError) {
+
+                            if(error.networkResponse != null && error.networkResponse.statusCode!=0)
+                            {
+                                Log.e("Tag----->","AuthFailureError Code "+error.networkResponse.statusCode);
+
+
+
+                            }
+
+
+                            Utility.ShowCustomToast("Authentication Failed",MainActivity.this);
+                        }
+                        else if (error instanceof ServerError)
+                        {
+
+                            if(error.networkResponse != null && error.networkResponse.data != null)
+                            {
+
+                                Log.e("Tag----->","NetworkError Code "+error.getMessage());
+
+
+                                Log.e("Tag----->","NetworkError Code "+new String(error.networkResponse.data).split(":")[1]);
+                            }
+
+                            Utility.ShowCustomToast("Error Connecting to the Server",MainActivity.this);
+
+
+                        }
+                        else if (error instanceof NetworkError) {
+
+                            if(error.networkResponse != null && error.networkResponse.statusCode!=0)
+                            Log.e("Tag----->","NetworkError Code "+error.networkResponse.statusCode);
+
+
+                            Utility.ShowCustomToast("Some Network Error Occurred",MainActivity.this);
+
+                            }
+                            else if (error instanceof ParseError) {
+
+                            if(error.networkResponse != null && error.networkResponse.statusCode!=0)
+                            Log.e("Tag----->","ParseError Code "+error.networkResponse.statusCode);
                             Utility.ShowCustomToast("Some Error Occurred",MainActivity.this);
                         }
 
@@ -435,62 +488,184 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < length; i++) {
             token.append(CHARS.charAt(random.nextInt(CHARS.length())));
         }
-        Log.e("Mytokennnnn",""+token.toString());
+//        Log.e("Mytokennnnn",""+token.toString());
         return token.toString();
 
     }
 
+                @Override
+                public void onBackPressed() {
+                    moveTaskToBack(true);
+                }
 
+
+
+
+            private void loginUser(String request){
+
+
+
+                Log.e("Passing On Login  ", request);
+
+
+
+
+            apiInterface.login(request).enqueue(new Callback<LoginResponse>() {
+                @Override
+                public void onResponse(Call<LoginResponse> call, retrofit2.Response<LoginResponse> response) {
+                    progressdialog.cancel();
+
+                    if (response.isSuccessful() && response.code() == 200) {
+                        assert response.body() != null;
+                        if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                            //selecting Inner Json Array From response
+                            final List<LoginResponse.LoginJsonArray> responseBody = response.body().getLoginresponse();
+
+                            for (j = 0; j < responseBody.size(); j++) {
+
+                                String Count = responseBody.get(j).getCartCount();
+
+                                if(!Count.equalsIgnoreCase("0"))
+                                {
+                                    realm.beginTransaction();
+                                    RealmShopModel addToCart1 = new RealmShopModel();
+                                    addToCart1.setCount(Count);
+                                    realm.insertOrUpdate(addToCart1);
+                                    realm.commitTransaction();
+                                }
+
+                                sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                SharedPreferences.Editor editor =sp.edit();
+
+
+                                editor.putString("UserKey",responseBody.get(j).getUserKey());
+                                editor.putString("CustKey",responseBody.get(j).getCustKey());
+                                editor.putString("Username",responseBody.get(j).getUserName());
+                                editor.putString("CustomerName",responseBody.get(j).getCustomerName());
+                                editor.putString("CustCode",responseBody.get(j).getCustCode());
+                                editor.putString("MemberShip",responseBody.get(j).getMemberShip());
+                                editor.putString("amnt",responseBody.get(j).getAmount());
+                                editor.putString("MobileNo",responseBody.get(j).getMobileNo());
+                                editor.putString("Email",responseBody.get(j).getEmail());
+
+                                editor.apply();
+                                Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
+                                Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
+
+                                if(responseBody.get(j).getPaidStatus().equalsIgnoreCase("True"))
+
+                                {
+
+                                    if(responseBody.get(j).getProfile().equalsIgnoreCase("True"))
+                                    {
+                                        SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                        SharedPreferences.Editor edit = sp.edit();
+                                        edit.putBoolean("LoggedUser",true);
+                                        edit.apply();
+                                        Intent intent =new Intent(MainActivity.this,Home.class);
+                                        startActivity(intent);
+                                        finish();
+
+                                    }
+                                    else {
+                                        Intent intent =new Intent(MainActivity.this,Profile.class);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+
+
+                                }
+
+                                else{
+
+                                    Intent intent =new Intent(MainActivity.this,Payment.class);
+
+                                    startActivity(intent);
+                                    finish();
+                                }
+
+
+
+
+                            }
+                        }
+                    }
+                    else if(response.code() == 401) {
+                        Utility.ShowCustomToast("Authentication Failed ",MainActivity.this);
+                        Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                    }
+
+                    else if( response.code() == 500) {
+                        Utility.ShowCustomToast("A Server Error has been Occurred",MainActivity.this);
+                        Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                    }
+
+                    else if(response.code() == 408) {
+                        Utility.ShowCustomToast("A Network Error has been Occurred Check your Connectivity Settings",MainActivity.this);
+                        Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                    }
+
+                }
+
+                @Override
+                public void onFailure(Call<LoginResponse> call, Throwable t) {
+
+                    Log.e("Error On Failure","Failedddddd");
+                    Utility.ShowCustomToast("A Network Error has been Occurred Check your Connectivity Settings",MainActivity.this);
+                }
+            });
+
+
+
+
+}
 
     @Override
-    public void onBackPressed() {
-        moveTaskToBack(true);
+    protected void onPause() {
+
+        super.onPause();
+        MyApplication.activityPaused();// On Pause notify the Application
+    }
+
+    @Override
+    protected void onResume() {
+
+        super.onResume();
+        MyApplication.activityResumed();// On Resume notify the Application
     }
 
 
-    boolean isNetworkConnectionAvailable() {
-        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-        assert cm != null;
-        NetworkInfo info = cm.getActiveNetworkInfo();
-        if (info == null) return false;
-        NetworkInfo.State network = info.getState();
-        return (network == NetworkInfo.State.CONNECTED || network == NetworkInfo.State.CONNECTING);
+    public   void  getFirebaseToken(){
+        Log.e("InsideChangenetwork ", "Connected");
+        progress.show();
+        Runnable progressRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        String newToken = instanceIdResult.getToken();
+                        Log.e("newTokennnnnnnn  ", newToken);
+                        token = newToken;
+
+
+                        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
+                        SharedPreferences.Editor editor =SaveToken.edit();
+                        editor.putString("Token",token);
+                        editor.apply();
+                    }
+                });
+
+                progress.cancel();
+            }
+        };
+
+        Handler pdCanceller = new Handler();
+        pdCanceller.postDelayed(progressRunnable, 500);
+
     }
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//        if(isNetworkConnectionAvailable()){
-//            Runnable progressRunnable = new Runnable() {
-//
-//                @Override
-//                public void run() {
-//
-//                    FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
-//                        @Override
-//                        public void onSuccess(InstanceIdResult instanceIdResult) {
-//                            String newToken = instanceIdResult.getToken();
-//                            Log.e("newTokennnnnnnn  ", newToken);
-//                            token = newToken;
-//                        }
-//                    });
-//
-//                    progress.cancel();
-//                }
-//            };
-//
-//            Handler pdCanceller = new Handler();
-//            pdCanceller.postDelayed(progressRunnable, 500);
-//
-//        }
-//        else{
-//            Toast.makeText(MainActivity.this,"No Network Connectivity",Toast.LENGTH_LONG).show();
-//
-//        }
-//    }
-
-
-
-
 }
 

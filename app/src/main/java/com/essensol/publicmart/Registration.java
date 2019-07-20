@@ -1,6 +1,7 @@
 package com.essensol.publicmart;
 
 import android.content.Intent;
+import android.nfc.Tag;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -27,6 +28,9 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
+import com.essensol.publicmart.RetrofitUtils.ApiClient;
+import com.essensol.publicmart.RetrofitUtils.ApiInterface;
+import com.essensol.publicmart.RetrofitUtils.RetrofitResponseClasses.RegisterResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -38,6 +42,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import io.fabric.sdk.android.Fabric;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class Registration extends AppCompatActivity {
     LinearLayout regist;
@@ -58,6 +64,11 @@ public class Registration extends AppCompatActivity {
     String request,code,message;
     RadioGroup radioGroup;
     Integer Membership_Type;
+
+
+
+    ApiInterface apiInterface;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +103,7 @@ public class Registration extends AppCompatActivity {
 //        state = (Spinner)findViewById(R.id.state);
 
 
-
+        apiInterface= ApiClient.getClient().create(ApiInterface.class);
 
        // getCodes();
         names = new ArrayList<SpinnerModel>();
@@ -273,7 +284,7 @@ public class Registration extends AppCompatActivity {
 
 
                     if(Utility.isNetworkConnectionAvailable(Registration.this)){
-                        Register(request);
+                        RegisterUser(request);
                     }
                     else {
                         Utility.ShowCustomToast("No Network Available Check Your Internet Connectivity",Registration.this);
@@ -372,15 +383,16 @@ public class Registration extends AppCompatActivity {
                         if (error instanceof TimeoutError || error instanceof NoConnectionError) {
                             Utility.ShowCustomToast(" No Network Connection",Registration.this);
                         } else if (error instanceof AuthFailureError) {
+                            Log.e("Tag----->","Error Code "+error.networkResponse.statusCode);
                             Utility.ShowCustomToast("Authentication Failed",Registration.this);
                         } else if (error instanceof ServerError) {
-
+                            Log.e("Tag----->","Error Code "+error.networkResponse.statusCode);
                             Utility.ShowCustomToast("Server Error Occurred",Registration.this);
                         } else if (error instanceof NetworkError) {
-
+                            Log.e("Tag----->","Error Code "+error.networkResponse.statusCode);
                             Utility.ShowCustomToast("Some Network Error Occurred",Registration.this);
                         } else if (error instanceof ParseError) {
-
+                            Log.e("Tag----->","Error Code "+error.networkResponse.statusCode);
                             Utility.ShowCustomToast("Some Error Occurred",Registration.this);
                         }
 
@@ -552,6 +564,58 @@ public class Registration extends AppCompatActivity {
 //
 //
 //    }
+
+
+    private void RegisterUser(String request){
+
+        apiInterface.Register(request).enqueue(new Callback<RegisterResponse>() {
+            @Override
+            public void onResponse(Call<RegisterResponse> call, retrofit2.Response<RegisterResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("-100")) {
+
+                        Log.e("resppppppp","CODEEEE "+response.body().getCode());
+
+                        Intent intent =new Intent(Registration.this,MainActivity.class);
+                        startActivity(intent);
+                        finish();
+                    }
+                    else
+                    {
+                        Utility.ShowCustomToast(" Registration Failed ",Registration.this);
+
+                    }
+                }
+
+                else if(response.code() == 401) {
+                    Utility.ShowCustomToast("Authentication Failed ",Registration.this);
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+                    Utility.ShowCustomToast("A Server Error has been Occurred",Registration.this);
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+                    Utility.ShowCustomToast("A Network Error has been Occurred Check your Connectivity Settings",Registration.this);
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+            }
+
+            @Override
+            public void onFailure(Call<RegisterResponse> call, Throwable t) {
+
+                Utility.ShowCustomToast("A Network Error has been Occurred Check your Connectivity Settings",Registration.this);
+
+            }
+        });
+
+
+    }
 
 
 
