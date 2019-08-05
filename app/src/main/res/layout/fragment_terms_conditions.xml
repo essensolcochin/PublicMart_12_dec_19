@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".TermsConditions">
+
+    <ScrollView
+        android:layout_above="@+id/frame"
+        android:fillViewport="true"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:padding="20dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <TextView
+                android:textColor="@color/col10"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Our Terms &amp; Conditions" />
+
+
+
+            <TextView
+                android:gravity="start"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/col10"
+                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="1. The Contract of the Publicmart entered into between Company and the Customer." />
+
+
+            <TextView
+                android:gravity="start"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/col10"
+                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="2. When  a Customer joined the Publicmart the first Seven Days is notice period.If Customer is not satisfied with the fuction of Publicmart then he/she can withdraw all amount from the company only rs.500 is registration fees that is not refundable the rest of all the amount will be refunded within 72 hours from requested time." />
+
+
+            <TextView
+                android:gravity="start"
+                android:layout_marginTop="20dp"
+                android:textColor="@color/col10"
+                android:textSize="16dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="3. Duration : Publicmart will provide only one year membership facility to their customers" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/frame"
+        android:gravity="end"
+        android:layout_alignParentBottom="true"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:textStyle="bold"
+            android:id="@+id/Ok"
+            android:textSize="20dp"
+            android:text="OK"
+            android:textColor="@color/col10"
+            android:layout_gravity="end"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</RelativeLayout>

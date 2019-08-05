@@ -20,10 +20,10 @@ repositories {
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.essensol.publicmart"
+        applicationId "com.publicmart.android"
         minSdkVersion 15
         targetSdkVersion 28
-        versionCode 6
+        versionCode 1
         versionName "1.0.4"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
