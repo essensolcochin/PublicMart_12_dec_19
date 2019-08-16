@@ -23,10 +23,9 @@
             <!--android:textColor="#000"-->
             <!--android:text="Train"/>-->
 
-        <com.facebook.drawee.view.SimpleDraweeView
+        <ImageView
             android:id="@+id/adTXT"
             android:scaleType="fitXY"
-            fresco:actualImageScaleType="fitXY"
             android:layout_width="fill_parent"
             android:gravity="center"
             android:textStyle="italic"

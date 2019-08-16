@@ -23,15 +23,13 @@
                 android:background="@drawable/edittextbg"
                 android:orientation="horizontal">
 
-                <com.facebook.drawee.view.SimpleDraweeView
+                <ImageView
                     android:adjustViewBounds="true"
                     android:layout_marginStart="5dp"
                     android:layout_marginLeft="5dp"
                     android:layout_gravity="center_vertical"
                     android:id="@+id/image"
-                    fresco:actualImageScaleType="fitXY"
                     android:layout_width="120dp"
-                    fresco:viewAspectRatio="1.33"
                     android:layout_height="160dp"
                     android:src="@drawable/saree3"/>
 

@@ -9,7 +9,7 @@
 
     android:orientation="vertical"
 
-    tools:context=".HouseBoat">
+    tools:context=".Activities.HouseBoat">
 
 
     <LinearLayout

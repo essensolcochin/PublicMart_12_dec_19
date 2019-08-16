@@ -6,7 +6,7 @@
     android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="#DBDADA"
-    tools:context=".SearchBar">
+    tools:context=".Activities.SearchBar">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
@@ -26,16 +26,16 @@
             android:layout_width="30dp"
             android:layout_height="30dp" />
 
-        <android.support.v7.widget.SearchView
+        <EditText
+
+            android:background="@android:color/white"
             android:gravity="start"
-            app:iconifiedByDefault="false"
             android:id="@+id/search"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Search Here"
-            app:queryHint="Search Something">
+            >
 
-        </android.support.v7.widget.SearchView>
+        </EditText>
 
 
 

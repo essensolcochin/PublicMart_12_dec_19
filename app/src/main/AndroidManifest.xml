@@ -20,36 +20,36 @@
         <activity android:name="ProductPay" />
         <activity android:name=".WebViewActivity" />
         <activity android:name=".MenuDirect" />
-        <activity android:name=".TabActivity" />
-        <activity android:name=".Splash_Screen">
+        <activity android:name=".Activities.TabActivity" />
+        <activity android:name=".Activities.Splash_Screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Shopping_List" />
-        <activity android:name=".CreditActivity" />
-        <activity android:name=".TestActivity" />
-        <activity android:name=".HouseBoat" />
-        <activity android:name=".TrainTicket" />
-        <activity android:name=".Profile" />
-        <activity android:name=".SearchBar" />
-        <activity android:name=".BaseActivity" />
-        <activity android:name=".ProductView" />
-        <activity android:name=".Bookingstatus" />
-        <activity android:name=".Payment" />
+        <activity android:name=".Activities.Shopping_List" />
+        <activity android:name=".Activities.CreditActivity" />
+        <activity android:name=".Activities.TestActivity" />
+        <activity android:name=".Activities.HouseBoat" />
+        <activity android:name=".Activities.TrainTicket" />
+        <activity android:name=".Activities.Profile" />
+        <activity android:name=".Activities.SearchBar" />
+        <activity android:name=".Activities.BaseActivity" />
+        <activity android:name=".Activities.ProductView" />
+        <activity android:name=".Activities.Bookingstatus" />
+        <activity android:name=".Activities.Payment" />
         <activity android:name=".orderstatusdet" />
-        <activity android:name=".OrderStatus" />
-        <activity android:name=".Fashion" />
-        <activity android:name=".Products" />
-        <activity android:name=".Services" />
-        <activity android:name=".FlightTicket" />
-        <activity android:name=".Home" />
-        <activity android:name=".Registration" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".Edit_Profile" />
-        <activity android:name=".StatusActivity" />
+        <activity android:name=".Activities.OrderStatus" />
+        <activity android:name=".Activities.Fashion" />
+        <activity android:name=".Activities.Products" />
+        <activity android:name=".Activities.Services" />
+        <activity android:name=".Activities.FlightTicket" />
+        <activity android:name=".Activities.Home" />
+        <activity android:name=".Activities.Registration" />
+        <activity android:name=".Activities.MainActivity" />
+        <activity android:name=".Activities.Edit_Profile" />
+        <activity android:name=".Activities.StatusActivity" />
 
         <service
             android:name=".FirebaseInstanceIDService"

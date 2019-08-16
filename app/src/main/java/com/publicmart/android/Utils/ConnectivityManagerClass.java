@@ -7,7 +7,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.util.Log;
 
-import com.publicmart.android.MainActivity;
+import com.publicmart.android.Activities.MainActivity;
 import com.publicmart.android.MyApplication;
 import com.publicmart.android.Utility;
 
@@ -28,7 +28,7 @@ public class ConnectivityManagerClass extends BroadcastReceiver {
                 // text of activity by calling method
                 if (networkInfo != null && networkInfo.isConnected()) {
                     Log.e("Connected","  ");
-                    new MainActivity().getFirebaseToken();
+//                    new MainActivity().getFirebaseToken();
                 } else {
 
                     Log.e("Not Connected","  ");

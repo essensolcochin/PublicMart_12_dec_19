@@ -22,16 +22,14 @@
 
 
 
-                <com.facebook.drawee.view.SimpleDraweeView
+                <ImageView
                 android:layout_marginTop="3dp"
                 android:layout_marginLeft="3dp"
                 android:layout_marginRight="3dp"
-                android:src="@drawable/clothes"
                 android:id="@+id/menuIcon"
                 android:scaleType="fitXY"
-                fresco:actualImageScaleType="fitXY"
                 android:layout_width="match_parent"
-                fresco:placeholderImage="@drawable/placeholder"
+
                 android:layout_height="200dp" />
 
                 <!--<LinearLayout-->

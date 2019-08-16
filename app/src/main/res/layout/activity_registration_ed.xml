@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="10dp"
     android:background="@android:color/white"
-    tools:context=".Registration">
+    tools:context=".Activities.Registration">
 
     <ScrollView
         android:scrollbars="none"
@@ -520,29 +520,45 @@
             <!--</LinearLayout>-->
 
 
-            <android.support.design.widget.TextInputLayout
-                app:passwordToggleEnabled="true"
+            <FrameLayout
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColorHint="#E44E4E"
-                android:layout_marginTop="10dp">
+                android:layout_height="wrap_content">
+
+                <android.support.design.widget.TextInputLayout
+                    app:passwordToggleEnabled="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColorHint="#E44E4E"
+                    >
 
 
-            <EditText
-                android:layout_marginTop="5dp"
-                android:padding="10dp"
-                android:gravity="center_vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/username"
-                android:hint="UserName *"
-                android:textColor="#6B6B6B"
-                android:background="@drawable/stroke"
-                android:inputType="textCapSentences"
-                android:imeOptions="actionNext"
-                />
+                    <EditText
+                        android:layout_marginTop="5dp"
+                        android:padding="10dp"
+                        android:gravity="center_vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/username"
+                        android:hint="UserName *"
+                        android:textColor="#6B6B6B"
+                        android:background="@drawable/stroke"
+                        android:inputType="textCapSentences"
+                        android:imeOptions="actionNext"
+                        />
 
-            </android.support.design.widget.TextInputLayout>
+                </android.support.design.widget.TextInputLayout>
+                <TextView
+                    android:id="@+id/availability"
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center_vertical|end"
+                    android:textSize="12dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </FrameLayout>
+
+
 
             <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"

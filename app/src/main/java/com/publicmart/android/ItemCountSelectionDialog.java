@@ -7,10 +7,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import com.facebook.drawee.view.SimpleDraweeView;
+
 
 
 
@@ -20,7 +21,7 @@ public Activity c;
 public Button confirm;
 public Spinner Quantity;
 public TextView BV,Rupees,name,desc;
-public SimpleDraweeView productImage;
+public ImageView productImage;
 
     public ItemCountSelectionDialog(Activity a) {
         super(a);
@@ -43,7 +44,7 @@ public SimpleDraweeView productImage;
         name = (TextView) findViewById(R.id.product_name);
 
         Rupees = (TextView) findViewById(R.id.RS);
-        productImage =(SimpleDraweeView) findViewById(R.id.proImg);
+        productImage =(ImageView) findViewById(R.id.proImg);
         confirm.setOnClickListener(this);
 
 

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
 
-    tools:context=".OrderStatus">
+    tools:context=".Activities.OrderStatus">
 
 
     <ScrollView

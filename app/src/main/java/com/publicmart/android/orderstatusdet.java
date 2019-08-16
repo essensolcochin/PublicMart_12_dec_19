@@ -7,6 +7,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 
 import com.baoyachi.stepview.VerticalStepView;
+import com.publicmart.android.Activities.BaseActivity;
 
 import java.util.ArrayList;
 import java.util.List;

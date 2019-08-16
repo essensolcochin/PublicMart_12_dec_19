@@ -45,6 +45,21 @@ public class LoginResponse {
         @Expose
         private String UserName;
 
+        @SerializedName("AdminUser")
+        @Expose
+        private String AdminUser;
+
+
+
+        @SerializedName("MobileNo")
+        @Expose
+        private String MobileNo;
+
+        @SerializedName("Email")
+        @Expose
+        private String Email;
+
+
         @SerializedName("CustomerName")
         @Expose
         private String CustomerName;
@@ -61,13 +76,6 @@ public class LoginResponse {
         @Expose
         private String Amount;
 
-        @SerializedName("MobileNo")
-        @Expose
-        private String MobileNo;
-
-        @SerializedName("Email")
-        @Expose
-        private String Email;
 
         @SerializedName("PaidStatus")
         @Expose
@@ -110,12 +118,8 @@ public class LoginResponse {
             return Amount;
         }
 
-        public String getMobileNo() {
-            return MobileNo;
-        }
-
-        public String getEmail() {
-            return Email;
+        public String getAdminUser() {
+            return AdminUser;
         }
 
         public String getPaidStatus() {
@@ -128,6 +132,14 @@ public class LoginResponse {
 
         public String getCartCount() {
             return CartCount;
+        }
+
+        public String getMobileNo() {
+            return MobileNo;
+        }
+
+        public String getEmail() {
+            return Email;
         }
     }
 

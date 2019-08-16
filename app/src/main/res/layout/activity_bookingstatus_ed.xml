@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#DBDADA"
-    tools:context=".Bookingstatus">
+    tools:context=".Activities.Bookingstatus">
 
 <android.support.v7.widget.RecyclerView
     android:id="@+id/bookingRecycler"
