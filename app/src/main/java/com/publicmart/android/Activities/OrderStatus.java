@@ -29,6 +29,9 @@ import com.publicmart.android.Adapters_.OrderStatusAdapter_;
 import com.publicmart.android.ModelClasses.OrderStatusModel;
 import com.publicmart.android.R;
 import com.publicmart.android.ModelClasses.RealmShopModel;
+import com.publicmart.android.RetrofitUtils.ApiClient;
+import com.publicmart.android.RetrofitUtils.ApiInterface;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.OrderStatusResponse;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -42,6 +45,8 @@ import java.util.Map;
 
 import io.realm.Realm;
 import io.realm.RealmResults;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class OrderStatus extends BaseActivity {
     HorizontalStepView horizontalStepView;
@@ -56,6 +61,9 @@ public class OrderStatus extends BaseActivity {
     private Realm realm;
     private RealmResults<RealmShopModel> cartSIZE;
     ProgressDialog dialog;
+
+    ApiInterface apiInterface;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -80,7 +88,7 @@ public class OrderStatus extends BaseActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
+        apiInterface= ApiClient.getClient().create(ApiInterface.class);
 
 
         SharedPreferences sp = getSharedPreferences("UserLog",0);
@@ -88,155 +96,157 @@ public class OrderStatus extends BaseActivity {
 
         dialog.show();
 
-        try {
+        GetOrderStatus(CustKey);
 
-            final JSONObject jsonString;
-            JSONObject values = new JSONObject();
-            values.put("CustKey", CustKey);
-
-
-
-            jsonString = new JSONObject();
-            jsonString.put("Token", "0001");
-            jsonString.put("call", "GetOrderDetailsByCustKey");
-            jsonString.put("values", values);
-
-
-
-            String URL = this.getString(R.string.Url)+"Select";
-
-
-            StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                    new Response.Listener<String>() {
-                        @Override
-                        public void onResponse(String response) {
-
-                            //progress.cancel();
-
-                            Log.e("OrderSatatussssss",""+response);
-
-
-                            try {
-
-
-                                JSONObject o     = new JSONObject(response);
-
-                                ////// Checking Json Response Is JSON Object Or Not ///////
-                                String data = response;
-                                Object json = new JSONTokener(data).nextValue();
-                                if (json instanceof JSONObject){
-
-                                    Log.e("objectttttt",""+json);
-                                }
-
-                                //you have an object
-                                else if (json instanceof JSONArray){
-                                    Log.e("Arrayyyyyyy",""+json);
-                                }
-
-                                ///////////////////////////////////////////
-
-                                Log.e("tryyyyyyyyy","in"+o);
-
-
-                                String  code = o.getString("responseCode");
-                                String  message=o.getString("responseMessage");
-
-
-                                Log.e("codeeeeeeeeee","in"+code);
-
-                                if (code.equalsIgnoreCase("0")) {
-                                    dialog.cancel();
-
-                                    //JSONArray json_array2 = o.getJSONArray("result");
-                                    JSONArray jsonObject;
-                                    jsonObject = o.getJSONArray("result");
-                                    int j;
-                                    for (j = 0; j < jsonObject.length(); j++) {
-                                        JSONObject JsonData;
-
-                                        JsonData = jsonObject.getJSONObject(j);
-
-
-                                        OrderStatusModel items = new OrderStatusModel(JsonData.getString("ProductKey"),
-                                                JsonData.getString("BrandName"),
-                                                JsonData.getString("ShortDesc"),
-                                                JsonData.getString("Amount"),
-                                                JsonData.getString("BV"),
-                                                JsonData.getString("ImagePath"),
-                                                JsonData.getString("OrderStatusKey"),
-                                                JsonData.getString("OrderStatusName"));
-
-                                        Log.e("itemssss", "ifffff" + items );
-
-
-                                        item_list.add(items);
-                                    }
-
-                                    adapter_ = new OrderStatusAdapter_(OrderStatus.this, item_list);
-                                    recyclerView.setAdapter(adapter_);
-
-
-                                }
-                                else {
-                                    dialog.cancel();
-                                    if(cartSIZE!=null){
-                                        realm.beginTransaction();
-                                        cartSIZE.deleteAllFromRealm();
-                                        realm.commitTransaction();
-                                        realm.close();
-                                    }
-
-                                }
-
-
-
-
-                            } catch (JSONException e) {
-                                e.printStackTrace();
-                            }
-                        }
-
-
-
-                    },
-                    new Response.ErrorListener() {
-                        @Override
-                        public void onErrorResponse(VolleyError error) {
-                             dialog.cancel();
-//                            Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
-
-                        }
-                    })
-
-
-            {
-
-                @Override
-                protected Map<String, String> getParams() throws AuthFailureError {
-                    Map<String, String> param = new HashMap<String, String>();
-                    param.put("jsonString",jsonString.toString() );
-                    Log.e("paramssss",""+param);
-                    return param;
-                }
-
-                @Override
-                public Map<String, String> getHeaders() throws AuthFailureError {
-                    Map<String,String> param = new HashMap<String, String>();
-                    param.put("Content-Type","application/x-www-form-urlencoded");
-                    return param;
-                }
-            }
-                    ;
-
-            RequestQueue requestQueue= Volley.newRequestQueue(this);
-            requestQueue.add(stringRequest);
-
-
-
-        } catch (Exception e) {
-            // JSONException
-        }
+//        try {
+//
+//            final JSONObject jsonString;
+//            JSONObject values = new JSONObject();
+//            values.put("CustKey", CustKey);
+//
+//
+//
+//            jsonString = new JSONObject();
+//            jsonString.put("Token", "0001");
+//            jsonString.put("call", "GetOrderDetailsByCustKey");
+//            jsonString.put("values", values);
+//
+//
+//
+//            String URL = this.getString(R.string.Url)+"Select";
+//
+//
+//            StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
+//                    new Response.Listener<String>() {
+//                        @Override
+//                        public void onResponse(String response) {
+//
+//                            //progress.cancel();
+//
+//                            Log.e("OrderSatatussssss",""+response);
+//
+//
+//                            try {
+//
+//
+//                                JSONObject o     = new JSONObject(response);
+//
+//                                ////// Checking Json Response Is JSON Object Or Not ///////
+//                                String data = response;
+//                                Object json = new JSONTokener(data).nextValue();
+//                                if (json instanceof JSONObject){
+//
+//                                    Log.e("objectttttt",""+json);
+//                                }
+//
+//                                //you have an object
+//                                else if (json instanceof JSONArray){
+//                                    Log.e("Arrayyyyyyy",""+json);
+//                                }
+//
+//                                ///////////////////////////////////////////
+//
+//                                Log.e("tryyyyyyyyy","in"+o);
+//
+//
+//                                String  code = o.getString("responseCode");
+//                                String  message=o.getString("responseMessage");
+//
+//
+//                                Log.e("codeeeeeeeeee","in"+code);
+//
+//                                if (code.equalsIgnoreCase("0")) {
+//                                    dialog.cancel();
+//
+//                                    //JSONArray json_array2 = o.getJSONArray("result");
+//                                    JSONArray jsonObject;
+//                                    jsonObject = o.getJSONArray("result");
+//                                    int j;
+//                                    for (j = 0; j < jsonObject.length(); j++) {
+//                                        JSONObject JsonData;
+//
+//                                        JsonData = jsonObject.getJSONObject(j);
+//
+//
+//                                        OrderStatusModel items = new OrderStatusModel(JsonData.getString("ProductKey"),
+//                                                JsonData.getString("BrandName"),
+//                                                JsonData.getString("ShortDesc"),
+//                                                JsonData.getString("Amount"),
+//                                                JsonData.getString("BV"),
+//                                                JsonData.getString("ImagePath"),
+//                                                JsonData.getString("OrderStatusKey"),
+//                                                JsonData.getString("OrderStatusName"));
+//
+//                                        Log.e("itemssss", "ifffff" + items );
+//
+//
+//                                        item_list.add(items);
+//                                    }
+//
+//                                    adapter_ = new OrderStatusAdapter_(OrderStatus.this, item_list);
+//                                    recyclerView.setAdapter(adapter_);
+//
+//
+//                                }
+//                                else {
+//                                    dialog.cancel();
+//                                    if(cartSIZE!=null){
+//                                        realm.beginTransaction();
+//                                        cartSIZE.deleteAllFromRealm();
+//                                        realm.commitTransaction();
+//                                        realm.close();
+//                                    }
+//
+//                                }
+//
+//
+//
+//
+//                            } catch (JSONException e) {
+//                                e.printStackTrace();
+//                            }
+//                        }
+//
+//
+//
+//                    },
+//                    new Response.ErrorListener() {
+//                        @Override
+//                        public void onErrorResponse(VolleyError error) {
+//                             dialog.cancel();
+////                            Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
+//
+//                        }
+//                    })
+//
+//
+//            {
+//
+//                @Override
+//                protected Map<String, String> getParams() throws AuthFailureError {
+//                    Map<String, String> param = new HashMap<String, String>();
+//                    param.put("jsonString",jsonString.toString() );
+//                    Log.e("paramssss",""+param);
+//                    return param;
+//                }
+//
+//                @Override
+//                public Map<String, String> getHeaders() throws AuthFailureError {
+//                    Map<String,String> param = new HashMap<String, String>();
+//                    param.put("Content-Type","application/x-www-form-urlencoded");
+//                    return param;
+//                }
+//            }
+//                    ;
+//
+//            RequestQueue requestQueue= Volley.newRequestQueue(this);
+//            requestQueue.add(stringRequest);
+//
+//
+//
+//        } catch (Exception e) {
+//            // JSONException
+//        }
 
 
 
@@ -288,7 +298,81 @@ public class OrderStatus extends BaseActivity {
 
 
 
+private void GetOrderStatus(String CustKey){
 
+        apiInterface.GetOrderStatus(CustKey).enqueue(new Callback<OrderStatusResponse>() {
+            @Override
+            public void onResponse(Call<OrderStatusResponse> call, retrofit2.Response<OrderStatusResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+                        dialog.cancel();
+                        List<OrderStatusResponse.ResultArray> result = response.body().getResponse();
+
+                        for (int i = 0; i < result.size(); i++) {
+
+
+
+                            OrderStatusModel items = new OrderStatusModel(result.get(i).getProductKey(),
+                                    result.get(i).getBrandName(),
+                                    result.get(i).getShortDesc(),
+                                    result.get(i).getAmount(),
+                                    result.get(i).getBV(),
+                                    result.get(i).getImagePath(),
+                                    result.get(i).getOrderStatusKey(),
+                                    result.get(i).getOrderStatusName());
+
+//                            Log.e("itemssss", "ifffff" + items );
+
+
+                            item_list.add(items);
+                        }
+
+                        adapter_ = new OrderStatusAdapter_(OrderStatus.this, item_list);
+                        recyclerView.setAdapter(adapter_);
+
+
+
+                    }
+                    else {
+                        dialog.cancel();
+                        if (cartSIZE != null) {
+                            realm.beginTransaction();
+                            cartSIZE.deleteAllFromRealm();
+                            realm.commitTransaction();
+                            realm.close();
+
+                        }
+                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<OrderStatusResponse> call, Throwable t) {
+
+            }
+        });
+
+}
 
 
 }

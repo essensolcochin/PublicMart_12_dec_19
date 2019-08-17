@@ -134,7 +134,7 @@ public class Fashion extends BaseActivity {
 //                    pageNo = pageNo++;
 
                     Loader.setVisibility(View.VISIBLE);
-                    Perform_pagination(pageNo+1);
+                    PerformPaging(pageNo+1);
                     isloading = false;
 
 
@@ -193,24 +193,24 @@ public class Fashion extends BaseActivity {
                     }
                     else
                     {
-
-//                        Utility.ShowCustomToast("Coming Soon",Fashion.this); ToDo
+                        progress.cancel();
+                        Utility.ShowCustomToast("Coming Soon",Fashion.this);
 
                     }
                 }
 
                 else if(response.code() == 401) {
-
+                    progress.cancel();
                     Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
                 }
 
                 else if( response.code() == 500) {
-
+                    progress.cancel();
                     Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
                 }
 
                 else if(response.code() == 408) {
-
+                    progress.cancel();
                     Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
                 }
 
@@ -220,7 +220,7 @@ public class Fashion extends BaseActivity {
 
             @Override
             public void onFailure(Call<GetProductsByCategoryResponse> call, Throwable t) {
-
+                progress.cancel();
             }
         });
     }
@@ -367,6 +367,67 @@ public class Fashion extends BaseActivity {
     }
 
 
+    private void PerformPaging(int Pageno) {
+        apiInterface.GetProductCategory(Pageno,ItemCount,CategoryKey).enqueue(new Callback<GetProductsByCategoryResponse>() {
+            @Override
+            public void onResponse(Call<GetProductsByCategoryResponse> call, retrofit2.Response<GetProductsByCategoryResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+                        newlist = new ArrayList<>();
+                        List<GetProductsByCategoryResponse.ResultArray> result = response.body().getResponse();
+                        for (int i = 0; i < result.size(); i++) {
+
+
+                            ProductModelClass items = new ProductModelClass(result.get(i).getProductKey(),
+                                    result.get(i).getBrandName(),
+                                    result.get(i).getShortDesc(),
+                                    result.get(i).getMRP(),
+                                    result.get(i).getBV(),
+                                    result.get(i).getImagePath());
+
+                            newlist.add(items);
+
+
+                        }
+
+                        adapter.addData(newlist);
+
+                    }
+                    else
+                    {
+
+//                        Utility.ShowCustomToast("Coming Soon",Fashion.this); ToDo
+
+                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<GetProductsByCategoryResponse> call, Throwable t) {
+
+            }
+        });
+    }
 
 
 }

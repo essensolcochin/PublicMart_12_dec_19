@@ -2,12 +2,14 @@ package com.publicmart.android.ModelClasses;
 
 public class $ProductMenuModel {
 
-    String CategoryKey,CategoryName,ImagePath;
+   private String CategoryKey,CategoryName,ImagePath;
+   private  boolean isHeader;
 
-    public $ProductMenuModel(String categoryKey, String categoryName, String imagePath) {
+    public $ProductMenuModel(String categoryKey, String categoryName, String imagePath,boolean isHeader) {
         CategoryKey = categoryKey;
         CategoryName = categoryName;
         ImagePath = imagePath;
+        this.isHeader = isHeader;
 
     }
 
@@ -35,5 +37,13 @@ public class $ProductMenuModel {
 
     public void setImagePath(String imagePath) {
         ImagePath = imagePath;
+    }
+
+    public boolean isHeader() {
+        return isHeader;
+    }
+
+    public void setHeader(boolean header) {
+        isHeader = header;
     }
 }

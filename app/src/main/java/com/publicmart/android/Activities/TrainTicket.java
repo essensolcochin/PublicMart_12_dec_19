@@ -34,6 +34,9 @@ import com.crashlytics.android.Crashlytics;
 import com.publicmart.android.ModelClasses.StationModel;
 import com.publicmart.android.R;
 
+import com.publicmart.android.RetrofitUtils.ApiClient;
+import com.publicmart.android.RetrofitUtils.ApiInterface;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetStationCodesResponse;
 import com.publicmart.android.Utility;
 
 import org.json.JSONArray;
@@ -43,9 +46,12 @@ import org.json.JSONTokener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.fabric.sdk.android.Fabric;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class TrainTicket extends BaseActivity {
 
@@ -79,6 +85,7 @@ public class TrainTicket extends BaseActivity {
     String request,code,message;
     String Bday,Bmonth,Byear,Day,Month,Year;
 
+    ApiInterface apiInterface;
 
 
     @Override
@@ -106,6 +113,8 @@ public class TrainTicket extends BaseActivity {
         TextView txtxmpny=(TextView)tb.findViewById(R.id.appname);
         txtxmpny.setText("Train Booking");
 
+        apiInterface= ApiClient.getClient().create(ApiInterface.class);
+
 
 //        header2 = findViewById(R.id.header2);
 //        header3 = findViewById(R.id.header3);
@@ -117,7 +126,7 @@ public class TrainTicket extends BaseActivity {
 //        header4.setTypeface(custom_font2);
 //        header5.setTypeface(custom_font2);
 
-        traincode();
+        getStationCodesCodes();
 
 
 
@@ -242,21 +251,7 @@ public class TrainTicket extends BaseActivity {
         spinner_adapter_year.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         years.setAdapter(spinner_adapter_year);
 
-//        final ArrayAdapter<String> spinner_adapter_bday = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, array_day);
-//        spinner_adapter_bday.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-//        bday.setAdapter(spinner_adapter_bday);
-//        final ArrayAdapter<String> spinner_adapter_mbday = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, array_Mnth);
-//        spinner_adapter_mbday.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-//        bmonth.setAdapter(spinner_adapter_mbday);
-
-//        final ArrayAdapter<String> spinner_adapter_yday = new ArrayAdapter<String>(this,
-//                android.R.layout.simple_spinner_item, array_BYear);
-//        spinner_adapter_yday.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        byear.setAdapter(spinner_adapter_yday);
 
         trname = (TextInputLayout) findViewById(R.id.name_input_layout);
         trname.setHint("Enter Passenger Name");
@@ -329,9 +324,7 @@ public class TrainTicket extends BaseActivity {
                 days.setSelection(0);
                 months.setSelection(0);
                 years.setSelection(0);
-//                bday.setSelection(0);
-//                bmonth.setSelection(0);
-//                byear.setSelection(0);
+
             }
 
 
@@ -344,32 +337,6 @@ public class TrainTicket extends BaseActivity {
         throw new RuntimeException("This is a crash");
     }
 
-//    private void init() {
-//        for (int i = 0; i < IMAGES.length; i++)
-//        TextArray.add(IMAGES[i]);
-//        mPager = findViewById(R.id.viewflipper1);
-//        PagerAdapter adapter = new SlidingText_Adapter_Train(TrainTicket.this, TextArray);
-//        mPager.setAdapter(adapter);
-//        Log.e("textsizeeeee","flight "+TextArray.size());
-//        NUM_PAGES = IMAGES.length;
-//        // Auto start of viewpager
-//        final Handler handler = new Handler();
-//        final Runnable Update = new Runnable() {
-//            public void run() {
-//                if (currentPage == NUM_PAGES) {
-//                    currentPage = 0;
-//                }
-//                mPager.setCurrentItem(currentPage++, true);
-//            }
-//        };
-//        Timer swipeTimer = new Timer();
-//        swipeTimer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                handler.post(Update);
-//            }
-//        }, 1500, 5000);
-//    }
 
     ///////////////////////////////////Posting/////////////////////////////////////////
 
@@ -649,4 +616,71 @@ public class TrainTicket extends BaseActivity {
 
 
     }
+
+
+    private  void  getStationCodesCodes() {
+
+        names =new ArrayList<StationModel>();
+
+        apiInterface.GetStationCodes().enqueue(new Callback<GetStationCodesResponse>() {
+            @Override
+            public void onResponse(Call<GetStationCodesResponse> call, retrofit2.Response<GetStationCodesResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                        List<GetStationCodesResponse.ResultArray> result = response.body().getResponse();
+
+
+
+                        for (int i = 0; i < result.size(); i++) {
+
+                            StationModel items  =new StationModel(result.get(i).getStationKey(),result.get(i).getShortCode(),result.get(i).getStationName());
+
+                            names.add(items);
+
+                        }
+
+                        stationadapter = new ArrayAdapter<StationModel>(TrainTicket.this,android.R.layout.simple_spinner_dropdown_item,names);
+                        stationadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        citycode.setAdapter(stationadapter);
+                        citycode2.setAdapter(stationadapter);
+
+
+
+
+                    }
+
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<GetStationCodesResponse> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
 }

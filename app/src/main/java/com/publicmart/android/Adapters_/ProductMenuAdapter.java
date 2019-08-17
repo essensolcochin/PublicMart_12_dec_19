@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.facebook.shimmer.ShimmerFrameLayout;
 import com.publicmart.android.ModelClasses.$ProductMenuModel;
 import com.publicmart.android.Activities.Fashion;
 import com.publicmart.android.R;
@@ -26,32 +27,88 @@ import com.publicmart.android.Utils.CONSTANTS;
 
 import java.util.List;
 
-public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.MenuViewHolder> {
+public class ProductMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context context;
     private List<$ProductMenuModel> menu_list;
+    private static final int LAYOUT_HEADER= 0;
+    private static final int LAYOUT_CHILD= 1;
+    private LayoutInflater inflater;
 
 
-    public ProductMenuAdapter(Context context,  List<$ProductMenuModel> menu_list) {
+
+    public ProductMenuAdapter(Context context, List<$ProductMenuModel> menu_list) {
+        inflater = LayoutInflater.from(context);
         this.context = context;
         this.menu_list = menu_list;
     }
 
+
+
+    @Override
+    public int getItemCount() {
+        return menu_list.size();
+    }
+
+
+    @Override
+    public int getItemViewType(int position)
+    {
+        if(menu_list.get(position).isHeader()) {
+            return LAYOUT_HEADER;
+        }else
+            return LAYOUT_CHILD;
+    }
+
+
+
+
     @NonNull
     @Override
-    public MenuViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.menuitems,viewGroup,false);
-        return new MenuViewHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
 
+
+        RecyclerView.ViewHolder holder;
+        if(i==LAYOUT_HEADER){
+            View view = inflater.inflate(R.layout.rv_header, viewGroup, false);
+            holder = new HeadViewHolder(view);
+        }else {
+            View view = inflater.inflate(R.layout.menuitems, viewGroup, false);
+            holder = new MenuViewHolder(view);
+        }
+
+//        View view= LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.menuitems,viewGroup,false);
+//        return new MenuViewHolder(view);
+        return  holder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MenuViewHolder menuViewHolder,  int i) {
+    public void onBindViewHolder(@NonNull RecyclerView.ViewHolder menuViewHolder,  int i) {
 
+
+
+        Typeface custom_font2 = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
+        Typeface custom_font1 = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
         Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
-        final $ProductMenuModel List = menu_list.get(i);
-        Log.e("size Adapter","in "+menu_list.size());
 
+
+        if(menuViewHolder.getItemViewType()== LAYOUT_HEADER)
+        {
+            IsHeader(i);
+
+            HeadViewHolder ItemHolder = (HeadViewHolder) menuViewHolder;
+
+            ItemHolder.Our.setTypeface(custom_font1);
+            ItemHolder.Collection.setTypeface(custom_font2);
+
+            ItemHolder.Our.setText(menu_list.get(i).getCategoryName());
+            ItemHolder.Collection.setText(menu_list.get(i).getImagePath());
+        }
+        else {
+
+
+            final $ProductMenuModel List = menu_list.get(i);
+            final MenuViewHolder childHolder = (MenuViewHolder) menuViewHolder;
 
 
 
@@ -59,38 +116,57 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
                     .thumbnail(0.5f)
                     .diskCacheStrategy(DiskCacheStrategy.NONE)
                     .skipMemoryCache(true)
-                    .into(menuViewHolder.Logo);
+                    .into(childHolder.Logo);
 
 
 
-        menuViewHolder.MenuTitle.setText(menu_list.get(i).getCategoryName());
+            childHolder.MenuTitle.setText(menu_list.get(i).getCategoryName());
 
-        menuViewHolder.MenuTitle.setTypeface(custom_font);
-        menuViewHolder.itemLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, Fashion.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("CategoryKey",List.getCategoryKey());
-                intent.putExtra("CategoryName",List.getCategoryName());
-                context.getApplicationContext().startActivity(intent);
+            childHolder.MenuTitle.setTypeface(custom_font);
+            childHolder.itemLayout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, Fashion.class);
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    intent.putExtra("CategoryKey",List.getCategoryKey());
+                    intent.putExtra("CategoryName",List.getCategoryName());
+                    context.getApplicationContext().startActivity(intent);
 
-            }
-        });
+                }
+            });
+
+
+
+        }
+
+
+
+
 
     }
 
-    @Override
-    public int getItemCount() {
-        return menu_list.size();
+
+
+     class HeadViewHolder extends RecyclerView.ViewHolder{
+
+        TextView Our,Collection;
+
+        public HeadViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            Our=itemView.findViewById(R.id.our);
+            Collection=itemView.findViewById(R.id.collection);
+
+        }
     }
 
-    public class MenuViewHolder extends RecyclerView.ViewHolder {
+
+     class MenuViewHolder extends RecyclerView.ViewHolder {
 
         TextView MenuTitle;
         ImageView Logo;
-//        ImageView Logo;
         FrameLayout itemLayout;
+
 
         private MenuViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -98,7 +174,15 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<ProductMenuAdapter.
             MenuTitle=itemView.findViewById(R.id.menuTitle);
             itemLayout=itemView.findViewById(R.id.itemlayout);
             Logo=itemView.findViewById(R.id.menuIcon);
+
         }
+    }
+
+    public boolean IsHeader(int position){
+
+
+        return position ==0;
+
     }
 
 }

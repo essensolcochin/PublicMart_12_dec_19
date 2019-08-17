@@ -3,13 +3,17 @@ package com.publicmart.android.RetrofitUtils;
 
 
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.CheckUsernameResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetAirportCodesResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetProductCategoryResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetProductDetailsResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetProductsByCategoryResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetStationCodesResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.HomeScreenResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.LoginResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.OrderStatusResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.RegisterResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveOrderdetailsResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SearchResponse;
 import com.publicmart.android.Utils.CONSTANTS;
 
 import retrofit2.Call;
@@ -83,6 +87,22 @@ public interface ApiInterface {
 
 
 
+
+    @POST("ProductsApi/GetOrderDetailsByCustKey")
+    @FormUrlEncoded
+    Call<OrderStatusResponse> GetOrderStatus(@Field(CONSTANTS.CustKey) String CustKey);
+
+
+    @POST("ServicesApi/GetActiveAirports")
+    Call<GetAirportCodesResponse> GetAirportCodes();
+
+
+    @POST("ServicesApi/GetActiveStations")
+    Call<GetStationCodesResponse> GetStationCodes();
+
+
+    @POST("ProductsApi/GetActiveProductListForSearch")
+    Call<SearchResponse> GetItemstoSearch();
 
 
 

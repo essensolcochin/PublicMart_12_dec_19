@@ -32,6 +32,9 @@ import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
 import com.publicmart.android.ModelClasses.AirportModel;
 import com.publicmart.android.R;
+import com.publicmart.android.RetrofitUtils.ApiClient;
+import com.publicmart.android.RetrofitUtils.ApiInterface;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetAirportCodesResponse;
 import com.publicmart.android.Utility;
 
 import org.json.JSONArray;
@@ -41,9 +44,12 @@ import org.json.JSONTokener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.fabric.sdk.android.Fabric;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class FlightTicket extends BaseActivity {
 
@@ -70,7 +76,7 @@ public class FlightTicket extends BaseActivity {
     ArrayAdapter<AirportModel> airport_adapter;
     String Timing;
     int selectedRadioGroupId = 0;
-
+    ApiInterface apiInterface;
     ArrayList <AirportModel> names ;
 
     private static ViewPager mPager;
@@ -125,6 +131,7 @@ public class FlightTicket extends BaseActivity {
         contact_no=(EditText)findViewById(R.id.contact);
 
 
+        apiInterface= ApiClient.getClient().create(ApiInterface.class);
 
         final ArrayAdapter<String> spinner_adapter_day = new ArrayAdapter<String>(this,
                 android.R.layout.simple_spinner_item, array_day);
@@ -291,7 +298,7 @@ public class FlightTicket extends BaseActivity {
 //        });
 
 
-        airportcode();
+        getAirportCodes();
 
 
 
@@ -547,162 +554,75 @@ public class FlightTicket extends BaseActivity {
 
     ////// Adding Airport Code To Spinner /////////
 
-    private void airportcode() {
+
+
+    private  void  getAirportCodes() {
+
         names =new ArrayList<AirportModel>();
 
-        try {
-            JSONObject values = new JSONObject();
-
-            jsonString = new JSONObject();
-            jsonString.put("Token", "0001");
-            jsonString.put("call", "GetActiveAirports");
-            jsonString.put("values", values);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        Log.e("gettttt","in"+request);
-
-
-
-        String URL = this.getString(R.string.Url)+"Select";
-
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Log.e("Jsonnnn",""+response);
-                        // p1.dismiss();
-
-                        try {
-
-
-                            JSONObject o     = new JSONObject(response);
-
-
-                            String data = response;
-                            Object json = new JSONTokener(data).nextValue();
-                            if (json instanceof JSONObject){
-                                Log.e("objectttttt",""+json);
-                            }
-                            //you have an object
-                            else if (json instanceof JSONArray){
-                                Log.e("Arrayyyyyyy",""+json);
-                            }
-
-
-                            Log.e("tryyyyyyyyy","in"+o);
-
-                            ;
-                            code = o.getString("responseCode");
-                            message=o.getString("responseMessage");
-
-                            Log.e("resppppppp",""+code);
-
-
-                            if (code.equalsIgnoreCase("0"))
-                            {
-
-
-                                Log.e("resppppppp","ifffff"+code);
-
-                                JSONArray json_array2 = o.getJSONArray("result");
-
-
-                                JSONObject jsonObject;
-
-
-                                int j;
-                                for (j = 0; j < json_array2.length(); j++) {
-                                    jsonObject = json_array2.getJSONObject(j);
-
-                                    AirportKey=jsonObject.getInt("AirportKey");
-                                    ShortCode=jsonObject.getString("ShortCode");
-                                    AirportName=jsonObject.getString("AirportName");
-                                    Log.e("teeessst","ifffff  "+AirportKey);
-
-                                    AirportModel items  =new AirportModel(AirportKey,ShortCode,AirportName);
-
-                                    names.add(items);
-                                    Log.e("from jsonnnn", "  " + jsonObject.getString("AirportName"));
-                                    Log.e("namessssss", "  " + names);
-
-                                }
-
-
-                                airport_adapter = new ArrayAdapter<AirportModel>(FlightTicket.this,android.R.layout.simple_spinner_dropdown_item,names);
-                                airport_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                                citycode.setAdapter(airport_adapter);
-                                citycode2.setAdapter(airport_adapter);
-
-
-                            }
-
-
-//                            else {
-//                                Toast.makeText(FlightTicket.this,message,Toast.LENGTH_LONG).show();
-//                            }
-
-
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                            Utility.ShowCustomToast(" No Network Connection",FlightTicket.this);
-                        } else if (error instanceof AuthFailureError) {
-                            Utility.ShowCustomToast("Authentication Failed",FlightTicket.this);
-                        } else if (error instanceof ServerError) {
-
-                            Utility.ShowCustomToast("Server Error Occurred",FlightTicket.this);
-                        } else if (error instanceof NetworkError) {
-
-                            Utility.ShowCustomToast("Some Network Error Occurred",FlightTicket.this);
-                        } else if (error instanceof ParseError) {
-
-                            Utility.ShowCustomToast("Some Error Occurred",FlightTicket.this);
-                        }
-                    }
-                }) {
-
+        apiInterface.GetAirportCodes().enqueue(new Callback<GetAirportCodesResponse>() {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> param = new HashMap<String, String>();
-                param.put("jsonString",jsonString.toString() );
-                Log.e("paramssss",""+param);
-                return param;
+            public void onResponse(Call<GetAirportCodesResponse> call, retrofit2.Response<GetAirportCodesResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                        List<GetAirportCodesResponse.ResultArray> result = response.body().getResponse();
+
+
+
+                        for (int i = 0; i < result.size(); i++) {
+
+                            AirportModel items  =new AirportModel(result.get(i).getAirportKey(),result.get(i).getShortCode(),result.get(i).getAirportName());
+
+                            names.add(items);
+
+                        }
+
+                        airport_adapter = new ArrayAdapter<AirportModel>(FlightTicket.this,android.R.layout.simple_spinner_dropdown_item,names);
+                        airport_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                        citycode.setAdapter(airport_adapter);
+                        citycode2.setAdapter(airport_adapter);
+
+
+
+
+
+                    }
+//                    else
+//                    {
+////                        progress.cancel();
+////                        Utility.ShowCustomToast("Coming Soon",Products.this);
+//
+//                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+
+
             }
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> param = new HashMap<String, String>();
-                param.put("Content-Type","application/x-www-form-urlencoded");
-                return param;
+            public void onFailure(Call<GetAirportCodesResponse> call, Throwable t) {
+
             }
-        } ;
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                0,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-        // Volley.getInstance(this).addToRequestQueue(stringRequest);
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-
-        Log.e("statecodeeeeeee",""+ AirportKey);
-
+        });
 
 
     }

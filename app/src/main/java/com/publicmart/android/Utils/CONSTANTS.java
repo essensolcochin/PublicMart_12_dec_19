@@ -41,4 +41,12 @@ public interface CONSTANTS {
     String Rate ="Rate" ;
     String IsCredit = "IsCredit";
     String OrderStatusKey = "OrderStatusKey";
+    String OrderKey = "OrderKey";
+    String Amount = "Amount";
+    String OrderStatusName = "OrderStatusName";
+    String AirportKey = "AirportKey";
+    String ShortCode = "ShortCode";
+    String AirportName = "AirportName";
+    String StationKey = "StationKey";
+    String StationName = "StationName";
 }

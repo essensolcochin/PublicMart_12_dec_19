@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,80 +7,350 @@
     android:fillViewport="true"
     android:background="#DBDADA"
     tools:context=".Activities.Products">
-     <LinearLayout
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+
+     <FrameLayout
+         android:layout_width="match_parent"
+         android:layout_height="match_parent">
 
 
-<LinearLayout
-    android:background="@android:color/white"
-    android:padding="5dp"
-    android:gravity="center_horizontal"
-    android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <TextView
-        android:padding="10dp"
-        android:layout_weight=".3"
-        android:background="@drawable/stroke"
-
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-       />
-
-    <LinearLayout
-        android:layout_weight=".2"
-
-        android:gravity="center"
-        android:orientation="vertical"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:textColor="@color/col10"
-            android:id="@+id/fresh"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:text="Our"
-            android:textSize="30dp" />
-
-        <TextView
-            android:textColor="@android:color/black"
-            android:id="@+id/fashion"
-            android:textSize="30dp"
-            android:paddingLeft="5dp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Collections"/>
+          <LinearLayout
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
 
 
-    </LinearLayout>
-    <TextView
-        android:background="@drawable/stroke"
-        android:layout_weight=".3"
+               <!--<LinearLayout-->
+               <!--android:background="@android:color/white"-->
+               <!--android:padding="5dp"-->
+               <!--android:gravity="center_horizontal"-->
+               <!--android:orientation="horizontal"-->
+               <!--android:layout_width="match_parent"-->
+               <!--android:layout_height="wrap_content">-->
+               <!--<TextView-->
+               <!--android:padding="10dp"-->
+               <!--android:layout_weight=".3"-->
+               <!--android:background="@drawable/stroke"-->
 
-       android:padding="5dp"
+               <!--android:layout_width="0dp"-->
+               <!--android:layout_height="wrap_content"-->
+               <!--/>-->
 
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-      />
+               <!--<LinearLayout-->
+               <!--android:layout_weight=".2"-->
+
+               <!--android:gravity="center"-->
+               <!--android:orientation="vertical"-->
+               <!--android:layout_width="wrap_content"-->
+               <!--android:layout_height="wrap_content">-->
+
+               <!--<TextView-->
+               <!--android:textColor="@color/col10"-->
+               <!--android:id="@+id/fresh"-->
+               <!--android:layout_width="wrap_content"-->
+               <!--android:layout_height="wrap_content"-->
+               <!--android:gravity="center"-->
+               <!--android:text="Our"-->
+               <!--android:textSize="30dp" />-->
+
+               <!--<TextView-->
+               <!--android:textColor="@android:color/black"-->
+               <!--android:id="@+id/fashion"-->
+               <!--android:textSize="30dp"-->
+               <!--android:paddingLeft="5dp"-->
+               <!--android:layout_width="wrap_content"-->
+               <!--android:layout_height="wrap_content"-->
+               <!--android:text="Collections"/>-->
+
+
+               <!--</LinearLayout>-->
+               <!--<TextView-->
+               <!--android:background="@drawable/stroke"-->
+               <!--android:layout_weight=".3"-->
+
+               <!--android:padding="5dp"-->
+
+               <!--android:layout_width="0dp"-->
+               <!--android:layout_height="wrap_content"-->
+               <!--/>-->
+
+               <!--</LinearLayout>-->
+
+
+
+
+
+               <android.support.v7.widget.RecyclerView
+                   android:padding="5dp"
+                   android:id="@+id/menu"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+               </android.support.v7.widget.RecyclerView>
+
+          </LinearLayout>
+
+
+          <com.facebook.shimmer.ShimmerFrameLayout
+              android:id="@+id/shimmer"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+               <LinearLayout
+                   android:orientation="vertical"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+
+                    <LinearLayout
+
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dip"
+                        android:orientation="horizontal"
+                        android:layout_weight="1" >
+
+                         <LinearLayout
+                             android:layout_weight="1"
+                             android:orientation="vertical"
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent">
+
+                              <LinearLayout
+                                  android:background="#B3B3B3"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:layout_marginTop="5dp"
+                                  android:background="#B3B3B3"
+                                  android:layout_gravity="center|bottom"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="wrap_content">
+
+                              </LinearLayout>
+
+                         </LinearLayout>
+
+                         <LinearLayout
+                             android:layout_weight="1"
+                             android:orientation="vertical"
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent">
+
+                              <LinearLayout
+                                  android:background="#B3B3B3"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="150dp">
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:layout_marginTop="5dp"
+                                  android:background="#B3B3B3"
+                                  android:padding="10dp"
+                                  android:layout_gravity="center|bottom"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                         </LinearLayout>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dip"
+                        android:orientation="horizontal"
+                        android:layout_weight="1" >
+
+                         <LinearLayout
+                             android:layout_weight="1"
+                             android:orientation="vertical"
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent">
+
+                              <LinearLayout
+                                  android:background="#B3B3B3"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:layout_marginTop="5dp"
+                                  android:background="#B3B3B3"
+                                  android:padding="10dp"
+                                  android:layout_gravity="center|bottom"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                         </LinearLayout>
+
+                         <LinearLayout
+                             android:layout_weight="1"
+                             android:orientation="vertical"
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent">
+
+                              <LinearLayout
+                                  android:background="#B3B3B3"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="150dp">
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:layout_marginTop="5dp"
+                                  android:background="#B3B3B3"
+                                  android:padding="10dp"
+                                  android:layout_gravity="center|bottom"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                         </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dip"
+                        android:orientation="horizontal"
+                        android:layout_weight="1" >
+
+                         <LinearLayout
+                             android:layout_weight="1"
+                             android:orientation="vertical"
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent">
+
+                              <LinearLayout
+                                  android:background="#B3B3B3"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:layout_marginTop="5dp"
+                                  android:background="#B3B3B3"
+                                  android:padding="10dp"
+                                  android:layout_gravity="center|bottom"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                         </LinearLayout>
+
+                         <LinearLayout
+                             android:layout_weight="1"
+                             android:orientation="vertical"
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent">
+
+                              <LinearLayout
+                                  android:background="#B3B3B3"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="150dp">
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:layout_marginTop="5dp"
+                                  android:background="#B3B3B3"
+                                  android:padding="10dp"
+                                  android:layout_gravity="center|bottom"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                         </LinearLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_marginTop="10dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dip"
+                        android:orientation="horizontal"
+                        android:layout_weight="1" >
+
+                         <LinearLayout
+                             android:layout_weight="1"
+                             android:orientation="vertical"
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent">
+
+                              <LinearLayout
+                                  android:background="#B3B3B3"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:layout_marginTop="5dp"
+                                  android:background="#B3B3B3"
+                                  android:padding="10dp"
+                                  android:layout_gravity="center|bottom"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                         </LinearLayout>
+
+                         <LinearLayout
+                             android:layout_weight="1"
+                             android:orientation="vertical"
+                             android:layout_width="0dp"
+                             android:layout_height="match_parent">
+
+                              <LinearLayout
+                                  android:background="#B3B3B3"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="150dp">
+
+                              </LinearLayout>
+
+                              <LinearLayout
+                                  android:layout_marginTop="5dp"
+                                  android:background="#B3B3B3"
+                                  android:padding="10dp"
+                                  android:layout_gravity="center|bottom"
+                                  android:layout_width="match_parent"
+                                  android:layout_height="match_parent">
+
+                              </LinearLayout>
+
+                         </LinearLayout>
+
+                    </LinearLayout>
+
+               </LinearLayout>
+
+
+
+
+
+
+          </com.facebook.shimmer.ShimmerFrameLayout>
+
+
+     </FrameLayout>
+
+
 
 </LinearLayout>
-
-
-
-
-
-<android.support.v7.widget.RecyclerView
-    android:padding="5dp"
-    android:id="@+id/menu"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-</android.support.v7.widget.RecyclerView>
-
-</LinearLayout>
-
-</ScrollView>
