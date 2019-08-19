@@ -84,6 +84,7 @@
                     android:layout_height="15dp"
                     android:src="@drawable/padlock"/>
 
+
                 <EditText
                     android:textSize="18dp"
                     android:inputType="textPassword"

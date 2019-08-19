@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#008577</color>
     <color name="colorPrimaryDark">#878A89</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorAccent">#3990A5</color>
     <color name="iconbgm">#164B4B49</color>
     <color name="text">#FFFFFF</color>
     <color name="toolbar">#2196F3</color>
@@ -23,9 +23,6 @@
     <color name="col10">#344955</color>
 
     <color name="col11">#f9aa33</color>
-
-
-
 
     <color name="title">#475c7a</color>
 

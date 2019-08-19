@@ -40,4 +40,9 @@
         <item name="android:textSize">11.5sp</item>
     </style>
 
+    <style name="customTextInputLayout" parent="@style/TextAppearance.AppCompat">
+        <item name="android:textColor">@color/col7</item>
+    </style>
+
+
 </resources>

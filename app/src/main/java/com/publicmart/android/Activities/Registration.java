@@ -1,6 +1,7 @@
 package com.publicmart.android.Activities;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
@@ -13,6 +14,7 @@ import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
+import android.text.style.ForegroundColorSpan;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -42,6 +44,7 @@ import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.RegisterResp
 import com.publicmart.android.ModelClasses.SpinnerModel;
 import com.publicmart.android.Utility;
 
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -121,10 +124,14 @@ public class Registration extends AppCompatActivity {
             }
 
             @Override
-            public void onClick(View widget) {
-                final FragmentManager fm = getSupportFragmentManager();
-            TermsConditions dialog = new TermsConditions();
-            dialog.show(fm,"TAG");
+            public void onClick(@NotNull View widget) {
+//                final FragmentManager fm = getSupportFragmentManager();
+//            TermsConditions dialog = new TermsConditions();
+//            dialog.show(fm,"TAG");
+
+                Intent intent=new Intent(Registration.this,Terms.class);
+                startActivity(intent);
+
 
             }
         };
@@ -132,7 +139,7 @@ public class Registration extends AppCompatActivity {
 
         terms.setText(spannable);
         terms.setMovementMethod(LinkMovementMethod.getInstance());
-        terms.setHighlightColor(ContextCompat.getColor(Registration.this, android.R.color.white));
+        terms.setHighlightColor(ContextCompat.getColor(Registration.this, R.color.col10));
 
 
 
@@ -205,33 +212,7 @@ public class Registration extends AppCompatActivity {
 
                 else {
 
-//                try {
-//
-//                    JSONObject values = new JSONObject();
-//                    values.put("CustKey", 0);
-//                    values.put("CustomerName", fname.getText().toString());
-//
-//                    values.put("MobileNo", contact_no.getText().toString());
-//
-//                    values.put("Email", email.getText().toString());
-//
-//                    values.put("SponsorId", sponsership_id.getText());
-//                    values.put("MSTypeKey", 3);
-//                    values.put("Status", true);
-//                    values.put("CreatedBy", 0);
-//                    values.put("UserName", username.getText().toString());
-//                    values.put("UserPwd", password.getText().toString());
-//                    Log.e("testtttttt","in"+password.getText().toString());
-//                    jsonString = new JSONObject();
-//                    jsonString.put("Token", "0001");
-//                    jsonString.put("call", "SaveUpdateCustomerMaster");
-//                    jsonString.put("values", values);
-//                    request = jsonString.toString();
-//
-//                } catch (
-//                        JSONException e) {
-//                    e.printStackTrace();
-//                }
+
 
 
 

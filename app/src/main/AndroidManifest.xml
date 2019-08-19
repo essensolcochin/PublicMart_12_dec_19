@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.publicmart.android">
+
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -16,8 +17,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name="ServicePayment"></activity>
-        <activity android:name="ProductPay" />
+        <activity android:name=".Activities.Terms"></activity>
+        <activity android:name=".ServicePayment" />
+        <activity android:name=".ProductPay" />
         <activity android:name=".WebViewActivity" />
         <activity android:name=".MenuDirect" />
         <activity android:name=".Activities.TabActivity" />
@@ -62,20 +64,6 @@
         <meta-data
             android:name="io.fabric.ApiKey"
             android:value="c89380f82afe92d8ff261a0e81d3cb84bc08f2c3" />
-
-
-        <!--<receiver-->
-            <!--android:name=".Utils.ConnectivityManagerClass"-->
-            <!--android:enabled="true" >-->
-            <!--<intent-filter>-->
-                <!--&lt;!&ndash; Intent filters for broadcast receiver &ndash;&gt;-->
-                <!--<action android:name="android.net.conn.CONNECTIVITY_CHANGE" />-->
-                <!--<action android:name="android.net.wifi.WIFI_STATE_CHANGED" />-->
-                <!--<action android:name="android.net.wifi.STATE_CHANGE" />-->
-            <!--</intent-filter>-->
-        <!--</receiver>-->
-
-
     </application>
 
 </manifest>

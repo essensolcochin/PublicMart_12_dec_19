@@ -43,10 +43,11 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
-    android:textColorHint="#E44E4E">
+    android:textColorHint="#E44E4E"
+    app:hintTextAppearance="@style/customTextInputLayout">
 
             <EditText
-
+                android:textColorHint="#E44E4E"
                 android:padding="10dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="5dp"
@@ -315,8 +316,9 @@
 
 
             <android.support.design.widget.TextInputLayout
-                android:layout_marginTop="10dp"
                 android:textColorHint="#E44E4E"
+                app:hintTextAppearance="@style/customTextInputLayout"
+                android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
@@ -340,9 +342,10 @@
 
 
             <android.support.design.widget.TextInputLayout
+                android:textColorHint="#E44E4E"
+                app:hintTextAppearance="@style/customTextInputLayout"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
-                android:textColorHint="#E44E4E"
                 android:layout_height="wrap_content">
 
             <EditText
@@ -352,6 +355,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/email"
+                android:textColorHint="#E44E4E"
                 android:hint="Email *"
                 android:textColor="#6B6B6B"
                 android:background="@drawable/stroke"
@@ -364,6 +368,7 @@
 
 
             <android.support.design.widget.TextInputLayout
+                app:hintTextAppearance="@style/customTextInputLayout"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -526,6 +531,7 @@
                 android:layout_height="wrap_content">
 
                 <android.support.design.widget.TextInputLayout
+                    app:hintTextAppearance="@style/customTextInputLayout"
                     app:passwordToggleEnabled="true"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -561,6 +567,7 @@
 
 
             <android.support.design.widget.TextInputLayout
+                app:hintTextAppearance="@style/customTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -582,6 +589,7 @@
             </android.support.design.widget.TextInputLayout>
 
             <android.support.design.widget.TextInputLayout
+                app:hintTextAppearance="@style/customTextInputLayout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"

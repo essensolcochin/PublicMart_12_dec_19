@@ -18,8 +18,8 @@ public class ApiClient {
 
 
         retrofit = new Retrofit.Builder()
-                .baseUrl("http://192.168.1.16:1111/api/")
-//                .baseUrl("http://Service.publicmart.in/api/CommonApi/")
+//                .baseUrl("http://192.168.1.16:1111/api/")
+                .baseUrl("http://Service.publicmart.in/api/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .client(client)
                 .build();

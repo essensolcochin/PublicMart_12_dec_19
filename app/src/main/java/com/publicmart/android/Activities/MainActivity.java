@@ -174,25 +174,7 @@ public class MainActivity extends AppCompatActivity {
                     progressdialog.show();
 
 
-                    try {
 
-                        JSONObject values = new JSONObject();
-                        values.put("UserName", username.getText().toString());
-                        values.put("UserPwd", password.getText().toString());
-                        values.put("AppToken", token);
-                        values.put("Mode", "M");
-
-                        jsonString = new JSONObject();
-                        jsonString.put("Token", "0001");
-                        jsonString.put("call", "CheckLogin");
-                        jsonString.put("values", values);
-                        request = jsonString.toString();
-
-
-                    } catch (
-                            JSONException e) {
-                        e.printStackTrace();
-                    }
 
                     if(Utility.isNetworkConnectionAvailable(MainActivity.this)) {
                         loginUser();
@@ -372,47 +354,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onPause() {
 
         super.onPause();
-        MyApplication.activityPaused();// On Pause notify the Application
+//        MyApplication.activityPaused();// On Pause notify the Application
     }
 
     @Override
     protected void onResume() {
 
         super.onResume();
-        MyApplication.activityResumed();// On Resume notify the Application
+//        MyApplication.activityResumed();// On Resume notify the Application
     }
 
 
-//    public   void  getFirebaseToken(){
-//        Log.e("InsideChangenetwork ", "Connected");
-//        progress.show();
-//        Runnable progressRunnable = new Runnable() {
-//
-//            @Override
-//            public void run() {
-//
-//                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener(MainActivity.this, new OnSuccessListener<InstanceIdResult>() {
-//                    @Override
-//                    public void onSuccess(InstanceIdResult instanceIdResult) {
-//                        String newToken = instanceIdResult.getToken();
-//                        Log.e("newTokennnnnnnn  ", newToken);
-//                        token = newToken;
-//
-//
-//                        SharedPreferences SaveToken =   getSharedPreferences("GetToken",MODE_PRIVATE);
-//                        SharedPreferences.Editor editor =SaveToken.edit();
-//                        editor.putString("Token",token);
-//                        editor.apply();
-//                    }
-//                });
-//
-//                progress.cancel();
-//            }
-//        };
-//
-//        Handler pdCanceller = new Handler();
-//        pdCanceller.postDelayed(progressRunnable, 500);
-//
-//    }
+
 }
 
