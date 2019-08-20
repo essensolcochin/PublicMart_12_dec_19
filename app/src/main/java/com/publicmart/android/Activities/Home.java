@@ -2,10 +2,12 @@ package com.publicmart.android.Activities;
 
 import android.content.Intent;
 
+import android.content.SharedPreferences;
 import android.graphics.Typeface;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.CardView;
@@ -35,7 +37,9 @@ import com.publicmart.android.R;
 import com.publicmart.android.Adapters_.SlidingImage_Adapter_Home;
 import com.publicmart.android.RetrofitUtils.ApiClient;
 import com.publicmart.android.RetrofitUtils.ApiInterface;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.CheckAccountStatusResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.HomeScreenResponse;
+import com.publicmart.android.TabFragments.AlertFragment;
 import com.publicmart.android.Utility;
 
 import org.json.JSONArray;
@@ -155,7 +159,7 @@ public class Home extends BaseActivity {
 
 
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/ralewayM.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/OpenSansSemiBold.ttf");
 
 
 
@@ -209,204 +213,14 @@ public class Home extends BaseActivity {
 
         apiInterface= ApiClient.getClient().create(ApiInterface.class);
 
-        LoadBanner();
+        CheckStatus();
 
     }
 
 
-    private void LoadAdBanner() {
 
 
-
-        jsonString =new JSONObject();
-
-
-
-
-        try {
-
-            JSONObject values = new JSONObject();
-            values.put("Type","H");
-
-
-            jsonString = new JSONObject();
-            jsonString.put("Token", "0001");
-            jsonString.put("call", "GetAdvImagesByType");
-            jsonString.put("values", values);
-
-
-
-        } catch (
-                JSONException e) {
-            e.printStackTrace();
-        }
-
-
-
-
-
-        String URL = this.getString(R.string.Url)+"Select";
-
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-
-
-                        progress.cancel();
-
-
-                        Log.e("Jsonnnn",""+response);
-                        // p1.dismiss();
-
-                        try {
-
-
-                            JSONObject o     = new JSONObject(response);
-
-
-                            String data = response;
-                            Object json = new JSONTokener(data).nextValue();
-                            if (json instanceof JSONObject){
-                                Log.e("objectttttt",""+json);
-                            }
-                            //you have an object
-                            else if (json instanceof JSONArray){
-                                Log.e("Arrayyyyyyy",""+json);
-                            }
-
-
-                            Log.e("tryyyyyyyyy","in"+o);
-
-//                            JSONArray json_array2 = o.getJSONArray("result");
-//                            Log.e("tryyyyyyyyy",""+json_array2);
-//
-//                            JSONObject jsonObject = json_array2.getJSONObject(0);
-                            code = o.getString("responseCode");
-                            message=o.getString("responseMessage");
-
-                            Log.e("resppppppp",""+code);
-
-
-                            if (code.equals("0"))
-                            {
-
-
-                                JSONArray json_array2 = o.getJSONArray("result");
-
-
-                                JSONObject jsonObject;
-
-
-                                int j;
-                                for (j = 0; j < json_array2.length(); j++) {
-
-                                    jsonObject = json_array2.getJSONObject(j);
-
-                                    HomeAdModel images= new HomeAdModel(jsonObject.getString("AdvImageKey"),
-                                            jsonObject.getString("ImagePath"));
-
-
-                                    ImagesArray.add(images);
-
-
-                                }
-
-
-
-                                Log.e("Imagearraayyyyyyy","in"+ImagesArray);
-
-                                PagerAdapter adapter = new SlidingImage_Adapter_Home(Home.this, ImagesArray);
-                                mPager.setAdapter(adapter);
-
-                                 NUM_PAGES =ImagesArray.size();
-                                // Auto start of viewpager
-                                final Handler handler = new Handler();
-                                final Runnable Update = new Runnable() {
-                                    public void run() {
-                                        if (currentPage == NUM_PAGES) {
-
-                                            currentPage= NUM_PAGES-currentPage;
-//                                            Log.e("pageeeee","in -- "+currentPage);
-                                            mPager.setCurrentItem(currentPage--, true);
-                                        }
-                                        else{
-                                            mPager.setCurrentItem(currentPage++, true);
-//                                            Log.e("pageeeee","in ++ "+currentPage);
-                                        }
-
-
-                                    }
-                                };
-                                Timer swipeTimer = new Timer();
-                                swipeTimer.schedule(new TimerTask() {
-                                    @Override
-                                    public void run() {
-                                        handler.post(Update);
-                                    }
-                                }, 300, 3000);
-
-
-
-
-
-
-
-
-                            }
-
-
-//                            else {
-//                                Toast.makeText(Home.this,message,Toast.LENGTH_LONG).show();
-//                            }
-
-
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-
-
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        progress.cancel();
-                        Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
-
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> param = new HashMap<String, String>();
-                param.put("jsonString",jsonString.toString() );
-                Log.e("paramssss",""+param);
-                return param;
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> param = new HashMap<String, String>();
-                param.put("Content-Type","application/x-www-form-urlencoded");
-                return param;
-            }
-        }
-                ;
-
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-    }
-
-
-    private void LoadBanner ()
-    {
+    private void LoadBanner () {
 
         apiInterface.LoadHome("H").enqueue(new Callback<HomeScreenResponse>() {
             @Override
@@ -495,7 +309,73 @@ public class Home extends BaseActivity {
     }
 
 
+    private  void  CheckStatus(){
 
+        SharedPreferences sp = getSharedPreferences("UserLog",0);
+        String CustKey =  sp.getString("CustKey",null);
+
+        apiInterface.CheckAccountStatus(CustKey).enqueue(new Callback<CheckAccountStatusResponse>() {
+            @Override
+            public void onResponse(Call<CheckAccountStatusResponse> call, retrofit2.Response<CheckAccountStatusResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                        List<CheckAccountStatusResponse.ResultArray> result = response.body().getResponse();
+                        for (int i = 0; i < result.size(); i++) {
+
+                            if(result.get(i).getAccountStatus().equalsIgnoreCase("false"))
+                            {
+                                               Intent intent = new Intent(Home.this,AlertActivity.class);
+                                               startActivity(intent);
+                                               finish();
+                            }
+                            else {
+                                LoadBanner ();
+                            }
+
+
+
+                        }
+
+
+
+                    }
+                    else
+                    {
+                        progress.cancel();
+                        //ToDo
+
+                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<CheckAccountStatusResponse> call, Throwable t) {
+                progress.cancel();
+            }
+        });
+
+
+    }
 
 
 

@@ -34,6 +34,9 @@ import com.android.volley.toolbox.Volley;
 import com.crashlytics.android.Crashlytics;
 
 import com.publicmart.android.R;
+import com.publicmart.android.RetrofitUtils.ApiClient;
+import com.publicmart.android.RetrofitUtils.ApiInterface;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveHouseBoatBookingResponse;
 import com.publicmart.android.Utility;
 
 import org.json.JSONArray;
@@ -43,9 +46,12 @@ import org.json.JSONTokener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import io.fabric.sdk.android.Fabric;
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class HouseBoat extends BaseActivity {
     String array_membrno[] = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10"};
@@ -75,6 +81,7 @@ public class HouseBoat extends BaseActivity {
    // DayCruise,NightCruise,FullDay
     String radiovalue;
     String Cruise_Type;
+    ApiInterface apiInterface;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,10 +102,8 @@ public class HouseBoat extends BaseActivity {
         email_id=(EditText)findViewById(R.id.email);
         Contact_no=(EditText)findViewById(R.id.contact);
         radioGroup = findViewById(R.id.radiogrp);
-//        image = findViewById(R.id.image);
 
-//        image.setImageResource(R.drawable.houseboatad);
-
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
 
 
@@ -195,10 +200,7 @@ public class HouseBoat extends BaseActivity {
                     Cruise_Type = "D";
 
                 }
-//                else  if (position==1)
-//                {
-//                    Cruise_Type = "N";
-//                }
+
                 else if(position==1)
                 {
                     Cruise_Type = "F";
@@ -237,41 +239,52 @@ public class HouseBoat extends BaseActivity {
         {
             Contact_no.setError("Field is Mandatory");
         }
+
+        else if(Day.equals("DD")||Month.equals("MM")||Year.equals("YYYY"))
+        {
+            Utility.ShowCustomToast("Please Specify the Dates",HouseBoat.this);
+        }
+
+        else if(members.equals("0"))
+        {
+            Utility.ShowCustomToast("Please Specify Guest number",HouseBoat.this);
+        }
+
         else
         {
-            SharedPreferences sp = getSharedPreferences("UserLog",0);
-            String CustKey =  sp.getString("CustKey",null);
-            String UserKey =  sp.getString("UserKey",null);
+//            SharedPreferences sp = getSharedPreferences("UserLog",0);
+//            String CustKey =  sp.getString("CustKey",null);
+//            String UserKey =  sp.getString("UserKey",null);
             ////////////////////////////////////////////////////////////////////
 
-            try {
+//            try {
+//
+//
+//                JSONObject values = new JSONObject();
+//                values.put("CustKey",Integer.parseInt(CustKey));
+//                values.put("PassengerName", passengr_name.getText().toString());
+//                values.put("TravelDate", Day + "-" + Month + "-" + Year);
+//                values.put("GuestNos", members);
+//              values.put("CruiseType", Cruise_Type);
+//
+//                values.put("ContactEmail", email_id.getText().toString());
+//                values.put("ContactNo", Contact_no.getText().toString());
+//                values.put("BookingStatusKey", 1);
+//                values.put("Status", true);
+//                values.put("CreatedBy", Integer.parseInt(UserKey));
+//                jsonString = new JSONObject();
+//                jsonString.put("Token", "0001");
+//                jsonString.put("call", "SaveHouseboatBooking");
+//                jsonString.put("values", values);
+//                request = jsonString.toString();
+//
+//            } catch (
+//                    JSONException e) {
+//                e.printStackTrace();
+//            }
 
 
-                JSONObject values = new JSONObject();
-                values.put("CustKey",Integer.parseInt(CustKey));
-                values.put("PassengerName", passengr_name.getText().toString());
-                values.put("TravelDate", Day + "-" + Month + "-" + Year);
-                values.put("GuestNos", members);
-              values.put("CruiseType", Cruise_Type);
-
-                values.put("ContactEmail", email_id.getText().toString());
-                values.put("ContactNo", Contact_no.getText().toString());
-                values.put("BookingStatusKey", 1);
-                values.put("Status", true);
-                values.put("CreatedBy", Integer.parseInt(UserKey));
-                jsonString = new JSONObject();
-                jsonString.put("Token", "0001");
-                jsonString.put("call", "SaveHouseboatBooking");
-                jsonString.put("values", values);
-                request = jsonString.toString();
-
-            } catch (
-                    JSONException e) {
-                e.printStackTrace();
-            }
-
-
-            boat_ticket(request);
+            BookTickets();
 
 
         }
@@ -288,148 +301,110 @@ public class HouseBoat extends BaseActivity {
         throw new RuntimeException("This is a crash");
     }
 
-//    private void init() {
-//        for (int i = 0; i < IMAGES.length; i++)
-//            ImagesArray.add(IMAGES[i]);
-//        PagerAdapter adapter = new SlidingImage_Adapter(HouseBoat.this, ImagesArray);
-//        mPager.setAdapter(adapter);
-//        // mPager.setAdapter(new SlidingImage_Adapter(ProductView.this, ImagesArray));
-//        final float density = getResources().getDisplayMetrics().xdpi;
-//        NUM_PAGES = IMAGES.length;
-//        // Auto start of viewpager
-//        final Handler handler = new Handler();
-//        final Runnable Update = new Runnable() {
-//            public void run() {
-//                if (currentPage == NUM_PAGES) {
-//                    currentPage = 0;
-//                }
-//                mPager.setCurrentItem(currentPage++, true);
-//            }
-//        };
-//        Timer swipeTimer = new Timer();
-//        swipeTimer.schedule(new TimerTask() {
-//            @Override
-//            public void run() {
-//                handler.post(Update);
-//            }
-//        }, 5000, 5000);
-//    }
-
-    private void boat_ticket(final String request)
-    {
-
-        Log.e("gettttt","in"+request);
 
 
 
-        String URL = this.getString(R.string.Url)+"Save";
 
 
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                new Response.Listener<String>() {
+    private  void  BookTickets() {
+
+
+
+
+        SharedPreferences sp = getSharedPreferences("UserLog",0);
+        String CustKey =  sp.getString("CustKey",null);
+        String UserKey =  sp.getString("UserKey",null);
+
+        String Pname  =passengr_name.getText().toString();
+
+        Log.e("Error  Typeeeee","  "+CustKey);
+
+        String TravelDate  =Day+"-"+Month+"-"+Year;
+
+        String email  =email_id.getText().toString();
+
+        String contact  =Contact_no.getText().toString();
+
+
+        apiInterface.SaveHouseBoatBooking(Integer.parseInt(CustKey),Pname,TravelDate,Cruise_Type,email,contact,members,1,true,Integer.parseInt(UserKey))
+                .enqueue(new Callback<SaveHouseBoatBookingResponse>() {
                     @Override
-                    public void onResponse(String response) {
+                    public void onResponse(Call<SaveHouseBoatBookingResponse> call, retrofit2.Response<SaveHouseBoatBookingResponse> response) {
 
-                        Log.e("Jsonnnn",""+response);
-                        // p1.dismiss();
+                        if (response.isSuccessful() && response.code() == 200) {
+                            assert response.body() != null;
+                            if (response.body().getCode().equalsIgnoreCase("0")) {
 
-                        try {
-
-
-                            JSONObject o     = new JSONObject(response);
+                                List<SaveHouseBoatBookingResponse.ResultArray> result = response.body().getResponse();
 
 
-                            String data = response;
-                            Object json = new JSONTokener(data).nextValue();
-                            if (json instanceof JSONObject){
-                                Log.e("objectttttt",""+json);
+
+                                for (int i = 0; i < result.size(); i++) {
+
+                                    if(result.get(i).getResult().equalsIgnoreCase("1"))
+                                    {
+                                        passengr_name .getText().clear();
+                                        email_id .getText().clear();
+                                        Contact_no.getText().clear();
+
+                                        days.setSelection(0);
+                                        months.setSelection(0);
+                                        years.setSelection(0);
+
+
+                                        Utility.ShowCustomToast("Booking Successful",HouseBoat.this);
+                                    }
+                                    else
+                                    {
+                                        Utility.ShowCustomToast("Booking Failed",HouseBoat.this);
+
+                                    }
+
+
+                                }
+
+
+
+
+
+
                             }
-                            //you have an object
-                            else if (json instanceof JSONArray){
-                                Log.e("Arrayyyyyyy",""+json);
-                            }
-
-
-                            Log.e("tryyyyyyyyy","in"+o);
-
-
-                            code = o.getString("responseCode");
-                            message=o.getString("responseMessage");
-
-                            Log.e("resppppppp",""+code);
-
-
-                            if (code.equalsIgnoreCase("-100"))
-                            {
-                                Log.e("resppppppp","ifffff"+code);
-
-                                passengr_name.getText().clear();
-                                email_id.getText().clear();
-                                Contact_no.getText().clear();
-                                days.setSelection(0);
-                                months.setSelection(0);
-                                years.setSelection(0);
-                                membersno.setSelection(0);
-
-                                Utility.ShowCustomToast("Booking Successful",HouseBoat.this);
-                            }
-
-                            else {
-                                Utility.ShowCustomToast("Booking Failed",HouseBoat.this);                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
+//                    else
+//                    {
+////                        progress.cancel();
+////                        Utility.ShowCustomToast("Coming Soon",Products.this);
+//
+//                    }
                         }
+
+                        else if(response.code() == 401) {
+
+                            Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                        }
+
+                        else if( response.code() == 500) {
+
+                            Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                        }
+
+                        else if(response.code() == 408) {
+
+                            Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                        }
+
+
+
+
                     }
-                },
-                new Response.ErrorListener() {
+
                     @Override
-                    public void onErrorResponse(VolleyError error) {
+                    public void onFailure(Call<SaveHouseBoatBookingResponse> call, Throwable t) {
 
-
-                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                            Utility.ShowCustomToast(" No Network Connection",HouseBoat.this);
-                        } else if (error instanceof AuthFailureError) {
-                            Utility.ShowCustomToast("Authentication Failed",HouseBoat.this);
-                        } else if (error instanceof ServerError) {
-
-                            Utility.ShowCustomToast("Server Error Occurred",HouseBoat.this);
-                        } else if (error instanceof NetworkError) {
-
-                            Utility.ShowCustomToast("Some Network Error Occurred",HouseBoat.this);
-                        } else if (error instanceof ParseError) {
-
-                            Utility.ShowCustomToast("Some Error Occurred",HouseBoat.this);
-                        }
                     }
-                }) {
+                });
 
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> param = new HashMap<String, String>();
-                param.put("jsonString",request );
-                Log.e("paramssss",""+param);
-                return param;
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> param = new HashMap<String, String>();
-                param.put("Content-Type","application/x-www-form-urlencoded");
-                return param;
-            }
-        };
-
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                0,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
 
     }
-
 
 
 

@@ -55,7 +55,7 @@ public class TrainBookStatusAdapter_ extends RecyclerView.Adapter<TrainBookStatu
         Log.e("checkinggg",""+List.getPassengerName());
 
 
-        if(List.getAmount().trim().equalsIgnoreCase("null"))
+        if(List.getAmount().trim().equalsIgnoreCase("0.0"))
         {
             view_holder.amount.setText("N/A");
         }

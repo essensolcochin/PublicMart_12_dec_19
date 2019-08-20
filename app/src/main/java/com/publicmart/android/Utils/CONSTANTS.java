@@ -49,4 +49,26 @@ public interface CONSTANTS {
     String AirportName = "AirportName";
     String StationKey = "StationKey";
     String StationName = "StationName";
+    String PassengerName="PassengerName" ;
+    String DOB = "DOB";
+    String FromAirportKey = "FromAirportKey";
+    String ToAirportKey ="ToAirportKey" ;
+    String TravelDate = "TravelDate";
+    String ContactEmail = "ContactEmail";
+    String ContactNo = "ContactNo" ;
+    String BookingStatusKey = "BookingStatusKey";
+    String Age = "Age";
+    String FromStationKey = "FromStationKey";
+    String ToStationKey = "ToStationKey";
+    String CruiseType = "CruiseType";
+    String GuestNos ="GuestNos" ;
+    String FlightBookingKey = "FlightBookingKey";
+    String FromAirportCode = "FromAirportCode";
+    String ToAirportCode = "ToAirportCode";
+    String BookingStatusName = "BookingStatusName";
+    String Type = "Type";
+    String TrainBookingKey = "TrainBookingKey";
+    String FromStationCode = "FromStationCode";
+    String ToStationCode = "ToStationCode";
+    String HBBookingKey = "HBBookingKey" ;
 }

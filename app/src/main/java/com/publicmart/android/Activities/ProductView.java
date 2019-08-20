@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.support.design.widget.TabLayout;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.view.MenuItemCompat;
 import android.support.v4.view.PagerAdapter;
@@ -83,7 +84,7 @@ public class ProductView extends BaseActivity {
     Integer count =1;
     AnimatorSet set;
     ApiInterface apiInterface;
-
+    View view;
     TextView Qty;
 
 
@@ -129,12 +130,14 @@ public class ProductView extends BaseActivity {
         minus= findViewById(R.id.minus);
         Qty = findViewById(R.id.quantity);
         mPager = (ViewPager) findViewById(R.id.pager);
+        view= findViewById(R.id.view);
+
 
         loading =new ProgressBar(this);
         Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/ralewayM.ttf");
         Typeface custom_font3 = Typeface.createFromAsset(getAssets(),  "fonts/CODEBold.otf");
 
-        Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/RalewayBold.ttf");
+        Typeface custom_font2 = Typeface.createFromAsset(getAssets(),  "fonts/OpenSansSemiBold.ttf");
         detailed_description.setTypeface(custom_font);
         Product_Details.setTypeface(custom_font2);
         Short_Desc.setTypeface(custom_font);
@@ -143,6 +146,11 @@ public class ProductView extends BaseActivity {
         material_care.setTypeface(custom_font);
         size.setTypeface(custom_font3);
         sizeTitle.setTypeface(custom_font2);
+
+
+        TabLayout tabLayout = (TabLayout) view.findViewById(R.id.tabselector);
+        tabLayout.setupWithViewPager(mPager, true);
+
 
         apiInterface= ApiClient.getClient().create(ApiInterface.class);
 

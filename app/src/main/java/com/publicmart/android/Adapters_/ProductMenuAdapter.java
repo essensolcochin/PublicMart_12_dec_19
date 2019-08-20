@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -114,7 +115,7 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
             Glide.with(context).load(CONSTANTS.ImgURL_ +List.getImagePath())
                     .thumbnail(0.5f)
-                    .diskCacheStrategy(DiskCacheStrategy.NONE)
+                    .diskCacheStrategy(DiskCacheStrategy.AUTOMATIC)
                     .skipMemoryCache(true)
                     .into(childHolder.Logo);
 
@@ -165,7 +166,7 @@ public class ProductMenuAdapter extends RecyclerView.Adapter<RecyclerView.ViewHo
 
         TextView MenuTitle;
         ImageView Logo;
-        FrameLayout itemLayout;
+        CardView itemLayout;
 
 
         private MenuViewHolder(@NonNull View itemView) {

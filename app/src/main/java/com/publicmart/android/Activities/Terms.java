@@ -36,7 +36,7 @@ public class Terms extends AppCompatActivity {
 
         terms.getSettings().setLoadsImagesAutomatically(true);
         terms.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        terms.loadUrl("http://www.publicmart.in/TermsAndConditions.html");
+        terms.loadUrl("http://www.publicmart.in/termsandconditions.html");
 //        terms.loadUrl("http://service.anywherematrimony.com/privacypolicy.html");
 
 

@@ -69,7 +69,7 @@ public class Edit_Profile extends BaseActivity {
         names = new ArrayList<SpinnerModel>();
 
 
-        sp = getSharedPreferences("UserLog",0);
+         sp = getSharedPreferences("UserLog",0);
          CustKey =  sp.getString("UserKey",null);
 
         statecode();
@@ -226,8 +226,7 @@ public class Edit_Profile extends BaseActivity {
             requestQueue.add(stringRequest);
 
         }
-    public void Ed_profile_view()
-    {
+    public void Ed_profile_view() {
 
 
         try {

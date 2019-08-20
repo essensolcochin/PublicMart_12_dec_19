@@ -63,7 +63,9 @@ public class BookingStatusAdapter_ extends RecyclerView.Adapter<BookingStatusAda
 
 
         view_holder.date.setText(List.getTravelDate().substring(0, 10));
-        if(List.getAmount().equalsIgnoreCase("null"))
+
+
+        if(List.getAmount().equalsIgnoreCase("0.0"))
         {
             view_holder.amount.setText("N/A");
         }

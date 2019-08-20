@@ -2,17 +2,24 @@ package com.publicmart.android.RetrofitUtils;
 
 
 
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.CheckAccountStatusResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.CheckUsernameResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetAirportCodesResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetBoatBookingStatusResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetFlightBookingStatusResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetProductCategoryResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetProductDetailsResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetProductsByCategoryResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetStationCodesResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetTrainBookingStatusResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.HomeScreenResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.LoginResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.OrderStatusResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.RegisterResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveFlightBookingResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveHouseBoatBookingResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveOrderdetailsResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveTrainBookingResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SearchResponse;
 import com.publicmart.android.Utils.CONSTANTS;
 
@@ -87,6 +94,67 @@ public interface ApiInterface {
 
 
 
+    @POST("ServicesApi/SaveFlightBooking")
+    @FormUrlEncoded
+    Call<SaveFlightBookingResponse> SaveFlightBooking(@Field(CONSTANTS.CustKey) int CustKey,
+                                                      @Field(CONSTANTS.PassengerName) String PassengerName,
+                                                      @Field(CONSTANTS.DOB) String DOB,
+                                                      @Field(CONSTANTS.FromAirportKey) int FromAirportKey,
+                                                      @Field(CONSTANTS.ToAirportKey) int ToAirportKey,
+                                                      @Field(CONSTANTS.TravelDate) String TravelDate,
+                                                      @Field(CONSTANTS.ContactEmail) String ContactEmail,
+                                                      @Field(CONSTANTS.ContactNo) String ContactNo,
+                                                      @Field(CONSTANTS.BookingStatusKey) int BookingStatusKey,
+                                                      @Field(CONSTANTS.Status) boolean Status,
+                                                      @Field(CONSTANTS.CreatedBy) int CreatedBy);
+
+
+    @POST("ServicesApi/SaveTrainBooking")
+    @FormUrlEncoded
+    Call<SaveTrainBookingResponse> SaveTrainBooking(@Field(CONSTANTS.CustKey) int CustKey,
+                                                    @Field(CONSTANTS.PassengerName) String PassengerName,
+                                                    @Field(CONSTANTS.Age) String Age,
+                                                    @Field(CONSTANTS.FromStationKey) int FromAirportKey,
+                                                    @Field(CONSTANTS.ToStationKey) int ToAirportKey,
+                                                    @Field(CONSTANTS.TravelDate) String TravelDate,
+                                                    @Field(CONSTANTS.ContactEmail) String ContactEmail,
+                                                    @Field(CONSTANTS.ContactNo) String ContactNo,
+                                                    @Field(CONSTANTS.BookingStatusKey) int BookingStatusKey,
+                                                    @Field(CONSTANTS.Status) boolean Status,
+                                                    @Field(CONSTANTS.CreatedBy) int CreatedBy);
+
+
+    @POST("ServicesApi/SaveHouseboatBooking")
+    @FormUrlEncoded
+    Call<SaveHouseBoatBookingResponse> SaveHouseBoatBooking(@Field(CONSTANTS.CustKey) int CustKey,
+                                                            @Field(CONSTANTS.PassengerName) String PassengerName,
+                                                            @Field(CONSTANTS.TravelDate) String TravelDate,
+                                                            @Field(CONSTANTS.CruiseType) String CruiseType,
+                                                            @Field(CONSTANTS.ContactEmail) String ContactEmail,
+                                                            @Field(CONSTANTS.GuestNos) String GuestNos,
+                                                            @Field(CONSTANTS.ContactNo) String ContactNo,
+                                                            @Field(CONSTANTS.BookingStatusKey) int BookingStatusKey,
+                                                            @Field(CONSTANTS.Status) boolean Status,
+                                                            @Field(CONSTANTS.CreatedBy) int CreatedBy);
+
+
+
+    @POST("ServicesApi/GetBookingDetailsByCustKeyAndType")
+    @FormUrlEncoded
+    Call<GetFlightBookingStatusResponse> GetFlightBookingStatus(@Field(CONSTANTS.CustKey) int CustKey,@Field(CONSTANTS.Type) String Type);
+
+
+    @POST("ServicesApi/GetBookingDetailsByCustKeyAndType")
+    @FormUrlEncoded
+    Call<GetTrainBookingStatusResponse> GetTrainBookingStatus(@Field(CONSTANTS.CustKey) int CustKey,@Field(CONSTANTS.Type) String Type);
+
+
+    @POST("ServicesApi/GetBookingDetailsByCustKeyAndType")
+    @FormUrlEncoded
+    Call<GetBoatBookingStatusResponse> GetBoatBookingStatus(@Field(CONSTANTS.CustKey) int CustKey, @Field(CONSTANTS.Type) String Type);
+
+
+
 
     @POST("ProductsApi/GetOrderDetailsByCustKey")
     @FormUrlEncoded
@@ -103,6 +171,12 @@ public interface ApiInterface {
 
     @POST("ProductsApi/GetActiveProductListForSearch")
     Call<SearchResponse> GetItemstoSearch();
+
+
+    @POST("CommonApi/CheckAccountStatus")
+    @FormUrlEncoded
+    Call<CheckAccountStatusResponse> CheckAccountStatus(@Field(CONSTANTS.CustKey) String CustKey);
+
 
 
 

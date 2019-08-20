@@ -35,6 +35,7 @@ import com.publicmart.android.R;
 import com.publicmart.android.RetrofitUtils.ApiClient;
 import com.publicmart.android.RetrofitUtils.ApiInterface;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetAirportCodesResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveFlightBookingResponse;
 import com.publicmart.android.Utility;
 
 import org.json.JSONArray;
@@ -322,49 +323,23 @@ public class FlightTicket extends BaseActivity {
                {
                    contact_no.setError("Field is Mandatory");
                }
-        else
+               else if(codecity.equals(codecity2))
+               {
+                   Utility.ShowCustomToast("From Airport and To Airport Cannot be the same",FlightTicket.this);
+               }
+
+               else if(Day.equals("DD")||Month.equals("MM")||Year.equals("YYYY")||Bday.equals("DD")||Bmonth.equals("MM")||Byear.equals("MM"))
+               {
+                   Utility.ShowCustomToast("Please Specify the Dates",FlightTicket.this);
+               }
+
+           else
                {
 
 
-                   SharedPreferences sp = getSharedPreferences("UserLog",0);
-                   String CustKey =  sp.getString("CustKey",null);
-                   String UserKey =  sp.getString("UserKey",null);
-
-
-//hhhhhhhh
-
-               try {
-
-
-               JSONObject values = new JSONObject();
-               values.put("CustKey",Integer.parseInt(CustKey));
-               values.put("PassengerName", traveler_name.getText().toString());
-                   values.put("DOB", Bday+"-"+Bmonth+"-"+Byear);
-               values.put("FromAirportKey", codecity);
-               values.put("ToAirportKey", codecity2);
-               values.put("TravelDate", Day+"-"+Month+"-"+Year);
-               values.put("Timing", Timing);
-
-               values.put("ContactEmail", email_id.getText().toString());
-               values.put("ContactNo", contact_no.getText().toString());
-               values.put("BookingStatusKey", 1);
-               values.put("Status", true);
-               values.put("CreatedBy",Integer.parseInt(UserKey));
-
-               jsonString = new JSONObject();
-               jsonString.put("Token", "0001");
-               jsonString.put("call", "SaveFlightBooking");
-               jsonString.put("values", values);
-               request = jsonString.toString();
-                   Log.e("timinggggg",""+Timing);
-           } catch (
-           JSONException e) {
-               e.printStackTrace();
-           }
-
 
                    if(Utility.isNetworkConnectionAvailable(FlightTicket.this)){
-                       book_ticket(request);
+                       BookTickets();
                    }
                    else {
                        Utility.ShowCustomToast("No Network Available Check Your Internet Connectivity",FlightTicket.this);
@@ -430,53 +405,45 @@ public class FlightTicket extends BaseActivity {
 
 
 
-    private void book_ticket(final String request) {
-
-
-        Log.e("gettttt","in"+request);
 
 
 
-        String URL = this.getString(R.string.Url)+"Save";
+    private  void  BookTickets() {
 
 
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Log.e("Jsonnnn",""+response);
-                        // p1.dismiss();
-
-                        try {
 
 
-                            JSONObject o     = new JSONObject(response);
+        SharedPreferences sp = getSharedPreferences("UserLog",0);
+        String CustKey =  sp.getString("CustKey",null);
+        String UserKey =  sp.getString("UserKey",null);
+
+        String Pname  =traveler_name.getText().toString();
+
+        String DOB  =Bday+"-"+Bmonth+"-"+Byear;
+
+        String TravelDate  =Day+"-"+Month+"-"+Year;
+
+        String email  =email_id.getText().toString();
+
+        String contact  =contact_no.getText().toString();
 
 
-                            String data = response;
-                            Object json = new JSONTokener(data).nextValue();
-                            if (json instanceof JSONObject){
-                                Log.e("objectttttt",""+json);
-                            }
-                            //you have an object
-                            else if (json instanceof JSONArray){
-                                Log.e("Arrayyyyyyy",""+json);
-                            }
+        apiInterface.SaveFlightBooking(Integer.parseInt(CustKey),Pname,DOB,codecity,codecity2,TravelDate,email,contact,1,true,Integer.parseInt(UserKey)).enqueue(new Callback<SaveFlightBookingResponse>() {
+            @Override
+            public void onResponse(Call<SaveFlightBookingResponse> call, retrofit2.Response<SaveFlightBookingResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                        List<SaveFlightBookingResponse.ResultArray> result = response.body().getResponse();
 
 
-                            Log.e("tryyyyyyyyy","in"+o);
 
+                        for (int i = 0; i < result.size(); i++) {
 
-                            code = o.getString("responseCode");
-                            message=o.getString("responseMessage");
-
-                            Log.e("resppppppp",""+code);
-
-
-                            if (code.equalsIgnoreCase("-100"))
+                            if(result.get(i).getResult().equalsIgnoreCase("1"))
                             {
-
                                 traveler_name .getText().clear();
                                 email_id .getText().clear();
                                 contact_no.getText().clear();
@@ -491,63 +458,55 @@ public class FlightTicket extends BaseActivity {
 
                                 Utility.ShowCustomToast("Booking Successful",FlightTicket.this);
                             }
-
-
-                            else {
+                            else
+                            {
                                 Utility.ShowCustomToast("Booking Failed",FlightTicket.this);
+
                             }
 
 
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
                         }
+
+
+
+
+
+
                     }
+//                    else
+//                    {
+////                        progress.cancel();
+////                        Utility.ShowCustomToast("Coming Soon",Products.this);
+//
+//                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
 
 
 
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
 
-                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                            Utility.ShowCustomToast(" No Network Connection",FlightTicket.this);
-                        } else if (error instanceof AuthFailureError) {
-                            Utility.ShowCustomToast("Authentication Failed",FlightTicket.this);
-                        } else if (error instanceof ServerError) {
-
-                            Utility.ShowCustomToast("Server Error Occurred",FlightTicket.this);
-                        } else if (error instanceof NetworkError) {
-
-                            Utility.ShowCustomToast("Some Network Error Occurred",FlightTicket.this);
-                        } else if (error instanceof ParseError) {
-
-                            Utility.ShowCustomToast("Some Error Occurred",FlightTicket.this);
-                        }
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> param = new HashMap<String, String>();
-                param.put("jsonString",request );
-                Log.e("paramssss",""+param);
-                return param;
             }
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> param = new HashMap<String, String>();
-                param.put("Content-Type","application/x-www-form-urlencoded");
-                return param;
-            }
-        }
-                ;
+            public void onFailure(Call<SaveFlightBookingResponse> call, Throwable t) {
 
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+            }
+        });
+
 
     }
 

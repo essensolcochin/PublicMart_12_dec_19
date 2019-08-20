@@ -282,9 +282,9 @@ public class MainActivity extends AppCompatActivity {
                                 Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
                                 Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
 
-                                if(responseBody.get(j).getPaidStatus().equalsIgnoreCase("True"))
-
-                                {
+//                                if(responseBody.get(j).getPaidStatus().equalsIgnoreCase("True"))
+//
+//                                {
 
                                     if(responseBody.get(j).getProfile().equalsIgnoreCase("True"))
                                     {
@@ -298,21 +298,29 @@ public class MainActivity extends AppCompatActivity {
 
                                     }
                                     else {
-                                        Intent intent =new Intent(MainActivity.this,Profile.class);
+                                        SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                        SharedPreferences.Editor edit = sp.edit();
+                                        edit.putBoolean("LoggedUser",true);
+                                        edit.apply();
+
+                                        //ToDo change Home to Edit Profile activity in this intent
+                                        Intent intent =new Intent(MainActivity.this,Home.class);
                                         startActivity(intent);
                                         finish();
                                     }
 
 
-                                }
-
-                                else{
-
-                                    Intent intent =new Intent(MainActivity.this,Payment.class);
-
-                                    startActivity(intent);
-                                    finish();
-                                }
+//                                }
+//
+//                                else{
+//
+//                                    Utility.ShowCustomToast("Your Account has been disabled contact our team to redeem your account",MainActivity.this);
+//
+////                                    Intent intent =new Intent(MainActivity.this,Payment.class);
+////
+////                                    startActivity(intent);
+////                                    finish();
+//                                }
 
 
 

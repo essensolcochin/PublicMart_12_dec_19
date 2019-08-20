@@ -2,14 +2,13 @@ package com.publicmart.android.ModelClasses;
 
 public class BookingstatusModel {
 
-    String PassengerName,FromAirportCode,ToAirportCode,TravelDate,Timing,Amount,BookingStatusName,FlightBookingKey,BookingStatusKey;
+   private String PassengerName,FromAirportCode,ToAirportCode,TravelDate,Amount,BookingStatusName,FlightBookingKey,BookingStatusKey;
 
-    public BookingstatusModel(String passengerName, String fromAirportCode, String toAirportCode, String travelDate, String timing, String amount, String bookingStatusName, String flightBookingKey, String bookingStatusKey) {
+    public BookingstatusModel(String passengerName, String fromAirportCode, String toAirportCode, String travelDate, String amount, String bookingStatusName, String flightBookingKey, String bookingStatusKey) {
         PassengerName = passengerName;
         FromAirportCode = fromAirportCode;
         ToAirportCode = toAirportCode;
         TravelDate = travelDate;
-        Timing = timing;
         Amount = amount;
         BookingStatusName = bookingStatusName;
         FlightBookingKey = flightBookingKey;
@@ -48,14 +47,6 @@ public class BookingstatusModel {
         TravelDate = travelDate;
     }
 
-    public String getTiming() {
-        return Timing;
-    }
-
-    public void setTiming(String timing) {
-        Timing = timing;
-    }
-
     public String getAmount() {
         return Amount;
     }
@@ -87,6 +78,4 @@ public class BookingstatusModel {
     public void setBookingStatusKey(String bookingStatusKey) {
         BookingStatusKey = bookingStatusKey;
     }
-
-
 }

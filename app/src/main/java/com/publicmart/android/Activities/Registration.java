@@ -212,10 +212,6 @@ public class Registration extends AppCompatActivity {
 
                 else {
 
-
-
-
-
                     if(Utility.isNetworkConnectionAvailable(Registration.this)){
                         RegisterUser();
                     }
@@ -340,6 +336,8 @@ public class Registration extends AppCompatActivity {
                                 case "2":
                                     availability.setText("Available");
                                     availability.setTextColor(getResources().getColor(android.R.color.holo_green_dark));
+                                    regist.setClickable(true);
+                                    regist.setFocusable(true);
                                     break;
                             }
                         }

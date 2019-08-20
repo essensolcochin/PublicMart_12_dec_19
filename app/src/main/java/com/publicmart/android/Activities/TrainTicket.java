@@ -37,6 +37,7 @@ import com.publicmart.android.R;
 import com.publicmart.android.RetrofitUtils.ApiClient;
 import com.publicmart.android.RetrofitUtils.ApiInterface;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetStationCodesResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveTrainBookingResponse;
 import com.publicmart.android.Utility;
 
 import org.json.JSONArray;
@@ -276,54 +277,58 @@ public class TrainTicket extends BaseActivity {
                     email_id.setError("Field is Mandatory");
                 } else if (TextUtils.isEmpty(Contact_no.getText())) {
                     Contact_no.setError("Field is Mandatory");
-                } else {
 
-                    SharedPreferences sp = getSharedPreferences("UserLog",0);
-                    String CustKey =  sp.getString("CustKey",null);
-                    String UserKey =  sp.getString("UserKey",null);
-                    ////////////////////////////////////////////////////////////////////
+                }
+                else if(codecity.equals(codecity2))
+                {
+                    Utility.ShowCustomToast("From Station and To Station Cannot be the same",TrainTicket.this);
+                }
 
-                    try {
+                else if(Day.equals("DD")||Month.equals("MM")||Year.equals("YYYY"))
+                {
+                    Utility.ShowCustomToast("Please Specify the Dates",TrainTicket.this);
+                }
+
+                else {
+
+//                    SharedPreferences sp = getSharedPreferences("UserLog",0);
+//                    String CustKey =  sp.getString("CustKey",null);
+//                    String UserKey =  sp.getString("UserKey",null);
+//                    ////////////////////////////////////////////////////////////////////
+//
+//                    try {
+//
+//
+//                        JSONObject values = new JSONObject();
+//                        values.put("CustKey",Integer.parseInt(CustKey));
+//                        values.put("PassengerName", passengr_name.getText().toString());
+//                        values.put("Age", age.getText().toString());
+//                        values.put("FromStationKey", codecity);
+//                        values.put("ToStationKey", codecity2);
+//                        values.put("TravelDate", Day + "-" + Month + "-" + Year);
+//                        values.put("ContactEmail", email_id.getText().toString());
+//                        values.put("ContactNo", Contact_no.getText().toString());
+//                        values.put("BookingStatusKey", 1);
+//                        values.put("Status", true);
+//                        values.put("CreatedBy", Integer.parseInt(UserKey));
+//                        jsonString = new JSONObject();
+//                        jsonString.put("Token", "0001");
+//                        jsonString.put("call", "SaveTrainBooking");
+//                        jsonString.put("values", values);
+//                        request = jsonString.toString();
+//
+//                    } catch (
+//                            JSONException e) {
+//                        e.printStackTrace();
+//                    }
 
 
-                        JSONObject values = new JSONObject();
-                        values.put("CustKey",Integer.parseInt(CustKey));
-                        values.put("PassengerName", passengr_name.getText().toString());
-                        values.put("Age", age.getText().toString());
-                        values.put("FromStationKey", codecity);
-                        values.put("ToStationKey", codecity2);
-                        values.put("TravelDate", Day + "-" + Month + "-" + Year);
-                        values.put("ContactEmail", email_id.getText().toString());
-                        values.put("ContactNo", Contact_no.getText().toString());
-                        values.put("BookingStatusKey", 1);
-                        values.put("Status", true);
-                        values.put("CreatedBy", Integer.parseInt(UserKey));
-                        jsonString = new JSONObject();
-                        jsonString.put("Token", "0001");
-                        jsonString.put("call", "SaveTrainBooking");
-                        jsonString.put("values", values);
-                        request = jsonString.toString();
-
-                    } catch (
-                            JSONException e) {
-                        e.printStackTrace();
-                    }
-
-
-                    train_ticket(request);
+                    BookTickets();
 
 
                 }
 
-                passengr_name.getText().clear();
-                email_id.getText().clear();
-                Contact_no.getText().clear();
-                age.getText().clear();
-                citycode.setSelection(0);
-                citycode2.setSelection(0);
-                days.setSelection(0);
-                months.setSelection(0);
-                years.setSelection(0);
+
 
             }
 
@@ -341,8 +346,7 @@ public class TrainTicket extends BaseActivity {
     ///////////////////////////////////Posting/////////////////////////////////////////
 
 
-    private void train_ticket(final String request)
-    {
+    private void train_ticket(final String request) {
 
         Log.e("gettttt","in"+request);
 
@@ -450,7 +454,106 @@ public class TrainTicket extends BaseActivity {
     }
 
 
+    private  void  BookTickets() {
 
+
+
+
+        SharedPreferences sp = getSharedPreferences("UserLog",0);
+        String CustKey =  sp.getString("CustKey",null);
+        String UserKey =  sp.getString("UserKey",null);
+
+        String Pname  =passengr_name.getText().toString();
+
+        String Age  =age.getText().toString();
+
+        String TravelDate  =Day+"-"+Month+"-"+Year;
+
+        String email  =email_id.getText().toString();
+
+        String contact  =Contact_no.getText().toString();
+
+
+        apiInterface.SaveTrainBooking(Integer.parseInt(CustKey),Pname,Age,codecity,codecity2,TravelDate,email,contact,1,true,Integer.parseInt(UserKey))
+                .enqueue(new Callback<SaveTrainBookingResponse>() {
+            @Override
+            public void onResponse(Call<SaveTrainBookingResponse> call, retrofit2.Response<SaveTrainBookingResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                        List<SaveTrainBookingResponse.ResultArray> result = response.body().getResponse();
+
+
+
+                        for (int i = 0; i < result.size(); i++) {
+
+                            if(result.get(i).getResult().equalsIgnoreCase("1"))
+                            {
+                                passengr_name .getText().clear();
+                                email_id .getText().clear();
+                                Contact_no.getText().clear();
+                                citycode.setSelection(0);
+                                citycode2.setSelection(0);
+                                days.setSelection(0);
+                                months.setSelection(0);
+                                years.setSelection(0);
+
+
+                                Utility.ShowCustomToast("Booking Successful",TrainTicket.this);
+                            }
+                            else
+                            {
+                                Utility.ShowCustomToast("Booking Failed",TrainTicket.this);
+
+                            }
+
+
+                        }
+
+
+
+
+
+
+                    }
+//                    else
+//                    {
+////                        progress.cancel();
+////                        Utility.ShowCustomToast("Coming Soon",Products.this);
+//
+//                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<SaveTrainBookingResponse> call, Throwable t) {
+
+            }
+        });
+
+
+    }
 
 
 
@@ -458,164 +561,8 @@ public class TrainTicket extends BaseActivity {
 
 
 
-    private void traincode() {
-        names =new ArrayList<StationModel>();
-
-        try {
-            JSONObject values = new JSONObject();
-
-            jsonString = new JSONObject();
-            jsonString.put("Token", "0001");
-            jsonString.put("call", "GetActiveStations");
-            jsonString.put("values", values);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
 
 
-        Log.e("gettttt","in"+request);
-
-
-
-        String URL = this.getString(R.string.Url)+"Select";
-
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Log.e("Jsonnnn",""+response);
-                        // p1.dismiss();
-
-                        try {
-
-
-                            JSONObject o     = new JSONObject(response);
-
-
-                            String data = response;
-                            Object json = new JSONTokener(data).nextValue();
-                            if (json instanceof JSONObject){
-                                Log.e("objectttttt",""+json);
-                            }
-                            //you have an object
-                            else if (json instanceof JSONArray){
-                                Log.e("Arrayyyyyyy",""+json);
-                            }
-
-
-                            Log.e("tryyyyyyyyy","in"+o);
-
-                            ;
-                            code = o.getString("responseCode");
-                            message=o.getString("responseMessage");
-
-                            Log.e("resppppppp",""+code);
-
-
-                            if (code.equalsIgnoreCase("0"))
-                            {
-
-
-                                Log.e("resppppppp","ifffff"+code);
-
-                                JSONArray json_array2 = o.getJSONArray("result");
-
-
-                                JSONObject jsonObject;
-
-
-                                int j;
-                                for (j = 0; j < json_array2.length(); j++) {
-                                    jsonObject = json_array2.getJSONObject(j);
-
-                                    StationKey= jsonObject.getInt("StationKey");
-                                    ShortCode =jsonObject.getString("ShortCode");
-                                    StationName=jsonObject.getString("StationName");
-                                    Log.e("teeessst","ifffff  "+StationKey);
-
-                                    StationModel items  = new StationModel(StationKey,ShortCode,StationName);
-
-                                    names.add(items);
-                                    Log.e("from jsonnnn", "  " + jsonObject.getString("ShortCode"));
-
-
-                                }
-                                Log.e("namessssss", "  " + names);
-
-                                stationadapter = new ArrayAdapter<StationModel>(TrainTicket.this,android.R.layout.simple_spinner_dropdown_item,names);
-                                stationadapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                                citycode.setAdapter(stationadapter);
-                                citycode2.setAdapter(stationadapter);
-
-
-
-
-
-                            }
-
-
-//                            else {
-//                                Toast.makeText(TrainTicket.this,message,Toast.LENGTH_LONG).show();
-//                            }
-
-
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                            Utility.ShowCustomToast(" No Network Connection",TrainTicket.this);
-                        } else if (error instanceof AuthFailureError) {
-                            Utility.ShowCustomToast("Authentication Failed",TrainTicket.this);
-                        } else if (error instanceof ServerError) {
-
-                            Utility.ShowCustomToast("Server Error Occurred",TrainTicket.this);
-                        } else if (error instanceof NetworkError) {
-
-                            Utility.ShowCustomToast("Some Network Error Occurred",TrainTicket.this);
-                        } else if (error instanceof ParseError) {
-
-                            Utility.ShowCustomToast("Some Error Occurred",TrainTicket.this);
-                        }
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> param = new HashMap<String, String>();
-                param.put("jsonString",jsonString.toString() );
-                Log.e("paramssss",""+param);
-                return param;
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> param = new HashMap<String, String>();
-                param.put("Content-Type","application/x-www-form-urlencoded");
-                return param;
-            }
-        }
-     ;
-
-        // Volley.getInstance(this).addToRequestQueue(stringRequest);
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-
-        Log.e("statecodeeeeeee",""+ StationKey);
-
-
-
-    }
 
 
     private  void  getStationCodesCodes() {

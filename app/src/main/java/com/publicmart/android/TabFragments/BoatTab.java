@@ -26,6 +26,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.publicmart.android.ModelClasses.BoatStausModel;
 import com.publicmart.android.R;
+import com.publicmart.android.RetrofitUtils.ApiClient;
+import com.publicmart.android.RetrofitUtils.ApiInterface;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetBoatBookingStatusResponse;
 import com.publicmart.android.Utility;
 import com.publicmart.android.Adapters_._BookingStatusBoatAdapter_;
 
@@ -39,6 +42,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import retrofit2.Call;
+import retrofit2.Callback;
+
 
 public class BoatTab extends Fragment {
 
@@ -47,7 +53,7 @@ public class BoatTab extends Fragment {
     _BookingStatusBoatAdapter_ adapter_;
     List<BoatStausModel> item_list;
     RecyclerView recyclerView;
-
+    ApiInterface apiInterface;
 
     public BoatTab() {
     }
@@ -78,7 +84,7 @@ public class BoatTab extends Fragment {
 
         if(getUserVisibleHint()){
 
-            LoadItems();
+            getStatus();
         }
         return  RootView;
 
@@ -91,7 +97,7 @@ public class BoatTab extends Fragment {
 
         if(isVisibleToUser&&isResumed()){
 
-            LoadItems();
+            getStatus();
 
         }
 
@@ -101,8 +107,7 @@ public class BoatTab extends Fragment {
 
 
 
-    private  void LoadItems()
-    {
+    private  void LoadItems() {
         SharedPreferences sp = getActivity().getSharedPreferences("UserLog",0);
         String CustKey =  sp.getString("CustKey",null);
 
@@ -275,5 +280,101 @@ public class BoatTab extends Fragment {
 
     }
 
+    private  void getStatus(){
 
+
+        SharedPreferences sp = getActivity().getSharedPreferences("UserLog",0);
+        String CustKey =  sp.getString("CustKey",null);
+
+
+
+
+        apiInterface= ApiClient.getClient().create(ApiInterface.class);
+
+
+        apiInterface.GetBoatBookingStatus(Integer.parseInt(CustKey),"H").enqueue(new Callback<GetBoatBookingStatusResponse>() {
+            @Override
+            public void onResponse(Call<GetBoatBookingStatusResponse> call, retrofit2.Response<GetBoatBookingStatusResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                        item_list.clear();;
+
+                        List<GetBoatBookingStatusResponse.ResultArray> result = response.body().getResponse();
+
+
+
+                        for (int i = 0; i < result.size(); i++) {
+
+                            BoatStausModel items = new BoatStausModel(
+
+                                    result.get(i).getHBBookingKey(),
+                                    result.get(i).getPassengerName(),
+                                    result.get(i).getTravelDate(),
+                                    result.get(i).getGuestNos(),
+                                    result.get(i).getCruiseType(),
+                                    result.get(i).getAmount(),
+                                    result.get(i).getBookingStatusKey(),
+                                    result.get(i).getBookingStatusName());
+
+                            item_list.add(items);
+
+//                            Log.e("Error  CruiseType()-->","  "+result.get(i).getCruiseType());
+
+                        }
+
+
+                        adapter_ = new _BookingStatusBoatAdapter_(getContext(), item_list);
+                        recyclerView.setAdapter(adapter_);
+//
+
+
+
+                    }
+//                    else
+//                    {
+////                        progress.cancel();
+////                        Utility.ShowCustomToast("Coming Soon",Products.this);
+//
+//                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<GetBoatBookingStatusResponse> call, Throwable t) {
+
+            }
+        });
+
+
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        getStatus();
+    }
 }
