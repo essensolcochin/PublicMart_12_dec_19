@@ -87,7 +87,7 @@ public class TrainBookStatusAdapter_ extends RecyclerView.Adapter<TrainBookStatu
         stepsBeanList.add( view_holder.stepBean3);
         stepsBeanList.add( view_holder.stepBean4);
 
-        Log.e("step",""+ view_holder.stepBean2.getState());
+        Log.e("step State--->",""+ state);
 
 
 
@@ -184,6 +184,7 @@ public class TrainBookStatusAdapter_ extends RecyclerView.Adapter<TrainBookStatu
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, Payment.class);
+                intent.putExtra("Type","T");
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.getApplicationContext().startActivity(intent);
             }

@@ -23,8 +23,8 @@ ViewPager TabItem;
         TabItem= findViewById(R.id.pager);
         tabLayout = (TabLayout) findViewById(R.id.bookTab);
 
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.plane));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.train));
+//        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.plane));
+//        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.train));
         tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ship));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 

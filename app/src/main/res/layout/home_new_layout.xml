@@ -1,0 +1,473 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        >
+
+
+
+
+        <LinearLayout
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+            <FrameLayout
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:background="#ffff">
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewflipper"
+                    android:layout_width="match_parent"
+                    android:layout_height="240dp"
+                    >
+
+                </android.support.v4.view.ViewPager>
+
+
+
+
+                <android.support.design.widget.TabLayout
+                    android:layout_marginRight="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:id="@+id/tabselector"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|end"
+                    app:tabBackground="@drawable/tab_selector"
+                    app:tabGravity="center"
+                    app:tabIndicatorHeight="0dp" />
+
+
+
+
+
+            </FrameLayout>
+
+
+
+
+
+
+
+
+
+
+            <!--First Grid-->
+
+
+
+
+
+
+            <!--First Grid End-->
+
+
+
+
+            <!--<LinearLayout-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="25dp">-->
+            <!--<TextView-->
+            <!--android:background="@drawable/stroke"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content" />-->
+            <!--<TextView-->
+            <!--android:gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Quick Action"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/Text"-->
+            <!--android:textSize="15dp"/>-->
+            <!--<TextView-->
+            <!--android:background="@drawable/stroke"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+
+                <LinearLayout
+                    android:layout_marginTop="10dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:orientation="horizontal"
+                    android:layout_weight="1" >
+
+                    <LinearLayout
+
+                        android:layout_margin="1dp"
+                        android:clickable="true"
+                        android:id="@+id/Product_layout"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="#e9e4e1"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:padding="40dp"
+
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:tint="@color/col10"
+                            android:src="@drawable/train"
+
+                            android:layout_width="40dp"
+                            android:layout_height="40dp" />
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/product"
+                            android:layout_gravity="center"
+
+                            android:layout_width="wrap_content"
+                            android:text="Train"
+                            android:textSize="15dp"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            android:textColor="@color/col10"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:layout_margin="1dp"
+                        android:id="@+id/service"
+                        android:padding="40dp"
+
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@android:color/white"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:tint="@color/col10"
+
+                            android:src="@drawable/plane"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp" />
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/services"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:text="Flight "
+                            android:textSize="15dp"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            android:textColor="@color/col10"
+                            android:layout_height="wrap_content" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:orientation="horizontal"
+                    android:layout_weight="1" >
+
+                    <LinearLayout
+                        android:clickable="true"
+                        android:id="@+id/order"
+                        android:layout_margin="1dp"
+                        android:paddingTop="40dp"
+                        android:paddingBottom="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="#a3abc0"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:tint="@android:color/white"
+
+                            android:src="@drawable/ship"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp" />
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/Order"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:text="House boat"
+                            android:textSize="15dp"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            android:textColor="@android:color/white"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:layout_margin="1dp"
+                        android:id="@+id/bookingstat"
+                        android:paddingTop="40dp"
+                        android:paddingBottom="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="#dddddd"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:tint="@color/col10"
+                            android:src="@drawable/bookstat"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp" />
+                        <TextView
+                            android:layout_marginTop="10dp"
+                            android:id="@+id/book"
+                            android:layout_gravity="center"
+                            android:layout_width="wrap_content"
+                            android:text="Booking Status"
+                            android:textSize="15dp"
+                            android:gravity="start"
+                            android:textStyle="bold"
+                            android:textColor="@color/col10"
+                            android:layout_height="wrap_content" />
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="0dip"
+                    android:orientation="horizontal"
+                    android:layout_weight="1" >
+
+                    <LinearLayout
+                        android:clickable="true"
+                        android:id="@+id/shoppinlist"
+                        android:layout_margin="1dp"
+                        android:paddingTop="40dp"
+                        android:paddingBottom="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="@android:color/white"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:tint="@color/col10"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/hotairballoon" />
+
+                        <TextView
+                            android:id="@+id/shop"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:gravity="start"
+                            android:text="Tour Packages"
+                            android:textColor="@color/col10"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+
+                    <LinearLayout
+                        android:clickable="true"
+                        android:id="@+id/credit_lay"
+                        android:layout_margin="1dp"
+                        android:paddingTop="40dp"
+                        android:paddingBottom="40dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:background="#b7bed2"
+                        android:orientation="vertical"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:tint="@android:color/white"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="@drawable/around" />
+
+                        <TextView
+                            android:id="@+id/credit"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="10dp"
+                            android:gravity="start"
+                            android:text="Travel Guide"
+                            android:textColor="@android:color/white"
+                            android:textSize="15dp"
+                            android:textStyle="bold" />
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+            <!--<LinearLayout-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="25dp">-->
+            <!--<TextView-->
+            <!--android:background="@drawable/stroke"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content" />-->
+            <!--<TextView-->
+            <!--android:gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Your Status"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/Text"-->
+            <!--android:textSize="15dp"/>-->
+            <!--<TextView-->
+            <!--android:background="@drawable/stroke"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+            <!--<RelativeLayout-->
+            <!--android:layout_marginTop="15dp"-->
+            <!--android:layout_marginBottom="15dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:background="@android:color/white"-->
+
+            <!--android:gravity="center_horizontal">-->
+
+            <!--<ImageView-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:src="@drawable/arch"/>-->
+
+            <!--</RelativeLayout>-->
+
+
+            <!--<LinearLayout-->
+            <!--android:layout_margin="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="25dp">-->
+            <!--<TextView-->
+            <!--android:background="@drawable/stroke"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content" />-->
+            <!--<TextView-->
+            <!--android:gravity="center"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="Company Details"-->
+            <!--android:textStyle="bold"-->
+            <!--android:textColor="@color/Text"-->
+            <!--android:textSize="15dp"/>-->
+            <!--<TextView-->
+            <!--android:background="@drawable/stroke"-->
+            <!--android:layout_weight="1"-->
+            <!--android:layout_width="0dp"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--</LinearLayout>-->
+
+
+
+
+            <!--<LinearLayout-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:layout_marginBottom="20dp"-->
+
+            <!--android:gravity="center_horizontal"-->
+            <!--android:layout_gravity="center_horizontal"-->
+            <!--android:background="@color/col6"-->
+            <!--android:orientation="vertical">-->
+
+            <!--<TextView-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="HDFC BANK LTD."-->
+            <!--android:textSize="20dp"-->
+            <!--android:textColor="@color/col10"-->
+            <!--android:textStyle="bold"/>-->
+
+            <!--<TextView-->
+            <!--android:layout_gravity="center"-->
+            <!--android:gravity="fill"-->
+            <!--android:textColor="@color/col10"-->
+            <!--android:padding="20dp"-->
+            <!--android:id="@+id/textContent"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+
+
+            <!--</LinearLayout>-->
+
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+</LinearLayout>

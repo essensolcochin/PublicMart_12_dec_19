@@ -53,36 +53,55 @@
        >
 
 
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Name "/>-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Name "/>
 
-        <!--<TextView-->
-            <!--android:id="@+id/name"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:padding="10dp"-->
-            <!--android:background="@drawable/edittextbg"-->
-             <!--/>-->
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Plan Name "/>-->
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@drawable/edittextbg"
+             />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Contact no"/>
 
-        <!--<TextView-->
-            <!--android:id="@+id/planname"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:padding="10dp"-->
-            <!--android:background="@drawable/edittextbg"-->
-            <!--/>-->
+        <TextView
+            android:id="@+id/contactno"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@drawable/edittextbg"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Email ID "/>
+
+        <TextView
+            android:id="@+id/emailId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:padding="10dp"
+            android:background="@drawable/edittextbg"
+            />
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Amount "/>
+
+
+
 
         <TextView
             android:textStyle="bold"
@@ -94,19 +113,7 @@
             android:padding="10dp"
             android:background="@drawable/edittextbg"
             />
-        <!--<TextView-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:text="Currency "/>-->
 
-        <!--<TextView-->
-            <!--android:id="@+id/currency"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="wrap_content"-->
-            <!--android:layout_marginTop="10dp"-->
-            <!--android:padding="10dp"-->
-            <!--android:background="@drawable/edittextbg"-->
-            <!--/>-->
 
 
 

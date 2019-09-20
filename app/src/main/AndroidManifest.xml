@@ -2,11 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.publicmart.android">
 
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    <uses-permission android:name="android.permission.VIBRATE" />
-
     <application
         android:name=".MyApplication"
         android:allowBackup="true"
@@ -17,7 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activities.AlertActivity"></activity>
+        <activity android:name=".Activities.Login"></activity>
+        <activity android:name=".Activities.AlertActivity" />
         <activity android:name=".Activities.Terms" />
         <activity android:name=".ServicePayment" />
         <activity android:name=".ProductPay" />
@@ -54,6 +50,10 @@
         <activity android:name=".Activities.Edit_Profile" />
         <activity android:name=".Activities.StatusActivity" />
 
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="c89380f82afe92d8ff261a0e81d3cb84bc08f2c3" />
+
         <service
             android:name=".FirebaseInstanceIDService"
             android:stopWithTask="false">
@@ -61,10 +61,12 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-
-        <meta-data
-            android:name="io.fabric.ApiKey"
-            android:value="c89380f82afe92d8ff261a0e81d3cb84bc08f2c3" />
     </application>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
 </manifest>

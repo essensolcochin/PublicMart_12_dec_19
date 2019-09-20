@@ -6,6 +6,7 @@ import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.CheckAccount
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.CheckUsernameResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetAirportCodesResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetBoatBookingStatusResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetBookingPaymentDetailsResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetFlightBookingStatusResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetProductCategoryResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetProductDetailsResponse;
@@ -21,6 +22,7 @@ import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveHouseBoa
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveOrderdetailsResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveTrainBookingResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SearchResponse;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.UpdatePaymentStatusResponse;
 import com.publicmart.android.Utils.CONSTANTS;
 
 import retrofit2.Call;
@@ -176,6 +178,20 @@ public interface ApiInterface {
     @POST("CommonApi/CheckAccountStatus")
     @FormUrlEncoded
     Call<CheckAccountStatusResponse> CheckAccountStatus(@Field(CONSTANTS.CustKey) String CustKey);
+
+
+
+    @POST("ServicesApi/GetPaymentDetailsByBookingKeyAndType")
+    @FormUrlEncoded
+    Call<GetBookingPaymentDetailsResponse> GetPaymentDetailsforBookings(@Field(CONSTANTS.BookingKey) String BookingKey,@Field(CONSTANTS.Type) String Type);
+
+
+    @POST("ServicesApi/UpdateBookingPaymentByType")
+    @FormUrlEncoded
+    Call<UpdatePaymentStatusResponse> UpdatebookingStatus(@Field(CONSTANTS.BookingKey) String BookingKey,
+                                                          @Field(CONSTANTS.Type) String Type,
+                                                          @Field(CONSTANTS.CustKey) String CustKey);
+
 
 
 

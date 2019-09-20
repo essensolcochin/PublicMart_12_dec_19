@@ -1,5 +1,6 @@
 package com.publicmart.android.Adapters_;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.PointF;
 import android.graphics.Typeface;
@@ -8,10 +9,12 @@ import android.os.Parcelable;
 import android.support.annotation.NonNull;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 
 import com.bumptech.glide.Glide;
@@ -64,23 +67,35 @@ public class SlidingImage_Adapter_Home extends PagerAdapter {
                 .findViewById(R.id.image);
 
 
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        ((Activity) context).getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+
+
+        int devicewidth = displaymetrics.widthPixels/2;
+
+        int deviceheight = displaymetrics.heightPixels /4;
+//        matchesAdapter_viewHolder.activityImage.getLayoutParams().width = devicewidth;
+
+        imageView.getLayoutParams().height = deviceheight;
+
+
         Glide.with(context).load(CONSTANTS.ImgURL_ +IMAGES.get(position).getImagePath())
                 .thumbnail(0.5f)
-                .diskCacheStrategy(DiskCacheStrategy.NONE)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .skipMemoryCache(true)
                 .into(imageView);
 
 
 
-//        final TextView Title = (TextView) imageLayout
-//                .findViewById(R.id.ad);
+        final TextView Title = (TextView) imageLayout
+                .findViewById(R.id.ad);
 
 
 
-        custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/CODEBold.otf");
-//        Title.setTypeface(custom_font);
+        custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/NoticiaText-Regular.ttf");
+        Title.setTypeface(custom_font);
 //
-//        Title.setText(IMAGES.get(position).getImageDesc());
+        Title.setText(IMAGES.get(position).getDesc());
 
         view.addView(imageLayout, 0);
 

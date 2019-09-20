@@ -33,6 +33,16 @@ public class LoginResponse {
 
     public  class LoginJsonArray{
 
+
+
+        @SerializedName("LoginResult")
+        @Expose
+        private String LoginResult;
+
+        @SerializedName("LoginMsg")
+        @Expose
+        private String LoginMsg;
+
         @SerializedName("UserKey")
         @Expose
         private String UserKey;
@@ -140,6 +150,15 @@ public class LoginResponse {
 
         public String getEmail() {
             return Email;
+        }
+
+
+        public String getLoginResult() {
+            return LoginResult;
+        }
+
+        public String getLoginMsg() {
+            return LoginMsg;
         }
     }
 

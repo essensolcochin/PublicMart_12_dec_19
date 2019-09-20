@@ -1,12 +1,12 @@
 package com.publicmart.android.ModelClasses;
 
 public class HomeAdModel {
-    String AdvImageKey,ImagePath;
+   private String AdvImageKey,ImagePath,desc;
 
-    public HomeAdModel(String advImageKey, String imagePath) {
+    public HomeAdModel(String advImageKey, String imagePath, String desc) {
         AdvImageKey = advImageKey;
-
         ImagePath = imagePath;
+        this.desc = desc;
     }
 
     public String getAdvImageKey() {
@@ -25,5 +25,13 @@ public class HomeAdModel {
 
     public void setImagePath(String imagePath) {
         ImagePath = imagePath;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

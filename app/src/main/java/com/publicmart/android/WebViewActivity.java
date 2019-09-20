@@ -3,13 +3,16 @@ package com.publicmart.android;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -27,13 +30,24 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.publicmart.android.Activities.Bookingstatus;
 import com.publicmart.android.Activities.Payment;
+import com.publicmart.android.Activities.TabActivity;
+import com.publicmart.android.RetrofitUtils.ApiClient;
+import com.publicmart.android.RetrofitUtils.ApiInterface;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.UpdatePaymentStatusResponse;
+import com.publicmart.android.Utils.CONSTANTS;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+
+import static com.publicmart.android.Utils.CONSTANTS.BookingKey;
 
 public class WebViewActivity extends AppCompatActivity {
     Intent mainIntent;
     String encVal;
     String vResponse;
-
+    ApiInterface apiInterface;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -41,12 +55,16 @@ public class WebViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_web_view);
         mainIntent = getIntent();
 
+
+        apiInterface= ApiClient.getClient().create(ApiInterface.class);
+
 //get rsa key method
         get_RSA_key(mainIntent.getStringExtra(AvenuesParams.ACCESS_CODE), mainIntent.getStringExtra(AvenuesParams.ORDER_ID));
     }
 
 
 
+    @SuppressLint("StaticFieldLeak")
     private  class RenderView extends AsyncTask<Void, Void, Void> {
         @Override
         protected void onPreExecute() {
@@ -91,17 +109,21 @@ public class WebViewActivity extends AppCompatActivity {
                         status = "Transaction Declined!";
                     } else if (html.indexOf("Success") != -1) {
                         status = "Transaction Successful!";
-                    } else if (html.indexOf("Aborted") != -1) {
+                        UpdateBookingStatus();
+
+                    }
+                    else if (html.indexOf("Aborted") != -1) {
                         status = "Transaction Cancelled!";
-                    } else {
+                    }
+                    else {
                         status = "Status Not Known!";
                     }
 //                    Toast.makeText(getApplicationContext(), status, Toast.LENGTH_SHORT).show();
                     Log.e("respooooooo","Stat "+status);
-                    Intent intent = new Intent(getApplicationContext(), Payment.class);
-                    intent.putExtra("transStatus", status);
-                    startActivity(intent);
-                    finish();
+//                    Intent intent = new Intent(getApplicationContext(), Bookingstatus.class);
+//                    intent.putExtra("transStatus", status);
+//                    startActivity(intent);
+//                    finish();
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -232,4 +254,95 @@ public class WebViewActivity extends AppCompatActivity {
 
         alertDialog.show();
     }
+
+
+    private void UpdateBookingStatus(){
+
+        SharedPreferences sp = getSharedPreferences("UserLog",0);
+        String CustKey =  sp.getString("CustKey",null);
+
+        SharedPreferences bookDetails = getSharedPreferences("BookDetails",0);
+        String bookKey=bookDetails.getString(BookingKey,null);
+        String Type=bookDetails.getString(CONSTANTS.Type,null);
+
+        Log.e("CustKey-->",CustKey);
+
+        Log.e("bookKey-->",bookKey);
+
+        Log.e("Type-->",Type);
+
+
+        apiInterface.UpdatebookingStatus(bookKey,Type,CustKey).enqueue(new Callback<UpdatePaymentStatusResponse>() {
+            @Override
+            public void onResponse(Call<UpdatePaymentStatusResponse> call, retrofit2.Response<UpdatePaymentStatusResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                        List<UpdatePaymentStatusResponse.ResultArray> result = response.body().getResponse();
+                        for (int i = 0; i < result.size(); i++) {
+                            if(result.get(i).getResult().equalsIgnoreCase("1"))
+                            {
+                                Intent intent =new Intent(WebViewActivity.this, TabActivity.class);
+                                startActivity(intent);
+                                finish();
+
+                                SharedPreferences bookDetails = getSharedPreferences("BookDetails",0);
+                                SharedPreferences.Editor bookEd=bookDetails.edit();
+                                bookEd.putString(BookingKey,"");
+                                bookEd.putString(CONSTANTS.Type,"");
+                                bookEd.apply();
+                            }
+                            else {
+
+                                SharedPreferences bookDetails = getSharedPreferences("BookDetails",0);
+                                SharedPreferences.Editor bookEd=bookDetails.edit();
+                                bookEd.putString(BookingKey,"");
+                                bookEd.putString(CONSTANTS.Type,"");
+                                bookEd.apply();
+                            }
+
+
+
+
+                        }
+
+
+
+                    }
+                    else
+                    {
+
+
+
+                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+            }
+
+            @Override
+            public void onFailure(Call<UpdatePaymentStatusResponse> call, Throwable t) {
+
+            }
+        });
+
+
+    }
+
 }

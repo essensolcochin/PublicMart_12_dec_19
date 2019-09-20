@@ -208,6 +208,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, Payment.class);
+                intent.putExtra("Type","H");
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.getApplicationContext().startActivity(intent);
             }

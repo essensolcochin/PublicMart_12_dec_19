@@ -7,6 +7,7 @@ import android.graphics.Typeface;
 
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
@@ -62,7 +63,13 @@ import retrofit2.Callback;
 public class Home extends BaseActivity {
     static int  i=0;
     private static ViewPager mPager;
-    private static int currentPage = 0;
+//    private static int currentPage = 0;
+
+    int currentPage = 0;
+    Timer timer;
+    final long DELAY_MS = 500;//delay in milliseconds before task is to be executed
+    final long PERIOD_MS = 3000;
+
     private static int NUM_PAGES = 0;
     LinearLayout services,product,orderstat,booking,credit_layout,shopping;
     CardView profile;
@@ -81,7 +88,7 @@ public class Home extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         FrameLayout contentFrameLayout = (FrameLayout) findViewById(R.id.content_frame);
-        getLayoutInflater().inflate(R.layout.activity_home_test, contentFrameLayout);
+        getLayoutInflater().inflate(R.layout.home_new_layout, contentFrameLayout);
         Fabric.with(this, new Crashlytics());
 
          progress = new SpotsDialog(Home.this,R.style.Custom);
@@ -122,6 +129,16 @@ public class Home extends BaseActivity {
         credit_layout=(LinearLayout)findViewById(R.id.credit_lay);
         mPager = (ViewPager) findViewById(R.id.viewflipper);
         shopping=(LinearLayout)findViewById(R.id.shoppinlist);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tabselector);
+        tabLayout.setupWithViewPager(mPager, true);
+
+
+
+
+
+
+
         booking.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -190,6 +207,7 @@ public class Home extends BaseActivity {
 
 
 
+
         services = findViewById(R.id.service);
         services.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -235,7 +253,7 @@ public class Home extends BaseActivity {
 
 
                             HomeAdModel images= new HomeAdModel(result.get(i).getAdvImageKey(),
-                                    result.get(i).getImagePath());
+                                    result.get(i).getImagePath(),result.get(i).getImageDesc());
 
 
                             ImagesArray.add(images);
@@ -250,28 +268,51 @@ public class Home extends BaseActivity {
 
                         NUM_PAGES =ImagesArray.size();
                         // Auto start of viewpager
+//                        final Handler handler = new Handler();
+//                        final Runnable Update = new Runnable() {
+//                            public void run() {
+//                                if (currentPage == NUM_PAGES) {
+//
+//                                    currentPage= NUM_PAGES-currentPage;
+//                                    mPager.setCurrentItem(currentPage--, true);
+//                                }
+//                                else{
+//                                    mPager.setCurrentItem(currentPage++, true);
+//                                }
+//
+//
+//                            }
+//                        };
+//                        Timer swipeTimer = new Timer();
+//                        swipeTimer.schedule(new TimerTask() {
+//                            @Override
+//                            public void run() {
+//                                handler.post(Update);
+//                            }
+//                        }, 300, 3000);
+
+
                         final Handler handler = new Handler();
                         final Runnable Update = new Runnable() {
                             public void run() {
                                 if (currentPage == NUM_PAGES) {
-
-                                    currentPage= NUM_PAGES-currentPage;
-                                    mPager.setCurrentItem(currentPage--, true);
+                                    currentPage = 0;
                                 }
-                                else{
-                                    mPager.setCurrentItem(currentPage++, true);
-                                }
-
-
+                                mPager.setCurrentItem(currentPage++, true);
                             }
                         };
-                        Timer swipeTimer = new Timer();
-                        swipeTimer.schedule(new TimerTask() {
+
+                        timer = new Timer(); // This will create a new Thread
+                        timer.schedule(new TimerTask() { // task to be scheduled
                             @Override
                             public void run() {
                                 handler.post(Update);
                             }
-                        }, 300, 3000);
+                        }, DELAY_MS, PERIOD_MS);
+
+
+
+
 
 
                     }

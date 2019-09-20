@@ -38,22 +38,22 @@ public class Services extends BaseActivity {
         getLayoutInflater().inflate(R.layout.activity_services_ed, contentFrameLayout);
         Fabric.with(this, new Crashlytics());
 
-        flightTXT = (TextView) findViewById(R.id.flight);
+//        flightTXT = (TextView) findViewById(R.id.flight);
 
         our = (TextView) findViewById(R.id.our);
 
         services = (TextView) findViewById(R.id.services);
 
-        trainTXT = (TextView) findViewById(R.id.train);
+//        trainTXT = (TextView) findViewById(R.id.train);
         boatTXT = (TextView) findViewById(R.id.boat);
         tourTXT = (TextView) findViewById(R.id.tour);
         travelTXT = (TextView) findViewById(R.id.travel);
-        gunTXT = (TextView) findViewById(R.id.gun);
-        insureTXT = (TextView) findViewById(R.id.insure);
+//        gunTXT = (TextView) findViewById(R.id.gun);
+//        insureTXT = (TextView) findViewById(R.id.insure);
         tour = (LinearLayout)findViewById(R.id.tour_package);
         travel =(LinearLayout)findViewById(R.id.travel_guide);
-        gun=(LinearLayout)findViewById(R.id.gun_licence);
-        insure=(LinearLayout)findViewById(R.id.insurance);
+//        gun=(LinearLayout)findViewById(R.id.gun_licence);
+//        insure=(LinearLayout)findViewById(R.id.insurance);
 //        mPager=(ViewPager) findViewById(R.id.viewflipper1);
 
 
@@ -65,13 +65,13 @@ public class Services extends BaseActivity {
         our.setTypeface(custom_font2);
         services.setTypeface(custom_font1);
 
-        flightTXT.setTypeface(custom_font);
-        trainTXT.setTypeface(custom_font);
+//        flightTXT.setTypeface(custom_font);
+//        trainTXT.setTypeface(custom_font);
         boatTXT.setTypeface(custom_font);
         tourTXT.setTypeface(custom_font);
         travelTXT.setTypeface(custom_font);
-        gunTXT.setTypeface(custom_font);
-        insureTXT.setTypeface(custom_font);
+//        gunTXT.setTypeface(custom_font);
+//        insureTXT.setTypeface(custom_font);
 
 //        init();
 
@@ -98,23 +98,23 @@ public class Services extends BaseActivity {
 //        txtxmpny.setText("Services");
 
 
-        flight = findViewById(R.id.flightticket);
-        flight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Services.this, FlightTicket.class);
-                startActivity(intent);
-            }
-        });
+//        flight = findViewById(R.id.flightticket);
+//        flight.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(Services.this, FlightTicket.class);
+//                startActivity(intent);
+//            }
+//        });
 
-        train = findViewById(R.id.trainticket);
-        train.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(Services.this, TrainTicket.class);
-                startActivity(intent);
-            }
-        });
+//        train = findViewById(R.id.trainticket);
+//        train.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(Services.this, TrainTicket.class);
+//                startActivity(intent);
+//            }
+//        });
         boat = findViewById(R.id.houseboat);
         boat.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -136,18 +136,18 @@ public class Services extends BaseActivity {
                 Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
             }
         });
-        gun.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
-            }
-        });
-        insure.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
-            }
-        });
+//        gun.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//        insure.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
+//            }
+//        });
 
 
     }

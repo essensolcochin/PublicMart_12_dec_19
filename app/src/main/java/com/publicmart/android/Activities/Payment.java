@@ -20,7 +20,11 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.publicmart.android.AvenuesParams;
 import com.publicmart.android.R;
+import com.publicmart.android.RetrofitUtils.ApiClient;
+import com.publicmart.android.RetrofitUtils.ApiInterface;
+import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetBookingPaymentDetailsResponse;
 import com.publicmart.android.Utility;
+import com.publicmart.android.Utils.CONSTANTS;
 import com.publicmart.android.WebViewActivity;
 
 import org.json.JSONArray;
@@ -29,7 +33,11 @@ import org.json.JSONObject;
 import org.json.JSONTokener;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
 
 public class Payment extends AppCompatActivity {
 
@@ -37,10 +45,11 @@ public class Payment extends AppCompatActivity {
     JSONObject jsonString;
     String code,message;
     Button confirmPay;
-    TextView amount,curncy,name,plan;
-    String CustKey;
+    TextView amount,curncy,name,email,contactno;
+    String CustKey,BookingKey;
     Bundle amBundle;
     SharedPreferences sp;
+    ApiInterface apiInterface;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -48,18 +57,27 @@ public class Payment extends AppCompatActivity {
 
         confirmPay = findViewById(R.id.submit_pay);
         amount = (TextView) findViewById(R.id.amount);
-//        curncy = (TextView) findViewById(R.id.currency);
         name = (TextView) findViewById(R.id.name);
-//        plan = (TextView) findViewById(R.id.planname);
+        email = (TextView) findViewById(R.id.emailId);
+        contactno = (TextView) findViewById(R.id.contactno);
 
-         sp = getSharedPreferences("UserLog",0);
+
+       apiInterface = ApiClient.getClient().create(ApiInterface.class);
+
+        amBundle =getIntent().getExtras();
+        assert amBundle != null;
+        final String Type =amBundle.getString("Type");
+
+
+
+        Log.e("Bundleeee","  "+Type);
+
+
+        SharedPreferences sp = getSharedPreferences("UserLog",0);
         CustKey =  sp.getString("CustKey",null);
 
 
-        amount.setText(sp.getString("amnt",null));
-//        curncy.setText("INR");
-//        name.setText(sp.getString("CustomerName",null));
-//        plan.setText(sp.getString("MemberShip",null));
+        GetPaymentDetails(CustKey,Type);
 
 
 
@@ -67,21 +85,23 @@ public class Payment extends AppCompatActivity {
     @Override
     public void onClick(View v) {
 
-        String vAmount = amount.getText().toString().trim();
+//        String vAmount = amount.getText().toString().trim();
 
         Intent intent = new Intent(Payment.this, WebViewActivity.class);
         intent.putExtra(AvenuesParams.ACCESS_CODE,"AVXL83GC76AB78LXBA");
         intent.putExtra(AvenuesParams.MERCHANT_ID, "210231");
-        intent.putExtra(AvenuesParams.ORDER_ID, CustKey);
+        intent.putExtra(AvenuesParams.ORDER_ID, "#"+CustKey+"BK"+BookingKey+Type);
         intent.putExtra(AvenuesParams.CURRENCY, "INR");
-        intent.putExtra(AvenuesParams.AMOUNT,vAmount);
+        intent.putExtra(AvenuesParams.AMOUNT,amount.getText().toString());
         intent.putExtra(AvenuesParams.REDIRECT_URL, "http://publicmart.in/transaction/ccavResponseHandler.php");
         intent.putExtra(AvenuesParams.CANCEL_URL, "http://publicmart.in/transaction/ccavResponseHandler.php");
         intent.putExtra(AvenuesParams.RSA_KEY_URL, "http://publicmart.in/transaction/getRSA.php");
-        intent.putExtra(AvenuesParams.BILLING_EMAIL, sp.getString("Email",null));
-        intent.putExtra(AvenuesParams.BILLING_TEL, sp.getString("MobileNo",null));
-        intent.putExtra(AvenuesParams.BILLING_NAME, sp.getString("CustomerName",null));
+        intent.putExtra(AvenuesParams.BILLING_EMAIL, email.getText().toString());
+        intent.putExtra(AvenuesParams.BILLING_TEL, contactno.getText().toString());
+        intent.putExtra(AvenuesParams.BILLING_NAME, name.getText().toString());
         intent.putExtra(AvenuesParams.BILLING_COUNTRY, "India");
+
+
 
         startActivity(intent);
         finish();
@@ -98,27 +118,27 @@ public class Payment extends AppCompatActivity {
         if(status!=null) {
             if (status.equals("Transaction Successful!")) {
 
-                sp = getSharedPreferences("UserLog",MODE_PRIVATE);
-                String custkey =sp.getString("CustKey",null);
-
-
-                try {
-
-                    JSONObject values = new JSONObject();
-                    values.put("CustKey", custkey);
-
-                    jsonString = new JSONObject();
-                    jsonString.put("Token", "0001");
-                    jsonString.put("call", "UpdatePaidStatus");
-                    jsonString.put("values", values);
-                    String req =jsonString.toString();
-
-                    updatePayment(req);
-
-                } catch (
-                        JSONException e) {
-                    e.printStackTrace();
-                }
+//                sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+//                String custkey =sp.getString("CustKey",null);
+//
+//
+//                try {
+//
+//                    JSONObject values = new JSONObject();
+//                    values.put("CustKey", custkey);
+//
+//                    jsonString = new JSONObject();
+//                    jsonString.put("Token", "0001");
+//                    jsonString.put("call", "UpdatePaidStatus");
+//                    jsonString.put("values", values);
+//                    String req =jsonString.toString();
+//
+//                    updatePayment(req);
+//
+//                } catch (
+//                        JSONException e) {
+//                    e.printStackTrace();
+//                }
 
 
 
@@ -130,13 +150,7 @@ public class Payment extends AppCompatActivity {
 
 
 
-//                SharedPreferences log = getSharedPreferences("UserLog", MODE_PRIVATE);
-//                SharedPreferences.Editor editor = log.edit();
-//                editor.putBoolean("LoggedUser", true);
-//                editor.apply();
-//                mainIntent = new Intent(Payment.this, Home.class);
-//                startActivity(mainIntent);
-//                finish();
+
 
             }
         }
@@ -250,5 +264,83 @@ public class Payment extends AppCompatActivity {
         }
 
 
+
+
+    private void GetPaymentDetails(String Custkey,String Type) {
+
+
+
+
+
+        apiInterface.GetPaymentDetailsforBookings(Custkey,Type).enqueue(new Callback<GetBookingPaymentDetailsResponse>() {
+            @Override
+            public void onResponse(Call<GetBookingPaymentDetailsResponse> call, retrofit2.Response<GetBookingPaymentDetailsResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                        List<GetBookingPaymentDetailsResponse.ResultArray> result = response.body().getResponse();
+                        for (int i = 0; i < result.size(); i++) {
+
+                            name.setText(result.get(i).getPassengerName());
+
+                            contactno.setText(result.get(i).getContactNo());
+
+                            email.setText(result.get(i).getContactEmail());
+
+                            amount.setText(result.get(i).getAmount());
+
+                            BookingKey=result.get(i).getBookingKey();
+
+                            Log.e("Typeeeee","  "+result.get(i).getType());
+
+                            SharedPreferences bookDetails = getSharedPreferences("BookDetails",0);
+                            SharedPreferences.Editor bookEd=bookDetails.edit();
+                            bookEd.putString(CONSTANTS.BookingKey,BookingKey);
+                            bookEd.putString(CONSTANTS.Type,result.get(i).getType());
+                            bookEd.apply();
+
+                        }
+
+
+
+                    }
+                    else
+                    {
+
+
+
+                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+
+            }
+
+            @Override
+            public void onFailure(Call<GetBookingPaymentDetailsResponse> call, Throwable t) {
+
+            }
+        });
     }
+
+
+
+
+}
 

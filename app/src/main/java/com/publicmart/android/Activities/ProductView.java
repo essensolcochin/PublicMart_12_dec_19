@@ -164,7 +164,7 @@ public class ProductView extends BaseActivity {
             @Override
             public void onClick(View view) {
 
-                Toast.makeText(getApplication(), "Product added to Wishlist",Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getApplication(), "Product added to Wishlist",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -434,150 +434,7 @@ public class ProductView extends BaseActivity {
    }
 
 
-   public  void PostOrderDetails() {
-    SharedPreferences sp = getSharedPreferences("UserLog",0);
-    String CustKey =  sp.getString("CustKey",null);
-    String UserKey =  sp.getString("UserKey",null);
 
-
-    Date todayDate = Calendar.getInstance().getTime();
-    SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy");
-    String todayString = formatter.format(todayDate);
-
-
-
-    Log.e("sharedddddddd",""+CustKey);
-           try {
-
-           final JSONObject jsonString;
-           JSONObject values = new JSONObject();
-               values.put("OrderDate",todayString);
-               values.put("CustKey",CustKey);
-               values.put("ProductKey",ProductKey);
-               values.put("Qty",Qty.getText().toString());
-               values.put("Rate",price.getText().toString());
-               values.put("IsCredit",false);
-               values.put("OrderStatusKey",1);
-               values.put("Status",true);
-               values.put("CreatedBy",UserKey);
-
-
-
-           jsonString = new JSONObject();
-           jsonString.put("Token", "0001");
-           jsonString.put("call", "SaveOrderDetails");
-           jsonString.put("values", values);
-
-
-
-           String URL = this.getString(R.string.Url)+"Save";
-
-
-           StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                   new Response.Listener<String>() {
-                       @Override
-                       public void onResponse(String response) {
-
-                           //progress.cancel();
-
-                           Log.e("Jsonnnn",""+response);
-
-
-                           try {
-
-
-                               JSONObject o     = new JSONObject(response);
-
-                               ////// Checking Json Response Is JSON Object Or Not ///////
-                               String data = response;
-                               Object json = new JSONTokener(data).nextValue();
-                               if (json instanceof JSONObject){
-
-                                   Log.e("objectttttt",""+json);
-                               }
-
-                               //you have an object
-                               else if (json instanceof JSONArray){
-                                   Log.e("Arrayyyyyyy",""+json);
-                               }
-
-                               ///////////////////////////////////////////
-
-                               Log.e("tryyyyyyyyy","in"+o);
-
-
-                               String  code = o.getString("responseCode");
-                               String  message=o.getString("responseMessage");
-
-
-                               Log.e("codeeeeeeeeee","in"+code);
-
-                               if (code.equalsIgnoreCase("-100")) {
-                                   String Count =o.getString("Count");
-
-                                   AddToCart(Count);
-
-                                   Toast.makeText(ProductView.this,"Your Order Has Been Placed",Toast.LENGTH_SHORT).show();
-
-                               }
-                               else {
-                                   Toast.makeText(ProductView.this,message,Toast.LENGTH_LONG).show();
-                               }
-
-
-
-
-                           } catch (JSONException e) {
-                               e.printStackTrace();
-                           }
-                       }
-
-                   },
-                   new Response.ErrorListener() {
-                       @Override
-                       public void onErrorResponse(VolleyError error) {
-                           // progress.cancel();
-                           Toast.makeText(getApplicationContext(), "Some Error Occurred ", Toast.LENGTH_SHORT).show();
-
-                       }
-                   })
-
-
-           {
-
-               @Override
-               protected Map<String, String> getParams() throws AuthFailureError {
-                   Map<String, String> param = new HashMap<String, String>();
-                   param.put("jsonString",jsonString.toString() );
-                   Log.e("paramssss",""+param);
-                   return param;
-               }
-
-               @Override
-               public Map<String, String> getHeaders() throws AuthFailureError {
-                   Map<String,String> param = new HashMap<String, String>();
-                   param.put("Content-Type","application/x-www-form-urlencoded");
-                   return param;
-               }
-           } ;
-
-               stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                       0,
-                       DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                       DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-           RequestQueue requestQueue= Volley.newRequestQueue(this);
-           requestQueue.add(stringRequest);
-
-
-
-       } catch (Exception e) {
-           // JSONException
-       }
-
-
-
-}
 
 
     private void PlaceOrder() {
@@ -603,7 +460,8 @@ public class ProductView extends BaseActivity {
                                 AddToCart(result.get(i).getCartCount());
 
                                 Utility.ShowCustomToast("Your Order has been Placed",ProductView.this);
-
+                                placeorder.setClickable(false);
+//                                placeorder.setFocusable(false);
                             }
 
 

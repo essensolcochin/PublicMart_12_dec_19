@@ -71,4 +71,5 @@ public interface CONSTANTS {
     String FromStationCode = "FromStationCode";
     String ToStationCode = "ToStationCode";
     String HBBookingKey = "HBBookingKey" ;
+    String BookingKey = "BookingKey";
 }

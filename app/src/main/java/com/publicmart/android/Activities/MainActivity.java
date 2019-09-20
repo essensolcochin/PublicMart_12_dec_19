@@ -252,62 +252,80 @@ public class MainActivity extends AppCompatActivity {
 
                             for (j = 0; j < responseBody.size(); j++) {
 
-                                String Count = responseBody.get(j).getCartCount();
+                                switch (responseBody.get(j).getLoginResult()){
 
-                                if(!Count.equalsIgnoreCase("0"))
-                                {
-                                    realm.beginTransaction();
-                                    RealmShopModel addToCart1 = new RealmShopModel();
-                                    addToCart1.setCount(Count);
-                                    realm.insertOrUpdate(addToCart1);
-                                    realm.commitTransaction();
-                                }
+                                    case "1":
 
-                                sp = getSharedPreferences("UserLog",MODE_PRIVATE);
-                                SharedPreferences.Editor editor =sp.edit();
+                                        String Count = responseBody.get(j).getCartCount();
 
+                                        if(!Count.equalsIgnoreCase("0"))
+                                        {
+                                            realm.beginTransaction();
+                                            RealmShopModel addToCart1 = new RealmShopModel();
+                                            addToCart1.setCount(Count);
+                                            realm.insertOrUpdate(addToCart1);
+                                            realm.commitTransaction();
+                                        }
 
-                                editor.putString("UserKey",responseBody.get(j).getUserKey());
-                                editor.putString("CustKey",responseBody.get(j).getCustKey());
-                                editor.putString("Username",responseBody.get(j).getUserName());
-                                editor.putString("CustomerName",responseBody.get(j).getCustomerName());
-                                editor.putString("CustCode",responseBody.get(j).getCustCode());
-                                editor.putString("MemberShip",responseBody.get(j).getMemberShip());
-                                editor.putString("amnt",responseBody.get(j).getAmount());
-                                editor.putString("MobileNo",responseBody.get(j).getMobileNo());
-                                editor.putString("Email",responseBody.get(j).getEmail());
+                                        sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                        SharedPreferences.Editor editor =sp.edit();
 
 
-                                editor.apply();
-                                Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
-                                Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
+                                        editor.putString("UserKey",responseBody.get(j).getUserKey());
+                                        editor.putString("CustKey",responseBody.get(j).getCustKey());
+                                        editor.putString("Username",responseBody.get(j).getUserName());
+                                        editor.putString("CustomerName",responseBody.get(j).getCustomerName());
+                                        editor.putString("CustCode",responseBody.get(j).getCustCode());
+                                        editor.putString("MemberShip",responseBody.get(j).getMemberShip());
+                                        editor.putString("amnt",responseBody.get(j).getAmount());
+                                        editor.putString("MobileNo",responseBody.get(j).getMobileNo());
+                                        editor.putString("Email",responseBody.get(j).getEmail());
+
+
+                                        editor.apply();
+                                        Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
+                                        Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
 
 //                                if(responseBody.get(j).getPaidStatus().equalsIgnoreCase("True"))
 //
 //                                {
 
-                                    if(responseBody.get(j).getProfile().equalsIgnoreCase("True"))
-                                    {
-                                        SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
-                                        SharedPreferences.Editor edit = sp.edit();
-                                        edit.putBoolean("LoggedUser",true);
-                                        edit.apply();
-                                        Intent intent =new Intent(MainActivity.this,Home.class);
-                                        startActivity(intent);
-                                        finish();
+                                        if(responseBody.get(j).getProfile().equalsIgnoreCase("True"))
+                                        {
+                                            SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                            SharedPreferences.Editor edit = sp.edit();
+                                            edit.putBoolean("LoggedUser",true);
+                                            edit.apply();
+                                            Intent intent =new Intent(MainActivity.this,Home.class);
+                                            startActivity(intent);
+                                            finish();
 
-                                    }
-                                    else {
-                                        SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
-                                        SharedPreferences.Editor edit = sp.edit();
-                                        edit.putBoolean("LoggedUser",true);
-                                        edit.apply();
+                                        }
+                                        else {
+                                            SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
+                                            SharedPreferences.Editor edit = sp.edit();
+                                            edit.putBoolean("LoggedUser",true);
+                                            edit.apply();
 
-                                        //ToDo change Home to Edit Profile activity in this intent
-                                        Intent intent =new Intent(MainActivity.this,Home.class);
-                                        startActivity(intent);
-                                        finish();
-                                    }
+                                            //ToDo change Home to Edit Profile activity in this intent
+                                            Intent intent =new Intent(MainActivity.this,Home.class);
+                                            startActivity(intent);
+                                            finish();
+                                        }
+                                        break;
+
+                                    case "2":
+
+                                        Utility.ShowCustomToast(responseBody.get(j).getLoginMsg(),MainActivity.this);
+                                        break;
+
+                                    case "3":
+
+                                        Utility.ShowCustomToast(responseBody.get(j).getLoginMsg(),MainActivity.this);
+                                        break;
+
+
+                                }
 
 
 //                                }

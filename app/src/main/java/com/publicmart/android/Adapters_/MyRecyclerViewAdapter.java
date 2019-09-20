@@ -23,6 +23,7 @@ import com.publicmart.android.R;
 import com.publicmart.android.Utils.CONSTANTS;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public  class MyRecyclerViewAdapter extends RecyclerView.Adapter<MyRecyclerViewAdapter.ViewHolder> {
@@ -56,25 +57,25 @@ public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
     final ProductModelClass List = mylist.get(position);
 
     Typeface custom_font = Typeface.createFromAsset(context.getAssets(),  "fonts/ralewayM.ttf");
-
+    Typeface sans = Typeface.createFromAsset(context.getAssets(),  "fonts/OpenSansSemiBold.ttf");
 
 
 
 
     Glide.with(context).load(CONSTANTS.ImgURL_ +List.getImagePath())
             .thumbnail(0.5f)
-            .diskCacheStrategy(DiskCacheStrategy.NONE)
+            .diskCacheStrategy(DiskCacheStrategy.ALL)
             .skipMemoryCache(true)
             .into(holder.product_image);
 
 
 
     holder.ProductName.setText(List.getBrandName());
-    holder.ProductName.setTypeface(custom_font);
+    holder.ProductName.setTypeface(sans);
     holder.desc.setText(List.getShortDesc());
     holder.desc.setTypeface(custom_font);
     holder.Bv.setText(List.getBV());
-
+    holder.Rs.setTypeface(sans);
     holder.Rs.setText(List.getMRP());
 
 
@@ -83,6 +84,11 @@ public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
         holder.itemLayout.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
+
+
+
+
+
         Intent intent = new Intent(context, ProductView.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         intent.putExtra("ProductKey",List.getProductKey());
@@ -122,15 +128,19 @@ public class ViewHolder extends RecyclerView.ViewHolder  {
 
 }
 
-    public void addData(List<ProductModelClass>list)
-     {
-            for (ProductModelClass Mclass:list)
-            {
-
-                mylist.add(Mclass);
-            }
-          notifyDataSetChanged();
-     }
-
+//    public void addData(List<ProductModelClass>list)
+//     {
+//            for (ProductModelClass Mclass:list)
+//            {
+//
+//                mylist.add(Mclass);
+//            }
+//          notifyDataSetChanged();
+//     }
+    public void addData(ArrayList<ProductModelClass> list)
+    {
+        mylist.addAll(list);
+        notifyDataSetChanged();
+    }
 
 }

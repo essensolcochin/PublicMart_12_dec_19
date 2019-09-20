@@ -206,103 +206,6 @@ public class BookingStatusAdapter_ extends RecyclerView.Adapter<BookingStatusAda
 
 
 
-//        if(state.equalsIgnoreCase("Pending")){
-//            view_holder.payment.setVisibility(View.GONE);
-//            view_holder.stepBean0.setState(0);
-//            view_holder.stepBean0.setName("Pending");
-//            view_holder.stepBean1.setName("Approved");
-//            view_holder. stepBean1.setState(-1);
-//            view_holder.stepBean2.setName("Payment");
-//            view_holder.stepBean2.setState(-1);
-//            view_holder.stepBean3.setName("Booked");
-//            view_holder. stepBean3.setState(-1);
-//            view_holder.stepBean4.setName("Delivered");
-//            view_holder. stepBean4.setState(-1);
-//
-//            //0 completed
-//            //1 ongoing
-//            //-1 pending
-//
-//
-//        }
-//        else  if(state.equalsIgnoreCase("Booking Confirmed")){
-//            view_holder. payment.setVisibility(View.VISIBLE);
-//            view_holder.stepBean0.setState(1);
-//            view_holder.stepBean0.setName("Pending");
-//            view_holder. stepBean1.setName("Approved");
-//            view_holder.stepBean1.setState(0);
-//            view_holder. stepBean2.setName("Payment");
-//            view_holder.stepBean2.setState(-1);
-//            view_holder.stepBean3.setName("Booked");
-//            view_holder.stepBean3.setState(-1);
-//            view_holder.stepBean4.setName("Delivered");
-//            view_holder.stepBean4.setState(-1);
-//        }
-
-//        else  if(state.equalsIgnoreCase("Amount Paid")){
-//            view_holder. payment.setVisibility(View.VISIBLE);
-//            view_holder.stepBean0.setState(1);
-//            view_holder.stepBean0.setName("Pending");
-//            view_holder. stepBean1.setName("Approved");
-//            view_holder.stepBean1.setState(1);
-//            view_holder. stepBean2.setName("Payment");
-//            view_holder.stepBean2.setState(0);
-//            view_holder.stepBean3.setName("Booked");
-//            view_holder.stepBean3.setState(-1);
-//            view_holder.stepBean4.setName("Delivered");
-//            view_holder.stepBean4.setState(-1);
-//        }
-
-
-//        else  if(state.equalsIgnoreCase("Ticket Booked")){
-//
-//            view_holder. payment.setVisibility(View.GONE);
-//            view_holder.stepBean0.setState(1);
-//            view_holder.stepBean0.setName("Pending");
-//            view_holder.stepBean1.setName("Approved");
-//            view_holder.stepBean1.setState(1);
-//            view_holder.stepBean2.setName("Payment");
-//            view_holder.stepBean2.setState(1);
-//            view_holder.stepBean3.setName("Booked");
-//            view_holder.stepBean3.setState(0);
-//            view_holder.stepBean4.setName("Delivered");
-//            view_holder.stepBean4.setState(-1);
-//        }
-
-//        else  if(state.equalsIgnoreCase("Booking Cancelled")){
-//
-//          view_holder.horizontalStepView.setVisibility(View.GONE);
-//        }
-//
-//
-//        else  if(state.equalsIgnoreCase("Ticket Delivered")){
-//
-//            view_holder. payment.setVisibility(View.GONE);
-//            view_holder.stepBean0.setState(1);
-//            view_holder.stepBean0.setName("Pending");
-//            view_holder. stepBean1.setName("Approved");
-//            view_holder.stepBean1.setState(1);
-//            view_holder. stepBean2.setName("Payment");
-//            view_holder.stepBean2.setState(1);
-//            view_holder.stepBean3.setName("Booked");
-//            view_holder.stepBean3.setState(1);
-//            view_holder.stepBean4.setName("Delivered");
-//            view_holder. stepBean4.setState(0);
-//        }
-//        else  if(state.equalsIgnoreCase("Feedback")){
-//
-//            view_holder. payment.setVisibility(View.GONE);
-//            view_holder.stepBean0.setState(1);
-//            view_holder.stepBean0.setName("Pending");
-//            view_holder. stepBean1.setName("Approved");
-//            view_holder.stepBean1.setState(1);
-//            view_holder. stepBean2.setName("Payment");
-//            view_holder.stepBean2.setState(1);
-//            view_holder.stepBean3.setName("Booked");
-//            view_holder.stepBean3.setState(1);
-//            view_holder.stepBean4.setName("Delivered");
-//            view_holder. stepBean4.setState(0);
-//        }
 
 
         view_holder.horizontalStepView.setStepViewTexts(stepsBeanList)
@@ -323,6 +226,7 @@ public class BookingStatusAdapter_ extends RecyclerView.Adapter<BookingStatusAda
             public void onClick(View v) {
 
                 Intent intent = new Intent(context, Payment.class);
+                intent.putExtra("Type","F");
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.getApplicationContext().startActivity(intent);
             }

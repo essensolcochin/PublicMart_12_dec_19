@@ -102,7 +102,7 @@ public class Products extends BaseActivity {
         ShowProducts();
 
 
-        progress.show();
+//        progress.show();
 
 
 
@@ -123,7 +123,7 @@ public class Products extends BaseActivity {
                 if (response.isSuccessful() && response.code() == 200) {
                     assert response.body() != null;
                     if (response.body().getCode().equalsIgnoreCase("0")) {
-                        progress.cancel();
+//                        progress.cancel();
                         List<GetProductCategoryResponse.ResultArray> result = response.body().getResponse();
 
                         $ProductMenuModel header = new $ProductMenuModel("0",
@@ -152,7 +152,7 @@ public class Products extends BaseActivity {
                     }
                     else
                     {
-                        progress.cancel();
+//                        progress.cancel();
                         Utility.ShowCustomToast("Coming Soon",Products.this);
 
                     }

@@ -71,7 +71,7 @@ public class BaseActivity extends AppCompatActivity {
 
         head =findViewById(R.id.appname);
 
-        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/RalewayBold.ttf");
+        Typeface custom_font = Typeface.createFromAsset(getAssets(),  "fonts/DMSans-Bold.ttf");
 
         realm = Realm.getDefaultInstance();
 
@@ -198,7 +198,7 @@ public class BaseActivity extends AppCompatActivity {
                         cartSIZE.deleteAllFromRealm();
                         realm.commitTransaction();
                         realm.close();
-                        intent = new Intent(BaseActivity.this, MainActivity.class);
+                        intent = new Intent(BaseActivity.this, Login.class);
                         startActivity(intent);
                         drawerLayout.closeDrawers();
                         break;

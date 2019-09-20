@@ -41,7 +41,7 @@ public class Splash_Screen extends AppCompatActivity {
             };
             timer.start();
         } else {
-            final Intent i = new Intent(this, MainActivity.class);
+            final Intent i = new Intent(this, Login.class);
             Thread timer = new Thread() {
                 public void run() {
                     try {
