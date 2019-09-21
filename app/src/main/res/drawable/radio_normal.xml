@@ -3,7 +3,7 @@
     android:shape="ring"
     android:useLevel="false">
     <solid android:color="@color/col10" />
-    <size
-        android:width="25dp"
-        android:height="25dp" />
+<!--    <size-->
+<!--        android:width="25dp"-->
+<!--        android:height="25dp" />-->
 </shape>

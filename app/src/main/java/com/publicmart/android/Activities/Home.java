@@ -153,7 +153,7 @@ public class Home extends BaseActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Home.this, OrderStatus.class);
+                Intent intent = new Intent(Home.this, HouseBoat.class);
                 startActivity(intent);
             }
         });
@@ -161,16 +161,20 @@ public class Home extends BaseActivity {
         credit_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Home.this, CreditActivity.class);
-                startActivity(intent);
+//                Intent intent = new Intent(Home.this, CreditActivity.class);
+//                startActivity(intent);
+
+                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
             }
         });
 
         shopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Home.this, Shopping_List.class);
-                startActivity(intent);
+//                Intent intent = new Intent(Home.this, Shopping_List.class);
+//                startActivity(intent);
+
+                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -212,7 +216,7 @@ public class Home extends BaseActivity {
         services.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, Services.class);
+                Intent intent = new Intent(Home.this, FlightTicket.class);
                 startActivity(intent);
 
             }
@@ -222,7 +226,10 @@ public class Home extends BaseActivity {
         product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Home.this, Products.class);
+//                Intent intent = new Intent(Home.this, Products.class);
+//                startActivity(intent);
+
+                Intent intent = new Intent(Home.this, TrainTicket.class);
                 startActivity(intent);
             }
         });

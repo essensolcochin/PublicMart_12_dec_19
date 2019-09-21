@@ -39,6 +39,7 @@ import com.publicmart.android.RetrofitUtils.ApiInterface;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.GetStationCodesResponse;
 import com.publicmart.android.RetrofitUtils.RetrofitResponseClasses.SaveTrainBookingResponse;
 import com.publicmart.android.Utility;
+import com.publicmart.android.ageDialog;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -130,7 +131,13 @@ public class TrainTicket extends BaseActivity {
         getStationCodesCodes();
 
 
-
+        age.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ageDialog ageDialog=new ageDialog();
+                ageDialog.show(getSupportFragmentManager(),"TAG");
+            }
+        });
 
 
 
