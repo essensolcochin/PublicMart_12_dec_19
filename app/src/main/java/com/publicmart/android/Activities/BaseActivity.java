@@ -151,21 +151,21 @@ public class BaseActivity extends AppCompatActivity {
                         drawerLayout.closeDrawers();
                         break;
 
-                    case R.id.pro:
-                        intent = new Intent(BaseActivity.this, Products.class);
-                        startActivity(intent);
-                        drawerLayout.closeDrawers();
-                        break;
+//                    case R.id.pro:
+//                        intent = new Intent(BaseActivity.this, Products.class);
+//                        startActivity(intent);
+//                        drawerLayout.closeDrawers();
+//                        break;
                     case R.id.ser:
                         intent = new Intent(BaseActivity.this, Services.class);
                         startActivity(intent);
                         drawerLayout.closeDrawers();
                         break;
-                    case R.id.orderstat:
-                        intent = new Intent(BaseActivity.this, OrderStatus.class);
-                        startActivity(intent);
-                        drawerLayout.closeDrawers();
-                        break;
+//                    case R.id.orderstat:
+//                        intent = new Intent(BaseActivity.this, OrderStatus.class);
+//                        startActivity(intent);
+//                        drawerLayout.closeDrawers();
+//                        break;
                     case R.id.bookingstat:
                         intent = new Intent(BaseActivity.this, TabActivity.class);
                         startActivity(intent);

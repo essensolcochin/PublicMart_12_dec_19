@@ -28,6 +28,7 @@ public class FoodMenuTab extends Fragment {
     MenuItemAdapter adapter;
     ArrayList<ItemModel>menuItems=new ArrayList<>();
     CardView booknow;
+
     public FoodMenuTab() {
         // Required empty public constructor
     }
@@ -54,7 +55,7 @@ public class FoodMenuTab extends Fragment {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         foodlist.setLayoutManager(linearLayoutManager);
-        foodlist.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
+//        foodlist.addItemDecoration(new DividerItemDecoration(getActivity(),DividerItemDecoration.VERTICAL));
 
         menuItems.add(new ItemModel("Milk Shake","00",true));
         menuItems.add(new ItemModel("Sharjha Shake","50 Rs",false));

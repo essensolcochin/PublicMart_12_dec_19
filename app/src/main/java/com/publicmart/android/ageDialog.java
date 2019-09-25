@@ -11,7 +11,6 @@ import android.support.v7.widget.RecyclerView;
 import android.text.Layout;
 import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 
 import com.publicmart.android.Adapters_.AgeDialogAdapter_;

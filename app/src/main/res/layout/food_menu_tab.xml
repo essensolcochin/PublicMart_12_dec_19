@@ -13,7 +13,7 @@
 
     <android.support.v7.widget.CardView
         android:id="@+id/booknow"
-        app:cardBackgroundColor="@color/col10"
+        app:cardBackgroundColor="#EEB462"
         app:cardCornerRadius="25dp"
         android:layout_margin="@dimen/fab_margin"
         android:layout_alignParentEnd="true"

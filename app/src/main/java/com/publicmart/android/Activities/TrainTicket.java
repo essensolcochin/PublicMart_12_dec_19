@@ -61,7 +61,7 @@ public class TrainTicket extends BaseActivity {
             "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
             "31"};
     String array_Mnth[] = {"MM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-    String array_Year[] = {"2019"};
+    String[] array_Year = {"2019"};
     String array_BYear[] = {"YY", "1985", "1986", "1986", "1987", "1988", "1989", "1990", "1991", "1992",
             "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002"
             , "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012",
@@ -131,13 +131,13 @@ public class TrainTicket extends BaseActivity {
         getStationCodesCodes();
 
 
-        age.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ageDialog ageDialog=new ageDialog();
-                ageDialog.show(getSupportFragmentManager(),"TAG");
-            }
-        });
+//        age.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                ageDialog ageDialog=new ageDialog();
+//                ageDialog.show(getSupportFragmentManager(),"TAG");
+//            }
+//        });
 
 
 
@@ -203,6 +203,8 @@ public class TrainTicket extends BaseActivity {
 //
 //            }
 //        });
+
+
 
         days.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override

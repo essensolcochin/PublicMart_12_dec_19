@@ -1,10 +1,10 @@
 package com.publicmart.android.Adapters_;
 
 import android.content.Context;
-import android.content.SharedPreferences;
+
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +17,9 @@ import com.publicmart.android.ModelClasses.ItemModel;
 import com.publicmart.android.R;
 
 import java.util.ArrayList;
-import java.util.List;
 
-import static android.content.Context.MODE_PRIVATE;
+
+
 
 public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
@@ -89,7 +89,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             final ItemModel   model = listItemArrayList.get(position);
             final MyViewHolderChild childItemHolder = (MyViewHolderChild) holder;
             childItemHolder.tvchild.setText(model.getName());
-            childItemHolder.price.setText(model.getPrice());
+//            childItemHolder.price.setText(model.getPrice());
 
         }
 
@@ -122,7 +122,7 @@ public class MenuItemAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
             super(itemView);
 
             tvchild = (TextView) itemView.findViewById(R.id.name);
-            price = itemView.findViewById(R.id.price);
+//            price = itemView.findViewById(R.id.price);
 
 
         }
