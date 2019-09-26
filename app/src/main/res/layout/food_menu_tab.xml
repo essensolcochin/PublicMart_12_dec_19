@@ -37,7 +37,7 @@
                 android:layout_height="30dp"/>
             <TextView
                 android:textColor="@android:color/white"
-                android:text=" Call Order"
+                android:text=" Call to Order"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"/>
 
