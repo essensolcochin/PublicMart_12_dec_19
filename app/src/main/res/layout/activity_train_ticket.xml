@@ -5,8 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-
     tools:context=".Activities.TrainTicket">
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -43,50 +43,50 @@
 
 
                 <!--</LinearLayout>-->
-                <LinearLayout
-                    android:layout_marginTop="10dp"
-                    android:layout_marginLeft="10dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_marginRight="10dp"
-                    android:padding="20dp"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <!--<LinearLayout-->
+                    <!--android:layout_marginTop="10dp"-->
+                    <!--android:layout_marginLeft="10dp"-->
+                    <!--android:layout_marginStart="10dp"-->
+                    <!--android:layout_marginEnd="10dp"-->
+                    <!--android:layout_marginRight="10dp"-->
+                    <!--android:padding="20dp"-->
+                    <!--android:gravity="center"-->
+                    <!--android:orientation="vertical"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content">-->
 
-                    <TextView
-                        android:textColor="@color/col11"
+                    <!--<TextView-->
+                        <!--android:textColor="@color/col11"-->
 
-                        android:id="@+id/adtext1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/trainad"
-                        android:textSize="20dp" />
+                        <!--android:id="@+id/adtext1"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text="@string/trainad"-->
+                        <!--android:textSize="20dp" />-->
 
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:textColor="@color/col10"
-                        android:id="@+id/adtext2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/trainad1"
-                        android:textSize="20dp" />
+                    <!--<TextView-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:textColor="@color/col10"-->
+                        <!--android:id="@+id/adtext2"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text="@string/trainad1"-->
+                        <!--android:textSize="20dp" />-->
 
-                    <TextView
-                        android:layout_marginTop="5dp"
-                        android:textColor="#E05E5E"
-                        android:id="@+id/adtext3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:text="@string/trainad2"
-                        android:textSize="20dp" />
+                    <!--<TextView-->
+                        <!--android:layout_marginTop="5dp"-->
+                        <!--android:textColor="#E05E5E"-->
+                        <!--android:id="@+id/adtext3"-->
+                        <!--android:layout_width="wrap_content"-->
+                        <!--android:layout_height="wrap_content"-->
+                        <!--android:gravity="center"-->
+                        <!--android:text="@string/trainad2"-->
+                        <!--android:textSize="20dp" />-->
 
 
-                </LinearLayout>
+                <!--</LinearLayout>-->
 
 
 
@@ -150,10 +150,11 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         app:hintTextAppearance="@style/EditTextHint"
+                        style="@style/LoginTextInputLayoutStyle"
                         android:layout_marginTop="5dp">
 
 
-                        <EditText
+                        <android.support.design.widget.TextInputEditText
                             android:imeOptions="actionDone"
                             android:inputType="text"
                             android:id="@+id/traveler_name"
@@ -166,7 +167,7 @@
                             android:paddingBottom="10dp"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="18dp" />
+                            android:textSize="16dp" />
                     </android.support.design.widget.TextInputLayout>
 
 
@@ -175,10 +176,11 @@
                         android:layout_width="match_parent"
                         android:imeOptions="actionNext"
                         android:layout_height="wrap_content"
+                        style="@style/LoginTextInputLayoutStyle"
                         android:layout_marginTop="12dp">
 
 
-                        <EditText
+                        <android.support.design.widget.TextInputEditText
                             android:inputType="textEmailAddress"
                             android:id="@+id/age"
                             android:layout_width="match_parent"
@@ -190,7 +192,7 @@
                             android:paddingBottom="10dp"
                             android:paddingLeft="5dp"
                             android:paddingRight="5dp"
-                            android:textSize="18dp" />
+                            android:textSize="16dp" />
                     </android.support.design.widget.TextInputLayout>
 
 
@@ -319,7 +321,7 @@
                         android:id="@+id/from"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/stroke">
+                        android:background="@drawable/edittextbgm">
 
                         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                             android:id="@+id/city"
@@ -345,7 +347,7 @@
                     <RelativeLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/stroke">
+                        android:background="@drawable/edittextbgm">
 
                         <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                             android:id="@+id/city2"
@@ -376,7 +378,7 @@
                         android:textSize="11.5dp" />
 
                     <LinearLayout
-                        android:background="@drawable/stroke"
+
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -386,7 +388,7 @@
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/stroke">
+                            android:background="@drawable/edittextbgm">
 
                             <Spinner
                                 android:id="@+id/day"
@@ -406,6 +408,7 @@
                             <!--android:textSize="30dp" />-->
 
                         <RelativeLayout
+                            android:background="@drawable/edittextbgm"
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
@@ -432,12 +435,11 @@
                             android:layout_weight="1"
                             android:layout_width="0dp"
                             android:layout_height="wrap_content"
-                            android:background="@drawable/stroke">
+                            android:background="@drawable/edittextbgm">
 
                             <Spinner
                                 android:id="@+id/year"
                                 android:layout_width="wrap_content"
-
                                 android:layout_height="wrap_content"
                                 android:padding="10dp"
                                 android:textSize="15dp" />
@@ -486,10 +488,12 @@
                             android:layout_width="match_parent"
                             android:imeOptions="actionNext"
                             android:layout_height="wrap_content"
+                            style="@style/LoginTextInputLayoutStyle"
                             android:layout_marginTop="12dp">
 
 
-                            <EditText
+                            <android.support.design.widget.TextInputEditText
+
                                 android:inputType="textEmailAddress"
                                 android:id="@+id/email"
                                 android:layout_width="match_parent"
@@ -501,7 +505,8 @@
                                 android:paddingBottom="10dp"
                                 android:paddingLeft="5dp"
                                 android:paddingRight="5dp"
-                                android:textSize="18dp" />
+                                android:textSize="16dp" />
+
                         </android.support.design.widget.TextInputLayout>
                         <!--<TextView-->
                         <!--android:id="@+id/header7"-->
@@ -517,10 +522,11 @@
                             android:imeOptions="actionDone"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
+                            style="@style/LoginTextInputLayoutStyle"
                             android:layout_marginTop="12dp">
 
 
-                            <EditText
+                            <android.support.design.widget.TextInputEditText
                                 android:id="@+id/contact"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
@@ -533,7 +539,7 @@
                                 android:paddingBottom="10dp"
                                 android:paddingLeft="5dp"
                                 android:paddingRight="5dp"
-                                android:textSize="18dp" />
+                                android:textSize="16dp" />
                         </android.support.design.widget.TextInputLayout>
 
 

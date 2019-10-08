@@ -63,52 +63,52 @@
 
 
         <!--</LinearLayout>-->
-            <LinearLayout
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginStart="10dp"
-                android:layout_marginEnd="10dp"
-                android:layout_marginRight="10dp"
-                android:padding="20dp"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-                <!--android:background="#D5E9E7E7"-->
+            <!--<LinearLayout-->
+                <!--android:layout_marginTop="10dp"-->
+                <!--android:layout_marginLeft="10dp"-->
+                <!--android:layout_marginStart="10dp"-->
+                <!--android:layout_marginEnd="10dp"-->
+                <!--android:layout_marginRight="10dp"-->
+                <!--android:padding="20dp"-->
+                <!--android:gravity="center"-->
+                <!--android:orientation="vertical"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content">-->
+                <!--&lt;!&ndash;android:background="#D5E9E7E7"&ndash;&gt;-->
+
+                <!--&lt;!&ndash;<TextView&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:textColor="#E05E5E"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:id="@+id/adtext1"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:gravity="center"&ndash;&gt;-->
+                    <!--&lt;!&ndash;android:text="@string/flightad2"&ndash;&gt;-->
+
+                    <!--&lt;!&ndash;android:textSize="20dp" />&ndash;&gt;-->
 
                 <!--<TextView-->
-                    <!--android:textColor="#E05E5E"-->
-                    <!--android:id="@+id/adtext1"-->
+                    <!--android:layout_marginTop="5dp"-->
+                    <!--android:textColor="@color/col11"-->
+                    <!--android:id="@+id/adtext2"-->
+                    <!--android:layout_width="wrap_content"-->
+                    <!--android:layout_height="wrap_content"-->
+                    <!--android:text="@string/flightad"-->
+                    <!--android:gravity="center"-->
+                    <!--android:textSize="20dp" />-->
+
+                <!--<TextView-->
+                    <!--android:textColor="@color/col10"-->
+                    <!--android:layout_marginTop="5dp"-->
+
+                    <!--android:id="@+id/adtext3"-->
                     <!--android:layout_width="wrap_content"-->
                     <!--android:layout_height="wrap_content"-->
                     <!--android:gravity="center"-->
-                    <!--android:text="@string/flightad2"-->
-
+                    <!--android:text="@string/flightad3"-->
                     <!--android:textSize="20dp" />-->
 
-                <TextView
-                    android:layout_marginTop="5dp"
-                    android:textColor="@color/col11"
-                    android:id="@+id/adtext2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/flightad"
-                    android:gravity="center"
-                    android:textSize="20dp" />
 
-                <TextView
-                    android:textColor="@color/col10"
-                    android:layout_marginTop="5dp"
-
-                    android:id="@+id/adtext3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:text="@string/flightad3"
-                    android:textSize="20dp" />
-
-
-            </LinearLayout>
+            <!--</LinearLayout>-->
 
 
 
@@ -123,30 +123,29 @@
             <!--Radio Button Start -->
             <!--Radio Button End -->
 
-            <android.support.design.widget.TextInputLayout
-                app:hintTextAppearance="@style/EditTextHint"
-                android:layout_marginTop="5dp"
-                android:id="@+id/text_input_layout"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-               >
-
-
-                <EditText
-                    android:imeOptions="actionDone"
-                    android:inputType="text"
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/text_input_layout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/stroke"
-                    android:textSize="18dp"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="10dp"
-                    android:paddingBottom="10dp"
                     android:layout_marginTop="5dp"
-                    android:hint="Enter Passenger Name"
-                    android:id="@+id/traveler_name"/>
+                    style="@style/LoginTextInputLayoutStyle"
+                    app:hintTextAppearance="@style/EditTextHint">
 
-            </android.support.design.widget.TextInputLayout>
+
+                    <android.support.design.widget.TextInputEditText
+                        android:id="@+id/traveler_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:baselineAligned="false"
+                        android:hint="Enter Passenger Name"
+                        android:imeOptions="actionDone"
+                        android:inputType="text"
+                        android:paddingLeft="5dp"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:textSize="16dp" />
+
+                </android.support.design.widget.TextInputLayout>
 
                 <TextView
                     android:layout_marginTop="10dp"
@@ -157,7 +156,7 @@
                     android:text="Passenger's D.O.B"/>
 
                 <LinearLayout
-                    android:background="@drawable/stroke"
+
                     android:gravity="center"
                     android:layout_marginTop="5dp"
                     android:layout_width="match_parent"
@@ -165,6 +164,7 @@
                     android:orientation="horizontal">
 
                     <RelativeLayout
+                        android:background="@drawable/edittextbgm"
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
@@ -173,8 +173,7 @@
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-
-                            android:textSize="18dp"
+                            android:textSize="16dp"
                             android:padding="10dp"
                             android:id="@+id/bday"
                             />
@@ -191,13 +190,13 @@
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/stroke"
+                        android:background="@drawable/edittextbgm"
                         >
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="16dp"
                             android:padding="10dp"
                             android:id="@+id/bmonth"
                             />
@@ -214,14 +213,14 @@
                         android:layout_weight="1"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:background="@drawable/stroke"
+                        android:background="@drawable/edittextbgm"
                         >
 
                         <Spinner
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
 
-                            android:textSize="18dp"
+                            android:textSize="16dp"
                             android:padding="10dp"
                             android:id="@+id/byear"
                             />
@@ -248,12 +247,12 @@
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/stroke">
+                    android:background="@drawable/edittextbgm">
 
                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:id="@+id/city"/>
 
                 </RelativeLayout>
@@ -270,12 +269,12 @@
                 <RelativeLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/stroke">
+                    android:background="@drawable/edittextbgm">
 
                 <com.toptoche.searchablespinnerlibrary.SearchableSpinner
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:id="@+id/city2"/>
 
                 </RelativeLayout>
@@ -299,7 +298,6 @@
 
             <LinearLayout
                 android:gravity="center"
-                android:background="@drawable/stroke"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -309,13 +307,13 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/stroke">
+                    android:background="@drawable/edittextbgm">
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:padding="10dp"
                         android:id="@+id/day"
                         />
@@ -332,14 +330,14 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/stroke"
+                    android:background="@drawable/edittextbgm"
                     >
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
 
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:padding="10dp"
                         android:id="@+id/month"
                         />
@@ -356,13 +354,13 @@
                     android:layout_weight="1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:background="@drawable/stroke"
+                    android:background="@drawable/edittextbgm"
                    >
 
                     <Spinner
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:textSize="16dp"
                         android:padding="10dp"
                         android:id="@+id/year"
                         />
@@ -463,10 +461,11 @@
                 android:imeOptions="actionNext"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/LoginTextInputLayoutStyle"
                 android:layout_marginTop="12dp">
 
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:inputType="text"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -474,7 +473,7 @@
                     android:layout_marginTop="5dp"
                     android:hint="Enter Passenger Email ID"
                     android:background="@drawable/stroke"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:paddingLeft="5dp"
                     android:gravity="start"
                     android:paddingBottom="10dp"
@@ -487,11 +486,12 @@
                 android:imeOptions="actionDone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                style="@style/LoginTextInputLayoutStyle"
                 android:layout_marginTop="12dp">
 
 
 
-                <EditText
+                <android.support.design.widget.TextInputEditText
                     android:id="@+id/contact"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -499,7 +499,7 @@
                     android:hint="Enter Passenger Contact No"
                     android:inputType="number"
                     android:background="@drawable/stroke"
-                    android:textSize="18dp"
+                    android:textSize="16dp"
                     android:paddingLeft="5dp"
                     android:paddingTop="10dp"
                     android:paddingBottom="10dp"

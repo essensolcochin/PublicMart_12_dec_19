@@ -24,6 +24,7 @@ import com.publicmart.essensol.RetrofitUtils.ApiClient;
 import com.publicmart.essensol.RetrofitUtils.ApiInterface;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.CheckUsernameResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.RegisterResponse;
+import com.publicmart.essensol.TabFragments.LoginTab;
 import com.publicmart.essensol.Utility;
 
 import org.jetbrains.annotations.NotNull;
@@ -187,7 +188,6 @@ public class Registration extends AppCompatActivity {
                 }
 
                 else {
-
                     if(Utility.isNetworkConnectionAvailable(Registration.this)){
                         RegisterUser();
                     }
@@ -195,10 +195,7 @@ public class Registration extends AppCompatActivity {
                         Utility.ShowCustomToast("No Network Available Check Your Internet Connectivity",Registration.this);
                     }
 
-
                 }
-
-
 
             }
         });
@@ -232,21 +229,16 @@ public class Registration extends AppCompatActivity {
                             switch (result.get(i).getResult()) {
                                 case "1":
                                     Utility.ShowCustomToast(" Registration Successful ",Registration.this);
-                                    Intent intent = new Intent(Registration.this, MainActivity.class);
+                                    Intent intent = new Intent(Registration.this, Login.class);
                                     startActivity(intent);
                                     finish();
                                     break;
 
                                 case "-1":
                                     Utility.ShowCustomToast(" Username Already Exist ",Registration.this);
-
                                     break;
 
                             }
-
-
-
-
                         }
                     }
                     else
@@ -317,15 +309,10 @@ public class Registration extends AppCompatActivity {
                                     break;
                             }
                         }
-
-
-
-
                     }
                     else
                     {
 
-                        //ToDo
 
                     }
                 }

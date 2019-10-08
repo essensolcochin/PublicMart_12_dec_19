@@ -67,10 +67,11 @@ public class Products extends BaseActivity {
         layoutManager=new GridLayoutManager(this,2);
         recyclerView.setLayoutManager(layoutManager);
         layoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
+
             @Override
             public int getSpanSize(int i) {
-                return adapter.IsHeader(i) ? layoutManager.getSpanCount() : 1;
 
+                return adapter.IsHeader(i) ? layoutManager.getSpanCount() : 1;
 
             }
         });
@@ -89,11 +90,6 @@ public class Products extends BaseActivity {
 
         shimmer.startShimmer();
         ShowProducts();
-
-
-//        progress.show();
-
-
 
 
     }

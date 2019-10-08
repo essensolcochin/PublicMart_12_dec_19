@@ -22,10 +22,9 @@
             <ImageView
                 android:layout_gravity="center"
                 android:src="@drawable/publicmartlogo"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginBottom="20dp"/>
-
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_marginBottom="10dp"/>
 
 
 
@@ -33,22 +32,26 @@
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="12dp"
-                android:textColor="@color/col7"
+                android:gravity="center"
+                android:textSize="18dp"
+                android:textStyle="bold"
+                android:layout_marginBottom="10dp"
+                android:textColor="@color/col10"
+                android:text="Create Account"/>
 
 
-                android:text="Personal Details"/>
 
 <android.support.design.widget.TextInputLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:textColorHint="#E44E4E"
+    style="@style/LoginTextInputLayoutStyle"
     app:hintTextAppearance="@style/customTextInputLayout">
 
-            <EditText
-                android:textColorHint="#E44E4E"
-                android:padding="10dp"
+            <android.support.design.widget.TextInputEditText
+
+                android:padding="8dp"
                 android:gravity="center_vertical"
                 android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
@@ -58,8 +61,6 @@
                 android:hint="Name *"
                 android:textColor="#6B6B6B"
                 android:background="@drawable/stroke"
-
-
                 android:inputType="textCapSentences"
                 android:imeOptions="actionNext"
                 />
@@ -320,11 +321,12 @@
                 app:hintTextAppearance="@style/customTextInputLayout"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
+                style="@style/LoginTextInputLayoutStyle"
                 android:layout_height="wrap_content">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
 
-                android:padding="10dp"
+                android:padding="8dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -345,12 +347,13 @@
                 android:textColorHint="#E44E4E"
                 app:hintTextAppearance="@style/customTextInputLayout"
                 android:layout_marginTop="10dp"
+                style="@style/LoginTextInputLayoutStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:layout_marginTop="5dp"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -371,12 +374,13 @@
                 app:hintTextAppearance="@style/customTextInputLayout"
                 android:layout_marginTop="10dp"
                 android:layout_width="match_parent"
+                style="@style/LoginTextInputLayoutStyle"
                 android:layout_height="wrap_content">
 
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:layout_marginTop="5dp"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -394,53 +398,6 @@
 
 
 
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="10dp">-->
-
-
-            <!--<EditText-->
-                <!--android:layout_marginTop="5dp"-->
-                <!--android:padding="10dp"-->
-                <!--android:gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:id="@+id/nominee"-->
-                <!--android:hint="Nominee"-->
-                <!--android:textColor="#6B6B6B"-->
-                <!--android:textColorHint="#6B6B6B"-->
-                <!--android:background="@drawable/stroke"-->
-                <!--android:inputType="textCapSentences"-->
-                <!--android:imeOptions="actionNext"-->
-                <!--/>-->
-
-            <!--</android.support.design.widget.TextInputLayout>-->
-
-
-
-
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="10dp">-->
-
-            <!--<EditText-->
-                <!--android:layout_marginTop="5dp"-->
-                <!--android:padding="10dp"-->
-                <!--android:gravity="center_vertical"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:id="@+id/Relation"-->
-                <!--android:hint="Relationship"-->
-                <!--android:textColor="#6B6B6B"-->
-                <!--android:textColorHint="#6B6B6B"-->
-                <!--android:background="@drawable/stroke"-->
-                <!--android:inputType="textCapSentences"-->
-                <!--android:imeOptions="actionNext"-->
-                <!--/>-->
-
-            <!--</android.support.design.widget.TextInputLayout>-->
 
 
 
@@ -536,12 +493,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textColorHint="#E44E4E"
+                    style="@style/LoginTextInputLayoutStyle"
                     >
 
 
-                    <EditText
+                    <android.support.design.widget.TextInputEditText
                         android:layout_marginTop="5dp"
-                        android:padding="10dp"
+                        android:padding="8dp"
                         android:gravity="center_vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -572,11 +530,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColorHint="#E44E4E"
+                style="@style/LoginTextInputLayoutStyle"
                 >
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/password"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -594,11 +553,12 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:textColorHint="#E44E4E"
+                style="@style/LoginTextInputLayoutStyle"
                 >
 
-            <EditText
+            <android.support.design.widget.TextInputEditText
                 android:id="@+id/Confirmpasswd"
-                android:padding="10dp"
+                android:padding="8dp"
                 android:gravity="center_vertical"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -609,6 +569,129 @@
                 android:imeOptions="actionDone"/>
 
             </android.support.design.widget.TextInputLayout>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="12dp"
+                android:textColor="@color/col7"
+                android:text="Bank Details"/>
+
+            <TextView
+                android:layout_marginTop="10dp"
+                android:textStyle="bold"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:text="HDFC BANK LTD."/>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/classlabel"
+                android:layout_weight="1.5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="ACCT NAME "
+                />
+
+
+
+            <TextView
+               android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:text="PUBLIC MART"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1.5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="ACCT NUMBER  "
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:text="50200034752049"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1.5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="IFSC CODE"
+                />
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:text="HDFC0000628"
+                />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_weight="1.5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@android:color/black"
+                android:text="BRANCH NAME"
+                />
+
+
+
+            <TextView
+                android:textStyle="bold"
+                android:layout_weight="1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="15dp"
+                android:textColor="@android:color/black"
+                android:text="ALAPPUZHA"
+                />
+        </LinearLayout>
 
             <LinearLayout
                 android:layout_gravity="center"

@@ -27,10 +27,10 @@ public class LoginTabAdapter extends FragmentStatePagerAdapter {
         //Returning the current tabs
         switch (position) {
             case 0:
-                LoginTab tab1 = new LoginTab();
+                FoodMenuTab tab1 = new FoodMenuTab();
                 return tab1;
             case 1:
-                FoodMenuTab tab2 = new FoodMenuTab();
+                LoginTab tab2 = new LoginTab();
                 return tab2;
             default:
                 return null;

@@ -161,7 +161,6 @@ public class LoginTab extends Fragment {
                                     sp = getActivity().getSharedPreferences("UserLog",MODE_PRIVATE);
                                     SharedPreferences.Editor editor =sp.edit();
 
-
                                     editor.putString("UserKey",responseBody.get(j).getUserKey());
                                     editor.putString("CustKey",responseBody.get(j).getCustKey());
                                     editor.putString("Username",responseBody.get(j).getUserName());
@@ -177,42 +176,47 @@ public class LoginTab extends Fragment {
                                     Log.e("Log Bool","  "+sp.getBoolean("LoggedUser",false));
                                     Log.e("Log keyyyy","  "+sp.getString("UserKey",null));
 
-//                                if(responseBody.get(j).getPaidStatus().equalsIgnoreCase("True"))
-//
-//                                {
+                                    Log.e("getPaidStatus","  "+responseBody.get(j).getPaidStatus());
 
-                                    if(responseBody.get(j).getProfile().equalsIgnoreCase("True"))
-                                    {
-                                        SharedPreferences sp = getActivity().getSharedPreferences("UserLog",MODE_PRIVATE);
+                                if(responseBody.get(j).getPaidStatus().equalsIgnoreCase("True")) {
+
+                                    if (responseBody.get(j).getProfile().equalsIgnoreCase("True")) {
+                                        SharedPreferences sp = getActivity().getSharedPreferences("UserLog", MODE_PRIVATE);
                                         SharedPreferences.Editor edit = sp.edit();
-                                        edit.putBoolean("LoggedUser",true);
+                                        edit.putBoolean("LoggedUser", true);
                                         edit.apply();
-                                        Intent intent =new Intent(getActivity(), Home.class);
+
+                                        Intent intent = new Intent(getActivity(), Home.class);
                                         startActivity(intent);
                                         getActivity().finish();
 
-                                    }
-                                    else {
-                                        SharedPreferences sp = getActivity().getSharedPreferences("UserLog",MODE_PRIVATE);
+                                    } else {
+                                        SharedPreferences sp = getActivity().getSharedPreferences("UserLog", MODE_PRIVATE);
                                         SharedPreferences.Editor edit = sp.edit();
-                                        edit.putBoolean("LoggedUser",true);
+                                        edit.putBoolean("LoggedUser", true);
                                         edit.apply();
 
                                         //ToDo change Home to Edit Profile activity in this intent
-                                        Intent intent =new Intent(getActivity(),Home.class);
+                                        Intent intent = new Intent(getActivity(), Home.class);
                                         startActivity(intent);
                                         getActivity().finish();
                                     }
-                                    break;
+
+                                }
+                                else {
+
+                                    Utility.ShowCustomToast("Payment Not Completed",getActivity());
+                                }
+                                break;
 
                                 case "2":
 
-                                    Utility.ShowCustomToast(responseBody.get(j).getLoginMsg(),getActivity());
+                                  Utility.ShowCustomToast(responseBody.get(j).getLoginMsg(),getActivity());
                                     break;
 
                                 case "3":
 
-                                    Utility.ShowCustomToast(responseBody.get(j).getLoginMsg(),getActivity());
+                                  Utility.ShowCustomToast(responseBody.get(j).getLoginMsg(),getActivity());
                                     break;
 
 

@@ -126,7 +126,8 @@ public class Services extends BaseActivity {
         tour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Services.this, Tour_Packages.class);
+                startActivity(intent);
             }
         });
 

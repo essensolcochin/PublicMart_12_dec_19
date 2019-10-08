@@ -20,8 +20,8 @@ public class Login extends AppCompatActivity {
         TabItem= findViewById(R.id.pager);
         tabLayout = (TabLayout) findViewById(R.id.loginTab);
 
-        tabLayout.addTab(tabLayout.newTab().setText("Log In"));
         tabLayout.addTab(tabLayout.newTab().setText("Food Items"));
+        tabLayout.addTab(tabLayout.newTab().setText("Log In"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 

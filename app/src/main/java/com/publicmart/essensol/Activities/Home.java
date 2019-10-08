@@ -47,17 +47,16 @@ import retrofit2.Callback;
 public class Home extends BaseActivity {
     static int  i=0;
     private static ViewPager mPager;
-//    private static int currentPage = 0;
 
     int currentPage = 0;
     Timer timer;
-    final long DELAY_MS = 500;//delay in milliseconds before task is to be executed
-    final long PERIOD_MS = 3000;
+    final long DELAY_MS = 3000;//delay in milliseconds before task is to be executed
+    final long PERIOD_MS = 5000;
 
     private static int NUM_PAGES = 0;
     LinearLayout services,product,orderstat,booking,credit_layout,shopping;
-    CardView profile;
-    TextView txtxmpny,Product,sevices,order,shoplist,bookingstat,credit,report,prof;
+
+    TextView Product,sevices,order,shoplist,bookingstat,credit;
     TextView view;
 
     private static final Integer[] IMAGES= {R.drawable.ad,R.drawable.ad,R.drawable.ad2};
@@ -75,37 +74,9 @@ public class Home extends BaseActivity {
         getLayoutInflater().inflate(R.layout.home_new_layout, contentFrameLayout);
         Fabric.with(this, new Crashlytics());
 
-         progress = new SpotsDialog(Home.this,R.style.Custom);
-
+        progress = new SpotsDialog(Home.this,R.style.Custom);
 
         progress.show();
-
-
-
-
-
-               // init();
-
-//        FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( Home.this,  new OnSuccessListener<InstanceIdResult>() {
-//            @Override
-//            public void onSuccess(InstanceIdResult instanceIdResult) {
-//                String newToken = instanceIdResult.getToken();
-//                Log.e("newTokennnnnnnn  ",newToken);
-//
-//            }
-//        });
-
-
-
-
-
-
-
-
-
-//        android.support.v7.widget.Toolbar tb=getToolBar();
-//        txtxmpny=(TextView)tb.findViewById(R.id.appname);
-//        txtxmpny.setText("Home");
 
         product=(LinearLayout) findViewById(R.id.Product_layout);
         orderstat =(LinearLayout) findViewById(R.id.order);
@@ -116,11 +87,6 @@ public class Home extends BaseActivity {
 
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabselector);
         tabLayout.setupWithViewPager(mPager, true);
-
-
-
-
-
 
 
         booking.setOnClickListener(new View.OnClickListener() {
@@ -145,20 +111,19 @@ public class Home extends BaseActivity {
         credit_layout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(Home.this, CreditActivity.class);
-//                startActivity(intent);
 
-                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(Home.this, Travel_guide.class);
+                startActivity(intent);
+
             }
         });
 
         shopping.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Intent intent = new Intent(Home.this, Shopping_List.class);
-//                startActivity(intent);
+                Intent intent = new Intent(Home.this, Tour_Packages.class);
+                startActivity(intent);
 
-                Toast.makeText(getApplicationContext(), "Coming Soon",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -210,11 +175,10 @@ public class Home extends BaseActivity {
         product.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                Intent intent = new Intent(Home.this, Products.class);
-//                startActivity(intent);
 
                 Intent intent = new Intent(Home.this, TrainTicket.class);
                 startActivity(intent);
+
             }
         });
 
@@ -408,11 +372,6 @@ public class Home extends BaseActivity {
 
 
     }
-
-
-
-
-
 
 
     public void forceCrash(View view) {
