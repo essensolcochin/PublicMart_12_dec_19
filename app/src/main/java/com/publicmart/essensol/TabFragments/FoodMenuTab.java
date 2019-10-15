@@ -206,8 +206,6 @@ public class FoodMenuTab extends Fragment {
         menuItems.add(new ItemModel("Fish Amritsari","380 Rs",false));
 
 
-
-
         adapter = new MenuItemAdapter(getContext(), menuItems);
         foodlist.setAdapter(adapter);
 
