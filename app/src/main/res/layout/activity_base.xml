@@ -112,6 +112,47 @@
         app:headerLayout="@layout/header">
 
 
+        <LinearLayout
+            android:layout_gravity="bottom"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:padding="10dp"
+                android:textStyle="bold"
+                android:textColor="@color/col10"
+                android:text="Contact Us"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <LinearLayout
+                android:gravity="center"
+                android:padding="20dp"
+                android:background="#F1AB5C"
+
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+
+                <TextView
+                    android:textColor="@color/col10"
+                    android:text="email: mail@publicmart.in"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:layout_marginTop="5dp"
+                    android:textColor="@color/col10"
+                    android:text="Mob: +917785882222"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+
+
+
     </android.support.design.widget.NavigationView>
 
 

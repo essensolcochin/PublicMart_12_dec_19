@@ -52,26 +52,14 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
 
         view_holder.passenger_name.setText(List.getPassengerName());
         view_holder.passenger_name.setTypeface(custom_font2);
-        view_holder.cruiseType.setTypeface(custom_font);
+        view_holder.toair.setTypeface(custom_font);
         view_holder.toc.setTypeface(custom_font);
 
-        if(List.getCruiseType().equalsIgnoreCase("D"))
-        {
-            view_holder.cruiseType.setText("Day");
 
-        }
-       else if(List.getCruiseType().equalsIgnoreCase("N"))
-        {
-            view_holder.cruiseType.setText("Night");
+        view_holder.toc.setText(List.getSource());
 
-        }
-        else if(List.getCruiseType().equalsIgnoreCase("F"))
-        {
-            view_holder.cruiseType.setText("Full Day");
+        view_holder.toair.setText(List.getDestination());
 
-        }
-
-        view_holder.guestCount.setText(List.getGuestNos());
 
         view_holder.date.setText(List.getTravelDate());
 
@@ -227,7 +215,7 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
     public class View_holder extends RecyclerView.ViewHolder
 
     {
-        TextView passenger_name,cruiseType,guestCount,amount,status,date,toc;
+        TextView passenger_name,cruiseType,toair,amount,status,date,toc;
         HorizontalStepView horizontalStepView;
         Button payment;
         StepBean stepBean0,stepBean1,stepBean2,stepBean3,stepBean4,stepBean5;
@@ -236,8 +224,8 @@ public class _BookingStatusBoatAdapter_ extends RecyclerView.Adapter<_BookingSta
             super(itemView);
             horizontalStepView = (HorizontalStepView)itemView.findViewById(R.id.bstep_view) ;
             passenger_name = itemView.findViewById(R.id.pass);
-            cruiseType = itemView.findViewById(R.id.curiseType);
-            guestCount=itemView.findViewById(R.id.count);
+//            cruiseType = itemView.findViewById(R.id.curiseType);
+            toair=itemView.findViewById(R.id.to_air);
             amount=itemView.findViewById(R.id.price);
             status=itemView.findViewById(R.id.status);
             date=itemView.findViewById(R.id.date);

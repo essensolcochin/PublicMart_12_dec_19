@@ -1,27 +1,26 @@
 package com.publicmart.essensol.ModelClasses;
 
 public class BoatStausModel {
-  private   String HBBookingKey,PassengerName,TravelDate,GuestNos,CruiseType,Amount,BookingStatusKey,BookingStatusName;
+  private   String Type,PassengerName,TravelDate,Source,Destination,Amount,ContactEmail,ContactNo,BookingStatusName;
 
-
-    public BoatStausModel(String HBBookingKey, String passengerName, String travelDate, String guestNos, String cruiseType, String amount, String bookingStatusKey, String bookingStatusName) {
-        this.HBBookingKey = HBBookingKey;
+    public BoatStausModel(String type, String passengerName, String travelDate, String source, String destination, String amount, String contactEmail, String contactNo, String bookingStatusName) {
+        Type = type;
         PassengerName = passengerName;
         TravelDate = travelDate;
-        GuestNos = guestNos;
-        CruiseType = cruiseType;
+        Source = source;
+        Destination = destination;
         Amount = amount;
-        BookingStatusKey = bookingStatusKey;
+        ContactEmail = contactEmail;
+        ContactNo = contactNo;
         BookingStatusName = bookingStatusName;
     }
 
-
-    public String getHBBookingKey() {
-        return HBBookingKey;
+    public String getType() {
+        return Type;
     }
 
-    public void setHBBookingKey(String HBBookingKey) {
-        this.HBBookingKey = HBBookingKey;
+    public void setType(String type) {
+        Type = type;
     }
 
     public String getPassengerName() {
@@ -40,20 +39,20 @@ public class BoatStausModel {
         TravelDate = travelDate;
     }
 
-    public String getGuestNos() {
-        return GuestNos;
+    public String getSource() {
+        return Source;
     }
 
-    public void setGuestNos(String guestNos) {
-        GuestNos = guestNos;
+    public void setSource(String source) {
+        Source = source;
     }
 
-    public String getCruiseType() {
-        return CruiseType;
+    public String getDestination() {
+        return Destination;
     }
 
-    public void setCruiseType(String cruiseType) {
-        CruiseType = cruiseType;
+    public void setDestination(String destination) {
+        Destination = destination;
     }
 
     public String getAmount() {
@@ -64,12 +63,20 @@ public class BoatStausModel {
         Amount = amount;
     }
 
-    public String getBookingStatusKey() {
-        return BookingStatusKey;
+    public String getContactEmail() {
+        return ContactEmail;
     }
 
-    public void setBookingStatusKey(String bookingStatusKey) {
-        BookingStatusKey = bookingStatusKey;
+    public void setContactEmail(String contactEmail) {
+        ContactEmail = contactEmail;
+    }
+
+    public String getContactNo() {
+        return ContactNo;
+    }
+
+    public void setContactNo(String contactNo) {
+        ContactNo = contactNo;
     }
 
     public String getBookingStatusName() {

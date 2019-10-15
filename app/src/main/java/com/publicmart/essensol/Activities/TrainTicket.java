@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -283,10 +284,30 @@ public class TrainTicket extends BaseActivity {
                     passengr_name.setError("Field is Mandatory");
                 } else if (TextUtils.isEmpty(email_id.getText())) {
                     email_id.setError("Field is Mandatory");
-                } else if (TextUtils.isEmpty(Contact_no.getText())) {
+                }
+
+
+                else if (TextUtils.isEmpty(Contact_no.getText())) {
                     Contact_no.setError("Field is Mandatory");
 
                 }
+
+
+                else if(! Patterns.EMAIL_ADDRESS.matcher(email_id.getText().toString()).matches())
+
+                {
+                    email_id.requestFocus();
+                    email_id.setError("Invalid Email ID");
+                }
+
+
+
+
+                else if (Contact_no.getText().toString().trim().length()<10||Contact_no.getText().toString().trim().length()>12) {
+                    Contact_no.setError("Invalid Mobile no");
+
+                }
+
                 else if(codecity.equals(codecity2))
                 {
                     Utility.ShowCustomToast("From Station and To Station Cannot be the same",TrainTicket.this);
@@ -354,112 +375,7 @@ public class TrainTicket extends BaseActivity {
     ///////////////////////////////////Posting/////////////////////////////////////////
 
 
-    private void train_ticket(final String request) {
 
-        Log.e("gettttt","in"+request);
-
-
-
-        String URL = this.getString(R.string.Url)+"Save";
-
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Log.e("Jsonnnn",""+response);
-                        // p1.dismiss();
-
-                        try {
-
-
-                            JSONObject o     = new JSONObject(response);
-
-
-                            String data = response;
-                            Object json = new JSONTokener(data).nextValue();
-                            if (json instanceof JSONObject){
-                                Log.e("objectttttt",""+json);
-                            }
-                            //you have an object
-                            else if (json instanceof JSONArray){
-                                Log.e("Arrayyyyyyy",""+json);
-                            }
-
-
-                            Log.e("tryyyyyyyyy","in"+o);
-
-
-                            code = o.getString("responseCode");
-                            message=o.getString("responseMessage");
-
-                            Log.e("resppppppp",""+code);
-
-
-                            if (code.equalsIgnoreCase("-100"))
-                            {
-                                Log.e("resppppppp","ifffff"+code);
-                                Toast.makeText(TrainTicket.this,"Booking Successful",Toast.LENGTH_LONG).show();
-                                Intent intent=new Intent(TrainTicket.this,Home.class);
-                                startActivity(intent);
-                                finish();
-                            }
-
-//                            else {
-//                                Toast.makeText(TrainTicket.this,message,Toast.LENGTH_LONG).show();
-//                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                            Utility.ShowCustomToast(" No Network Connection",TrainTicket.this);
-                        } else if (error instanceof AuthFailureError) {
-                            Utility.ShowCustomToast("Authentication Failed",TrainTicket.this);
-                        } else if (error instanceof ServerError) {
-
-                            Utility.ShowCustomToast("Server Error Occurred",TrainTicket.this);
-                        } else if (error instanceof NetworkError) {
-
-                            Utility.ShowCustomToast("Some Network Error Occurred",TrainTicket.this);
-                        } else if (error instanceof ParseError) {
-
-                            Utility.ShowCustomToast("Some Error Occurred",TrainTicket.this);
-                        }
-                    }
-                }) {
-
-            @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> param = new HashMap<String, String>();
-                param.put("jsonString",request );
-                Log.e("paramssss",""+param);
-                return param;
-            }
-
-            @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> param = new HashMap<String, String>();
-                param.put("Content-Type","application/x-www-form-urlencoded");
-                return param;
-            }
-        };
-
-        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
-                0,
-                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
-                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
-
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
-
-    }
 
 
     private  void  BookTickets() {

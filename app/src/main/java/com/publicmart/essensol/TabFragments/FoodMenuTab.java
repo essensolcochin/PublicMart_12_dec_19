@@ -55,7 +55,7 @@ public class FoodMenuTab extends Fragment {
             public void onClick(View v) {
 
                 Intent intent = new Intent(Intent.ACTION_DIAL);
-                intent.setData(Uri.parse("tel:+918078082721"));
+                intent.setData(Uri.parse("tel:+917785882222"));
                 startActivity(intent);
             }
         });
@@ -74,7 +74,6 @@ public class FoodMenuTab extends Fragment {
         menuItems.add(new ItemModel("Milk Shake","00",true));
         menuItems.add(new ItemModel("Sharjha Shake","50 Rs",false));
         menuItems.add(new ItemModel("Banana Shake","50 Rs",false));
-        menuItems.add(new ItemModel("Sharjha Shake","50 Rs",false));
         menuItems.add(new ItemModel("Apple Shake","50 Rs",false));
         menuItems.add(new ItemModel("Musk Melon Shake","50 Rs",false));
         menuItems.add(new ItemModel("Mango Shake","50 Rs",false));
@@ -152,11 +151,35 @@ public class FoodMenuTab extends Fragment {
         menuItems.add(new ItemModel("Coffee Cake","550 Rs",false));
         menuItems.add(new ItemModel("Truffle Cake","950 Rs",false));
 
+
+        //
+        menuItems.add(new ItemModel("Bread Basket","00",true));
+        menuItems.add(new ItemModel("Rumali Roti","450 Rs",false));
+        menuItems.add(new ItemModel("Tandoori Roti","450 Rs",false));
+        menuItems.add(new ItemModel("Gobhi Paratha","850 Rs",false));
+        menuItems.add(new ItemModel("Masala Kulcha","550 Rs",false));
+        menuItems.add(new ItemModel("Plain Kulcha","950 Rs",false));
+        menuItems.add(new ItemModel("Butter Cube","550 Rs",false));
+        menuItems.add(new ItemModel("Missi Roti","950 Rs",false));
+
+
+        //
+        menuItems.add(new ItemModel("Rice","00",true));
+        menuItems.add(new ItemModel("Plain Rice","450 Rs",false));
+        menuItems.add(new ItemModel("Jeera Rice","450 Rs",false));
+        menuItems.add(new ItemModel("Chicken Biryani","850 Rs",false));
+        menuItems.add(new ItemModel("Egg Biryani","550 Rs",false));
+        menuItems.add(new ItemModel("Chicken Tika","950 Rs",false));
+        menuItems.add(new ItemModel("Mutton Biryani","550 Rs",false));
+        menuItems.add(new ItemModel("Mutter Pulao","950 Rs",false));
+
+
+
         adapter = new MenuItemAdapter(getContext(), menuItems);
         foodlist.setAdapter(adapter);
 
         foodItems.add(R.drawable.shake);
-        foodItems.add(R.drawable.falooda);
+        foodItems.add(R.drawable.orange);
         foodItems.add(R.drawable.cake);
         foodItems.add(R.drawable.dosa);
         foodItems.add(R.drawable.biryani);

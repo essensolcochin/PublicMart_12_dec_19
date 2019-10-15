@@ -138,7 +138,7 @@ public class Edit_Profile extends BaseActivity {
         });
     }
 
-        private void editprofile(final String request) {
+    private void editprofile(final String request) {
 
 
             Log.e("inside_profile"," "+CustKey);
@@ -229,6 +229,7 @@ public class Edit_Profile extends BaseActivity {
             requestQueue.add(stringRequest);
 
         }
+
     public void Ed_profile_view() {
 
 

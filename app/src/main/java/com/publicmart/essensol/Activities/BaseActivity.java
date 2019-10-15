@@ -156,11 +156,11 @@ public class BaseActivity extends AppCompatActivity {
 //                        startActivity(intent);
 //                        drawerLayout.closeDrawers();
 //                        break;
-                    case R.id.ser:
-                        intent = new Intent(BaseActivity.this, Services.class);
-                        startActivity(intent);
-                        drawerLayout.closeDrawers();
-                        break;
+//                    case R.id.ser:
+//                        intent = new Intent(BaseActivity.this, Services.class);
+//                        startActivity(intent);
+//                        drawerLayout.closeDrawers();
+//                        break;
 //                    case R.id.orderstat:
 //                        intent = new Intent(BaseActivity.this, OrderStatus.class);
 //                        startActivity(intent);
@@ -224,73 +224,67 @@ public class BaseActivity extends AppCompatActivity {
         toggle.syncState();
     }
 
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        MenuItem cart = menu.findItem(R.id.cart_action);
-        View actionView = MenuItemCompat.getActionView(cart);
-
-
-        FrameLayout click =(FrameLayout)actionView.findViewById(R.id.cartclick);
-
-        click.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               
-
-                Intent cartIntent = new Intent(BaseActivity.this, OrderStatus.class);
-
-                startActivity(cartIntent);
-                finish();
-            }
-        });
-
-                TextView  cartItem = (TextView) actionView.findViewById(R.id.cart_badge);
-
-        if(cartSIZE.size()==0)
-        {
-            cartItem.setVisibility(View.GONE);
-        }
-        else
-        {
-            cartItem.setVisibility(View.VISIBLE);
-            Log.e("checkinggggggggg","  inside cart get(i) "+cartSIZE.get(0).getCount());
-
-            for (int i =0;i<cartSIZE.size();i++)
-            cartItem.setText(cartSIZE.get(i).getCount());
-        }
-
-        return  true;
-    }
-
-
+//
+//    @Override
+//    public boolean onCreateOptionsMenu(Menu menu) {
+//
+//        getMenuInflater().inflate(R.menu.menu_main, menu);
+//        MenuItem cart = menu.findItem(R.id.cart_action);
+//        View actionView = MenuItemCompat.getActionView(cart);
+//
+//
+//        FrameLayout click =(FrameLayout)actionView.findViewById(R.id.cartclick);
+//
+//        click.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//                Intent cartIntent = new Intent(BaseActivity.this, OrderStatus.class);
+//
+//                startActivity(cartIntent);
+//                finish();
+//            }
+//        });
+//
+//                TextView  cartItem = (TextView) actionView.findViewById(R.id.cart_badge);
+//
+//        if(cartSIZE.size()==0)
+//        {
+//            cartItem.setVisibility(View.GONE);
+//        }
+//        else
+//        {
+//            cartItem.setVisibility(View.VISIBLE);
+//            Log.e("checkinggggggggg","  inside cart get(i) "+cartSIZE.get(0).getCount());
+//
+//            for (int i =0;i<cartSIZE.size();i++)
+//            cartItem.setText(cartSIZE.get(i).getCount());
+//        }
+//
+//        return  true;
+//    }
 
 
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        if (toggle.onOptionsItemSelected(item)) {
-            return true;
-        }
 
 
-        switch (item.getItemId())
-        {
-            case R.id.search_action:
-                Log.e("checkinggggggggg","  inside cart ");
-
-                Intent intent = new Intent(BaseActivity.this, SearchBar.class);
-               startActivity(intent);
-               break;
-
-
-
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
+//    @Override
+//    public boolean onOptionsItemSelected(MenuItem item) {
+//
+//        if (toggle.onOptionsItemSelected(item)) {
+//            return true;
+//        }
+//
+//
+//        if (item.getItemId() == R.id.search_action) {
+//            Log.e("checkinggggggggg", "  inside cart ");
+//
+//            Intent intent = new Intent(BaseActivity.this, SearchBar.class);
+//            startActivity(intent);
+//        }
+//
+//        return super.onOptionsItemSelected(item);
+//    }
 
 }

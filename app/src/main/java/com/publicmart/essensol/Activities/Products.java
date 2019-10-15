@@ -34,7 +34,6 @@ public class Products extends BaseActivity {
 
 
     JSONObject jsonString;
-    TextView fresh,fashion;
     String code,message;
     ProductMenuAdapter adapter;
     GridLayoutManager layoutManager;
@@ -56,10 +55,8 @@ public class Products extends BaseActivity {
 
         Fabric.with(this, new Crashlytics());
 
-
         progress = new SpotsDialog(Products.this,R.style.Custom);
 
-//        android.support.v7.widget.Toolbar tb=getToolBar();
 
         recyclerView = findViewById(R.id.menu);
         shimmer= findViewById(R.id.shimmer);
@@ -99,8 +96,6 @@ public class Products extends BaseActivity {
     }
 
 
-
-
     private  void ShowProducts() {
         apiInterface.GetProductCategories().enqueue(new Callback<GetProductCategoryResponse>() {
             @Override
@@ -119,7 +114,6 @@ public class Products extends BaseActivity {
 
                         for (int i = 0; i < result.size(); i++) {
 
-
                             $ProductMenuModel items = new $ProductMenuModel(result.get(i).getCategoryKey(),
                                     result.get(i).getCategoryName(),
                                     result.get(i).getImagePath(),false);
@@ -128,16 +122,11 @@ public class Products extends BaseActivity {
 
                           }
 
-
                         populateList();
 
-
-
-
                     }
-                    else
-                    {
-//                        progress.cancel();
+
+                    else {
                         Utility.ShowCustomToast("Coming Soon",Products.this);
 
                     }
@@ -145,21 +134,18 @@ public class Products extends BaseActivity {
 
                 else if(response.code() == 401) {
 
-                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                    Log.e("Error  Code","  "+response.code());
                 }
 
                 else if( response.code() == 500) {
 
-                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                    Log.e("Error  Code","  "+response.code());
                 }
 
                 else if(response.code() == 408) {
 
-                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                    Log.e("Error  Code","  "+response.code());
                 }
-
-
-
 
             }
 
@@ -171,10 +157,6 @@ public class Products extends BaseActivity {
 
     }
 
-
-
-
-
     private void populateList() {
 
         for (int i = 0; i < headermodel.size(); i++) {
@@ -184,7 +166,6 @@ public class Products extends BaseActivity {
             lisitem.add(head);
 
             for (int j = i; j < menuModel.size(); j++) {
-
 
 
                 $ProductMenuModel childModel = new $ProductMenuModel(menuModel.get(j).getCategoryKey(),menuModel.get(j).getCategoryName(),menuModel.get(j).getImagePath(),false);

@@ -38,7 +38,6 @@
 
 
     <android.support.v7.widget.RecyclerView
-        android:layout_below="@+id/food_image"
         android:id="@+id/foodlist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>

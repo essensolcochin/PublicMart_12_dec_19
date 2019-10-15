@@ -17,10 +17,10 @@
 <!--        android:icon="@drawable/bag"-->
 <!--        android:id="@+id/pro"-->
 <!--        android:title="Products" />-->
-    <item
-        android:icon="@drawable/airplaneticket"
-        android:id="@+id/ser"
-        android:title="Services" />
+    <!--<item-->
+        <!--android:icon="@drawable/airplaneticket"-->
+        <!--android:id="@+id/ser"-->
+        <!--android:title="Services" />-->
 
     <item
         android:icon="@drawable/profile"

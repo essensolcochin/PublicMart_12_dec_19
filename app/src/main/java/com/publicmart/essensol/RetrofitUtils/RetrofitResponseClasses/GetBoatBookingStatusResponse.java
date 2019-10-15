@@ -34,9 +34,9 @@ public class GetBoatBookingStatusResponse {
 
     public class ResultArray {
 
-        @SerializedName(CONSTANTS.HBBookingKey)
+        @SerializedName("Type")
         @Expose
-        private String HBBookingKey;
+        private String Type;
 
         @SerializedName(CONSTANTS.PassengerName)
         @Expose
@@ -48,58 +48,102 @@ public class GetBoatBookingStatusResponse {
         private String TravelDate;
 
 
-        @SerializedName(CONSTANTS.GuestNos)
+        @SerializedName("Source")
         @Expose
-        private String GuestNos;
+        private String Source;
 
 
-        @SerializedName(CONSTANTS.CruiseType)
+        @SerializedName("Destination")
         @Expose
-        private String CruiseType;
+        private String Destination;
 
         @SerializedName(CONSTANTS.Amount)
         @Expose
         private String Amount;
 
-        @SerializedName(CONSTANTS.BookingStatusKey)
+        @SerializedName("ContactEmail")
         @Expose
-        private String BookingStatusKey;
+        private String ContactEmail;
 
-        @SerializedName(CONSTANTS.BookingStatusName)
+        @SerializedName("ContactNo")
+        @Expose
+        private String ContactNo;
+
+        @SerializedName("BookingStatusName")
         @Expose
         private String BookingStatusName;
 
 
-        public String getHBBookingKey() {
-            return HBBookingKey;
+        public String getType() {
+            return Type;
+        }
+
+        public void setType(String type) {
+            Type = type;
         }
 
         public String getPassengerName() {
             return PassengerName;
         }
 
+        public void setPassengerName(String passengerName) {
+            PassengerName = passengerName;
+        }
+
         public String getTravelDate() {
             return TravelDate;
         }
 
-        public String getGuestNos() {
-            return GuestNos;
+        public void setTravelDate(String travelDate) {
+            TravelDate = travelDate;
         }
 
-        public String getCruiseType() {
-            return CruiseType;
+        public String getSource() {
+            return Source;
+        }
+
+        public void setSource(String source) {
+            Source = source;
+        }
+
+        public String getDestination() {
+            return Destination;
+        }
+
+        public void setDestination(String destination) {
+            Destination = destination;
         }
 
         public String getAmount() {
             return Amount;
         }
 
-        public String getBookingStatusKey() {
-            return BookingStatusKey;
+        public void setAmount(String amount) {
+            Amount = amount;
+        }
+
+        public String getContactEmail() {
+            return ContactEmail;
+        }
+
+        public void setContactEmail(String contactEmail) {
+            ContactEmail = contactEmail;
+        }
+
+        public String getContactNo() {
+            return ContactNo;
+        }
+
+        public void setContactNo(String contactNo) {
+            ContactNo = contactNo;
         }
 
         public String getBookingStatusName() {
             return BookingStatusName;
+        }
+
+        public void setBookingStatusName(String bookingStatusName) {
+            BookingStatusName = bookingStatusName;
         }
     }
 }

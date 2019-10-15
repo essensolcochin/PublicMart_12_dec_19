@@ -397,10 +397,6 @@
 
 
 
-
-
-
-
             <!--<TextView-->
                 <!--android:layout_marginTop="10dp"-->
                 <!--android:layout_width="match_parent"-->
@@ -576,16 +572,148 @@
                 android:layout_height="wrap_content"
                 android:textSize="12dp"
                 android:textColor="@color/col7"
-                android:text="Bank Details"/>
+                android:text="Account Details"/>
 
-            <TextView
+            <LinearLayout
                 android:layout_marginTop="10dp"
-                android:textStyle="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"
-                android:text="HDFC BANK LTD."/>
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="Account Name "
+                    />
+
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:textColor="@android:color/black"
+                    android:text="PUBLICMART"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="Account No  "
+                    />
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:textColor="@android:color/black"
+                    android:text="50200034752049"/>
+
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="Bank Name "
+                    />
+
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:textColor="@android:color/black"
+                    android:text="HDFC BANK LTD."/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_weight="1.5"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@android:color/black"
+                    android:text="Branch"
+                    />
+
+
+
+                <TextView
+                    android:textStyle="bold"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textSize="15dp"
+                    android:textColor="@android:color/black"
+                    android:text="ALAPPUZHA"
+                    />
+            </LinearLayout>
+
+        <!--<LinearLayout-->
+            <!--android:layout_marginTop="10dp"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="horizontal">-->
+
+            <!--<TextView-->
+                <!--android:id="@+id/classlabel"-->
+                <!--android:layout_weight="1.5"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textColor="@android:color/black"-->
+                <!--android:text="ACCT NAME "-->
+                <!--/>-->
+
+
+
+            <!--<TextView-->
+               <!--android:textStyle="bold"-->
+                <!--android:layout_weight="1"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:textSize="15dp"-->
+                <!--android:textColor="@android:color/black"-->
+                <!--android:text="PUBLIC MART"/>-->
+
+        <!--</LinearLayout>-->
+
 
         <LinearLayout
             android:layout_marginTop="10dp"
@@ -594,64 +722,11 @@
             android:orientation="horizontal">
 
             <TextView
-                android:id="@+id/classlabel"
                 android:layout_weight="1.5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@android:color/black"
-                android:text="ACCT NAME "
-                />
-
-
-
-            <TextView
-               android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"
-                android:text="PUBLIC MART"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_weight="1.5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="ACCT NUMBER  "
-                />
-
-            <TextView
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"
-                android:text="50200034752049"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_weight="1.5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="IFSC CODE"
+                android:text="IFSC Code"
                 />
 
             <TextView
@@ -666,32 +741,7 @@
 
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_marginTop="10dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
 
-            <TextView
-                android:layout_weight="1.5"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textColor="@android:color/black"
-                android:text="BRANCH NAME"
-                />
-
-
-
-            <TextView
-                android:textStyle="bold"
-                android:layout_weight="1"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:textSize="15dp"
-                android:textColor="@android:color/black"
-                android:text="ALAPPUZHA"
-                />
-        </LinearLayout>
 
             <LinearLayout
                 android:layout_gravity="center"

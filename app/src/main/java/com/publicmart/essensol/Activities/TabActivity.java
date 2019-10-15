@@ -25,7 +25,7 @@ ViewPager TabItem;
 
 //        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.plane));
 //        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.train));
-        tabLayout.addTab(tabLayout.newTab().setIcon(R.drawable.ship));
+        tabLayout.addTab(tabLayout.newTab().setText("Your Bookings"));
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
 

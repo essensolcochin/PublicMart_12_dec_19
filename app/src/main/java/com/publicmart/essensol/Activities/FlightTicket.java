@@ -6,6 +6,7 @@ import android.support.v4.view.ViewPager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -38,12 +39,12 @@ public class FlightTicket extends BaseActivity {
 
     android.support.v7.widget.Toolbar toolbar;
 
-    String array_day[] = {"DD", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
-            "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
-            "31"};
-    String array_Mnth[] = {"MM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
-    String array_Year[] = {"2019"};
-    String array_BYear[] = {"YY", "1985", "1986", "1986", "1987", "1988", "1989", "1990", "1991", "1992",
+   private String array_day[] = {"DD", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
+           "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
+           "31"};
+   private String array_Mnth[] = {"MM", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"};
+   private String array_Year[] = {"2019"};
+   private String array_BYear[] = {"YY", "1985", "1986", "1986", "1987", "1988", "1989", "1990", "1991", "1992",
             "1993", "1994", "1995", "1996", "1997", "1998", "1999", "2000", "2001", "2002"
             , "2003", "2004", "2005", "2006", "2007", "2008", "2009", "2010", "2011", "2012",
             "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018"};
@@ -301,6 +302,23 @@ public class FlightTicket extends BaseActivity {
                {
                    email_id.setError("Field is Mandatory");
                }
+
+               else if(! Patterns.EMAIL_ADDRESS.matcher(email_id.getText().toString()).matches())
+
+               {
+                   email_id.requestFocus();
+                   email_id.setError("Invalid Email ID");
+               }
+
+
+
+
+               else if (contact_no.getText().toString().trim().length()<10||contact_no.getText().toString().trim().length()>12) {
+                   contact_no.setError("Invalid Mobile no");
+
+               }
+
+
                else if(TextUtils.isEmpty(contact_no.getText()))
                {
                    contact_no.setError("Field is Mandatory");

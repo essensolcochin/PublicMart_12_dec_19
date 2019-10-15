@@ -11,6 +11,7 @@ import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.GetFlightBo
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.GetProductCategoryResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.GetProductDetailsResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.GetProductsByCategoryResponse;
+import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.GetProfileDetailsResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.GetStationCodesResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.GetTrainBookingStatusResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.HomeScreenResponse;
@@ -21,6 +22,7 @@ import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.SaveFlightB
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.SaveHouseBoatBookingResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.SaveOrderdetailsResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.SaveTrainBookingResponse;
+import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.SaveUpdateProfileDetailsResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.SearchResponse;
 import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.UpdatePaymentStatusResponse;
 import com.publicmart.essensol.Utils.CONSTANTS;
@@ -124,11 +126,22 @@ public interface ApiInterface {
                                                     @Field(CONSTANTS.BookingStatusKey) int BookingStatusKey,
                                                     @Field(CONSTANTS.Status) boolean Status,
                                                     @Field(CONSTANTS.CreatedBy) int CreatedBy);
+//    CustKey:5
+//    PassengerName:xyz898
+//    TravelDate:05-11-2019
+//    GuestNos:5
+//    CruiseType:D
+//    ContactEmail:xyz@test.com
+//    ContactNo:8075249241
+//    BookingStatusKey:1
+//    Status:true
+//    CreatedBy:1
+
 
 
     @POST("ServicesApi/SaveHouseboatBooking")
     @FormUrlEncoded
-    Call<SaveHouseBoatBookingResponse> SaveHouseBoatBooking(@Field(CONSTANTS.CustKey) int CustKey,
+    Call<SaveHouseBoatBookingResponse> SaveHouseBoatBooking(@Field(CONSTANTS.CustKey) String CustKey,
                                                             @Field(CONSTANTS.PassengerName) String PassengerName,
                                                             @Field(CONSTANTS.TravelDate) String TravelDate,
                                                             @Field(CONSTANTS.CruiseType) String CruiseType,
@@ -137,7 +150,7 @@ public interface ApiInterface {
                                                             @Field(CONSTANTS.ContactNo) String ContactNo,
                                                             @Field(CONSTANTS.BookingStatusKey) int BookingStatusKey,
                                                             @Field(CONSTANTS.Status) boolean Status,
-                                                            @Field(CONSTANTS.CreatedBy) int CreatedBy);
+                                                            @Field(CONSTANTS.CreatedBy) String CreatedBy);
 
 
 
@@ -151,9 +164,9 @@ public interface ApiInterface {
     Call<GetTrainBookingStatusResponse> GetTrainBookingStatus(@Field(CONSTANTS.CustKey) int CustKey,@Field(CONSTANTS.Type) String Type);
 
 
-    @POST("ServicesApi/GetBookingDetailsByCustKeyAndType")
+    @POST("CommonApi/GetBookingDetailsByCustomerId")
     @FormUrlEncoded
-    Call<GetBoatBookingStatusResponse> GetBoatBookingStatus(@Field(CONSTANTS.CustKey) int CustKey, @Field(CONSTANTS.Type) String Type);
+    Call<GetBoatBookingStatusResponse> GetBoatBookingStatus(@Field(CONSTANTS.CustKey) int CustKey);
 
 
 
@@ -192,6 +205,27 @@ public interface ApiInterface {
                                                           @Field(CONSTANTS.Type) String Type,
                                                           @Field(CONSTANTS.CustKey) String CustKey);
 
+
+
+    @POST("CommonApi/GetProfileDetailsByCustcode")
+    @FormUrlEncoded
+    Call<GetProfileDetailsResponse> GetProfileDetails(@Field("CustCode") String CustCode);
+
+    @POST("CommonApi/SaveUpdateProfileDetails")
+    @FormUrlEncoded
+    Call<SaveUpdateProfileDetailsResponse> SaveUpdateProfileDetails(@Field("Address") String Address,
+                                                                    @Field("DOB") String DOB,
+                                                                    @Field("Email") String Email,
+                                                                    @Field("CreatedBy") String CreatedBy,
+                                                                    @Field("CustCode") String CustCode,
+                                                                    @Field("CustDetKey") int CustDetKey,
+                                                                    @Field("CustomerName") String CustomerName,
+                                                                    @Field("MobileNo") String MobileNo,
+                                                                    @Field("AcntHolderName") String AcntHolderName,
+                                                                    @Field("AcntNo") String AcntNo,
+                                                                    @Field("BankName") String BankName,
+                                                                    @Field("BranchName") String BranchName,
+                                                                    @Field("IFSCCode") String IFSCCode);
 
 
 

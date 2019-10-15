@@ -7,6 +7,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -62,7 +63,7 @@ public class HouseBoat extends BaseActivity {
     String request,code,message, radio;
    // DayCruise,NightCruise,FullDay
     String radiovalue;
-    String Cruise_Type;
+    String Cruise_Type ="D";
     ApiInterface apiInterface;
 
     @Override
@@ -217,10 +218,29 @@ public class HouseBoat extends BaseActivity {
         {
             email_id.setError("Field is Mandatory");
         }
+
+
+        else if(! Patterns.EMAIL_ADDRESS.matcher(email_id.getText().toString()).matches())
+
+        {
+            email_id.requestFocus();
+            email_id.setError("Invalid Email ID");
+        }
+
+
         else if(TextUtils.isEmpty(Contact_no.getText()))
         {
             Contact_no.setError("Field is Mandatory");
         }
+        else if (Contact_no.getText().toString().trim().length()<10||Contact_no.getText().toString().trim().length()>12) {
+            Contact_no.setError("Invalid Mobile no");
+
+        }
+
+//        else if(TextUtils.isEmpty(Contact_no.getText()))
+//        {
+//            Contact_no.setError("Field is Mandatory");
+//        }
 
         else if(Day.equals("DD")||Month.equals("MM")||Year.equals("YYYY"))
         {
@@ -299,16 +319,30 @@ public class HouseBoat extends BaseActivity {
 
         String Pname  =passengr_name.getText().toString();
 
-        Log.e("Error  Typeeeee","  "+CustKey);
+        Log.e("Error  Pname","  "+Pname);
+
+        Log.e("Error  CustKey","  "+CustKey);
+
+        Log.e("Error  Cruise_Type","  "+Cruise_Type);
+
+        Log.e("Error  members","  "+members);
+
+        Log.e("Error  UserKey","  "+UserKey);
 
         String TravelDate  =Day+"-"+Month+"-"+Year;
+
+        Log.e("Error  UserKey","  "+TravelDate);
 
         String email  =email_id.getText().toString();
 
         String contact  =Contact_no.getText().toString();
 
+        Log.e("Error  email","  "+email);
 
-        apiInterface.SaveHouseBoatBooking(Integer.parseInt(CustKey),Pname,TravelDate,Cruise_Type,email,contact,members,1,true,Integer.parseInt(UserKey))
+        Log.e("Error  contact","  "+contact);
+
+
+        apiInterface.SaveHouseBoatBooking(CustKey,Pname,TravelDate,Cruise_Type,email,contact,members,1,true,UserKey)
                 .enqueue(new Callback<SaveHouseBoatBookingResponse>() {
                     @Override
                     public void onResponse(Call<SaveHouseBoatBookingResponse> call, retrofit2.Response<SaveHouseBoatBookingResponse> response) {

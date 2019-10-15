@@ -50,10 +50,10 @@
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content">
 
-                                <ImageView
-                                    android:src="@drawable/ship"
-                                    android:layout_width="30dp"
-                                    android:layout_height="40dp" />
+                                <!--<ImageView-->
+                                    <!--android:src="@drawable/ship"-->
+                                    <!--android:layout_width="30dp"-->
+                                    <!--android:layout_height="40dp" />-->
 
 
 
@@ -82,51 +82,49 @@
                                  android:orientation="vertical"
                                  android:layout_height="wrap_content">
 
-                            <LinearLayout
+                                 <LinearLayout
 
-                                android:orientation="horizontal"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
+                                     android:orientation="horizontal"
+                                     android:layout_width="wrap_content"
+                                     android:layout_height="wrap_content">
 
 
-                                <TextView
-                                    android:id="@+id/from_air"
-                                    android:layout_weight="1"
-                                    android:layout_gravity="start"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="Type Of Cruise"
-                                    android:textColor="#030303"
-                                    android:textSize="18dp"
-                                     />
-                                <TextView
+                                     <TextView
+                                         android:id="@+id/from_air"
+                                         android:layout_weight="1"
+                                         android:layout_gravity="start"
+                                         android:layout_width="wrap_content"
+                                         android:layout_height="wrap_content"
+                                         android:textColor="#030303"
+                                         android:textSize="18dp"
+                                         android:textStyle="bold" />
+                                     <TextView
 
-                                    android:layout_marginLeft="5dp"
-                                    android:layout_marginStart="5dp"
-                                    android:layout_marginEnd="5dp"
-                                    android:layout_marginRight="5dp"
-                                    android:layout_weight="1"
-                                    android:gravity="center_vertical"
-                                    android:layout_gravity="start"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text=":"
-                                    android:textColor="#030303"
-                                    android:textSize="15dp"
-                                    android:textStyle="bold" />
+                                         android:layout_marginLeft="5dp"
+                                         android:layout_marginStart="5dp"
+                                         android:layout_marginEnd="5dp"
+                                         android:layout_marginRight="5dp"
+                                         android:layout_weight="1"
+                                         android:gravity="center_vertical"
+                                         android:layout_gravity="start"
+                                         android:layout_width="wrap_content"
+                                         android:layout_height="wrap_content"
+                                         android:text="-"
+                                         android:textColor="#030303"
+                                         android:textSize="15dp"
+                                         android:textStyle="bold" />
 
-                                <TextView
-                                    android:layout_weight="1"
-                                    android:layout_gravity="start"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:id="@+id/curiseType"
-                                    android:text="D"
-                                    android:textColor="@color/colorAccent"
-                                    android:textSize="18dp"
-                                    android:textStyle="bold" />
+                                     <TextView
+                                         android:layout_weight="1"
+                                         android:layout_gravity="start"
+                                         android:layout_width="wrap_content"
+                                         android:layout_height="wrap_content"
+                                         android:id="@+id/to_air"
+                                         android:textColor="#030303"
+                                         android:textSize="18dp"
+                                         android:textStyle="bold" />
 
-                            </LinearLayout>
+                                 </LinearLayout>
 
 
 
@@ -159,24 +157,24 @@
                                      android:layout_width="match_parent"
                                      android:layout_height="wrap_content">
 
-                                     <ImageView
-                                         android:layout_gravity="bottom"
-                                         android:tint="@color/colorPrimary"
-                                         android:src="@drawable/logprof"
-                                         android:layout_width="20dp"
-                                         android:layout_height="match_parent" />
+                                     <!--<ImageView-->
+                                         <!--android:layout_gravity="bottom"-->
+                                         <!--android:tint="@color/colorPrimary"-->
+                                         <!--android:src="@drawable/logprof"-->
+                                         <!--android:layout_width="20dp"-->
+                                         <!--android:layout_height="match_parent" />-->
 
 
-                                     <TextView
-                                         android:layout_marginLeft="10dp"
-                                         android:gravity="end"
-                                         android:layout_width="wrap_content"
-                                         android:layout_height="wrap_content"
-                                         android:id="@+id/count"
-                                         android:text="2"
-                                         android:textColor="@color/col10"
-                                         android:textSize="18dp"
-                                         />
+                                     <!--<TextView-->
+                                         <!--android:layout_marginLeft="10dp"-->
+                                         <!--android:gravity="end"-->
+                                         <!--android:layout_width="wrap_content"-->
+                                         <!--android:layout_height="wrap_content"-->
+                                         <!--android:id="@+id/count"-->
+                                         <!--android:text="2"-->
+                                         <!--android:textColor="@color/col10"-->
+                                         <!--android:textSize="18dp"-->
+                                         <!--/>-->
 
 
                                  </LinearLayout>

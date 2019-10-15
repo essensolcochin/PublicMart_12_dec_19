@@ -1,6 +1,7 @@
 package com.publicmart.essensol.Activities;
 
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -13,6 +14,7 @@ import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -41,10 +43,6 @@ public class Registration extends AppCompatActivity {
     EditText fname,mname,lname,house_no,tehsil,village,district,pincode,contact_no,email,sponsership_id,nominee,relationship,username,password,cnfmpassword;
 
     TextView terms,availability;
-
-
-
-
 
 
     JSONObject jsonString;
@@ -165,11 +163,26 @@ public class Registration extends AppCompatActivity {
                     contact_no.requestFocus();
                     contact_no.setError("Field is Mandatory");
                 }
+
+                else if(contact_no.getText().toString().trim().length()<10||contact_no.getText().toString().trim().length()>12)
+
+                {
+                    contact_no.requestFocus();
+                    contact_no.setError("Invalid Mobile Number");
+                }
+
                 else if(TextUtils.isEmpty(email.getText()))
                 {
                     email.requestFocus();
                     email.setError("Field is Mandatory");
                 }
+                else if(! Patterns.EMAIL_ADDRESS.matcher(email.getText().toString()).matches())
+
+                {
+                    email.requestFocus();
+                    email.setError("Invalid Email ID");
+                }
+
 
                 else if(TextUtils.isEmpty  (username.getText()))
                 {
@@ -336,7 +349,6 @@ public class Registration extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<CheckUsernameResponse> call, Throwable t) {
-
 
 
             }

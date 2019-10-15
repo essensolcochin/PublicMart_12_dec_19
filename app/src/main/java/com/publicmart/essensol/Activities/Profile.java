@@ -20,13 +20,16 @@ import com.android.volley.NoConnectionError;
 import com.android.volley.ParseError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
-import com.android.volley.Response;
 import com.android.volley.ServerError;
 import com.android.volley.TimeoutError;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.publicmart.essensol.R;
+import com.publicmart.essensol.RetrofitUtils.ApiClient;
+import com.publicmart.essensol.RetrofitUtils.ApiInterface;
+import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.GetProfileDetailsResponse;
+import com.publicmart.essensol.RetrofitUtils.RetrofitResponseClasses.SaveUpdateProfileDetailsResponse;
 import com.publicmart.essensol.Utility;
 
 import org.json.JSONArray;
@@ -36,19 +39,27 @@ import org.json.JSONTokener;
 
 import java.util.Calendar;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class Profile extends AppCompatActivity {
 
     TextView  Fname,Mname,Lname,contact_no,email_id,h_no,tehsil,village,dist,pinode,membership,proicon,proid,state_name;
     JSONObject jsonString;
-    String request,code,message,Bday,Bmonth,Byear;
+    String request,code,message,cusname,Bmonth,Byear;
     TextView edit,save;
     EditText contact,email,name,address,accHname,accNo,ifscc,Bname,Branch;
     TextView Dob;
     LinearLayout submit;
     Calendar newCalendar;
     DatePickerDialog DateOfBirth;
+
+    ApiInterface apiInterface;
+
 
     String array_day[] = {"DD", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10",
             "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30",
@@ -73,17 +84,13 @@ public class Profile extends AppCompatActivity {
 
         contact=(EditText) findViewById(R.id.contact);
         email=(EditText) findViewById(R.id.email);
-        name=(EditText) findViewById(R.id.name);
         address=(EditText) findViewById(R.id.address);
-        accHname=(EditText) findViewById(R.id.AcchName);
-        accNo=(EditText) findViewById(R.id.AccNo);
-        ifscc=(EditText) findViewById(R.id.ifsc);
-        Bname=(EditText) findViewById(R.id.BankName);
-        Branch=(EditText) findViewById(R.id.Branch);
+
         submit= findViewById(R.id.submit);
         Dob= findViewById(R.id.Dob);
 
 
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
 
         proicon=(TextView)findViewById(R.id.proicon);
 
@@ -137,37 +144,10 @@ public class Profile extends AppCompatActivity {
             public void onClick(View view) {
 
 
-                SharedPreferences sp = getSharedPreferences("UserLog",0);
-                String CustKey =  sp.getString("CustCode",null);
-                String UserKey =  sp.getString("UserKey",null);
+                EditProfile();
 
-                try {
-                    JSONObject values = new JSONObject();
-                    values.put("CustDetKey",0);
-                    values.put("CustCode",CustKey);
-                    values.put("CustomerName",name.getText().toString());
-                    values.put("MobileNo",contact.getText().toString());
-                    values.put("Email",email.getText().toString());
-                    values.put("DOB",Dob.getText().toString());
-                    values.put("Address",address.getText().toString());
-                    values.put("AcntHolderName",accHname.getText().toString());
-                    values.put("AcntNo",accNo.getText().toString());
-                    values.put("BankName",Bname.getText().toString());
-                    values.put("BranchName",Branch.getText().toString());
-                    values.put("IFSCCode",ifscc.getText().toString());
-                    values.put("CreatedBy",UserKey);
-
-
-
-                    jsonString = new JSONObject();
-                    jsonString.put("Token", "0001");
-                    jsonString.put("call", "SaveUpdateProfileDetails");
-                    jsonString.put("values", values);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
                 if(Utility.isNetworkConnectionAvailable(Profile.this)) {
-                    EditProfile(jsonString.toString());
+//                    EditProfile(jsonString.toString());
                 }
                 else {
                     Utility.ShowCustomToast("No Network Connectivity",Profile.this);
@@ -181,331 +161,128 @@ public class Profile extends AppCompatActivity {
 
     }
 
-    public void profile_view() {
+    private void profile_view() {
+
         SharedPreferences sp = getSharedPreferences("UserLog",0);
         String CustKey =  sp.getString("CustCode",null);
 
-        try {
-            JSONObject values = new JSONObject();
-            values.put("CustCode",CustKey);
 
-            jsonString = new JSONObject();
-            jsonString.put("Token", "0001");
-            jsonString.put("call", "GetProfileDetailsByCustCode");
-            jsonString.put("values", values);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        Log.e("gettttt","in"+request);
-
-
-
-        String URL = this.getString(R.string.Url)+"Select";
-
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Log.e("Jsonnnn",""+response);
-                        // p1.dismiss();
-
-                        try {
-
-
-                            JSONObject o     = new JSONObject(response);
-
-
-                            String data = response;
-                            Object json = new JSONTokener(data).nextValue();
-                            if (json instanceof JSONObject){
-                                Log.e("objectttttt",""+json);
-                            }
-                            //you have an object
-                            else if (json instanceof JSONArray){
-                                Log.e("Arrayyyyyyy",""+json);
-                            }
-
-
-                            Log.e("tryyyyyyyyy","in"+o);
-
-                            ;
-                            code = o.getString("responseCode");
-                            message=o.getString("responseMessage");
-
-                            Log.e("resppppppp",""+code);
-
-
-                            if (code.equalsIgnoreCase("0"))
-                            {
-
-
-                                Log.e("resppppppp","ifffff"+code);
-
-                                JSONArray json_array2 = o.getJSONArray("result");
-
-
-                                JSONObject jsonObject;
-
-
-                                int j;
-                                for (j = 0; j < json_array2.length(); j++) {
-                                    jsonObject = json_array2.getJSONObject(j);
-                                    if(!jsonObject.getString("CustomerName").equalsIgnoreCase("null"))
-                                    {
-                                        Fname.setText(jsonObject.getString("CustomerName"));
-                                        proicon.setText(jsonObject.getString("CustomerName").substring(0,1));
-                                        name.setText(jsonObject.getString("CustomerName"));
-
-
-                                    }
-
-                                    if(!jsonObject.getString("MobileNo").equalsIgnoreCase("null"))
-                                    {
-                                        contact.setText(jsonObject.getString("MobileNo"));
-
-                                    }
-                                    if(!jsonObject.getString("Email").equalsIgnoreCase("null"))
-                                    {
-                                        email.setText(jsonObject.getString("Email"));
-
-                                    }
-                                    if(!jsonObject.getString("Address").equalsIgnoreCase("null"))
-                                    {
-                                        address.setText(jsonObject.getString("Address"));
-
-                                    }
-                                    if(!jsonObject.getString("AcntHolderName").equalsIgnoreCase("null"))
-                                    {
-                                        accHname.setText(jsonObject.getString("AcntHolderName"));
-
-                                    }
-                                    if(!jsonObject.getString("AcntNo").equalsIgnoreCase("null"))
-                                    {
-                                        accNo.setText(jsonObject.getString("AcntNo"));
-
-                                    }
-                                    if(!jsonObject.getString("BankName").equalsIgnoreCase("null"))
-                                    {
-                                        Bname.setText(jsonObject.getString("BankName"));
-
-                                    }
-                                    if(!jsonObject.getString("BranchName").equalsIgnoreCase("null"))
-                                    {
-                                        Branch.setText(jsonObject.getString("BranchName"));
-
-                                    }
-                                    if(!jsonObject.getString("IFSCCode").equalsIgnoreCase("null"))
-                                    {
-                                        ifscc.setText(jsonObject.getString("IFSCCode"));
-
-                                    }
-                                    if(!jsonObject.getString("CustCode").equalsIgnoreCase("null"))
-                                    {
-                                        proid.setText(jsonObject.getString("CustCode"));
-
-                                    }
-                                    if (!jsonObject.getString("DOB").equalsIgnoreCase("null")) {
-                                        Dob.setText(jsonObject.getString("DOB"));
-                                    }
-
-
-
-                                }
-                            }
-//                            else {
-//                                Utility.ShowCustomToast(" No Network Connection",Profile.this);
-//                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                            Utility.ShowCustomToast(" No Network Connection",Profile.this);
-                        } else if (error instanceof AuthFailureError) {
-                            Utility.ShowCustomToast("Authentication Failed",Profile.this);
-                        } else if (error instanceof ServerError) {
-
-                            Utility.ShowCustomToast("Server Error Occurred",Profile.this);
-                        } else if (error instanceof NetworkError) {
-
-                            Utility.ShowCustomToast("Some Network Error Occurred",Profile.this);
-                        } else if (error instanceof ParseError) {
-
-                            Utility.ShowCustomToast("Some Error Occurred",Profile.this);
-                        }
-                    }
-                }) {
-
+        apiInterface.GetProfileDetails(CustKey).enqueue(new Callback<GetProfileDetailsResponse>() {
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> param = new HashMap<String, String>();
-                param.put("jsonString",jsonString.toString() );
-                Log.e("paramssss",""+param);
-                return param;
+            public void onResponse(Call<GetProfileDetailsResponse> call, retrofit2.Response<GetProfileDetailsResponse> response) {
+
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+                        List<GetProfileDetailsResponse.ResultArray> result = response.body().getResponse();
+
+
+
+                        for (int i = 0; i < result.size(); i++) {
+
+                            Fname.setText(result.get(i).getCustomerName());
+                            proid.setText(result.get(i).getCustCode());
+                            contact.setText(result.get(i).getMobileNo());
+                            email.setText(result.get(i).getEmail());
+                            address.setText(result.get(i).getAddress());
+                            proicon.setText(result.get(i).getCustomerName().substring(0,1));
+                            Dob.setText(result.get(i).getDOB());
+                            cusname=result.get(i).getCustomerName();
+                        }
+
+
+
+
+
+
+                    }
+//                    else
+//                    {
+////                        progress.cancel();
+////                        Utility.ShowCustomToast("Coming Soon",Products.this);
+//
+//                    }
+                }
+
+                else if(response.code() == 401) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if( response.code() == 500) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+                else if(response.code() == 408) {
+
+                    Log.e("Error  Codeeeeeeeeeeee","  "+response.code());
+                }
+
+
+
+
             }
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> param = new HashMap<String, String>();
-                param.put("Content-Type","application/x-www-form-urlencoded");
-                return param;
+            public void onFailure(Call<GetProfileDetailsResponse> call, Throwable t) {
+
             }
-        }
-                ;
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        });
 
     }
 
 
+    public void EditProfile() {
 
+        Log.e("Clickeddd"," "+Dob.toString());
+        Log.e("Date",""+Dob.getText().toString());
 
-
-
-
-    public void EditProfile(final  String request) {
         SharedPreferences sp = getSharedPreferences("UserLog",0);
         String CustKey =  sp.getString("CustCode",null);
+        String UserKey =  sp.getString("UserKey",null);
 
-        try {
-            JSONObject values = new JSONObject();
-            values.put("CustCode",CustKey);
-
-            jsonString = new JSONObject();
-            jsonString.put("Token", "0001");
-            jsonString.put("call", "GetProfileDetailsByCustCode");
-            jsonString.put("values", values);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-
-        Log.e("gettttt","in"+request);
-
-
-
-        String URL = this.getString(R.string.Url)+"Select";
-
-
-        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL,
-                new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-
-                        Log.e("Jsonnnn",""+response);
-                        // p1.dismiss();
-
-                        try {
-
-
-                            JSONObject o     = new JSONObject(response);
-
-
-                            String data = response;
-                            Object json = new JSONTokener(data).nextValue();
-                            if (json instanceof JSONObject){
-                                Log.e("objectttttt",""+json);
-                            }
-                            //you have an object
-                            else if (json instanceof JSONArray){
-                                Log.e("Arrayyyyyyy",""+json);
-                            }
-
-
-                            Log.e("tryyyyyyyyy","in"+o);
-
-                            ;
-                            code = o.getString("responseCode");
-                            message=o.getString("responseMessage");
-
-                            Log.e("resppppppp",""+code);
-
-
-                            if (code.equalsIgnoreCase("-100"))
-                            {
-
-                                Utility.ShowCustomToast("Information Saved",Profile.this);
-
-                                SharedPreferences sp = getSharedPreferences("UserLog",MODE_PRIVATE);
-                                SharedPreferences.Editor edit = sp.edit();
-                                edit.putBoolean("LoggedUser",true);
-                                edit.apply();
-
-
-                                Intent intent =new Intent(Profile.this,Home.class);
-                                startActivity(intent);
-                                finish();
-
-
-
-                            }
-//                            else {
-//                                Utility.ShowCustomToast(" No Network Connection",Profile.this);
-//                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-
-                        if (error instanceof TimeoutError || error instanceof NoConnectionError) {
-                            Utility.ShowCustomToast(" No Network Connection",Profile.this);
-                        } else if (error instanceof AuthFailureError) {
-                            Utility.ShowCustomToast("Authentication Failed",Profile.this);
-                        } else if (error instanceof ServerError) {
-
-                            Utility.ShowCustomToast("Server Error Occurred",Profile.this);
-                        } else if (error instanceof NetworkError) {
-
-                            Utility.ShowCustomToast("Some Network Error Occurred",Profile.this);
-                        } else if (error instanceof ParseError) {
-
-                            Utility.ShowCustomToast("Some Error Occurred",Profile.this);
-                        }
-                    }
-                }) {
+        apiInterface.SaveUpdateProfileDetails(address.getText().toString(),Dob.getText().toString(),
+                email.getText().toString(),UserKey,CustKey,0,cusname,contact.getText().toString(),
+                "N/A","N/A","N/A","N/A","N/A").enqueue(new Callback<SaveUpdateProfileDetailsResponse>() {
 
             @Override
-            protected Map<String, String> getParams() throws AuthFailureError {
-                Map<String, String> param = new HashMap<String, String>();
-                param.put("jsonString",request );
-                Log.e("paramssss",""+param);
-                return param;
+            public void onResponse(Call<SaveUpdateProfileDetailsResponse> call, Response<SaveUpdateProfileDetailsResponse> response) {
+                Log.e("Clickeddd"," "+response.code());
+                if (response.isSuccessful() && response.code() == 200) {
+                    assert response.body() != null;
+                    if (response.body().getCode().equalsIgnoreCase("0")) {
+
+
+
+                            Intent intent =new Intent(Profile.this,Home.class);
+                            startActivity(intent);
+                            finish();
+
+                    }
+                    else
+                    {
+                        Log.e("Failed"," ");
+                    }
+                }
             }
 
             @Override
-            public Map<String, String> getHeaders() throws AuthFailureError {
-                Map<String,String> param = new HashMap<String, String>();
-                param.put("Content-Type","application/x-www-form-urlencoded");
-                return param;
+            public void onFailure(Call<SaveUpdateProfileDetailsResponse> call, Throwable t) {
+                Log.e("Failed"," ");
             }
-        }
-                ;
-        RequestQueue requestQueue= Volley.newRequestQueue(this);
-        requestQueue.add(stringRequest);
+        });
 
     }
 
 
     @Override
     public void onBackPressed() {
-        super.onBackPressed();
-        moveTaskToBack(true);
+
+        Intent intent =new Intent(Profile.this,Home.class);
+        startActivity(intent);
+        finish();
+
     }
 }
