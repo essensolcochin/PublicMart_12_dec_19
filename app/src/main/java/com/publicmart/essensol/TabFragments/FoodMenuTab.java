@@ -173,6 +173,39 @@ public class FoodMenuTab extends Fragment {
         menuItems.add(new ItemModel("Mutton Biryani","550 Rs",false));
         menuItems.add(new ItemModel("Mutter Pulao","950 Rs",false));
 
+        //
+        menuItems.add(new ItemModel("Bread Basket Combo","00",true));
+        menuItems.add(new ItemModel("Tandoori Roti","120 Rs",false));
+        menuItems.add(new ItemModel("Naan Roti","120 Rs",false));
+        menuItems.add(new ItemModel("Missi Roti","120 Rs",false));
+
+        //
+        menuItems.add(new ItemModel("Bread Basket Combo","00",true));
+        menuItems.add(new ItemModel("Tandoori Roti","120 Rs",false));
+        menuItems.add(new ItemModel("Naan Roti","120 Rs",false));
+        menuItems.add(new ItemModel("Missi Roti","120 Rs",false));
+
+        //
+        menuItems.add(new ItemModel("Dessert","00",true));
+        menuItems.add(new ItemModel("Ice Cream","40 Rs",false));
+        menuItems.add(new ItemModel("Gulab Jamun","50 Rs",false));
+        menuItems.add(new ItemModel("Rasagula","60 Rs",false));
+        menuItems.add(new ItemModel("Gajar Halwa","60 Rs",false));
+
+        //
+        menuItems.add(new ItemModel("Raita","00",true));
+        menuItems.add(new ItemModel("Plain Curd","60 Rs",false));
+        menuItems.add(new ItemModel("Mixed Raita","80 Rs",false));
+        menuItems.add(new ItemModel("Boondi Raita","80 Rs",false));
+        menuItems.add(new ItemModel("Fruit Raita","100 Rs",false));
+
+        //
+        menuItems.add(new ItemModel("Fish","00",true));
+        menuItems.add(new ItemModel("Fish Masala","360 Rs",false));
+        menuItems.add(new ItemModel("Fish Curry","360 Rs",false));
+        menuItems.add(new ItemModel("Fish Amritsari","380 Rs",false));
+
+
 
 
         adapter = new MenuItemAdapter(getContext(), menuItems);

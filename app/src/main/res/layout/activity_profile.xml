@@ -387,119 +387,119 @@
             </android.support.design.widget.TextInputLayout>
 
 
-            <!--<TextView-->
-                <!--android:textColor="@color/col11"-->
-                <!--android:layout_width="wrap_content"-->
-                <!--android:layout_height="wrap_content"-->
-                <!--android:layout_marginTop="20dp"-->
-                <!--android:textSize="18dp"-->
-                <!--android:text="Bank Details"/>-->
+            <TextView
+                android:textColor="@color/col11"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:textSize="18dp"
+                android:text="Bank Details"/>
 
 
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <!--<EditText-->
-                    <!--android:layout_marginTop="5dp"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:gravity="center_vertical"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:id="@+id/AcchName"-->
-                    <!--android:hint="A/C Holder Name"-->
-                    <!--android:textColor="@color/col10"-->
-                    <!--android:background="@drawable/stroke"-->
-                    <!--android:inputType="textCapSentences"-->
-                    <!--android:imeOptions="actionNext"-->
-                    <!--/>-->
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/AcchName"
+                    android:hint="A/C Holder Name"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
 
-            <!--</android.support.design.widget.TextInputLayout>-->
+            </android.support.design.widget.TextInputLayout>
 
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <!--<EditText-->
-                    <!--android:layout_marginTop="5dp"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:gravity="center_vertical"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:id="@+id/AccNo"-->
-                    <!--android:hint="A/C No."-->
-                    <!--android:textColor="@color/col10"-->
-                    <!--android:background="@drawable/stroke"-->
-                    <!--android:inputType="textCapSentences"-->
-                    <!--android:imeOptions="actionNext"-->
-                    <!--/>-->
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/AccNo"
+                    android:hint="A/C No."
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
 
-            <!--</android.support.design.widget.TextInputLayout>-->
+            </android.support.design.widget.TextInputLayout>
 
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <!--<EditText-->
-                    <!--android:layout_marginTop="5dp"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:gravity="center_vertical"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:id="@+id/ifsc"-->
-                    <!--android:hint="IFSC code"-->
-                    <!--android:textColor="@color/col10"-->
-                    <!--android:background="@drawable/stroke"-->
-                    <!--android:inputType="textCapSentences"-->
-                    <!--android:imeOptions="actionNext"-->
-                    <!--/>-->
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/ifsc"
+                    android:hint="IFSC code"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
 
-            <!--</android.support.design.widget.TextInputLayout>-->
+            </android.support.design.widget.TextInputLayout>
 
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <!--<EditText-->
-                    <!--android:layout_marginTop="5dp"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:gravity="center_vertical"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:id="@+id/BankName"-->
-                    <!--android:hint="Bank Name"-->
-                    <!--android:textColor="@color/col10"-->
-                    <!--android:background="@drawable/stroke"-->
-                    <!--android:inputType="textCapSentences"-->
-                    <!--android:imeOptions="actionNext"-->
-                    <!--/>-->
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/BankName"
+                    android:hint="Bank Name"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionNext"
+                    />
 
-            <!--</android.support.design.widget.TextInputLayout>-->
+            </android.support.design.widget.TextInputLayout>
 
-            <!--<android.support.design.widget.TextInputLayout-->
-                <!--android:layout_marginTop="10dp"-->
-                <!--android:layout_width="match_parent"-->
-                <!--android:layout_height="wrap_content">-->
+            <android.support.design.widget.TextInputLayout
+                android:layout_marginTop="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-                <!--<EditText-->
-                    <!--android:layout_marginTop="5dp"-->
-                    <!--android:padding="10dp"-->
-                    <!--android:gravity="center_vertical"-->
-                    <!--android:layout_width="match_parent"-->
-                    <!--android:layout_height="wrap_content"-->
-                    <!--android:id="@+id/Branch"-->
-                    <!--android:hint="Branch Name"-->
-                    <!--android:textColor="@color/col10"-->
-                    <!--android:background="@drawable/stroke"-->
-                    <!--android:inputType="textCapSentences"-->
-                    <!--android:imeOptions="actionDone"-->
-                    <!--/>-->
+                <EditText
+                    android:layout_marginTop="5dp"
+                    android:padding="10dp"
+                    android:gravity="center_vertical"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/Branch"
+                    android:hint="Branch Name"
+                    android:textColor="@color/col10"
+                    android:background="@drawable/stroke"
+                    android:inputType="textCapSentences"
+                    android:imeOptions="actionDone"
+                    />
 
-            <!--</android.support.design.widget.TextInputLayout>-->
+            </android.support.design.widget.TextInputLayout>
 
 
 

@@ -245,7 +245,8 @@ public class Profile extends AppCompatActivity {
 
         apiInterface.SaveUpdateProfileDetails(address.getText().toString(),Dob.getText().toString(),
                 email.getText().toString(),UserKey,CustKey,0,cusname,contact.getText().toString(),
-                "N/A","N/A","N/A","N/A","N/A").enqueue(new Callback<SaveUpdateProfileDetailsResponse>() {
+                accHname.getText().toString(),accNo.getText().toString(),Bname.getText().toString(),Branch.getText().toString(),
+                ifscc.getText().toString()).enqueue(new Callback<SaveUpdateProfileDetailsResponse>() {
 
             @Override
             public void onResponse(Call<SaveUpdateProfileDetailsResponse> call, Response<SaveUpdateProfileDetailsResponse> response) {
